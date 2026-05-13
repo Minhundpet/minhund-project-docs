@@ -1,8 +1,9 @@
 # Min Hund — Project Status
 
-> **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat Gist).
+> **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
 > **Sist generert:** 2026-05-13
+> **Mirror:** https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md (public repo — claude.ai blokkerer gist-domenet)
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
@@ -128,4 +129,14 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 - **BESLUTNINGER:** Append-only. Ny beslutning øverst i listen. Inkluder dato + kort begrunnelse + konsekvens.
 - **SPRINT-LOG:** Append-only per uke. Ny uke øverst. Commits + tema + uke-status.
 
-Når fila endres lokalt: regenerer Gist (manuelt copy-paste). Gist-URL endres aldri, så gamle chatter fortsatt funker.
+**Update-flyt (git-basert):**
+1. Edit canonical kilde: `docs/project-status.md` i `Minhundpet/minhund-theme`
+2. Commit + push i theme-repo
+3. Sync til public mirror:
+   ```bash
+   cp "/Users/sondreuleberg/Downloads/Min hund nettside/docs/project-status.md" ~/Downloads/minhund-project-docs/project-status.md
+   cd ~/Downloads/minhund-project-docs && git add project-status.md && git commit -m "sync: <reason>" && git push
+   ```
+4. Raw URL serverer ny versjon innen ~5 min (cache). URL endres aldri, så gamle web-Claude-chatter fungerer fortsatt.
+
+Source of truth = theme-repo. Public repo er mirror-only — aldri rediger direkte der.
