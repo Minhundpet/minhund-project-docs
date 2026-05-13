@@ -13,8 +13,8 @@
 ### Innhold
 - **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
   - Helse: 20 · Atferd: 16 · Stell: 8 · Aktivitet: 5 · Ernæring: 5
-- **2 raseguider** publisert i dedikert `/pages/raseguider`-hub (skilt ut fra hundetips 2026-05-13):
-  - Griffon Petit Brabançon · Golden Retriever
+- **3 raseguider** publisert i dedikert `/pages/raseguider`-hub (skilt ut fra hundetips 2026-05-13):
+  - Griffon Petit Brabançon · Golden Retriever · Labrador Retriever
 - **11 produkter** i katalog. **10 custom PDPs** har nå fått full audit-sweep (cart drawer-fix + produkt-spesifikke trust badges + a11y).
 
 ### Produkt-PDP-status
@@ -32,22 +32,22 @@
 ### Neste fase
 **8-ukers sprint** (start: uke etter 2026-05-13)
 - Cadence: **1 hundetips-artikkel + 1 raseguide per uke**
-- **8 raseguider planlagt** — 2 av 8 levert (Griffon, Golden Retriever). Resterende:
-  3. Labrador
-  4. Border Collie
-  5. Cocker Spaniel
-  6. Cavalier King Charles Spaniel
-  7. Chihuahua
-  8. Berner Sennen
-  9. Tysk Schäferhund
+- **3 av 9 raseguider levert** (Griffon, Golden, Labrador). 6 gjenstår i sprint:
+  1. Border Collie
+  2. Cocker Spaniel
+  3. Cavalier King Charles Spaniel
+  4. Chihuahua
+  5. Berner Sennen
+  6. Tysk Schäferhund
 - Mal: følg eksisterende raseguider — canonical struktur er nå låst (12 H2, 8 FAQ, 3 product callouts, Tips fra King-seksjon, FAQPage JSON-LD 1:1 match). Reuse `mh-article__*` BEM, zero ny CSS.
+- **In-prose crossover-lenker** mellom raseguider er ny SEO-vektor: Labrador-guiden lenker til Golden i H2-3 (linje-distinksjon) og H2-4 (temperament), naturlig prose-integrert. Treffer "[rase] vs [rase]"-spørringer som er undertargetet av norske dyrebutikker. Mønster brukes på alle fremtidige raseguider der det er naturlig overlapping (retrievere, spaniels, hyrdehunder).
 - Publiseres til `/pages/raseguider`-hub. llms.txt-kategori: `Raseguide`. Hub-card-mal: badge `Rase`, kategori `Raseguide`.
 
 ### Åpne tråder (ikke besluttet ennå)
 - **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
-- **Sourcing: XL donut-seng (≥40 kg)** — Beroligende hundeseng maxer på 25 kg (Large). Blokkerer seng-callout på Golden Retriever, Labrador, Berner Sennen, Schäfer raseguider. 4 av 8 sprint-raseguider rammes. Sondre må source større størrelse før disse rasene får seng-CTA.
+- **Sourcing: XL donut-seng (≥40 kg)** — Beroligende hundeseng maxer på 25 kg (Large). Blokkerer seng-callout på 4 av 6 gjenværende sprint-raseguider: Berner Sennen, Tysk Schäferhund, +2 large breeds TBD (Golden + Labrador allerede levert uten seng-CTA). Sondre må source XL-størrelse før disse rasene får seng-CTA. **Reprioritering anbefalt:** trekk smaller breeds frem i køen (Cavalier King Charles Spaniel, Cocker Spaniel, evt. Bichon Havanais som ny kandidat) mens sourcing pågår — disse trenger ikke XL-seng og kan publiseres uten å vente på blokker-løsning.
 
 ---
 
@@ -132,6 +132,9 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 **Tema: PDP-audit + custom product page sweep**
 
+**2026-05-13 natt (Labrador raseguide-launch — 1 commit)**
+- `9921d54` Labrador Retriever raseguide publisert — ~3500 ord, 12 H2, 8 FAQ, 3 product callouts (TurPakken, Pelsfjerner, Aktiviseringsleke). 3. raseguide totalt; mønster fra Golden speilet 1:1 (CSS+JS byte-identisk). Helse-dekning: HD/AD, EIC (DNA-test), CNM (DNA-test), arvelige øyelidelser (PRA/katarakt/grønn stær), POMC-mutasjonen (Raffan et al. 2016) framet som forskningsfunn, kreft, hud/øre, korsbånd, GDV. **In-prose crossover-lenker til Golden i H2-3 og H2-4** — første implementering av SEO-vektoren for "Golden vs Labrador"-norske spørringer. Hub card_3 lagt til `/pages/raseguider` med image_url. llms.txt entry count: 56 → 57 (header-comment off-by-1 korrigert).
+
 **2026-05-13 kveld (raseguide-launch + hub-restruktur + header-polish — 9 commits)**
 - `7b95eec` Header dropdown containment-fix: top gradient nå `background-image` (ikke separat `::before`), hover-bar bruker `top: 11px / bottom: 11px` inset (kan ikke overflowe link-bounds)
 - `7ce0166` Header dropdown: skjuler `.overflow-menu::after` phantom panel (full-bredde hvit strip som lakk gjennom bak compact dropdowns)
@@ -176,7 +179,7 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 - Legal-risk-audit Fase A1–A5 gjennomført på hele hundetips-corpus
 - Homepage audit: lang=nb, JSON-LD WebSite+SearchAction, brand fonts oppdatert til Playfair Display + DM Sans
 
-**Uke-status:** PDP-audit-fase ferdig. Content sprint i gang — 2 av 8 raseguider levert (Griffon, Golden). Raseguider-hub-infrastruktur etablert (ny template, section-filer, llms.txt-kategori, top-level nav-plassering). Klart for 6 gjenværende raseguider + 1 hundetips/uke.
+**Uke-status:** PDP-audit-fase ferdig. Content sprint i gang — **3 av 9 raseguider levert** (Griffon, Golden, Labrador). Raseguider-hub-infrastruktur etablert (ny template, section-filer, llms.txt-kategori, top-level nav-plassering). Crossover-link-SEO-vektoren mellom raseguider aktivert med Labrador↔Golden. Klart for 6 gjenværende raseguider + 1 hundetips/uke, men XL-donut-seng-sourcing er blokker for Berner Sennen og Schäfer — reprioritering mot small breeds anbefalt.
 
 ---
 
