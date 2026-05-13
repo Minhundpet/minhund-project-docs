@@ -11,8 +11,10 @@
 ## STATUS — 2026-05-13
 
 ### Innhold
-- **55 hundetips-artikler** publisert, fordelt på 5 kategorier:
-  - Helse: 20 · Atferd: 16 · Stell: 9 · Aktivitet: 5 · Ernæring: 5
+- **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
+  - Helse: 20 · Atferd: 16 · Stell: 8 · Aktivitet: 5 · Ernæring: 5
+- **2 raseguider** publisert i dedikert `/pages/raseguider`-hub (skilt ut fra hundetips 2026-05-13):
+  - Griffon Petit Brabançon · Golden Retriever
 - **11 produkter** i katalog. **10 custom PDPs** har nå fått full audit-sweep (cart drawer-fix + produkt-spesifikke trust badges + a11y).
 
 ### Produkt-PDP-status
@@ -30,25 +32,50 @@
 ### Neste fase
 **8-ukers sprint** (start: uke etter 2026-05-13)
 - Cadence: **1 hundetips-artikkel + 1 raseguide per uke**
-- **8 raseguider planlagt** (rekkefølge ikke fastlåst):
-  1. Golden Retriever
-  2. Labrador
-  3. Border Collie
-  4. Cocker Spaniel
-  5. Cavalier King Charles Spaniel
-  6. Chihuahua
-  7. Berner Sennen
-  8. Tysk Schäferhund
-- Mal: følg eksisterende `griffon-petit-brabancon` raseguide (Stell-kategori, ~2600 ord, canonical hundetips-struktur).
+- **8 raseguider planlagt** — 2 av 8 levert (Griffon, Golden Retriever). Resterende:
+  3. Labrador
+  4. Border Collie
+  5. Cocker Spaniel
+  6. Cavalier King Charles Spaniel
+  7. Chihuahua
+  8. Berner Sennen
+  9. Tysk Schäferhund
+- Mal: følg eksisterende raseguider — canonical struktur er nå låst (12 H2, 8 FAQ, 3 product callouts, Tips fra King-seksjon, FAQPage JSON-LD 1:1 match). Reuse `mh-article__*` BEM, zero ny CSS.
+- Publiseres til `/pages/raseguider`-hub. llms.txt-kategori: `Raseguide`. Hub-card-mal: badge `Rase`, kategori `Raseguide`.
 
 ### Åpne tråder (ikke besluttet ennå)
 - **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
+- **Sourcing: XL donut-seng (≥40 kg)** — Beroligende hundeseng maxer på 25 kg (Large). Blokkerer seng-callout på Golden Retriever, Labrador, Berner Sennen, Schäfer raseguider. 4 av 8 sprint-raseguider rammes. Sondre må source større størrelse før disse rasene får seng-CTA.
 
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-05-13 — Raseguider får top-level nav-placering (sibling til Hundetips)
+
+`/pages/raseguider` skal være top-level menyvalg, ikke kun discovery-via-cross-link. Begrunnelse: (1) internal-link-equity fra hver side på sitet treffer raseguider-hubben → bedre SEO på "[rase] raseguide"-spørringer; (2) serverer kjøpsbeslutnings-publikummet som hundetips ikke når; (3) skalerer til 8 raseguider og videre uten å begraves; (4) konkurransefortrinn — norske dyrebutikker underinvesterer i breed-content. Implementeres som "Guider"-dropdown med Hundetips + Raseguider som submenyer (alternativ: rene sibling-menypunkter; valgt for kompakthet).
+
+### 2026-05-13 — Raseguider får dedikert hub (/pages/raseguider), separat fra hundetips
+
+**Hva endret seg:** Raseguider (breed guides) flyttet ut av `/pages/hundetips`-hubben til ny dedikert `/pages/raseguider`-hub. Eksisterende breed-guide URLs (`/pages/golden-retriever`, `/pages/griffon-petit-brabancon`) er uendret — kun hub-listingen flyttes.
+
+**Why:** Raseguider og hundetips har fundamentalt forskjellig brukerintensjon. Hundetips = problem-driven (general care, atferd, helse). Raseguider = purchase-decision-driven (skal jeg kjøpe denne rasen?). SEO-targeting, schema og bruker-flow blir tydeligere når de splittes. Sprintens 8 raseguider hadde gjort hundetips-hubben uoverskuelig.
+
+**Tekniske endringer:**
+- Ny template: `page.raseguider.json` (cloned struktur fra page.hundetips.json)
+- Nye seksjoner: `sections/raseguider-hero.liquid`, `sections/raseguider-grid.liquid`
+- Fjernet kort fra `page.hundetips.json`: card_8 (Griffon), card_56 (Golden) — totalt går fra 56 → 54 kort
+- Back-button + breadcrumb i begge raseguider oppdatert til `/pages/raseguider`
+- llms.txt: `Stell` → `Raseguide` for begge breed-guide entries
+- Hundetips-hub H1 retargeted fra "Hundeguider — komplett kunnskapsbase" til "Hundetips — praktiske guider for stell, atferd, helse og ernæring"
+- ItemList JSON-LD nå auto-derived fra `section.blocks` på begge hubs — ingen mer stale hardcoded handle-arrays
+
+**Manual steps for Sondre:**
+1. Opprett ny Shopify Admin-side `Raseguider` (handle: `raseguider`, template: `page.raseguider`, Visible)
+2. Sett meta-title + description på begge hubs (begge mangler eller skal retargetes)
+3. Legg til "Raseguider" i hovedmenyen (Shopify Admin → Navigation)
 
 ### 2026-05-13 — Web-Claude project memory flow (via public repo)
 Opprettet `Minhundpet/minhund-project-docs` (public GitHub repo) som kanonisk kilde for prosjekt-status. Erstatter Gist-kanalen som viste seg ubrukbar.
@@ -105,6 +132,17 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 **Tema: PDP-audit + custom product page sweep**
 
+**2026-05-13 kveld (raseguide-launch + hub-restruktur + header-polish — 9 commits)**
+- `7b95eec` Header dropdown containment-fix: top gradient nå `background-image` (ikke separat `::before`), hover-bar bruker `top: 11px / bottom: 11px` inset (kan ikke overflowe link-bounds)
+- `7ce0166` Header dropdown: skjuler `.overflow-menu::after` phantom panel (full-bredde hvit strip som lakk gjennom bak compact dropdowns)
+- `9f1d906` Header dropdown visual polish: 3px brand-green gradient stripe, modernere 2-lags skygge, hover-state med animert left-bar, parent-link grønn når dropdown er åpen
+- `7b3a605` Header dropdown positioning fix: dropdown-paneler aligned under parent items (Guider, Om oss), ikke flush mot viewport-kanten. CSS-only override per Horizon cart rule.
+- `7c24672` llms.txt: `Raseguide` lagt til som ny kategori i renderer (uten dette ble breed-guide-entries usynlige i `/llms.txt`)
+- `d43dc63` Hub-restruktur: `/pages/raseguider` skilt ut fra `/pages/hundetips`. Egen template + 2 nye section-filer. Tilbakekobling-knapper + breadcrumbs i begge raseguider oppdatert. ItemList JSON-LD nå auto-derived fra `section.blocks` på begge hubs (retiret stale hardcoded handle-array). Hundetips-hub H1 + meta retargeted mot problem-solving intent.
+- `3a4af0a` Golden raseguide: hub card_56 image swappet til `golden.png` (midlertidig — venter dedikert square crop)
+- `4c9e939` Golden raseguide: hero-bilde swappet til `golden.png` (live)
+- `18b4827` Golden Retriever raseguide publisert — ~3050 ord, 12 H2, 8 FAQ, 3 product callouts (TurPakken, Pelsfjerner, Aktiviseringsleke). 2. raseguide totalt; mal låst for resterende 6.
+
 **2026-05-13 (i dag — 11 commits)**
 - `6237273` Pelsfjerner: legal disclaimer, dry-use guidance, a11y-fikser
 - `aafb84c` Pelsfjerner: ATC-form wrappet i `product-form-component` (cart drawer-fix)
@@ -138,7 +176,7 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 - Legal-risk-audit Fase A1–A5 gjennomført på hele hundetips-corpus
 - Homepage audit: lang=nb, JSON-LD WebSite+SearchAction, brand fonts oppdatert til Playfair Display + DM Sans
 
-**Uke-status:** PDP-audit-fase nær ferdig. Klart for 8-ukers content sprint fra og med uke 20.
+**Uke-status:** PDP-audit-fase ferdig. Content sprint i gang — 2 av 8 raseguider levert (Griffon, Golden). Raseguider-hub-infrastruktur etablert (ny template, section-filer, llms.txt-kategori, top-level nav-plassering). Klart for 6 gjenværende raseguider + 1 hundetips/uke.
 
 ---
 
