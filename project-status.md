@@ -50,6 +50,18 @@
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-05-13 — Web-Claude project memory flow (via public repo)
+Opprettet `Minhundpet/minhund-project-docs` (public GitHub repo) som kanonisk kilde for prosjekt-status. Erstatter Gist-kanalen som viste seg ubrukbar.
+- **Fil:** `project-status.md` (i repo-roten)
+- **Raw URL:** https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md
+- **Hvorfor:** `gist.githubusercontent.com` er blokkert av claude.ai sin `robots.txt`-håndhevelse — web-Claude kan ikke `web_fetch` Gist-URLer uansett om de er public eller secret. `raw.githubusercontent.com` fungerer.
+- **Web-Claude memory-regel:** Når Sondre sier "vi fortsetter" i en ny chat, må han **paste raw URL-en i samme melding**. `web_fetch` krever bruker-oppgitt URL og kan ikke hente fra memory alene.
+- **Anbefaling til Sondre:** Lagre snippet som bokmerke / text-expander:
+  ```
+  vi fortsetter — hent https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md
+  ```
+- **Konsekvens:** Gist-kanalen for project-status nedlagt. Research-brief Gist beholdes inntil videre (testet OK tidligere — overvåk).
+
 ### 2026-05-13 — Trust badges blir produkt-spesifikke (ikke generiske)
 Alle 10 custom PDPs hadde identiske generiske badges (Norsk eierskap, Trygg handel, etc). Erstattet med 4 produkt-spesifikke badges per PDP, formulert ut fra hvert produkts kjernenytte.
 - **Hvorfor:** Generiske badges sier ingenting unikt. Produkt-spesifikke gir konkret salgsverdi og forsterker USP per produkt.
@@ -105,6 +117,13 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 - `3af6dda` Sweep: 4 mekaniske fixes på 8 gjenværende custom PDPs (@import, kontrast, cart-wrap)
 - `4377e02` Produkt-spesifikke trust badges på 8 PDPs + ullgenser size disclaimer
 - `e98f7bb` Vannskal: badge 4 byttet ("Bra for kort snute" → "For ivrige drikkere")
+
+**2026-05-13 (process / infrastructure)**
+- Opprettet public repo `Minhundpet/minhund-project-docs` for cross-chat-kontinuitet
+- Pushet `project-status.md` (kanonisk prosjekt-state) til root
+- Verifisert at `web_fetch` fungerer på `raw.githubusercontent.com`-URL
+- Gist-kanal for project-status nedlagt (robots.txt blokkerer claude.ai-bots på gist-domenet)
+- Memory: `feedback_update_dagens_fremdrift_shorthand.md` lagret — kommandoen "oppdater dagens fremdrift" trigger full update-flow
 
 **2026-05-12**
 - 3 nye hundetips-artikler publisert: `hund-spiser-for-fort` (Helse), `hund-vil-ikke-spise` (Helse), `hund-spiser-gress` (Atferd)
