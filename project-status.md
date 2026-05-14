@@ -8,13 +8,13 @@
 
 ---
 
-## STATUS — 2026-05-13
+## STATUS — 2026-05-14
 
 ### Innhold
 - **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
   - Helse: 20 · Atferd: 16 · Stell: 8 · Aktivitet: 5 · Ernæring: 5
-- **3 raseguider** publisert i dedikert `/pages/raseguider`-hub (skilt ut fra hundetips 2026-05-13):
-  - Griffon Petit Brabançon · Golden Retriever · Labrador Retriever
+- **5 raseguider** publisert i dedikert `/pages/raseguider`-hub (skilt ut fra hundetips 2026-05-13):
+  - Griffon Petit Brabançon · Golden Retriever · Labrador Retriever · Border Collie · Engelsk Cocker Spaniel
 - **11 produkter** i katalog. **10 custom PDPs** har nå fått full audit-sweep (cart drawer-fix + produkt-spesifikke trust badges + a11y).
 
 ### Produkt-PDP-status
@@ -32,15 +32,14 @@
 ### Neste fase
 **8-ukers sprint** (start: uke etter 2026-05-13)
 - Cadence: **1 hundetips-artikkel + 1 raseguide per uke**
-- **3 av 9 raseguider levert** (Griffon, Golden, Labrador). 6 gjenstår i sprint:
-  1. Border Collie
-  2. Cocker Spaniel
-  3. Cavalier King Charles Spaniel
-  4. Chihuahua
-  5. Berner Sennen
-  6. Tysk Schäferhund
-- Mal: følg eksisterende raseguider — canonical struktur er nå låst (12 H2, 8 FAQ, 3 product callouts, Tips fra King-seksjon, FAQPage JSON-LD 1:1 match). Reuse `mh-article__*` BEM, zero ny CSS.
-- **In-prose crossover-lenker** mellom raseguider er ny SEO-vektor: Labrador-guiden lenker til Golden i H2-3 (linje-distinksjon) og H2-4 (temperament), naturlig prose-integrert. Treffer "[rase] vs [rase]"-spørringer som er undertargetet av norske dyrebutikker. Mønster brukes på alle fremtidige raseguider der det er naturlig overlapping (retrievere, spaniels, hyrdehunder).
+- **5 av 9 raseguider levert** (Griffon, Golden, Labrador, Border Collie, Engelsk Cocker Spaniel). 4 gjenstår i sprint:
+  1. Cavalier King Charles Spaniel
+  2. Chihuahua
+  3. Berner Sennen (blokkert av XL donut-seng sourcing)
+  4. Tysk Schäferhund (blokkert av XL donut-seng sourcing)
+- Mal: følg canonical raseguide-mønster — 12 H2, 9 FAQ, 3 inline product callouts, "Anbefalt for [Rase]" post-FAQ recap-seksjon med rasespesifikk produktrangering, Tips fra King-seksjon, FAQPage JSON-LD 1:1 match. Sidebar er TOC + King-quip (intet produkt-kort). Full spec i `docs/page-patterns.md` "Raseguide Canonical Pattern".
+- **In-prose crossover-lenker** mellom raseguider er SEO-vektor: Labrador-guiden lenker til Golden i H2-3 (linje-distinksjon) og H2-4 (temperament); Cocker-guiden lenker til Labrador i H2-3. Treffer "[rase] vs [rase]"-spørringer som er undertargetet av norske dyrebutikker.
+- **GA4 product_callout_click tracking** er instrumented på alle 6 product CTAs per raseguide (30 totalt på 5 raseguider). Events fires via `Shopify.analytics.publish` + `dataLayer.push`, men Custom Pixel-forwarding til GA4 er paused (se Paused threads).
 - Publiseres til `/pages/raseguider`-hub. llms.txt-kategori: `Raseguide`. Hub-card-mal: badge `Rase`, kategori `Raseguide`.
 
 ### Åpne tråder (ikke besluttet ennå)
@@ -51,7 +50,32 @@
 
 ---
 
+## Paused threads
+
+- **GA4 product_callout_click tracking** (paused 2026-05-14) — Custom Pixel setup paused. Events fire via `Shopify.analytics.publish` (and `dataLayer.push`, `window.gtag` fallback) on all 24 product CTAs across the 4 raseguider, but no forwarder is configured — events go nowhere. Resume by creating GA4 Measurement Protocol API secret + Shopify Custom Pixel in Admin → Settings → Customer events. Tracking infra commit: `0cb96a4`. Snippet: `snippets/mh-track-product-callouts.liquid`.
+
+---
+
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-05-14 — Raseguide CRO Pattern C+ låst som canonical (sidebar produktkort fjernet, post-FAQ recap lagt til)
+Etter Sondres observasjon at sidebar Pelsfjerner-kortet på Border Collie var begravd under TOC + King-quip på fold (sticky-stack for høy), gjennomført strategisk audit + ship.
+- **Fjernet:** sidebar `mh-article__product-box--sidebar` på alle 4 daværende raseguider. Sidebar er nå TOC + King-quip kun.
+- **Lagt til:** ny `mh-article__recommend` BEM-blokk mellom Les også og disclaimer — "Anbefalt for [Rase]"-H2 + 80–120 ord rasespesifikk intro + 3-kort grid (1-col mobile, 3-col ≥720px, 48px min tap-target).
+- **Breed-tunet rangering:** Border Collie → Aktiviseringsleke/TurPakken/Pelsfjerner; Golden → Pelsfjerner/TurPakken/Aktiviseringsleke; Labrador → TurPakken/Pelsfjerner/Aktiviseringsleke; Griffon → Beroligende-seng/Aktiviseringsleke/Pelsfjerner; Cocker → Pelsfjerner/TurPakken/Aktiviseringsleke. Hero-spot = rasens primær daglig-pain.
+- **Skjema uendret:** ingen Product/ItemList JSON-LD lagt til — Article-schema beholdt for å sikre at LLM-er klassifiserer sidene som informational, ikke commercial. AI Overview-citation-kvalitet bevart.
+- **Griffon catch-up:** 2 manglende inline-callouts (Pelsfjerner i §Pelsstell, Aktiviseringsleke i §Fôring) lagt til så Griffon matcher canonical.
+- **Canonical mønster dokumentert** i `docs/page-patterns.md` (ny "Raseguide Canonical Pattern"-seksjon).
+- **Hvorfor:** Bottom-CTA etter FAQ er peak-trust + peak-intent moment som var helt fraværende. Sidebar-produkt-kort lå under fold og leverte 0 konverteringsmomenter. Bytte = behold informational tonefall, åpne én tydelig konverteringsmoment der leseren har bygget tillit.
+- **Måleimplikasjon:** Skalert-effekt målbar via GA4 `product_callout_click` per posisjon (inline-1/2/3 vs recommend-1/2/3) per breed_page — *forutsatt Custom Pixel-forwarding gjenopptas* (se Paused threads).
+
+### 2026-05-14 — Pelsfjerner-hansken copy må eksplisitt navngi textile-target (ikke "fjerner pels" alene)
+Identifisert mønsterfeil i raseguide-template: short-form "Pelsfjerner-hansken vår fjerner pels på sekunder" kan misleses som on-dog use og bryter med dokumentert produktregel "TEXTILES ONLY — NEVER for use on dogs" (`docs/products.md`).
+- **Approved fraseringer:** "fjerner hundehår fra tekstiler", "fjerner [hundehår/hår/det] fra sofa, klær og bilseter", "tar pels fra sofa, klær og bil".
+- **Forbidden short forms:** "fjerner pels", "fjerner hundehår" (uten eksplisitt textile-target).
+- **Fix scope:** 4 recommend-card descs reframet med textile-first lead (Sondres exact copy), 1 inline §7 callout på Griffon strammet ("fjerner pels på sekunder" → "fjerner hundehår fra tekstiler"), 8 øvrige mentions auditert + bekreftet OK.
+- **Gotcha dokumentert** i `docs/gotchas.md` ("Pelsfjerner Ambiguous 'Fjerner Pels' Framing") så fremtidig raseguide-generering ikke reintroduserer mønsteret.
+- **Konsekvens:** Regelen gjelder alle raseguider og hundetips-artikler. Cocker-guide (shipped samme dag) følger denne fra start.
 
 ### 2026-05-13 — Raseguider får top-level nav-placering (sibling til Hundetips)
 
@@ -128,9 +152,17 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
-### Uke 19 — 2026-05-11 til 2026-05-13 (pågående)
+### Uke 19 — 2026-05-11 til 2026-05-14 (pågående)
 
-**Tema: PDP-audit + custom product page sweep**
+**Tema: PDP-audit + raseguide sprint + CRO-optimering**
+
+**2026-05-14 (Pattern C+ CRO sweep + Cocker raseguide-launch — 6 commits)**
+- `6bcae46` Pattern C+ CRO ship på alle 4 daværende raseguider: sidebar produktkort fjernet, `mh-article__recommend` post-FAQ recap-seksjon lagt til med breed-tunet 3-kort grid; Griffon catch-up med 2 manglende inline-callouts; canonical mønster dokumentert i `docs/page-patterns.md`. word_counts oppdatert i llms-data (BC 3400→3800, Griffon 2600→2700, mindre justeringer på Golden/Lab). 6 filer endret, +452/-73 linjer.
+- `0cb96a4` GA4 product_callout_click tracking-layer: ny snippet `snippets/mh-track-product-callouts.liquid` (delegated click handler via dataLayer + Shopify.analytics.publish + window.gtag fallback). 24 product CTAs på 4 raseguider tagget med `data-mh-event/product/position/breed/placement` attrs. Idempotent re-init guard. 5 filer endret, +84/-24 linjer.
+- `4fe7377` Pelsfjerner copy clarification: alle 4 "Anbefalt for"-recommend-cards reframet textile-first per Sondres exact copy; Griffon inline §7 callout ambiguity ("fjerner pels på sekunder" → "fjerner hundehår fra tekstiler") fikset. 4 filer endret, +5/-5 linjer.
+- `62d66e4` `docs/gotchas.md` oppdatert med ny "Pelsfjerner Ambiguous 'Fjerner Pels' Framing"-gotcha + approved/forbidden frasering så fremtidig copy-generering unngår mønsterfeil.
+- `2c4c51a` `docs/project-status.md` "Paused threads"-seksjon lagt til: GA4 product_callout_click tracking Custom Pixel-setup paused etter Chrome-extension audit avslørte at GT-NGS3DWB9 er Shopify Channel App-destinasjon (ikke ekte GTM container). Events fire via Shopify.analytics.publish men ingen forwarder configured ennå.
+- `4cbf107` Engelsk Cocker Spaniel raseguide live (sprint guide #5): `sections/hundetips-cocker-spaniel.liquid` (1073 linjer, ~3650 ord), `templates/page.cocker-spaniel.json`, hub card_5 lagt til `templates/page.raseguider.json`, llms-data entry inserted alphabetisk mellom border-collie og golden-retriever (entry-count 58→59). Canonical 12 H2 + 9 FAQ + 3 inline callouts + Anbefalt-for recap (Pelsfjerner/TurPakken/Aktiviseringsleke). H2-6 ørebetennelser-info-box som rase-definerende helse-utfordring; H2-7 ear-cleaning danger box; H2-3 cross-link til Labrador; "Rage Syndrome" intentionally omitted. Hero CDN-image verifisert 200 pre-commit. Admin-step (Online Store → Pages → Add page med template `page.cocker-spaniel`, handle `cocker-spaniel`) pending Sondre.
 
 **2026-05-13 natt (Labrador raseguide-launch — 1 commit)**
 - `9921d54` Labrador Retriever raseguide publisert — ~3500 ord, 12 H2, 8 FAQ, 3 product callouts (TurPakken, Pelsfjerner, Aktiviseringsleke). 3. raseguide totalt; mønster fra Golden speilet 1:1 (CSS+JS byte-identisk). Helse-dekning: HD/AD, EIC (DNA-test), CNM (DNA-test), arvelige øyelidelser (PRA/katarakt/grønn stær), POMC-mutasjonen (Raffan et al. 2016) framet som forskningsfunn, kreft, hud/øre, korsbånd, GDV. **In-prose crossover-lenker til Golden i H2-3 og H2-4** — første implementering av SEO-vektoren for "Golden vs Labrador"-norske spørringer. Hub card_3 lagt til `/pages/raseguider` med image_url. llms.txt entry count: 56 → 57 (header-comment off-by-1 korrigert).
