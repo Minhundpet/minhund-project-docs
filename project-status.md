@@ -2,19 +2,19 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-05-13
+> **Sist generert:** 2026-05-15
 > **Mirror:** https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md (public repo — claude.ai blokkerer gist-domenet)
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
 
-## STATUS — 2026-05-14
+## STATUS — 2026-05-15
 
 ### Innhold
 - **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
   - Helse: 20 · Atferd: 16 · Stell: 8 · Aktivitet: 5 · Ernæring: 5
-- **5 raseguider** publisert i dedikert `/pages/raseguider`-hub (skilt ut fra hundetips 2026-05-13):
-  - Griffon Petit Brabançon · Golden Retriever · Labrador Retriever · Border Collie · Engelsk Cocker Spaniel
+- **9 raseguider** publisert i dedikert `/pages/raseguider`-hub — **sprint COMPLETE (9 av 9)**:
+  - Griffon Petit Brabançon · Golden Retriever · Labrador Retriever · Border Collie · Engelsk Cocker Spaniel · Cavalier King Charles Spaniel · Chihuahua · Norsk Elghund Grå · Tysk Schäferhund
 - **11 produkter** i katalog. **10 custom PDPs** har nå fått full audit-sweep (cart drawer-fix + produkt-spesifikke trust badges + a11y).
 
 ### Produkt-PDP-status
@@ -30,23 +30,23 @@
 - **Newsletter popup:** KING10 to-stegs flow, 30s scroll trigger. Live siden 2026-05-11.
 
 ### Neste fase
-**8-ukers sprint** (start: uke etter 2026-05-13)
-- Cadence: **1 hundetips-artikkel + 1 raseguide per uke**
-- **5 av 9 raseguider levert** (Griffon, Golden, Labrador, Border Collie, Engelsk Cocker Spaniel). 4 gjenstår i sprint:
-  1. Cavalier King Charles Spaniel
-  2. Chihuahua
-  3. Berner Sennen (blokkert av XL donut-seng sourcing)
-  4. Tysk Schäferhund (blokkert av XL donut-seng sourcing)
-- Mal: følg canonical raseguide-mønster — 12 H2, 9 FAQ, 3 inline product callouts, "Anbefalt for [Rase]" post-FAQ recap-seksjon med rasespesifikk produktrangering, Tips fra King-seksjon, FAQPage JSON-LD 1:1 match. Sidebar er TOC + King-quip (intet produkt-kort). Full spec i `docs/page-patterns.md` "Raseguide Canonical Pattern".
-- **In-prose crossover-lenker** mellom raseguider er SEO-vektor: Labrador-guiden lenker til Golden i H2-3 (linje-distinksjon) og H2-4 (temperament); Cocker-guiden lenker til Labrador i H2-3. Treffer "[rase] vs [rase]"-spørringer som er undertargetet av norske dyrebutikker.
-- **GA4 product_callout_click tracking** er instrumented på alle 6 product CTAs per raseguide (30 totalt på 5 raseguider). Events fires via `Shopify.analytics.publish` + `dataLayer.push`, men Custom Pixel-forwarding til GA4 er paused (se Paused threads).
-- Publiseres til `/pages/raseguider`-hub. llms.txt-kategori: `Raseguide`. Hub-card-mal: badge `Rase`, kategori `Raseguide`.
+**Raseguide-sprint COMPLETE (9 av 9 levert).** Berner Sennen droppet underveis pga XL-donut-seng-blokker; erstattet av Norsk Elghund Grå (norsk nasjonalrase) for å holde sprint-cadence. Tysk Schäferhund publisert tross seng-blokker (recap viser kun aktiviseringsleke + pelsfjerner + turpakken — ingen seng-CTA).
+
+**Etablerte mønstre på tvers av alle 9:**
+- Canonical raseguide-mønster: 12 H2, 8–9 FAQ, **kun bunn-recap-grid** (inline callouts fjernet 2026-05-14, se BESLUTNINGER), Tips fra King-seksjon, FAQPage JSON-LD 1:1 match. Sidebar er TOC + King-quip. Full spec i `docs/page-patterns.md` "Raseguide Canonical Pattern".
+- **In-prose crossover-lenker** mellom raseguider treffer "[rase] vs [rase]"-spørringer som er undertargetet av norske dyrebutikker (Labrador↔Golden, Cocker→Labrador, etc.).
+- **GA4 product_callout_click tracking** instrumented på recap-CTAs (events fire via `Shopify.analytics.publish` + `dataLayer.push`, men Custom Pixel-forwarding til GA4 er paused — se Paused threads).
+- llms.txt-kategori: `Raseguide`. Hub-card-mal: badge `Rase`, kategori `Raseguide`.
+
+**Åpne valg etter sprint:**
+- Skal cadence fortsette med flere raseguider (Bichon Havanais, Boxer, Vorsteh, Setter, etc.) eller pivot tilbake til hundetips-artikler?
+- Sondre må svare på neste sprint-tema før vi kjører.
 
 ### Åpne tråder (ikke besluttet ennå)
 - **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
-- **Sourcing: XL donut-seng (≥40 kg)** — Beroligende hundeseng maxer på 25 kg (Large). Blokkerer seng-callout på 4 av 6 gjenværende sprint-raseguider: Berner Sennen, Tysk Schäferhund, +2 large breeds TBD (Golden + Labrador allerede levert uten seng-CTA). Sondre må source XL-størrelse før disse rasene får seng-CTA. **Reprioritering anbefalt:** trekk smaller breeds frem i køen (Cavalier King Charles Spaniel, Cocker Spaniel, evt. Bichon Havanais som ny kandidat) mens sourcing pågår — disse trenger ikke XL-seng og kan publiseres uten å vente på blokker-løsning.
+- **Sourcing: XL donut-seng (≥40 kg)** — Beroligende hundeseng maxer på 25 kg (Large). Forhindret seng-CTA på Schäfer (publisert uten), og blokkerer fremtidige large-breed-guider (Berner Sennen, Vorsteh, Setter, etc.) hvis sprint forlenges. Sondre må source XL-størrelse før disse rasene får seng-CTA.
 
 ---
 
@@ -57,6 +57,32 @@
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-05-15 — Template-deletion-guardrails strammet til 5 hard preconditions + preview-theme-verifisering (post-mortem på 626e101)
+
+Etter at incident-analyse av commit `626e101` (May 12) avslørte at 4 page-templates (`page.fjerne-hundehaar.json`, `page.aktivisering.json`, `page.hund-kloer-seg.json`, `page.potevask.json`) hadde vært silently broken i ~3 dager, restaurert i `ecf74a5`, ble CLAUDE.md-reglene utvidet betydelig.
+
+- **Root cause:** Shopify resolver `templates/{product,page}.<X>.json` via entitetens `templateSuffix`-felt i Admin, IKKE via URL-handle. URL-handle og template-suffix kan divergere. En `curl /pages/<X>` som returnerer 404 beviser IKKE at `templates/page.<X>.json` er orphan — en annen page (med en annen URL-handle) kan bruke den via `templateSuffix`.
+- **Konkret eksempel:** `/pages/hvordan-fjerne-hundehar-effektivt-hjemme` har `templateSuffix=fjerne-hundehaar` → bruker `templates/page.fjerne-hundehaar.json`. Curl på `/pages/fjerne-hundehaar` ga 404 (handle eksisterer ikke), men templaten var i aktiv bruk.
+- **5 hard preconditions** (alle må være verifisert + dokumentert i commit-body):
+  1. **Section co-deletion** — hver `templates/page.<X>.json` har en `"type": "<Y>"` som peker på `sections/<Y>.liquid`. Begge MÅ slettes i samme commit. Asymmetrisk sletting forbudt.
+  2. **Shopify Admin API-verifisering** — actual response (curl JSON) limt inn i commit-body, må vise at ingen aktiv entity har `template_suffix=<X>` for filen som slettes.
+  3. **"Handle-mismatch" som stop-word** — hvis fil beskrives som "handle-mismatch", "doesn't match URL", e.l., STOP og re-verifiser via Admin API.
+  4. **Proactivity-prohibition** — Claude skal ALDRI foreslå template/section-sletting som side-effect av annet arbeid. Sletting krever eksplisitt brukerønske per fil.
+  5. **Preview-theme-verifisering før live push** — dedikert `deletion-preview` theme (ID `#149856485454`, unpublished) opprettet. Slettings-commits MÅ pushes til preview først, deretter curl-verifiseres mot `min-hund-2.myshopify.com/?preview_theme_id=...` (custom-domenet ignorerer preview-flag). `mh-article__body`-grep må returnere >0 for hver påvirket URL.
+- **Preview-theme-workflow dokumentert** med Step A (re-sync preview til live), Step B (apply candidate deletion, full push uten `--only` siden `--only` ikke speiler slettinger), Step C (curl-verifisering).
+- **Konsekvens:** Ingen template-fil er trygg å slette basert på 404-evidens alene. Regelen er den eneste guardrail som fanger feilklassifisert orphan-sletting EFTER at det skjer men FØR sluttbrukere ser ødelagte sider.
+- **Memory:** S237 + obs 5763–5764 dokumenterer hele post-mortemet og preview-theme-rigget.
+
+### 2026-05-14 (sen kveld) — Inline product-callouts fjernet fra ALLE raseguider; canonical mønster er nå "recap-only"
+
+Sondre observerte at helse-tunge raseguider (Cavalier-klassen) ble overcommercial når både inline-callouts OG bunn-recap-grid var til stede. Strategisk audit: inline-callouts brøt informational tonefall og konkurrerte med Article-schema-klassifisering (LLM-er kunne flagge sider som commercial intent).
+
+- **Endring:** Fjernet 3 inline `<div class="mh-article__product-callout">`-blokker fra hver av de 6 første raseguidene (Border Collie, Cocker, Golden, Griffon, Labrador, Cavalier). Chihuahua hadde aldri inline (publisert direkte under nytt mønster). Norsk Elghund Grå + Schäferhund publisert under nytt mønster fra start.
+- **Beholdt:** Bunn-recap-grid `mh-article__recommend` med 3-kort breed-tunet rangering. Eneste konverteringsmoment per raseguide.
+- **Hvorfor:** (1) Helse-fokus + medical info er ikke konverterings-kontekst — bryter trust. (2) Article-schema beholder informational-klassifisering. (3) Bunn-recap (etter FAQ + tillit-bygging) er peak-intent moment; inline-callouts midt i medical info er sub-optimal placement uansett.
+- **Canonical mønster oppdatert** i `docs/page-patterns.md` (commit `b072b68`). Memory `feedback_raseguide_commerce_intensity.md` lagret.
+- **Konsekvens:** Alle nye raseguider = recap-grid only. Inline-callouts er nå et anti-pattern for raseguide-kontekst.
 
 ### 2026-05-14 — Raseguide CRO Pattern C+ låst som canonical (sidebar produktkort fjernet, post-FAQ recap lagt til)
 Etter Sondres observasjon at sidebar Pelsfjerner-kortet på Border Collie var begravd under TOC + King-quip på fold (sticky-stack for høy), gjennomført strategisk audit + ship.
@@ -152,9 +178,41 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
-### Uke 19 — 2026-05-11 til 2026-05-14 (pågående)
+### Uke 20 — 2026-05-15 (raseguide-sprint COMPLETE)
+
+**Tema: Final raseguide (Schäferhund) + template-deletion-guardrails strammet**
+
+**2026-05-15 (4 commits)**
+- `44597da` 22:56 — Schäferhund raseguide hero-bilde swappet fra PLACEHOLDER til faktisk Shopify CDN-bilde (`schaferhund.png`, 1.2 MB, verifisert live).
+- `5eab969` 22:54 — **Sprint guide #9 (FINAL) live**: Tysk Schäferhund raseguide. ~4587 ord (over canonical 3500–3800-spec, men på linje med tidligere helse-tunge guider). 12 H2, 9 FAQ, recap-grid only (Aktiviseringsleke / Pelsfjerner / TurPakken — ingen seng-CTA pga XL-blokker). Canonical mønster fra start: ingen inline callouts, recap-only. Schema: Article + FAQPage + BreadcrumbList. Cross-link til Norsk Elghund Grå i temperament-H2 (norsk arbeids-rase ↔ tysk arbeids-rase). Editorial decision: utstillingslinjer vs brukslinjer som key differentiator. Hub card_1 lagt til `templates/page.raseguider.json` (9 kort totalt). llms-articles-data entry inserted (62→63). Admin-step (Online Store → Pages → Add page med template `page.schaferhund`, handle `schaferhund`) pending Sondre — verifisert at `/pages/schaferhund` rendrer via fall-through uten admin-side.
+- `4b9ab25` 01:04 — **Template-deletion-guardrails strammet** i CLAUDE.md etter `626e101` post-mortem: 5 hard preconditions (section co-deletion, Admin API verification, "handle-mismatch" stop-word, proactivity prohibition, preview-theme-verifisering før live push). Dedikert `deletion-preview` theme (`#149856485454`) opprettet og workflow dokumentert. Memory: S237 + obs 5763–5764.
+- `ecf74a5` 00:04 — **Restore 4 page-templates slettet i 626e101**: `page.fjerne-hundehaar.json`, `page.aktivisering.json`, `page.hund-kloer-seg.json`, `page.potevask.json` (+ tilhørende sections). Disse hadde vært silently broken i ~3 dager — alle serverte URL-er via `templateSuffix` ≠ URL-handle. `docs/page-patterns.md` korrigert. Detection-flow: S234 (May 14 23:52).
+
+**Infrastructure (May 15 dagtid):**
+- GitHub Personal Access Token rotert for `Minhundpet/minhund-theme`-repo (gammel token gått ut). Verifisert via push på `4b9ab25`/`5eab969`/`44597da`.
+
+**Sprint-status:** **9 av 9 raseguider levert. Sprint COMPLETE.** Berner Sennen droppet (XL-seng-blokker), erstattet av Norsk Elghund Grå. Schäferhund publisert tross XL-blokker (recap uten seng-CTA). Alle guider følger recap-only canonical mønster. Avventer Sondres beslutning på neste sprint-tema.
+
+---
+
+### Uke 19 — 2026-05-11 til 2026-05-14
 
 **Tema: PDP-audit + raseguide sprint + CRO-optimering**
+
+**2026-05-14 sen kveld (raseguide-sprint #6–#8 + canonical "recap-only"-pivot — 11 commits)**
+- `49bf525` 23:51 — **Sprint guide #8 live**: Norsk Elghund Grå raseguide. ~3510 ord, 12 H2, 9 FAQ, recap-grid only. Erstatning for Berner Sennen (XL-seng-blokker). Norsk nasjonalrase-vinkel som differensiator.
+- `b072b68` 23:19 — `docs/page-patterns.md` oppdatert: kanonisk raseguide-mønster er nå **recap-only** (inline callouts er anti-pattern).
+- `7462114`, `491d693`, `8c74cb3`, `743327d`, `a3b0c35` 23:18–23:19 — **Inline product-callouts fjernet fra de 5 første raseguidene** (Labrador, Griffon, Golden, Cocker, Border Collie). Helse-tung kontekst + Article-schema-klassifisering bevart.
+- `faf881c` 23:07 — Inline callouts fjernet fra Chihuahua (cavalier-klasse pivot).
+- `a6330ec` 23:03 — **Sprint guide #7 live**: Chihuahua raseguide (~3575 ord). Publisert direkte under recap-only-mønster.
+- `c0ddd4a` 22:31 — Cavalier inline callouts fjernet (først til å pivotere til recap-only — drev beslutningen).
+- `188f125` 22:24 — Cavalier hero placeholder swappet til live CDN-bilde.
+- `7c52c4f` 19:57 — **Sprint guide #6 live**: Cavalier King Charles Spaniel (~3564 ord, helse-tung pga MVD/syringomyeli).
+
+**2026-05-14 ettermiddag (template-deletion incident detection + redirect — 3 commits)**
+- `d32acfe` 19:22 — Stage `/collections/frontpage` → `/collections/all` redirect.
+- `4686f1a` 17:13 — `docs`: legg til template-deletion safeguards etter 626e101 post-mortem (første versjon — strammes videre 2026-05-15).
+- `4024c4b` 17:01 — Restore CalmBall template files (revert erronoeus deletion in 626e101). Detection: S234 — 4 article-pages silently broken; CalmBall PDP broken i 47t.
 
 **2026-05-14 (Pattern C+ CRO sweep + Cocker raseguide-launch — 6 commits)**
 - `6bcae46` Pattern C+ CRO ship på alle 4 daværende raseguider: sidebar produktkort fjernet, `mh-article__recommend` post-FAQ recap-seksjon lagt til med breed-tunet 3-kort grid; Griffon catch-up med 2 manglende inline-callouts; canonical mønster dokumentert i `docs/page-patterns.md`. word_counts oppdatert i llms-data (BC 3400→3800, Griffon 2600→2700, mindre justeringer på Golden/Lab). 6 filer endret, +452/-73 linjer.
@@ -211,7 +269,7 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 - Legal-risk-audit Fase A1–A5 gjennomført på hele hundetips-corpus
 - Homepage audit: lang=nb, JSON-LD WebSite+SearchAction, brand fonts oppdatert til Playfair Display + DM Sans
 
-**Uke-status:** PDP-audit-fase ferdig. Content sprint i gang — **3 av 9 raseguider levert** (Griffon, Golden, Labrador). Raseguider-hub-infrastruktur etablert (ny template, section-filer, llms.txt-kategori, top-level nav-plassering). Crossover-link-SEO-vektoren mellom raseguider aktivert med Labrador↔Golden. Klart for 6 gjenværende raseguider + 1 hundetips/uke, men XL-donut-seng-sourcing er blokker for Berner Sennen og Schäfer — reprioritering mot small breeds anbefalt.
+**Uke-status:** PDP-audit-fase ferdig. Content sprint **akselerert dramatisk** — fra forventet "1 raseguide/uke" til 8 raseguider levert i løpet av uke 19 (#2 Golden + #3 Labrador + #4 Border Collie + #5 Cocker + #6 Cavalier + #7 Chihuahua + #8 Norsk Elghund Grå, pluss #1 Griffon fra uke 18). Strategisk pivot midt i uka: inline product-callouts fjernet fra ALLE raseguider; canonical mønster er nå recap-only. Berner Sennen droppet (XL-seng-blokker), erstattet av Norsk Elghund Grå. Tysk Schäferhund (#9) levert i uke 20 (May 15) → **sprint COMPLETE**.
 
 ---
 
