@@ -2,19 +2,19 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-05-15
+> **Sist generert:** 2026-05-16
 > **Mirror:** https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md (public repo — claude.ai blokkerer gist-domenet)
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
 
-## STATUS — 2026-05-15
+## STATUS — 2026-05-16
 
 ### Innhold
 - **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
   - Helse: 20 · Atferd: 16 · Stell: 8 · Aktivitet: 5 · Ernæring: 5
-- **9 raseguider** publisert i dedikert `/pages/raseguider`-hub — **sprint COMPLETE (9 av 9)**:
-  - Griffon Petit Brabançon · Golden Retriever · Labrador Retriever · Border Collie · Engelsk Cocker Spaniel · Cavalier King Charles Spaniel · Chihuahua · Norsk Elghund Grå · Tysk Schäferhund
+- **12 raseguider** publisert i dedikert `/pages/raseguider`-hub — **sprint utvidet fra 9 → 12** på Sondres anmodning:
+  - Griffon Petit Brabançon · Golden Retriever · Labrador Retriever · Border Collie · Engelsk Cocker Spaniel · Cavalier King Charles Spaniel · Chihuahua · Norsk Elghund Grå · Tysk Schäferhund · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter
 - **11 produkter** i katalog. **10 custom PDPs** har nå fått full audit-sweep (cart drawer-fix + produkt-spesifikke trust badges + a11y).
 
 ### Produkt-PDP-status
@@ -30,17 +30,19 @@
 - **Newsletter popup:** KING10 to-stegs flow, 30s scroll trigger. Live siden 2026-05-11.
 
 ### Neste fase
-**Raseguide-sprint COMPLETE (9 av 9 levert).** Berner Sennen droppet underveis pga XL-donut-seng-blokker; erstattet av Norsk Elghund Grå (norsk nasjonalrase) for å holde sprint-cadence. Tysk Schäferhund publisert tross seng-blokker (recap viser kun aktiviseringsleke + pelsfjerner + turpakken — ingen seng-CTA).
+**Raseguide-sprint utvidet til 12 av 12 levert.** Sprint kjørte opprinnelig på 9 raseguider; Sondre forlenget den med 3 ekstra (SBT 2026-05-15, Bichon Havanais + Engelsk Setter 2026-05-16) etter at canonical-mønsteret var godt nok etablert til å gjenta effektivt.
 
-**Etablerte mønstre på tvers av alle 9:**
-- Canonical raseguide-mønster: 12 H2, 8–9 FAQ, **kun bunn-recap-grid** (inline callouts fjernet 2026-05-14, se BESLUTNINGER), Tips fra King-seksjon, FAQPage JSON-LD 1:1 match. Sidebar er TOC + King-quip. Full spec i `docs/page-patterns.md` "Raseguide Canonical Pattern".
-- **In-prose crossover-lenker** mellom raseguider treffer "[rase] vs [rase]"-spørringer som er undertargetet av norske dyrebutikker (Labrador↔Golden, Cocker→Labrador, etc.).
+**Etablerte mønstre på tvers av alle 12:**
+- Canonical raseguide-mønster: 12 H2 + FAQ, **kun bunn-recap-grid** (inline callouts fjernet 2026-05-14, se BESLUTNINGER), Tips fra King-seksjon, FAQPage JSON-LD 1:1 match. Sidebar er TOC + King-quip. Full spec i `docs/page-patterns.md` "Raseguide Canonical Pattern".
+- **Default word-count: 2800–3200 ord** (oppdatert 2026-05-16, se BESLUTNINGER) — med moat-override på §2 (rasens unike vinkel), §8 og §9 (helse-fagseksjoner).
+- **FAQ canonical: 40–60 ord per svar** (oppdatert 2026-05-16) — featured-snippet sweet spot per Backlinko/SEMrush, ikke 50–70 som var feilkalibrert.
+- **In-prose crossover-lenker** mellom raseguider treffer "[rase] vs [rase]"-spørringer som er undertargetet av norske dyrebutikker (Labrador↔Golden, Cocker→Labrador, Bichon↔Chihuahua via NBHK-patella, Engelsk Setter↔Norsk Elghund Grå+Schäferhund via HD-indeksavl, etc.).
 - **GA4 product_callout_click tracking** instrumented på recap-CTAs (events fire via `Shopify.analytics.publish` + `dataLayer.push`, men Custom Pixel-forwarding til GA4 er paused — se Paused threads).
-- llms.txt-kategori: `Raseguide`. Hub-card-mal: badge `Rase`, kategori `Raseguide`.
+- llms.txt-kategori: `Raseguide`. Hub-card-mal: badge `Rase`, kategori `Raseguide`. Hub-card støtter `description`-felt fra 2026-05-15.
 
 **Åpne valg etter sprint:**
-- Skal cadence fortsette med flere raseguider (Bichon Havanais, Boxer, Vorsteh, Setter, etc.) eller pivot tilbake til hundetips-artikler?
-- Sondre må svare på neste sprint-tema før vi kjører.
+- Vurder cadence-pause for å samle GSC-data (~4 uker fram til Q3 2026) før vi vurderer flere raseguider eller pivot tilbake til hundetips-artikler.
+- Eventuelle nye raseguider bør baseres på faktisk søketrafikk/keyword-research, ikke gjetninger.
 
 ### Åpne tråder (ikke besluttet ennå)
 - **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
@@ -57,6 +59,25 @@
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-05-16 — FAQ-canonical revidert fra 50–70 til 40–60 ord per svar (featured-snippet sweet spot)
+
+I sprint #11 (Bichon Havanais) traff FAQ-svarene konsekvent 40–49 ord per svar — under spec-min på 50, men perfekt innenfor Googles faktiske featured-snippet-vindu. Sondre påpekte at å padde svarene opp til 50+ ville svekket featured-snippet-effekten. Canonical i `docs/page-patterns.md` oppdatert til **40–60 ord per FAQ-svar** (Backlinko + SEMrush-data om sweet spot).
+
+- **Endring:** `docs/page-patterns.md` raseguide-canonical FAQ-mål: «50–70 ord per svar — featured-snippet-friendly (treffer Google's 40–60 ord-vindu)» → «40–60 ord per svar — featured-snippet sweet spot (Backlinko/SEMrush data)».
+- **Hvorfor:** Tidligere formulering var selvmotsigende (50–70 mål + 40–60 vindu). Vi optimaliserer mot vinduet, ikke målet.
+- **Konsekvens:** Engelsk Setter (sprint #12) traff alle 8 FAQ-svar i 44–49 ord-vinduet på første forsøk. Mønster bekreftet.
+- **Bestående 12 raseguider:** Ikke retroaktivt trimmet. GSC-data evalueres ~Q3 2026 før individuell trimming vurderes.
+
+### 2026-05-16 — Raseguide word-count target redusert fra 3500–3800 til 2800–3200 (med moat-override)
+
+Etter at sprint #6–#10 lå på 3500–5000 ord uten å rangere bedre, gjennomført strategi-justering basert på Backlinko 2024-data (11,8M søkeresultater): topp 10 på Google side 1 har snittlengde 1447 ord, og det er ingen direkte korrelasjon mellom ordteller og ranking. Relevans og dybde teller mer. Ny canonical kalibrert mot ~3000 ord (under AI-crawler-truncation-terskel + Backlinko-effekt) + override for moat-content.
+
+- **Default: 2800–3200 ord total body** (canonical-guideline, ikke hard ceiling).
+- **Moat-override:** §2 (rasens unike vinkel), §8 og §9 (helse-fagseksjoner) kan pushe totalen over 3300 ord hvis materielt verdifullt. Moat-content trimmes ikke for å treffe et tall.
+- **Seksjons-guidelines** dokumentert i `docs/page-patterns.md` ("Word-count target")-seksjon — kort fortalt 200; historie 150–250 (opp til 350 hvis arbeids/jakt-rase); hvem passer for bullet-only 180; aktivitet 230; pelsstell 250; andre helse flytende skala (min 30 ord per tilstand).
+- **Bestående 12 raseguider:** Ikke retroaktivt trimmet. GSC-data evalueres ~Q3 2026 før individuell trimming vurderes.
+- **Konsekvens:** Sprint #11 (Bichon) + #12 (Engelsk Setter) leverte ~3700–3800 ord — over default-vinduet men innenfor override fordi alle 3 hadde substansiell moat-content (Bichon: hypoallergen-myte 555 ord; Engelsk Setter: utstilling vs jakttype 530 ord + døvhet/BAER 410 ord). Mønster bekreftet.
 
 ### 2026-05-15 — Template-deletion-guardrails strammet til 5 hard preconditions + preview-theme-verifisering (post-mortem på 626e101)
 
@@ -178,20 +199,28 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
-### Uke 20 — 2026-05-15 (raseguide-sprint COMPLETE)
+### Uke 20 — 2026-05-15 til 2026-05-16 (raseguide-sprint utvidet 9 → 12)
 
-**Tema: Final raseguide (Schäferhund) + template-deletion-guardrails strammet**
+**Tema: Sprint #9 (Schäferhund) avsluttet sprinten på 9 av 9 — så ble den utvidet med 3 ekstra raseguider (#10–#12) + 2 canonical-revisjoner**
 
-**2026-05-15 (4 commits)**
-- `44597da` 22:56 — Schäferhund raseguide hero-bilde swappet fra PLACEHOLDER til faktisk Shopify CDN-bilde (`schaferhund.png`, 1.2 MB, verifisert live).
-- `5eab969` 22:54 — **Sprint guide #9 (FINAL) live**: Tysk Schäferhund raseguide. ~4587 ord (over canonical 3500–3800-spec, men på linje med tidligere helse-tunge guider). 12 H2, 9 FAQ, recap-grid only (Aktiviseringsleke / Pelsfjerner / TurPakken — ingen seng-CTA pga XL-blokker). Canonical mønster fra start: ingen inline callouts, recap-only. Schema: Article + FAQPage + BreadcrumbList. Cross-link til Norsk Elghund Grå i temperament-H2 (norsk arbeids-rase ↔ tysk arbeids-rase). Editorial decision: utstillingslinjer vs brukslinjer som key differentiator. Hub card_1 lagt til `templates/page.raseguider.json` (9 kort totalt). llms-articles-data entry inserted (62→63). Admin-step (Online Store → Pages → Add page med template `page.schaferhund`, handle `schaferhund`) pending Sondre — verifisert at `/pages/schaferhund` rendrer via fall-through uten admin-side.
-- `4b9ab25` 01:04 — **Template-deletion-guardrails strammet** i CLAUDE.md etter `626e101` post-mortem: 5 hard preconditions (section co-deletion, Admin API verification, "handle-mismatch" stop-word, proactivity prohibition, preview-theme-verifisering før live push). Dedikert `deletion-preview` theme (`#149856485454`) opprettet og workflow dokumentert. Memory: S237 + obs 5763–5764.
-- `ecf74a5` 00:04 — **Restore 4 page-templates slettet i 626e101**: `page.fjerne-hundehaar.json`, `page.aktivisering.json`, `page.hund-kloer-seg.json`, `page.potevask.json` (+ tilhørende sections). Disse hadde vært silently broken i ~3 dager — alle serverte URL-er via `templateSuffix` ≠ URL-handle. `docs/page-patterns.md` korrigert. Detection-flow: S234 (May 14 23:52).
+**2026-05-16 (5 commits — sprint #11 + #12 + canonical revisjon)**
+- `5ced534` 08:53 — Engelsk Setter raseguide hero-bilde swappet PLACEHOLDER → `English_Setter.png?v=1778886812` (1.38 MB).
+- `49ceb5c` 08:52 — **Sprint guide #12 live**: Engelsk Setter raseguide. ~3779 ord (over default 2800–3200 pga moat på §2 utstilling-vs-jakt 530 ord + §8 HD-indeksavl 350 ord + §9 døvhet/BAER 410 ord). 12 H2 + FAQ, alle 8 FAQ-svar i 44–49 ord-vinduet (perfect featured-snippet sweet spot). Recap: Pelsfjerner (hero) / Aktiviseringsleke / Vannskål-anti-søl. Crossover-link til Norsk Elghund Grå + Schäferhund (HD-indeksavl-system felles). Schema: `Engelsk Setter raseguide` (24 chars). NESK + NKK sitert × 23 totalt. Belton-fargevarianter brukt × 5. «fieldtrailer» brukt med norsk gloss «jakttype». Hub card_12 lagt til (block_order updated). llms-data entry inserted (65→66) mellom cocker-spaniel og golden-retriever. Admin-step pending Sondre (publish-dato 2026-06-26).
+- `805ba34` 00:58 — Bichon Havanais raseguide hero-bilde swappet PLACEHOLDER → `Bichon_Havanais.png?v=1778885691` (1.36 MB).
+- `2698c8c` 00:57 — **Sprint guide #11 live + FAQ canonical revisjon**: Bichon Havanais raseguide. ~3772 ord (over default pga moat på §2 hypoallergen/lav-vedlikehold-myte 555 ord + §8 NBHK patella 420 ord + §9 helseutfordringer). 12 H2 + FAQ, alle 8 FAQ-svar i 40–56 ord-vinduet. Recap: Pelsfjerner (hero) / Aktiviseringsleke / Beroligende hundeseng. NAAF sitert × 4 + «Astma- og Allergiforbundet» × 4. Crossover-link til Chihuahua (NBHK-patella-screening felles). Hub card_11 lagt til. llms-data entry inserted (64→65) ved posisjon 0 i raseguide-blokk (alfabetisk før border-collie). Samme commit oppdaterte `docs/page-patterns.md` FAQ-canonical fra «50–70 ord per svar» til «40–60 ord per svar (featured-snippet sweet spot)».
+- `7c2e4ec` 00:00 — **Canonical word-count revisjon** i `docs/page-patterns.md`: default 2800–3200 ord (var implicit 3500–3800) + moat-override-regel på §2/§8/§9 + seksjons-guidelines per H2. Backlinko 2024-data + AI-crawler-truncation-terskel + diminishing returns på topic coverage som rationale. Bestående 10 raseguider ikke retroaktivt trimmet — GSC-evaluering ~Q3 2026.
 
-**Infrastructure (May 15 dagtid):**
-- GitHub Personal Access Token rotert for `Minhundpet/minhund-theme`-repo (gammel token gått ut). Verifisert via push på `4b9ab25`/`5eab969`/`44597da`.
+**2026-05-15 sen kveld (sprint #10 — sprint forlenget med Staffordshire Bull Terrier — 2 commits)**
+- `d756882` 23:14 — SBT hero-bilde swappet PLACEHOLDER → `Staffordshire_Bull_Terrier.png?v=1778879595`.
+- `3e0ac5e` 23:08 — **Sprint guide #10 live**: Staffordshire Bull Terrier raseguide. ~4998 ord (moat-tung: §2 forbudt-i-Norge-myte 510 ord, §8 L-2-HGA 395 ord, §9 HC 280 ord). 12 H2 + FAQ, recap: Aktiviseringsleke (hero) / Beroligende hundeseng / Pelsfjerner. Hub-card-mal utvidet med `description`-felt (nytt fra denne sprinten). Crossover-link til Schäferhund + Norsk Elghund Grå + Border Collie. llms-data entry inserted (63→64). Admin-step pending Sondre (publish-dato 2026-06-12).
 
-**Sprint-status:** **9 av 9 raseguider levert. Sprint COMPLETE.** Berner Sennen droppet (XL-seng-blokker), erstattet av Norsk Elghund Grå. Schäferhund publisert tross XL-blokker (recap uten seng-CTA). Alle guider følger recap-only canonical mønster. Avventer Sondres beslutning på neste sprint-tema.
+**2026-05-15 (sprint #9 + infrastruktur — 4 commits)**
+- `44597da` 22:56 — Schäferhund hero-bilde PLACEHOLDER → `Schaferhund.png?v=1778878341`.
+- `5eab969` 22:54 — **Sprint guide #9 live**: Tysk Schäferhund raseguide. ~4587 ord. 12 H2 + 9 FAQ, recap: Pelsfjerner/Aktiviseringsleke/TurPakken (ingen seng-CTA pga XL-blokker). Cross-link til Norsk Elghund Grå. Hub card_1 lagt til (9 kort totalt). llms-data entry inserted (62→63).
+- `4b9ab25` 01:04 — **Template-deletion-guardrails strammet** i CLAUDE.md etter `626e101` post-mortem: 5 hard preconditions + preview-theme-verifisering-workflow + dedikert `deletion-preview` theme (`#149856485454`).
+- `ecf74a5` 00:04 — **Restore 4 page-templates slettet i 626e101**: `page.fjerne-hundehaar.json`, `page.aktivisering.json`, `page.hund-kloer-seg.json`, `page.potevask.json` (+ tilhørende sections). Detection-flow: S234 (May 14 23:52). GitHub PAT også rotert dagtid.
+
+**Sprint-status:** **12 av 12 raseguider levert. Sprint EXTENDED.** Opprinnelig 9-rasers sprint ble forlenget med 3 ekstra (SBT, Bichon, Engelsk Setter) etter at canonical-mønsteret var godt etablert. To canonical-revisjoner gjennomført midt i sprinten (word-count target 2800–3200 + FAQ 40–60). Alle 12 guider følger samme recap-only mønster med moat-tunge §2/§8/§9-seksjoner som unik vinkel-content. GSC-evaluering planlagt ~Q3 2026 før eventuelle nye raseguider eller individuell trimming.
 
 ---
 
