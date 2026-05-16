@@ -8,14 +8,14 @@
 
 ---
 
-## STATUS — 2026-05-16 (kveld — etter 6 sprinter på én dag)
+## STATUS — 2026-05-16 (sen kveld — etter 9 sprinter på én dag; BOAS-trioen komplett)
 
 ### Innhold
 - **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
   - Helse: 20 · Atferd: 16 · Stell: 8 · Aktivitet: 5 · Ernæring: 5
-- **18 raseguider** publisert i dedikert `/pages/raseguider`-hub — **topp 10 norske hunderaser fullført 2026-05-16** (Finsk Lapphund som #10) + 8 supplerende populære raser:
+- **21 raseguider** publisert i dedikert `/pages/raseguider`-hub — **topp 10 norske hunderaser fullført 2026-05-16** (Finsk Lapphund som #10) + 11 supplerende populære raser. **BOAS-trioen fullført 2026-05-16:** Mops + Fransk Bulldog + Engelsk Bulldog gir kategori-monopol på brakycefal-rase-vinkelen i norsk hunde-SEO:
   - **Topp 10 norske raser:** Labrador Retriever · Golden Retriever · Border Collie · Cocker Spaniel · Cavalier King Charles Spaniel · Chihuahua · Norsk Elghund Grå · Tysk Schäferhund · Pomeranian · Finsk Lapphund
-  - **Supplerende populære raser:** Griffon Petit Brabançon · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter · Dansk-svensk Gårdshund · Mops · Jack Russell Terrier · Berner Sennenhund
+  - **Supplerende populære raser:** Griffon Petit Brabançon · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter · Dansk-svensk Gårdshund · Mops · Jack Russell Terrier · Berner Sennenhund · **Fransk Bulldog** · **Engelsk Bulldog** · **Shetland Sheepdog**
 - **11 produkter** i katalog. **10 custom PDPs** har nå fått full audit-sweep (cart drawer-fix + produkt-spesifikke trust badges + a11y).
 
 ### Produkt-PDP-status
@@ -31,9 +31,9 @@
 - **Newsletter popup:** KING10 to-stegs flow, 30s scroll trigger. Live siden 2026-05-11.
 
 ### Neste fase
-**Raseguide-sprint utvidet til 18 av 18 levert. Topp 10 norske hunderaser-milestone fullført 2026-05-16.** Sprint kjørte opprinnelig på 9 raseguider; Sondre forlenget den i tre runder (SBT/Bichon/Engelsk Setter 11–12, så DSG/Pomeranian/Mops/Finsk Lapphund 13–16 som fullførte topp 10-dekningen, så Jack Russell Terrier/Berner Sennenhund 17–18 som supplerende populære raser). 6 nye guider levert på én dag (2026-05-16).
+**Raseguide-sprint utvidet til 21 av 21 levert. Topp 10 norske hunderaser-milestone fullført 2026-05-16. BOAS-trioen-milestone fullført 2026-05-16 (sen kveld).** Sprint kjørte opprinnelig på 9 raseguider; Sondre forlenget den i fire runder (SBT/Bichon/Engelsk Setter 11–12, så DSG/Pomeranian/Mops/Finsk Lapphund 13–16 som fullførte topp 10-dekningen, så Jack Russell Terrier/Berner Sennenhund 17–18 som supplerende populære raser, så Fransk Bulldog/Engelsk Bulldog/Shetland Sheepdog 19–21 som BOAS-trioen-fullføring + gjeterhund-utvidelse). 9 nye guider levert på én dag (2026-05-16) — 3 sprinter på sen kveld alene.
 
-**Etablerte mønstre på tvers av alle 18:**
+**Etablerte mønstre på tvers av alle 21:**
 - Canonical raseguide-mønster: 12 H2 + FAQ, **kun bunn-recap-grid** (inline callouts fjernet 2026-05-14, se BESLUTNINGER), Tips fra King-seksjon, FAQPage JSON-LD 1:1 match. Sidebar er TOC + King-quip. Full spec i `docs/page-patterns.md` "Raseguide Canonical Pattern".
 - **Default word-count: 2800–3200 ord** (oppdatert 2026-05-16, se BESLUTNINGER) — med moat-override på §2 (rasens unike vinkel), §8 og §9 (helse-fagseksjoner).
 - **FAQ canonical: 40–60 ord per svar** (oppdatert 2026-05-16) — featured-snippet sweet spot per Backlinko/SEMrush.
@@ -45,7 +45,7 @@
 - llms-data alfabetisk plassering bekreftet som strikt regel etter Berner-sprint (skulle ligge før bichon-havanais, ikke etter — brief-feil korrigert).
 
 **Åpne valg etter sprint:**
-- Cadence-pause anbefalt for å samle GSC-data (~4–8 uker fram til Q3 2026) på de 18 publiserte guidene før eventuell videre raseguide-produksjon. Topp 10-milestone fullført gir naturlig pausepunkt.
+- Cadence-pause anbefalt for å samle GSC-data (~4–8 uker fram til Q3 2026) på de 21 publiserte guidene før eventuell videre raseguide-produksjon. Topp 10 + BOAS-trioen-milestoner gir naturlig pausepunkt.
 - Eventuelle nye raseguider bør baseres på faktisk søketrafikk/keyword-research, ikke gjetninger.
 - XL-seng-blokker fortsatt aktiv for de tre storrasene (Schäferhund, Finsk Lapphund, Berner Sennen) — seng-CTA droppet på alle tre, recap-grid bruker pelsfjerner/aktivisering/vannskål i stedet.
 
@@ -64,6 +64,13 @@
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-05-16 (sen kveld) — BOAS-trioen komplett: kategori-monopol på brakycefal-rase-vinkelen
+**Beslutning:** Sprint #19 (Fransk Bulldog), #20 (Engelsk Bulldog) og #21 (Shetland Sheepdog) leverte tre nye guider på sen kveld. Med #20 (Engelsk Bulldog) ble BOAS-trioen — **Mops + Fransk Bulldog + Engelsk Bulldog** — komplett. Dette er den strategiske milepælen: alle tre rasene NKK har innført obligatorisk BOAS-screening for (siden 2019, med skjerpelse til kjent BOAS-status registreringskrav 1. august 2022 for engelsk + fransk bulldog) er nå dekket med dybde-guider i samme regulatoriske ramme.
+
+**Hvorfor:** SEO-kategori-monopol på «brakycefal»/«BOAS»/«kortsnutede raser»-søk i norsk hunde-segment. Crossover-linker mellom de tre etablerer en lukket lenkestruktur som AI-crawlere (Perplexity, ChatGPT, Google AI Overviews) og Google's regular index leser som domene-autoritet. Engelsk Bulldog som den mest helse-utfordrede gir den definerende moat-content (O'Neill 2022-statistikker, NKK BSI, 1. august 2022-kravet).
+
+**Bekreftet vinkel A**: ærlig faktabasert tone — anerkjenner NKK BOAS-screening og NBKs avlsarbeid som forbedringer, ikke moraliserende mot eksisterende eiere. Konsistent på tvers av alle tre guidene.
 
 ### 2026-05-16 (kveld) — Topp 10 norske hunderaser-milestone fullført
 
@@ -216,9 +223,17 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
-### Uke 20 — 2026-05-15 til 2026-05-16 (raseguide-sprint utvidet 9 → 18, topp 10-milestone fullført)
+### Uke 20 — 2026-05-15 til 2026-05-16 (raseguide-sprint utvidet 9 → 21, topp 10 + BOAS-trioen-milestoner fullført)
 
-**Tema: Sprint #9 (Schäferhund) avsluttet sprinten på 9 av 9 — så ble den utvidet i tre runder til 18 totalt. Sprint #16 fullførte topp 10-dekningen av Norges mest registrerte hunderaser. 6 nye raseguider levert 2026-05-16 (afternoon/kveld) etter sprint #11 + #12 på morgenen.**
+**Tema: Sprint #9 (Schäferhund) avsluttet opprinnelig på 9 av 9 — så ble den utvidet i fire runder til 21 totalt. Sprint #16 fullførte topp 10-dekningen. Sprint #20 fullførte BOAS-trioen (Mops + Fransk Bulldog + Engelsk Bulldog). 9 nye raseguider levert 2026-05-16 — 3 på sen kveld alene (#19/#20/#21).**
+
+**2026-05-16 (sen kveld — 6 commits, sprint #19–#21: Fransk Bulldog, Engelsk Bulldog (BOAS-trio-fullført), Shetland Sheepdog)**
+- `baa0409` ~22:50 — Shetland Sheepdog hero-bilde PLACEHOLDER → `Shetland_Sheepdog.png?v=1778964638`.
+- `f8c833a` ~22:45 — **Sprint guide #21 live**: Shetland Sheepdog raseguide. ~3637 ord (moat: §2 mini collie-myte 470 ord + §8 MDR1-genmutasjon 410 ord + §9 CEA + arvelige 480 ord). 12 H2 + FAQ, alle 8 FAQ-svar i 40–52 ord. Definerende vinkel: **sheltie er IKKE mini collie** — myte-bryting analog til SBT/JRT, eget FCI-standard (nr. 88), egen NSSK (stiftet 6. mars 1964), distinkt avstamning med norske spisshunder + buhund + pomeranian + islandske yakki fra vikinge-tiden på Shetland. MDR1-seksjonen (klar/bærer/affisert + ivermectin/loperamid/vinkristin) som rasens mest praktiske helse-info. CEA NHEJ1-deletion + 4-graders gradering + italiensk 2022-studie (50% bærere). Schema: `Sheltie raseguide` (17 chars). Recap: Aktiviseringsleke (hero) / Pelsfjerner / Beroligende hundeseng. Crossover-link til Border Collie. NSSK × 15, NKK × 10, FCI × 8. Hub card_21. llms-data entry inserted (74→75) mellom schaferhund [56] og staffordshire-bull-terrier [58]. Admin-step bekreftet HTTP 200 (publish-dato 2026-08-28).
+- `30a67da` ~21:40 — Engelsk Bulldog hero-bilde PLACEHOLDER → `English_Bulldog.png?v=1778954644`.
+- `9d3338a` ~21:30 — **Sprint guide #20 live — BOAS-TRIOEN KOMPLETT**: Engelsk Bulldog raseguide. ~4196 ord (moat-tung: §2 BOAS-trioen + 1. aug 2022-skjerpelsen 620 ord + §8 BOAS-anatomi 480 ord + §9 hudfolder/øyne/dystocia 540 ord). 12 H2 + FAQ, alle 8 FAQ-svar i 42–47 ord. Vinkel A locked: **den mest helse-utfordrede rasen i NKKs BSI-overvåking** — ærlig faktabasert, anerkjenner NKK BOAS-screening (2019) + kjent BOAS-status registreringskrav fra 1. august 2022 + NBKs egne avlskrav som har gjort norsk bulldog-avl strengere enn de fleste land. **O'Neill 2022-statistikker:** 19,2x BOAS, 38,1x hudfoldsdermatitt, 26,8x cherry eye, 12,2x tørre øyne, 11,6x entropion, 13x interdigital cyster, 24,3x underbitt. Torill Moseng sitert (Den norske veterinærforening). Schema: `Engelsk Bulldog raseguide` (25 chars — på grensen). Recap: Aktiviseringsleke (hero) / Pelsfjerner / Beroligende hundeseng. NKK × 28, NBK × 15, O'Neill × 12, Ladlow/Cambridge × 3, Moseng × 1. Hub card_20. llms-data entry inserted (73→74) mellom dansk-svensk-gardshund og engelsk-setter. Admin-step pending Sondre (publish-dato 2026-08-21) — recovery-flow brukt etter API 500 mid-write.
+- `67203c1` ~19:20 — Fransk Bulldog hero-bilde PLACEHOLDER → `French_Bulldog.png?v=1778950506`.
+- `7aa13c5` ~19:10 — **Sprint guide #19 live**: Fransk Bulldog raseguide. ~4250 ord (moat: §2 BOAS-screening + NBK 530 ord + §8 BOAS-anatomi + Liu 2017 480 ord + §9 IVDD/hemivertebrae/CDDY 480 ord). 12 H2 + FAQ, alle 8 FAQ-svar i 40–45 ord. Vinkel A: ærlig om rasens helseutfordringer — anerkjenner NKK BOAS-screening fra 2019 + NBKs avlsstrategi som forbedringer. Definerende skille mot Mops: CDDY/IVDD-DNA-test + hemivertebrae-røntgen som unik rasespesifikk avlskvalitet. Schema: `Fransk Bulldog raseguide` (24 chars). Recap: Aktiviseringsleke (hero) / Beroligende hundeseng / Pelsfjerner. Crossover-link til Mops × 4 (samme regulatoriske ramme). Hub card_19. llms-data entry inserted (72→73) mellom finsk-lapphund og golden-retriever. Admin-step bekreftet HTTP 200 (publish-dato 2026-08-14).
 
 **2026-05-16 (kveld — 12 commits, sprint #13–#18: DSG, Pomeranian, Mops, Finsk Lapphund (topp 10-milepæl), Jack Russell Terrier, Berner Sennenhund)**
 - `54425c4` 18:00ish — Berner Sennenhund hero-bilde PLACEHOLDER → `Berner_Sennenhund.png?v=1778946492` (1.06 MB).
@@ -251,7 +266,7 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 - `4b9ab25` 01:04 — **Template-deletion-guardrails strammet** i CLAUDE.md etter `626e101` post-mortem: 5 hard preconditions + preview-theme-verifisering-workflow + dedikert `deletion-preview` theme (`#149856485454`).
 - `ecf74a5` 00:04 — **Restore 4 page-templates slettet i 626e101**: `page.fjerne-hundehaar.json`, `page.aktivisering.json`, `page.hund-kloer-seg.json`, `page.potevask.json` (+ tilhørende sections). Detection-flow: S234 (May 14 23:52). GitHub PAT også rotert dagtid.
 
-**Sprint-status:** **12 av 12 raseguider levert. Sprint EXTENDED.** Opprinnelig 9-rasers sprint ble forlenget med 3 ekstra (SBT, Bichon, Engelsk Setter) etter at canonical-mønsteret var godt etablert. To canonical-revisjoner gjennomført midt i sprinten (word-count target 2800–3200 + FAQ 40–60). Alle 12 guider følger samme recap-only mønster med moat-tunge §2/§8/§9-seksjoner som unik vinkel-content. GSC-evaluering planlagt ~Q3 2026 før eventuelle nye raseguider eller individuell trimming.
+**Sprint-status:** **21 av 21 raseguider levert. Sprint EXTENDED ×4.** Opprinnelig 9-rasers sprint ble forlenget i fire runder: +3 (SBT/Bichon/Engelsk Setter) → +4 (DSG/Pomeranian/Mops/Finsk Lapphund som fullførte topp 10) → +2 (JRT/Berner Sennen) → +3 (Fransk Bulldog/Engelsk Bulldog/Shetland Sheepdog som fullførte BOAS-trioen + gjeterhund-utvidelse). To canonical-revisjoner midt i sprinten (word-count target 2800–3200 + FAQ 40–60). Alle 21 guider følger samme recap-only mønster med moat-tunge §2/§8/§9-seksjoner som unik vinkel-content. GSC-evaluering planlagt ~Q3 2026 før eventuelle nye raseguider eller individuell trimming. Cadence-pause anbefalt nå — topp 10 + BOAS-trioen-milestoner gir naturlig pausepunkt.
 
 ---
 
