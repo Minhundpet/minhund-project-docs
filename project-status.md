@@ -8,13 +8,14 @@
 
 ---
 
-## STATUS — 2026-05-16
+## STATUS — 2026-05-16 (kveld — etter 6 sprinter på én dag)
 
 ### Innhold
 - **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
   - Helse: 20 · Atferd: 16 · Stell: 8 · Aktivitet: 5 · Ernæring: 5
-- **12 raseguider** publisert i dedikert `/pages/raseguider`-hub — **sprint utvidet fra 9 → 12** på Sondres anmodning:
-  - Griffon Petit Brabançon · Golden Retriever · Labrador Retriever · Border Collie · Engelsk Cocker Spaniel · Cavalier King Charles Spaniel · Chihuahua · Norsk Elghund Grå · Tysk Schäferhund · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter
+- **18 raseguider** publisert i dedikert `/pages/raseguider`-hub — **topp 10 norske hunderaser fullført 2026-05-16** (Finsk Lapphund som #10) + 8 supplerende populære raser:
+  - **Topp 10 norske raser:** Labrador Retriever · Golden Retriever · Border Collie · Cocker Spaniel · Cavalier King Charles Spaniel · Chihuahua · Norsk Elghund Grå · Tysk Schäferhund · Pomeranian · Finsk Lapphund
+  - **Supplerende populære raser:** Griffon Petit Brabançon · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter · Dansk-svensk Gårdshund · Mops · Jack Russell Terrier · Berner Sennenhund
 - **11 produkter** i katalog. **10 custom PDPs** har nå fått full audit-sweep (cart drawer-fix + produkt-spesifikke trust badges + a11y).
 
 ### Produkt-PDP-status
@@ -30,19 +31,23 @@
 - **Newsletter popup:** KING10 to-stegs flow, 30s scroll trigger. Live siden 2026-05-11.
 
 ### Neste fase
-**Raseguide-sprint utvidet til 12 av 12 levert.** Sprint kjørte opprinnelig på 9 raseguider; Sondre forlenget den med 3 ekstra (SBT 2026-05-15, Bichon Havanais + Engelsk Setter 2026-05-16) etter at canonical-mønsteret var godt nok etablert til å gjenta effektivt.
+**Raseguide-sprint utvidet til 18 av 18 levert. Topp 10 norske hunderaser-milestone fullført 2026-05-16.** Sprint kjørte opprinnelig på 9 raseguider; Sondre forlenget den i tre runder (SBT/Bichon/Engelsk Setter 11–12, så DSG/Pomeranian/Mops/Finsk Lapphund 13–16 som fullførte topp 10-dekningen, så Jack Russell Terrier/Berner Sennenhund 17–18 som supplerende populære raser). 6 nye guider levert på én dag (2026-05-16).
 
-**Etablerte mønstre på tvers av alle 12:**
+**Etablerte mønstre på tvers av alle 18:**
 - Canonical raseguide-mønster: 12 H2 + FAQ, **kun bunn-recap-grid** (inline callouts fjernet 2026-05-14, se BESLUTNINGER), Tips fra King-seksjon, FAQPage JSON-LD 1:1 match. Sidebar er TOC + King-quip. Full spec i `docs/page-patterns.md` "Raseguide Canonical Pattern".
 - **Default word-count: 2800–3200 ord** (oppdatert 2026-05-16, se BESLUTNINGER) — med moat-override på §2 (rasens unike vinkel), §8 og §9 (helse-fagseksjoner).
-- **FAQ canonical: 40–60 ord per svar** (oppdatert 2026-05-16) — featured-snippet sweet spot per Backlinko/SEMrush, ikke 50–70 som var feilkalibrert.
-- **In-prose crossover-lenker** mellom raseguider treffer "[rase] vs [rase]"-spørringer som er undertargetet av norske dyrebutikker (Labrador↔Golden, Cocker→Labrador, Bichon↔Chihuahua via NBHK-patella, Engelsk Setter↔Norsk Elghund Grå+Schäferhund via HD-indeksavl, etc.).
+- **FAQ canonical: 40–60 ord per svar** (oppdatert 2026-05-16) — featured-snippet sweet spot per Backlinko/SEMrush.
+- **Vinkel A locked for sensitive helse-tunge raseguider** (Berner Sennen kreft/levealder, Mops BOAS, Cavalier MMVD): ærlig faktabasert tone, kildebare statistikker, eksisterende eiere respekteres, ingen moraliserende språk.
+- **Editorial rule (ny 2026-05-16):** Ingen spesifikke års-tall uten kildebelegg (E-E-A-T-prinsipp, analog til pris-tall-regelen). Lærdom fra Finsk Lapphund-sprint.
+- **In-prose crossover-lenker** mellom raseguider treffer "[rase] vs [rase]"-spørringer (eksempler: Labrador↔Golden, Cocker→Labrador, Bichon↔Chihuahua/Pomeranian via NBHK-patella, Engelsk Setter↔Norsk Elghund Grå+Schäferhund via HD-indeksavl, JRT↔DSG visuell forveksling, Finsk Lapphund↔Schäfer+Norsk Elghund Grå nordisk dobbeltpels-trio, Berner↔Mops+Cavalier ærlig-helsedebatt).
 - **GA4 product_callout_click tracking** instrumented på recap-CTAs (events fire via `Shopify.analytics.publish` + `dataLayer.push`, men Custom Pixel-forwarding til GA4 er paused — se Paused threads).
 - llms.txt-kategori: `Raseguide`. Hub-card-mal: badge `Rase`, kategori `Raseguide`. Hub-card støtter `description`-felt fra 2026-05-15.
+- llms-data alfabetisk plassering bekreftet som strikt regel etter Berner-sprint (skulle ligge før bichon-havanais, ikke etter — brief-feil korrigert).
 
 **Åpne valg etter sprint:**
-- Vurder cadence-pause for å samle GSC-data (~4 uker fram til Q3 2026) før vi vurderer flere raseguider eller pivot tilbake til hundetips-artikler.
+- Cadence-pause anbefalt for å samle GSC-data (~4–8 uker fram til Q3 2026) på de 18 publiserte guidene før eventuell videre raseguide-produksjon. Topp 10-milestone fullført gir naturlig pausepunkt.
 - Eventuelle nye raseguider bør baseres på faktisk søketrafikk/keyword-research, ikke gjetninger.
+- XL-seng-blokker fortsatt aktiv for de tre storrasene (Schäferhund, Finsk Lapphund, Berner Sennen) — seng-CTA droppet på alle tre, recap-grid bruker pelsfjerner/aktivisering/vannskål i stedet.
 
 ### Åpne tråder (ikke besluttet ennå)
 - **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
@@ -59,6 +64,18 @@
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-05-16 (kveld) — Topp 10 norske hunderaser-milestone fullført
+
+Sprint #16 (Finsk Lapphund, levert 13:21) fullførte topp 10-dekning av Norges mest registrerte hunderaser i NKK-statistikken. Etter dette ble sprint forlenget ytterligere to ganger samme dag — Jack Russell Terrier (#17) og Berner Sennenhund (#18) som supplerende populære raser med distinkte SEO-vinkler. Total katalog er nå 18 raseguider, hvorav 10 dekker topp 10 og 8 dekker supplerende populære raser. **Konsekvens:** Naturlig cadence-pause anbefalt — Q3 2026 GSC-evaluering før eventuell videre raseguide-produksjon. Eventuelle nye raseguider skal baseres på faktiske GSC-tall, ikke gjetninger.
+
+### 2026-05-16 (kveld) — Vinkel A locked for sensitive helse-tunge raseguider (kreft/levealder/BOAS)
+
+Etablert under Berner Sennen-sprinten (#18) med eksplisitt instruks fra Sondre: når en rase har kjent definerende helseutfordring (kreft for berner, BOAS for mops, MMVD for cavalier), skal artikkelen være **ærlig faktabasert** uten å være moraliserende eller "kjøp ikke X". Eksisterende eiere er stor kundegruppe og må respekteres. Anerkjenn at rasen kan leve gode liv hvis eieren er forberedt. Kildebare statistikker brukt nøytralt (Berner: NVH 2014 46% / 6,9 år, Dobson 2012 45,7% / 8,0 år). **Konsekvens:** Pattern locked for fremtidige helse-tunge raseguider. Tonen er konsistent på tvers av Mops (BOAS) + Cavalier (MMVD) + Berner Sennen (kreft) — tre raser med ulik helseutfordring men samme redaksjonelle posisjon.
+
+### 2026-05-16 (kveld) — Editorial rule: ingen spesifikke års-tall uten kildebelegg (E-E-A-T-prinsipp)
+
+Etablert under Finsk Lapphund-sprinten (#16) etter at Sondre korrigerte "samisk kulturarv på 4 000 år" og "nordisk arbeidshund-DNA på 4 000 år" i utkast. Spesifikke års-tall for rasens prehistoriske opprinnelse (f.eks. "4 000 års rase") er typisk umulig å verifisere mot arkeologisk eller genetisk evidens, og svekker artikkelens autoritet hvis en kompetent leser sjekker. Bruk i stedet generiske formuleringer: "samenes reingjeter-tradisjon over mange generasjoner", "rasen har dype historiske røtter i [region]". **Hva som ER greit:** Dokumenterbare moderne dato-fakta som "FKK etablerte rasen i 1945", "navnendring til Finsk Lapphund i 1993" — disse er knyttet til kennelklubb-registre og kan kildes. **Konsekvens:** Memory-rule `feedback_raseguide_no_specific_year_numbers.md` lagret. Samme prinsipp som pris-tall-regelen (CLAUDE.md). AI-rangering (Perplexity, ChatGPT, Google AI Overviews) straffer ubelagte påstander.
 
 ### 2026-05-16 — FAQ-canonical revidert fra 50–70 til 40–60 ord per svar (featured-snippet sweet spot)
 
@@ -199,11 +216,25 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
-### Uke 20 — 2026-05-15 til 2026-05-16 (raseguide-sprint utvidet 9 → 12)
+### Uke 20 — 2026-05-15 til 2026-05-16 (raseguide-sprint utvidet 9 → 18, topp 10-milestone fullført)
 
-**Tema: Sprint #9 (Schäferhund) avsluttet sprinten på 9 av 9 — så ble den utvidet med 3 ekstra raseguider (#10–#12) + 2 canonical-revisjoner**
+**Tema: Sprint #9 (Schäferhund) avsluttet sprinten på 9 av 9 — så ble den utvidet i tre runder til 18 totalt. Sprint #16 fullførte topp 10-dekningen av Norges mest registrerte hunderaser. 6 nye raseguider levert 2026-05-16 (afternoon/kveld) etter sprint #11 + #12 på morgenen.**
 
-**2026-05-16 (5 commits — sprint #11 + #12 + canonical revisjon)**
+**2026-05-16 (kveld — 12 commits, sprint #13–#18: DSG, Pomeranian, Mops, Finsk Lapphund (topp 10-milepæl), Jack Russell Terrier, Berner Sennenhund)**
+- `54425c4` 18:00ish — Berner Sennenhund hero-bilde PLACEHOLDER → `Berner_Sennenhund.png?v=1778946492` (1.06 MB).
+- `582dc33` ~17:50 — **Sprint guide #18 live**: Berner Sennenhund raseguide. ~3262 ord (moat-justert: §2 kreft/levealder 670 ord + §8 HD/AD storrase 460 ord + §9 GDV + andre rasespesifikk 520 ord). 12 H2 + FAQ, alle 8 FAQ-svar i 40–50 ord-vinduet. **Vinkel A locked:** ærlig faktabasert kreft-snakk (NVH 2014 46% / 6,9 år, Dobson 2012 45,7% / 8,0 år, histiocytært sarkom, SH-pretest via ANTAGENE/CNRS Rennes/NIH/NCSU) uten å være moraliserende. NBSK × 18, Dobson × 8, ANTAGENE × 5, CNRS × 7. Schema: `Berner Sennen raseguide` (23 chars). Recap: Pelsfjerner (hero) / Aktiviseringsleke / Vannskål-anti-søl (XL-seng-blokker). Hub card_18 lagt til. llms-data entry inserted (71→72) ved [38] — alfabetisk **før** bichon-havanais (brief-feil korrigert). Admin-step pending (publish-dato 2026-08-07).
+- `b2a5136` ~15:00 — Jack Russell Terrier hero-bilde PLACEHOLDER → `Jack_Russell_Terrier.png?v=1778943497` (1.35 MB).
+- `853b53a` ~14:50 — **Sprint guide #17 live**: Jack Russell Terrier raseguide. ~3108 ord (innenfor canonical 2800–3200). 12 H2 + FAQ, alle 8 FAQ-svar i 40–56 ord-vinduet. Definerende vinkel: tre russell-typer (JRT FCI 345 / Parson FCI 339 / uregistrert) — myte-bryting analog til SBT. NKK patellaluksasjon registreringskrav fra 2019 + PLL/SCA DNA-tester (Animal Health Trust). LOA-distinksjon mot Parson (CAPN1) viktig. NKK × 21, Norsk Terrier Klub × 2, RG Jack × 2. Schema: `Jack Russell raseguide` (22 chars). Recap: Aktiviseringsleke (hero) / Pelsfjerner / Beroligende hundeseng. Crossover-link til DSG (visuell forveksling). Hub card_17 lagt til. llms-data entry inserted (70→71) mellom griffon-petit-brabancon og labrador-retriever. Admin-step pending (publish-dato 2026-07-31).
+- `ebd63e2` ~14:30 — Finsk Lapphund hero-bilde PLACEHOLDER → `Finnish_Lapphund.png?v=1778942912` (1.4 MB).
+- `65de015` ~14:20 — **Sprint guide #16 live — TOPP 10 NORSKE RASER FULLFØRT**: Finsk Lapphund raseguide. ~3438 ord (moat: §2 reingjeterhund + samisk arv 580 ord + §8 HD/NLK øyelysning 440 ord + §9 prcd-PRA/gentest 480 ord). 12 H2 + FAQ, alle 8 FAQ-svar i 41–50 ord. NLK krav om øyelysning maks 2 år gammel (strengere enn de fleste raser). prcd-PRA via ANTAGENE-prinsipp. Schema: `Lapphund raseguide` (18 chars). Recap: Pelsfjerner (hero) / Aktiviseringsleke / Vannskål-anti-søl. King-vinkel: nordisk dobbeltpels-trio (Norsk Elghund Grå + Finsk Lapphund + Schäfer). NKK × 9, NLK × 20, Jukka Kuusisto × 1, Sápmi × 4. Hub card_16. llms-data inserted (69→70) mellom engelsk-setter og golden-retriever. Admin-step pending (publish-dato 2026-07-24). **Memory `feedback_raseguide_no_specific_year_numbers.md` lagret etter Sondres korreksjon "4 000 år" → generic.**
+- `1c4c759` ~14:00 — Mops hero-bilde PLACEHOLDER → `Mops.png?v=1778931078`.
+- `ab0cc47` ~13:45 — **Sprint guide #15 live**: Mops raseguide. ~3438 ord. 12 H2 + FAQ. Definerende vinkel: NKK BOAS-screening fra 2019 (Norge er internasjonalt ledende på mops-avl). Schema: `Mops raseguide`. Recap: Aktiviseringsleke (hero) / Beroligende hundeseng / Pelsfjerner. Hub card_15. llms-data inserted (68→69).
+- `7cfc7d0` ~12:50 — Pomeranian hero-bilde PLACEHOLDER → `omeranian_dog.png?v=1778929128`.
+- `43fe13d` ~12:40 — **Sprint guide #14 live**: Pomeranian raseguide. ~3649 ord. 12 H2 + FAQ. Definerende vinkel: valpefabrikk-fellen + NKK patellaluksasjon. Hub card_14. llms-data inserted (67→68). **BSI-forkortelse fix etter post-flight (forklart inline ved første bruk).**
+- `6153548` ~12:30 — DSG hero-bilde PLACEHOLDER → `Danish-Swedish_Farmdog.png?v=1778925018`.
+- `05edc15` ~12:15 — **Sprint guide #13 live**: Dansk-svensk Gårdshund raseguide. ~3656 ord. 12 H2 + FAQ. Definerende vinkel: rasens rekordvekst i Norge + visuell forveksling med JRT (forutsatte fremtidig JRT-sprint). Hub card_13. llms-data inserted (66→67). FAQ-canonical revidert til 40–60 ord per svar implementert konsekvent.
+
+**2026-05-16 morgen (5 commits — sprint #11 + #12 + canonical revisjon)**
 - `5ced534` 08:53 — Engelsk Setter raseguide hero-bilde swappet PLACEHOLDER → `English_Setter.png?v=1778886812` (1.38 MB).
 - `49ceb5c` 08:52 — **Sprint guide #12 live**: Engelsk Setter raseguide. ~3779 ord (over default 2800–3200 pga moat på §2 utstilling-vs-jakt 530 ord + §8 HD-indeksavl 350 ord + §9 døvhet/BAER 410 ord). 12 H2 + FAQ, alle 8 FAQ-svar i 44–49 ord-vinduet (perfect featured-snippet sweet spot). Recap: Pelsfjerner (hero) / Aktiviseringsleke / Vannskål-anti-søl. Crossover-link til Norsk Elghund Grå + Schäferhund (HD-indeksavl-system felles). Schema: `Engelsk Setter raseguide` (24 chars). NESK + NKK sitert × 23 totalt. Belton-fargevarianter brukt × 5. «fieldtrailer» brukt med norsk gloss «jakttype». Hub card_12 lagt til (block_order updated). llms-data entry inserted (65→66) mellom cocker-spaniel og golden-retriever. Admin-step pending Sondre (publish-dato 2026-06-26).
 - `805ba34` 00:58 — Bichon Havanais raseguide hero-bilde swappet PLACEHOLDER → `Bichon_Havanais.png?v=1778885691` (1.36 MB).
