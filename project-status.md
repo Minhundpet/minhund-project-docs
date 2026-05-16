@@ -2,13 +2,13 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-05-16
+> **Sist generert:** 2026-05-17
 > **Mirror:** https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md (public repo — claude.ai blokkerer gist-domenet)
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
 
-## STATUS — 2026-05-16 (sen kveld — etter 9 sprinter på én dag; BOAS-trioen komplett)
+## STATUS — 2026-05-17 (natt — etter 9 sprinter på én dag; BOAS-trioen komplett; GA4 tracking live)
 
 ### Innhold
 - **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
@@ -40,7 +40,7 @@
 - **Vinkel A locked for sensitive helse-tunge raseguider** (Berner Sennen kreft/levealder, Mops BOAS, Cavalier MMVD): ærlig faktabasert tone, kildebare statistikker, eksisterende eiere respekteres, ingen moraliserende språk.
 - **Editorial rule (ny 2026-05-16):** Ingen spesifikke års-tall uten kildebelegg (E-E-A-T-prinsipp, analog til pris-tall-regelen). Lærdom fra Finsk Lapphund-sprint.
 - **In-prose crossover-lenker** mellom raseguider treffer "[rase] vs [rase]"-spørringer (eksempler: Labrador↔Golden, Cocker→Labrador, Bichon↔Chihuahua/Pomeranian via NBHK-patella, Engelsk Setter↔Norsk Elghund Grå+Schäferhund via HD-indeksavl, JRT↔DSG visuell forveksling, Finsk Lapphund↔Schäfer+Norsk Elghund Grå nordisk dobbeltpels-trio, Berner↔Mops+Cavalier ærlig-helsedebatt).
-- **GA4 product_callout_click tracking** instrumented på recap-CTAs (events fire via `Shopify.analytics.publish` + `dataLayer.push`, men Custom Pixel-forwarding til GA4 er paused — se Paused threads).
+- **GA4 product_callout_click tracking** instrumented på recap-CTAs og **forwarding LIVE fra 2026-05-17** — events fire via `Shopify.analytics.publish` + `dataLayer.push`, og Shopify Custom Pixel forwarder dem til GA4 (`G-TR8MTY1BSE`) via Measurement Protocol med per-posisjon/per-produkt/per-breed-parametere. Verifisert i DebugView 01:11:51 på `/pages/border-collie`. Se BESLUTNINGER 2026-05-17.
 - llms.txt-kategori: `Raseguide`. Hub-card-mal: badge `Rase`, kategori `Raseguide`. Hub-card støtter `description`-felt fra 2026-05-15.
 - llms-data alfabetisk plassering bekreftet som strikt regel etter Berner-sprint (skulle ligge før bichon-havanais, ikke etter — brief-feil korrigert).
 
@@ -57,13 +57,16 @@
 
 ---
 
-## Paused threads
-
-- **GA4 product_callout_click tracking** (paused 2026-05-14) — Custom Pixel setup paused. Events fire via `Shopify.analytics.publish` (and `dataLayer.push`, `window.gtag` fallback) on all 24 product CTAs across the 4 raseguider, but no forwarder is configured — events go nowhere. Resume by creating GA4 Measurement Protocol API secret + Shopify Custom Pixel in Admin → Settings → Customer events. Tracking infra commit: `0cb96a4`. Snippet: `snippets/mh-track-product-callouts.liquid`.
-
----
-
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-05-17 (natt) — GA4 product_callout_click tracking gjenopptatt og verifisert live
+**Beslutning:** Custom Pixel-forwarder for `product_callout_click` deployed til Shopify (Admin → Settings → Customer events → Add custom pixel) og verifisert live 2026-05-17 01:11:51 i GA4 DebugView etter klikk på recap-grid card på `/pages/border-collie`. Pixel subscriber på custom event publisert fra `snippets/mh-track-product-callouts.liquid` og sender eventen til GA4 (`G-TR8MTY1BSE`) via Measurement Protocol med parametere `product_handle`, `position`, `breed_page`, `placement_type` + `page_location` + `page_title`. `client_id` er en stabil 2-års cookie (`_mh_ga_cid`) som pixel-en setter selv siden GA4-base-loader (gtag) ikke er installert i theme — Measurement Protocol-pathen er uavhengig av det. `DEBUG_MODE` satt til `false` etter verifikasjon, API-secret rotert post-verifikasjon (initial secret eksponert i setup-skjermbilde).
+
+**Hvorfor:** Måling kreves for raseguide-CRO-optimering før neste sprint. Uten forwarder gikk eventene ingensteds — cadence-pausen frem til GSC-evaluering ~Q3 2026 ville startet en datablind periode. Måleimplikasjonen i Pattern C+ CRO-beslutningen (2026-05-14) krevde at denne tråden lukket før vi kunne lese inline-1/2/3 vs recommend-1/2/3-data per breed.
+
+**Konsekvens:** Per-posisjon (`inline-1/2/3` vs `recommend-1/2/3`), per-produkt og per-breed klikkdata flyter nå til GA4 og kan analyseres når GSC-data-evalueringen kommer ~Q3 2026. "Paused threads"-seksjonen i dette dokumentet er fjernet (var kun denne ene tråden). Custom Pixel-koden ligger ikke i git — Shopify lagrer pixel-script i Admin (`Settings → Customer events`); rotér secret direkte der hvis den eksponeres igjen. Tracking-infra-snippet uendret: `snippets/mh-track-product-callouts.liquid` (commit `0cb96a4`).
+
+
 
 ### 2026-05-16 (sen kveld) — BOAS-trioen komplett: kategori-monopol på brakycefal-rase-vinkelen
 **Beslutning:** Sprint #19 (Fransk Bulldog), #20 (Engelsk Bulldog) og #21 (Shetland Sheepdog) leverte tre nye guider på sen kveld. Med #20 (Engelsk Bulldog) ble BOAS-trioen — **Mops + Fransk Bulldog + Engelsk Bulldog** — komplett. Dette er den strategiske milepælen: alle tre rasene NKK har innført obligatorisk BOAS-screening for (siden 2019, med skjerpelse til kjent BOAS-status registreringskrav 1. august 2022 for engelsk + fransk bulldog) er nå dekket med dybde-guider i samme regulatoriske ramme.
@@ -138,7 +141,7 @@ Etter Sondres observasjon at sidebar Pelsfjerner-kortet på Border Collie var be
 - **Griffon catch-up:** 2 manglende inline-callouts (Pelsfjerner i §Pelsstell, Aktiviseringsleke i §Fôring) lagt til så Griffon matcher canonical.
 - **Canonical mønster dokumentert** i `docs/page-patterns.md` (ny "Raseguide Canonical Pattern"-seksjon).
 - **Hvorfor:** Bottom-CTA etter FAQ er peak-trust + peak-intent moment som var helt fraværende. Sidebar-produkt-kort lå under fold og leverte 0 konverteringsmomenter. Bytte = behold informational tonefall, åpne én tydelig konverteringsmoment der leseren har bygget tillit.
-- **Måleimplikasjon:** Skalert-effekt målbar via GA4 `product_callout_click` per posisjon (inline-1/2/3 vs recommend-1/2/3) per breed_page — *forutsatt Custom Pixel-forwarding gjenopptas* (se Paused threads).
+- **Måleimplikasjon:** Skalert-effekt målbar via GA4 `product_callout_click` per posisjon (inline-1/2/3 vs recommend-1/2/3) per breed_page — Custom Pixel-forwarder live fra 2026-05-17 (se BESLUTNINGER).
 
 ### 2026-05-14 — Pelsfjerner-hansken copy må eksplisitt navngi textile-target (ikke "fjerner pels" alene)
 Identifisert mønsterfeil i raseguide-template: short-form "Pelsfjerner-hansken vår fjerner pels på sekunder" kan misleses som on-dog use og bryter med dokumentert produktregel "TEXTILES ONLY — NEVER for use on dogs" (`docs/products.md`).
@@ -223,9 +226,15 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
-### Uke 20 — 2026-05-15 til 2026-05-16 (raseguide-sprint utvidet 9 → 21, topp 10 + BOAS-trioen-milestoner fullført)
+### Uke 20 — 2026-05-15 til 2026-05-17 (raseguide-sprint utvidet 9 → 21, topp 10 + BOAS-trioen-milestoner fullført, GA4 forwarder live)
 
-**Tema: Sprint #9 (Schäferhund) avsluttet opprinnelig på 9 av 9 — så ble den utvidet i fire runder til 21 totalt. Sprint #16 fullførte topp 10-dekningen. Sprint #20 fullførte BOAS-trioen (Mops + Fransk Bulldog + Engelsk Bulldog). 9 nye raseguider levert 2026-05-16 — 3 på sen kveld alene (#19/#20/#21).**
+**Tema: Sprint #9 (Schäferhund) avsluttet opprinnelig på 9 av 9 — så ble den utvidet i fire runder til 21 totalt. Sprint #16 fullførte topp 10-dekningen. Sprint #20 fullførte BOAS-trioen (Mops + Fransk Bulldog + Engelsk Bulldog). 9 nye raseguider levert 2026-05-16 — 3 på sen kveld alene (#19/#20/#21). 2026-05-17 lukket GA4 product_callout_click-tracking-loopen (Custom Pixel-forwarder live).**
+
+**2026-05-17 (natt — GA4 tracking-loop lukket — 0 git-commits, Admin-only deploy)**
+- Shopify Custom Pixel `GA4 product_callout_click forwarder` deployed via Admin → Settings → Customer events → Add custom pixel. Pixel subscriber på `product_callout_click` (publisert fra `snippets/mh-track-product-callouts.liquid`) → POST til GA4 Measurement Protocol med `client_id` (cookie `_mh_ga_cid`, 2y maxAge) + event-params (`product_handle`, `position`, `breed_page`, `placement_type`, `page_location`, `page_title`). API-secret opprettet i GA4 Admin → Data Streams → web (`G-TR8MTY1BSE`) → Measurement Protocol API secrets.
+- **Verifisert live 01:11:51 i GA4 DebugView** etter klikk på recap-grid card på `/pages/border-collie`.
+- `DEBUG_MODE = true` brukt under verifikasjon, satt til `false` etter bekreftelse. API-secret rotert post-verifikasjon (initial secret eksponert i setup-skjermbilde — pixel-en bruker ny secret).
+- **"Paused threads"-seksjon fjernet** fra `docs/project-status.md` (var kun denne tråden). Måleimplikasjon i Pattern C+ CRO-beslutning (2026-05-14) nå operasjonalisert. Ingen kode-commits — pixel-script lagres i Shopify Admin, ikke i git.
 
 **2026-05-16 (sen kveld — 6 commits, sprint #19–#21: Fransk Bulldog, Engelsk Bulldog (BOAS-trio-fullført), Shetland Sheepdog)**
 - `baa0409` ~22:50 — Shetland Sheepdog hero-bilde PLACEHOLDER → `Shetland_Sheepdog.png?v=1778964638`.
