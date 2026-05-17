@@ -8,14 +8,14 @@
 
 ---
 
-## STATUS — 2026-05-17 (natt — etter 9 sprinter på én dag; BOAS-trioen komplett; GA4 tracking live)
+## STATUS — 2026-05-17 (formiddag — sprint #22 Norsk Elghund Sort live; 22 raseguider totalt; GA4 tracking live)
 
 ### Innhold
 - **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
   - Helse: 20 · Atferd: 16 · Stell: 8 · Aktivitet: 5 · Ernæring: 5
-- **21 raseguider** publisert i dedikert `/pages/raseguider`-hub — **topp 10 norske hunderaser fullført 2026-05-16** (Finsk Lapphund som #10) + 11 supplerende populære raser. **BOAS-trioen fullført 2026-05-16:** Mops + Fransk Bulldog + Engelsk Bulldog gir kategori-monopol på brakycefal-rase-vinkelen i norsk hunde-SEO:
+- **22 raseguider** publisert i dedikert `/pages/raseguider`-hub — **topp 10 norske hunderaser fullført 2026-05-16** (Finsk Lapphund som #10) + 12 supplerende populære raser inkl. sprint #22 **Norsk Elghund Sort** (kritisk utrydningstruet nasjonalrase). **BOAS-trioen fullført 2026-05-16:** Mops + Fransk Bulldog + Engelsk Bulldog gir kategori-monopol på brakycefal-rase-vinkelen i norsk hunde-SEO:
   - **Topp 10 norske raser:** Labrador Retriever · Golden Retriever · Border Collie · Cocker Spaniel · Cavalier King Charles Spaniel · Chihuahua · Norsk Elghund Grå · Tysk Schäferhund · Pomeranian · Finsk Lapphund
-  - **Supplerende populære raser:** Griffon Petit Brabançon · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter · Dansk-svensk Gårdshund · Mops · Jack Russell Terrier · Berner Sennenhund · **Fransk Bulldog** · **Engelsk Bulldog** · **Shetland Sheepdog**
+  - **Supplerende populære raser:** Griffon Petit Brabançon · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter · Dansk-svensk Gårdshund · Mops · Jack Russell Terrier · Berner Sennenhund · **Fransk Bulldog** · **Engelsk Bulldog** · **Shetland Sheepdog** · **Norsk Elghund Sort**
 - **11 produkter** i katalog. **10 custom PDPs** har nå fått full audit-sweep (cart drawer-fix + produkt-spesifikke trust badges + a11y).
 
 ### Produkt-PDP-status
@@ -226,9 +226,13 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
-### Uke 20 — 2026-05-15 til 2026-05-17 (raseguide-sprint utvidet 9 → 21, topp 10 + BOAS-trioen-milestoner fullført, GA4 forwarder live)
+### Uke 20 — 2026-05-15 til 2026-05-17 (raseguide-sprint utvidet 9 → 22, topp 10 + BOAS-trioen-milestoner fullført, GA4 forwarder live, NES sprint #22)
 
-**Tema: Sprint #9 (Schäferhund) avsluttet opprinnelig på 9 av 9 — så ble den utvidet i fire runder til 21 totalt. Sprint #16 fullførte topp 10-dekningen. Sprint #20 fullførte BOAS-trioen (Mops + Fransk Bulldog + Engelsk Bulldog). 9 nye raseguider levert 2026-05-16 — 3 på sen kveld alene (#19/#20/#21). 2026-05-17 lukket GA4 product_callout_click-tracking-loopen (Custom Pixel-forwarder live).**
+**Tema: Sprint #9 (Schäferhund) avsluttet opprinnelig på 9 av 9 — så ble den utvidet i fem runder til 22 totalt. Sprint #16 fullførte topp 10-dekningen. Sprint #20 fullførte BOAS-trioen (Mops + Fransk Bulldog + Engelsk Bulldog). 9 nye raseguider levert 2026-05-16 — 3 på sen kveld alene (#19/#20/#21). 2026-05-17 natt lukket GA4 product_callout_click-tracking-loopen (Custom Pixel-forwarder live). 2026-05-17 formiddag leverte sprint #22 Norsk Elghund Sort (kritisk utrydningstruet nasjonalrase) — cadence-pause overstyrt for å kapre den sjeldne moat-vinkelen før konkurrenter.**
+
+**2026-05-17 (formiddag — sprint guide #22: Norsk Elghund Sort)**
+- `1704a85` ~09:25 — Norsk Elghund Sort hero-bilde PLACEHOLDER → `Norsk_Elghund.png?v=1779001270`.
+- `ce1707c` ~09:20 — **Sprint guide #22 live**: Norsk Elghund Sort raseguide. ~3 566 ord (moat-tunge §2/§8/§9: kritisk utrydningstruet-status fra Norsk genressurssenter/Nibio 620 ord + HD-indeksavl 2019/NKK 01.06.2024 ataksi/glaukom-gentest-krav 480 ord + NMBU LTV-forskning (Jon Andre Berg) 370 ord). 12 H2 + FAQ, alle 8 FAQ-svar i 46–55 ord. **Definerende vinkel:** den eneste norske hunderasen klassifisert som kritisk utrydningstruet (Nibio) + bandhund-spesialist (taus jakt i line, kontrast til NEG som løshund). Vinkel A locked: ærlig faktabasert på Nationen-debatten vinteren 2025 (Endre Stakkerud NEKF jaktkrav vs Karianne Nygaard NMBU/Nibio kritikk) — viser stats, ikke moraliserer. NEKF/AUNES posisjonering: rasen sunn på individnivå, populasjonsbredden (effektiv populasjon ~60) er reell utfordring. Anker-hund-historikk (Halden, NKK 1905), stamboka lukket 1980, rasestandard 1983/1987. Schema: `Sort Elghund raseguide` (22 chars). Recap: Pelsfjerner (hero) / Aktiviseringsleke / Beroligende hundeseng (Large, 20–23 kg). 5 crossover-links (norsk-elghund-gra ×2, finsk-lapphund, schaferhund, pelsskifte-hund, hund-slutte-bjeffe) — alle pre-flight-verifisert 200 OK. Hub card_22 description 21 ord. llms-data entry [55] inserted (75→76) mellom norsk-elghund-gra og pomeranian; H2-list bruker `;` på «HD; NKK 2024-krav; ataksi/glaukom-gentest» for å unngå comma-split. FAQ JSON-LD 1:1 verifisert (8 Q/A byte-identical). Admin-step pending Sondre (publish-dato 2026-09-04).
 
 **2026-05-17 (natt — GA4 tracking-loop lukket — 0 git-commits, Admin-only deploy)**
 - Shopify Custom Pixel `GA4 product_callout_click forwarder` deployed via Admin → Settings → Customer events → Add custom pixel. Pixel subscriber på `product_callout_click` (publisert fra `snippets/mh-track-product-callouts.liquid`) → POST til GA4 Measurement Protocol med `client_id` (cookie `_mh_ga_cid`, 2y maxAge) + event-params (`product_handle`, `position`, `breed_page`, `placement_type`, `page_location`, `page_title`). API-secret opprettet i GA4 Admin → Data Streams → web (`G-TR8MTY1BSE`) → Measurement Protocol API secrets.
@@ -275,7 +279,7 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 - `4b9ab25` 01:04 — **Template-deletion-guardrails strammet** i CLAUDE.md etter `626e101` post-mortem: 5 hard preconditions + preview-theme-verifisering-workflow + dedikert `deletion-preview` theme (`#149856485454`).
 - `ecf74a5` 00:04 — **Restore 4 page-templates slettet i 626e101**: `page.fjerne-hundehaar.json`, `page.aktivisering.json`, `page.hund-kloer-seg.json`, `page.potevask.json` (+ tilhørende sections). Detection-flow: S234 (May 14 23:52). GitHub PAT også rotert dagtid.
 
-**Sprint-status:** **21 av 21 raseguider levert. Sprint EXTENDED ×4.** Opprinnelig 9-rasers sprint ble forlenget i fire runder: +3 (SBT/Bichon/Engelsk Setter) → +4 (DSG/Pomeranian/Mops/Finsk Lapphund som fullførte topp 10) → +2 (JRT/Berner Sennen) → +3 (Fransk Bulldog/Engelsk Bulldog/Shetland Sheepdog som fullførte BOAS-trioen + gjeterhund-utvidelse). To canonical-revisjoner midt i sprinten (word-count target 2800–3200 + FAQ 40–60). Alle 21 guider følger samme recap-only mønster med moat-tunge §2/§8/§9-seksjoner som unik vinkel-content. GSC-evaluering planlagt ~Q3 2026 før eventuelle nye raseguider eller individuell trimming. Cadence-pause anbefalt nå — topp 10 + BOAS-trioen-milestoner gir naturlig pausepunkt.
+**Sprint-status:** **22 av 22 raseguider levert. Sprint EXTENDED ×5.** Opprinnelig 9-rasers sprint ble forlenget i fem runder: +3 (SBT/Bichon/Engelsk Setter) → +4 (DSG/Pomeranian/Mops/Finsk Lapphund som fullførte topp 10) → +2 (JRT/Berner Sennen) → +3 (Fransk Bulldog/Engelsk Bulldog/Shetland Sheepdog som fullførte BOAS-trioen + gjeterhund-utvidelse) → +1 (Norsk Elghund Sort — kritisk utrydningstruet moat-vinkel, cadence-pause overstyrt). To canonical-revisjoner midt i sprinten (word-count target 2800–3200 + FAQ 40–60). Alle 22 guider følger samme recap-only mønster med moat-tunge §2/§8/§9-seksjoner som unik vinkel-content. GSC-evaluering planlagt ~Q3 2026 før eventuelle nye raseguider eller individuell trimming. Cadence-pause re-anbefalt nå — sprint #22 var bevisst untak for sjelden moat (Nibio kritisk utrydningstruet-status).
 
 ---
 
