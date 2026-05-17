@@ -2,20 +2,20 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-05-17
+> **Sist generert:** 2026-05-17 (formiddag — sprint #23 Norsk Buhund)
 > **Mirror:** https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md (public repo — claude.ai blokkerer gist-domenet)
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
 
-## STATUS — 2026-05-17 (formiddag — sprint #22 Norsk Elghund Sort live; 22 raseguider totalt; GA4 tracking live)
+## STATUS — 2026-05-17 (formiddag — sprint #23 Norsk Buhund live; 23 raseguider totalt; back-link audit-regel første anvendelse)
 
 ### Innhold
 - **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
   - Helse: 20 · Atferd: 16 · Stell: 8 · Aktivitet: 5 · Ernæring: 5
-- **22 raseguider** publisert i dedikert `/pages/raseguider`-hub — **topp 10 norske hunderaser fullført 2026-05-16** (Finsk Lapphund som #10) + 12 supplerende populære raser inkl. sprint #22 **Norsk Elghund Sort** (kritisk utrydningstruet nasjonalrase). **BOAS-trioen fullført 2026-05-16:** Mops + Fransk Bulldog + Engelsk Bulldog gir kategori-monopol på brakycefal-rase-vinkelen i norsk hunde-SEO:
+- **23 raseguider** publisert i dedikert `/pages/raseguider`-hub — **topp 10 norske hunderaser fullført 2026-05-16** (Finsk Lapphund som #10) + 13 supplerende populære raser inkl. sprint #23 **Norsk Buhund** (bevaringsverdig nasjonalrase, viking-arv fra Snorre/Gokstad-skipet, NMBU-forskning på «buhundkatarakt»). **BOAS-trioen fullført 2026-05-16:** Mops + Fransk Bulldog + Engelsk Bulldog gir kategori-monopol på brakycefal-rase-vinkelen. **Norsk nasjonalrase-trio fullført 2026-05-17:** Grå-elghund + Sort-elghund + Buhund gir kategori-monopol på norsk nasjonalrase-vinkelen:
   - **Topp 10 norske raser:** Labrador Retriever · Golden Retriever · Border Collie · Cocker Spaniel · Cavalier King Charles Spaniel · Chihuahua · Norsk Elghund Grå · Tysk Schäferhund · Pomeranian · Finsk Lapphund
-  - **Supplerende populære raser:** Griffon Petit Brabançon · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter · Dansk-svensk Gårdshund · Mops · Jack Russell Terrier · Berner Sennenhund · **Fransk Bulldog** · **Engelsk Bulldog** · **Shetland Sheepdog** · **Norsk Elghund Sort**
+  - **Supplerende populære raser:** Griffon Petit Brabançon · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter · Dansk-svensk Gårdshund · Mops · Jack Russell Terrier · Berner Sennenhund · Fransk Bulldog · Engelsk Bulldog · Shetland Sheepdog · Norsk Elghund Sort · **Norsk Buhund**
 - **11 produkter** i katalog. **10 custom PDPs** har nå fått full audit-sweep (cart drawer-fix + produkt-spesifikke trust badges + a11y).
 
 ### Produkt-PDP-status
@@ -31,7 +31,7 @@
 - **Newsletter popup:** KING10 to-stegs flow, 30s scroll trigger. Live siden 2026-05-11.
 
 ### Neste fase
-**Raseguide-sprint utvidet til 21 av 21 levert. Topp 10 norske hunderaser-milestone fullført 2026-05-16. BOAS-trioen-milestone fullført 2026-05-16 (sen kveld).** Sprint kjørte opprinnelig på 9 raseguider; Sondre forlenget den i fire runder (SBT/Bichon/Engelsk Setter 11–12, så DSG/Pomeranian/Mops/Finsk Lapphund 13–16 som fullførte topp 10-dekningen, så Jack Russell Terrier/Berner Sennenhund 17–18 som supplerende populære raser, så Fransk Bulldog/Engelsk Bulldog/Shetland Sheepdog 19–21 som BOAS-trioen-fullføring + gjeterhund-utvidelse). 9 nye guider levert på én dag (2026-05-16) — 3 sprinter på sen kveld alene.
+**Raseguide-sprint utvidet til 23 av 23 levert. Topp 10 norske hunderaser-milestone fullført 2026-05-16. BOAS-trioen-milestone fullført 2026-05-16 (sen kveld). Norsk nasjonalrase-trio-milestone fullført 2026-05-17 (sprint #22 + #23).** Sprint kjørte opprinnelig på 9 raseguider; Sondre forlenget den i fem runder (SBT/Bichon/Engelsk Setter 11–12, så DSG/Pomeranian/Mops/Finsk Lapphund 13–16 som fullførte topp 10-dekningen, så Jack Russell Terrier/Berner Sennenhund 17–18 som supplerende populære raser, så Fransk Bulldog/Engelsk Bulldog/Shetland Sheepdog 19–21 som BOAS-trioen-fullføring + gjeterhund-utvidelse, så Norsk Elghund Sort 22 og Norsk Buhund 23 som norsk nasjonalrase-trio-fullføring). 9 nye guider levert på én dag (2026-05-16) — 3 sprinter på sen kveld alene. **Sprint #23 er første anvendelse av nytt back-link audit-regelverk** (CLAUDE.md effective sprint #23+) — to eksisterende raseguider (NEG, NES) fikk crossover-link tilbake til Buhund.
 
 **Etablerte mønstre på tvers av alle 21:**
 - Canonical raseguide-mønster: 12 H2 + FAQ, **kun bunn-recap-grid** (inline callouts fjernet 2026-05-14, se BESLUTNINGER), Tips fra King-seksjon, FAQPage JSON-LD 1:1 match. Sidebar er TOC + King-quip. Full spec i `docs/page-patterns.md` "Raseguide Canonical Pattern".
@@ -226,9 +226,12 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
-### Uke 20 — 2026-05-15 til 2026-05-17 (raseguide-sprint utvidet 9 → 22, topp 10 + BOAS-trioen-milestoner fullført, GA4 forwarder live, NES sprint #22)
+### Uke 20 — 2026-05-15 til 2026-05-17 (raseguide-sprint utvidet 9 → 23, topp 10 + BOAS-trioen + norsk nasjonalrase-trio-milestoner fullført, GA4 forwarder live, back-link audit-regel første anvendelse)
 
-**Tema: Sprint #9 (Schäferhund) avsluttet opprinnelig på 9 av 9 — så ble den utvidet i fem runder til 22 totalt. Sprint #16 fullførte topp 10-dekningen. Sprint #20 fullførte BOAS-trioen (Mops + Fransk Bulldog + Engelsk Bulldog). 9 nye raseguider levert 2026-05-16 — 3 på sen kveld alene (#19/#20/#21). 2026-05-17 natt lukket GA4 product_callout_click-tracking-loopen (Custom Pixel-forwarder live). 2026-05-17 formiddag leverte sprint #22 Norsk Elghund Sort (kritisk utrydningstruet nasjonalrase) — cadence-pause overstyrt for å kapre den sjeldne moat-vinkelen før konkurrenter.**
+**Tema: Sprint #9 (Schäferhund) avsluttet opprinnelig på 9 av 9 — så ble den utvidet i fem runder til 23 totalt. Sprint #16 fullførte topp 10-dekningen. Sprint #20 fullførte BOAS-trioen (Mops + Fransk Bulldog + Engelsk Bulldog). Sprint #23 fullførte norsk nasjonalrase-trioen (Grå + Sort + Buhund). 9 nye raseguider levert 2026-05-16 — 3 på sen kveld alene (#19/#20/#21). 2026-05-17 natt lukket GA4 product_callout_click-tracking-loopen (Custom Pixel-forwarder live). 2026-05-17 formiddag leverte sprint #22 Norsk Elghund Sort + sprint #23 Norsk Buhund — sistnevnte er første anvendelse av nytt back-link audit-regelverk (CLAUDE.md effective sprint #23+).**
+
+**2026-05-17 (formiddag — sprint guide #23: Norsk Buhund — første anvendelse av back-link audit-regel)**
+- `dc375e1` ~11:50 — **Sprint guide #23 live**: Norsk Buhund raseguide. ~3 540 ord (moat-tunge §2/§8: nasjonalrase-status + viking-arv fra Snorre Sturlasons kongesagaer (Olav Tryggvason + buhunden Vige) + Gokstad-skipet 1880 600 ord + «buhundkatarakt»/pulverulent nukleær katarakt + Dina Jørgensen NMBU PhD-disputas 20.02.2024 + markør-assistert seleksjon 650 ord). 12 H2 + FAQ, alle 8 FAQ-svar i 40–60 ord. **Definerende vinkel:** én av syv norske nasjonalraser med dokumentert tilstedeværelse fra vikingtiden + den mest rasespesifikke arvelige øye-tilstanden ("buhundkatarakt") som har egen NMBU-forskning og markør-assistert seleksjon-grunnlag. Nibio-tall: 100–150 nyregisterte valper per år. Klubbens avlsregel: PNK-hund kan pares med PNK-fri hund. 2024 øyelysning: 148 hunder, 67,6 % "Intet påvist". HD-paradokset (§9): svak grad i undersøkelse men forsikringsstatistikk viser IKKE økt risiko + 93 % rapporterer aldri halthet. Schema: `Norsk Buhund raseguide` (22 chars). Hero: live CDN `Norsk_Buhund.png?v=1779010269` (gitt opprinnelig — to-commit-mønster komprimert til én commit). Recap: Pelsfjerner (hero) / Aktiviseringsleke / Beroligende hundeseng (14–18 kg, Large). 7 crossover-links (norsk-elghund-gra ×3, norsk-elghund-sort ×2, finsk-lapphund, schaferhund, pelsskifte-hund, hund-slutte-bjeffe). Hub card_23 description 21 ord. llms-data entry [54] inserted (76→77) mellom mops og norsk-elghund-gra; H2-list bruker `—` og `;` for å unngå comma-split (0 malformed, 0 comma-issues). FAQ JSON-LD 1:1 verifisert (8 Q/A byte-identical). **Back-link audit (første anvendelse):** to eksisterende raseguider fikk crossover-link tilbake til Buhund — NEG (paragraph i §3 om nasjonalrase-cluster + les-også) og NES (les-også, minimal edit på fersk guide). Finsk Lapphund avvist som back-link-target (rejected for editorial fit — nordisk arbeidshund-trio-narrativ allerede etablert med NEG+Schäfer, Buhund er gårdshund ikke reingjeter). 6 filer totalt (4 NEW Buhund + 2 UPDATED back-link), commit dc375e1. Admin-step pending Sondre (publish-dato 2026-09-11).
 
 **2026-05-17 (formiddag — sprint guide #22: Norsk Elghund Sort)**
 - `1704a85` ~09:25 — Norsk Elghund Sort hero-bilde PLACEHOLDER → `Norsk_Elghund.png?v=1779001270`.
