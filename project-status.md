@@ -59,6 +59,13 @@
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-05-17 (kveld) — King beskrives ALDRI som brachycefal — Petit Brabançon er mesocephalic
+**Beslutning:** I alle «Tips fra King»-seksjoner og sidebar-widgeter skal King beskrives som «småhund med kort snute» eller liknende presis formulering — ALDRI som «brachycefal» eller del av brachycefal-rase-liste. Petit Brabançon klassifiseres ikke som brachycefal-rase (har den lengste snuten av Griffon-trioen); Bruxelles Griffon og Belgian Griffon er kortere/mer flate i snuten, men Petit Brabançon er mesocephalic (medium snute-lengde).
+
+**Hvorfor:** Faktafeil oppdaget i sprint #27 Dachshund (kveld 2026-05-17) — King-sidebar-widget på dachshund-siden sa «brachycefal småhund». Corpus-audit avdekket 8 totale forekomster av samme fakta-feil på tvers av 5 filer (3 direkte King-as-brachycefal + 5 Petit Brabançon-listet-blant-brachycefale-raser i ulike hundetips-FAQ/body). Alle 8 rettet i commit `4f1834f`. Min Hund opererer som E-E-A-T-bevisst hundefag-domene; brachycefal-klassifisering er regulert (NKK BOAS-screening obligatorisk for brachycefale raser); feil rase-klassifisering svekker domene-autoritet og kan misveilede eiere.
+
+**Konsekvens:** Alle fremtidige raseguider og hundetips-artikler må følge regelen. King kan refereres som «liten med kort snute», «småhund med kort snute», «kortsnutet småhund», eller bare «småhund» — aldri «brachycefal». Hvis du sammenligner King med en brachycefal-rase (Boxer, Mops, Fransk Bulldog, Engelsk Bulldog), skal du eksplisitt si at King ikke er brachycefal, men deler andre småhund-trekk. Bevart i corpus: alle BREED-as-brachycefal-referanser om Boxer/Mops/Bulldog/Cavalier osv (faktuelt korrekt om de rasene).
+
 ### 2026-05-17 (natt) — GA4 product_callout_click tracking gjenopptatt og verifisert live
 **Beslutning:** Custom Pixel-forwarder for `product_callout_click` deployed til Shopify (Admin → Settings → Customer events → Add custom pixel) og verifisert live 2026-05-17 01:11:51 i GA4 DebugView etter klikk på recap-grid card på `/pages/border-collie`. Pixel subscriber på custom event publisert fra `snippets/mh-track-product-callouts.liquid` og sender eventen til GA4 (`G-TR8MTY1BSE`) via Measurement Protocol med parametere `product_handle`, `position`, `breed_page`, `placement_type` + `page_location` + `page_title`. `client_id` er en stabil 2-års cookie (`_mh_ga_cid`) som pixel-en setter selv siden GA4-base-loader (gtag) ikke er installert i theme — Measurement Protocol-pathen er uavhengig av det. `DEBUG_MODE` satt til `false` etter verifikasjon, API-secret rotert post-verifikasjon (initial secret eksponert i setup-skjermbilde).
 
