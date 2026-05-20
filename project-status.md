@@ -2,20 +2,20 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-05-19 (formiddag — sprint #39 Pointer + sprint #40 canonical migration; 38 raseguider live)
+> **Sist generert:** 2026-05-19 (kveld — sprint #41 Labrador Trigger B + sprint #42 Pudel + sprint #43 Yorkshire Terrier + sprint #44 Lagotto Romagnolo; 41 raseguider live etter sprint #44 admin-step)
 > **Mirror:** https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md (public repo — claude.ai blokkerer gist-domenet)
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
 
-## STATUS — 2026-05-19 (formiddag — sprint #39 Pointer live; 38 raseguider totalt; helse-tetralogi HD/PRA/chondrodysplasi/AMN + NPK 1907-arv + NKK direkte-sitat «egner seg ikke som ren selskapshund»)
+## STATUS — 2026-05-19 (kveld — sprint #44 Lagotto Romagnolo deployed (admin-step pending); 41 raseguider etter admin-step; ny HARD-regel wordcount-disiplin 3700–3950 effective Sprint #45+; CLAUDE.md refactored til path-scoped rules; `/llms.txt` → `/agents.md` Shopify-platform-regresjon dokumentert)
 
 ### Innhold
 - **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
   - Helse: 20 · Atferd: 16 · Stell: 8 · Aktivitet: 5 · Ernæring: 5
-- **38 raseguider** publisert i dedikert `/pages/raseguider`-hub — **topp 10 norske hunderaser + BOAS-trio + norsk nasjonalrase-trio + tysk brukshund-cluster + britisk fuglehund-cluster** (Engelsk Setter + Engelsk Springer Spaniel + Engelsk Cocker Spaniel + Pointer) etablert. Nyeste sprinter 2026-05-18/19 leverte 7 nye raseguider: **Sibirsk Husky** (#32, arktisk slede-hund), **Sankt Bernhardshund** (#33, Alps redningshund), **Rhodesian Ridgeback** (#34, sør-afrikansk løvehund med karakteristisk ryggstripe), **Korthåret Vorstehhund** (#35, tysk allsidig jakthund), **Cane Corso** (#36, italiensk vakthund), **Engelsk Springer Spaniel** (#38, britisk fuglehund med Fant 1992-arven) og **Pointer** (#39, NPK stiftet 1907 — en av Norges eldste raseklubber, helse-tetralogi HD/PRA/chondrodysplasi/AMN). Sprint #37 var Trigger B-omdefinering av eksisterende Engelsk Cocker Spaniel (ikke ny rase):
+- **41 raseguider** publisert i dedikert `/pages/raseguider`-hub (40 live + 1 pending admin-step etter Sprint #44 Lagotto) — **topp 10 norske hunderaser + BOAS-trio + norsk nasjonalrase-trio + tysk brukshund-cluster + britisk fuglehund-cluster + vannhund-trio (Pudel + Lagotto Romagnolo + Yorkshire single-coat-bridge)** etablert. Nyeste sprinter 2026-05-19 (kveld) leverte 3 nye raseguider + 1 Trigger B-omdefinering: **Pudel** (#42, single-coat-rase med fransk vannapportør-arv + Stanley Coren-intelligens + autoimmune-moat Addison/SA + NPK 1956), **Yorkshire Terrier** (#43, toy-format single-coat med britisk yorkshire-arbeider-arv 1860-tallet + patellaluksasjon + LCP + tracheal collapse-moat), **Lagotto Romagnolo** (#44, italiensk trøffelhund + ATG4D/LSD Helsinki/Bern 2015 + LGI2/BFJE 2011 + SLC2A9/HUU + NLK 1956 — single-coat-cluster komplett). Sprint #41 var Trigger B-omdefinering av Labrador Retriever (POMC-moat + chocolate-lifespan-gap + Working vs Show-divergens, ikke ny rase). Tidligere sprinter 2026-05-18/19 (formiddag): #32 Sibirsk Husky · #33 Sankt Bernhardshund · #34 Rhodesian Ridgeback · #35 Korthåret Vorstehhund · #36 Cane Corso · #38 Engelsk Springer Spaniel · #39 Pointer. Sprint #37 var Trigger B Engelsk Cocker Spaniel. Sprint #40 var canonical migration av 20 legacy-filer (4163 ins / 6370 del):
   - **Topp 10 norske raser:** Labrador Retriever · Golden Retriever · Border Collie · Cocker Spaniel · Cavalier King Charles Spaniel · Chihuahua · Norsk Elghund Grå · Tysk Schäferhund · Pomeranian · Finsk Lapphund
-  - **Supplerende populære raser:** Griffon Petit Brabançon · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter · Dansk-svensk Gårdshund · Mops · Jack Russell Terrier · Berner Sennenhund · Fransk Bulldog · Engelsk Bulldog · Shetland Sheepdog · Norsk Elghund Sort · Norsk Buhund · Beagle · Boxer · Rottweiler · Dachshund · Tibetansk Spaniel · Australian Shepherd · Welsh Corgi Pembroke · Shiba Inu · Sibirsk Husky · Sankt Bernhardshund · Rhodesian Ridgeback · Korthåret Vorstehhund · Cane Corso · Engelsk Springer Spaniel · **Pointer**
+  - **Supplerende populære raser:** Griffon Petit Brabançon · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter · Dansk-svensk Gårdshund · Mops · Jack Russell Terrier · Berner Sennenhund · Fransk Bulldog · Engelsk Bulldog · Shetland Sheepdog · Norsk Elghund Sort · Norsk Buhund · Beagle · Boxer · Rottweiler · Dachshund · Tibetansk Spaniel · Australian Shepherd · Welsh Corgi Pembroke · Shiba Inu · Sibirsk Husky · Sankt Bernhardshund · Rhodesian Ridgeback · Korthåret Vorstehhund · Cane Corso · Engelsk Springer Spaniel · Pointer · **Pudel** · **Yorkshire Terrier** · **Lagotto Romagnolo**
 - **11 produkter** i katalog. **10 custom PDPs** har nå fått full audit-sweep (cart drawer-fix + produkt-spesifikke trust badges + a11y).
 
 ### Produkt-PDP-status
@@ -31,7 +31,11 @@
 - **Newsletter popup:** KING10 to-stegs flow, 30s scroll trigger. Live siden 2026-05-11.
 
 ### Neste fase
-**Raseguide-sprint utvidet til 38 av 50-milepælen. Britisk fuglehund-cluster fullført 2026-05-19 (sprint #37 Cocker + #38 Springer + #39 Pointer + Engelsk Setter etablert tidligere = full britisk stående/støtende-dekning). Sprint #39 Pointer levert 2026-05-19 formiddag — britisk stående fuglehund med spansk pointer-arv via War of Spanish Succession 1714, foredlet av britene 1700-tallet med Foxhound/Greyhound/Bloodhound/Setter-kryssing, NPK stiftet 1907 (én av Norges eldste raseklubber, 9 år yngre enn NKK selv), helse-tetralogi (HD/PRA/chondrodysplasi/AMN — den siste rasespesifikk nevropatisk lidelse med SCN9A-parallell og DNA-test). NKK direkte-sitat «egner seg ikke som ren selskapshund» som tonet rammen for hele guiden — ikke en kosereklame.
+**Raseguide-sprint utvidet til 41 av 50-milepælen (9 igjen). Single-coat-cluster fullført 2026-05-19 kveld: Pudel (#42) + Yorkshire Terrier (#43) + Lagotto Romagnolo (#44) deler hypoallergen single-coat-vinkel og krysslenker hverandre. Sprint #44 Lagotto Romagnolo deployed 2026-05-19 kveld — italiensk trøffelhund med tre kommersielt testbare rasespesifikke mutasjoner (ATG4D/Lagotto Storage Disease Helsinki/Bern 2015; LGI2/BFJE Helsinki 2011; SLC2A9/hyperurikosuri), vannapportør-arv fra Comacchio-myrene, eneste rase i verden avlet for trøffeljakt. Venter på manuell admin-step (page-creation i Shopify Admin) før `/pages/lagotto-romagnolo` går fra 404 til 200. Sprint #43 Yorkshire Terrier + #42 Pudel levert samme dag (begge NEW). Sprint #41 var Trigger B-omdefinering av Labrador Retriever (POMC-moat, ikke ny rase).
+
+**Ny HARD-regel etablert (effective Sprint #45+):** Raseguide wordcount-disiplin 3700–3950 ord (se BESLUTNINGER 2026-05-19 kveld). Cane Corso 4777 + Lagotto 4726 markert som pre-regel-unntak. CLAUDE.md refactored til path-scoped rules (`.claude/rules/raseguide-canonical.md` + `template-deletion.md`). To pre-eksisterende platform-funn dokumentert i `docs/gotchas.md`: `/llms.txt` → `/agents.md` Shopify-redirect (custom article-data ikke synlig på magic-route; page-route `/pages/llms-txt` fungerer), og `/products/aktiviseringsleke` 404 (44 raseguider linker hit, batch-fix etter Sprint #50).
+
+**Historikk (uendret):** Britisk fuglehund-cluster fullført 2026-05-19 (sprint #37 Cocker + #38 Springer + #39 Pointer + Engelsk Setter etablert tidligere = full britisk stående/støtende-dekning). Sprint #39 Pointer levert 2026-05-19 formiddag — britisk stående fuglehund med spansk pointer-arv via War of Spanish Succession 1714, foredlet av britene 1700-tallet med Foxhound/Greyhound/Bloodhound/Setter-kryssing, NPK stiftet 1907 (én av Norges eldste raseklubber, 9 år yngre enn NKK selv), helse-tetralogi (HD/PRA/chondrodysplasi/AMN — den siste rasespesifikk nevropatisk lidelse med SCN9A-parallell og DNA-test). NKK direkte-sitat «egner seg ikke som ren selskapshund» som tonet rammen for hele guiden — ikke en kosereklame.
 
 Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–02:05 (britisk støtende fuglehund, Fant 1992-arven). Sprint #37 Engelsk Cocker Spaniel Trigger B-omdefinering 2026-05-19 02:00. Sprint #36 Cane Corso (italiensk vakthund), #35 Korthåret Vorstehhund (tysk allsidig jakthund), #34 Rhodesian Ridgeback, #33 Sankt Bernhardshund, #32 Sibirsk Husky alle levert 2026-05-18. Raseguider-totalen er nå 38 av målet 50.**
 
@@ -62,6 +66,34 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-05-19 (kveld) — Raseguide wordcount-disiplin: 3700–3950 ord (HARD, effective Sprint #45+)
+**Beslutning:** Canonical raseguide body wordcount-budsjett låst til **3700–3950 ord** (alle 11 H2 + FAQ + recap-grid + disclaimers, målt på `<article>`-innhold etter strip av HTML/Liquid). Drift til 4500–4800 ord (Cane Corso 4777, Labrador 4500, Lagotto Romagnolo 4726) er IKKE etablert praksis — det er scope creep. Cane Corso 4777 var et uhell, ikke en standard å replisere.
+
+**Hvorfor:** (1) SEO — Google rangerer relevans + autoritet, ikke ord-antall. (2) AI-citation — ChatGPT/Perplexity/Claude/Google AI Overviews siterer konsise fakta-blokker, ikke fortellende prosa. (3) Lesbarhet — eiere scanner for spesifikk info, ikke fortelling. (4) Token-kost — 20 % lengre output = 20 % mer Claude Code-tokens per sprint, multiplisert med 50 sprints. (5) Jarvis-disiplin — uten styring drar Phase 3 alltid 20 % over Phase 2-plan (kompoundering).
+
+**Konsekvens:** Regel implementert i `.claude/rules/raseguide-canonical.md` (auto-loads med `sections/hundetips-*.liquid`). Phase 2 leverer eksplisitt ord-budsjett per H2 som summerer til 3700–3950. Phase 3 selv-audit trimmer hvis seksjon er ≥20 % over Phase 2-budsjett (trim-prioritet: H3-subheadings, eksempel-lister 3→2 punkter, redundante restatements §1↔§8/§9↔FAQ). «Densitet» betyr færre ord per fakta, ikke flere fakta per seksjon. Hvis ny research-vinkel oppdages i Phase 3, reduser annen seksjon tilsvarende — total holdes ufravikelig. Audit-kommando dokumentert i regel-fila. Cane Corso 4777 + Lagotto Romagnolo 4726 aksepteres som pre-regel; fra Sprint #45 er budsjettet ufravikelig.
+
+### 2026-05-19 (kveld) — CLAUDE.md refactored til path-scoped rules (slanking)
+**Beslutning:** CLAUDE.md slanket ved å flytte to store regelseksjoner til dedikerte path-scoped rule-filer som auto-loader på filkontekst: `.claude/rules/raseguide-canonical.md` (cane-corso canonical pattern + wordcount-disiplin) og `.claude/rules/template-deletion.md` (5 hard preconditions + preview-theme-verifisering). CLAUDE.md beholder kun pekere (`## Raseguide canonical template → se ...`).
+
+**Hvorfor:** CLAUDE.md hadde vokst til 205+ linjer (SessionStart-dashboard flagget «må slankes»). Phase 4-tillegget av wordcount-regelen forverret det. Path-scoped rules laster kun når relevant fil åpnes — mindre fast kontekst-kost, mer presis aktivering.
+
+**Konsekvens:** Raseguide-arbeid auto-loader nå `raseguide-canonical.md`; sletting auto-loader `template-deletion.md`. Innholdet er uendret — kun flyttet. Memory-struktur-tabellen i CLAUDE.md oppdatert med de to nye rule-filene.
+
+### 2026-05-19 (kveld) — `/llms.txt` → `/agents.md` Shopify-platform-regresjon (pre-eksisterende; oppdaget Sprint #44 post-flight)
+**Beslutning:** Dokumentert i `docs/gotchas.md`. Shopify har endret `/llms.txt` + `/llms-full.txt` til HTTP 301-redirect mot `/agents.md`, som viser kun generisk Shopify-boilerplate — INGEN av Min Hunds 90+ artikler/produkter fra `templates/llms.txt.liquid`. Page-route `/pages/llms-txt` fungerer fortsatt korrekt (Lagotto-entry verifisert 200 OK).
+
+**Hvorfor:** AI-crawlers som leser `/llms.txt`-konvensjonen finner nå kun Shopify-default-tekst. Regresjonen er platform-level, ikke Sprint #44-introdusert — `.claude/rules/llms-txt.md` ble skrevet før Shopifys endring og er nå delvis utdatert (audit-sjekk #6/#7 ugyldige).
+
+**Konsekvens:** Page-route `/pages/llms-txt` er fallback og fortsatt indekserbar via sitemap. Fix-plan i `docs/gotchas.md` for dedikert infrastructure-sprint: sjekk Shopify Admin override-innstillinger, test om tema-templates fortsatt leses, vurder migrering til `templates/agents.md.liquid`, oppdater `.claude/rules/llms-txt.md`. Ikke akutt — ikke blokkerende for raseguide-produksjon.
+
+### 2026-05-19 (kveld) — `/products/aktiviseringsleke` 404 men brukt i 44 raseguider (TODO post-Sprint #50)
+**Beslutning:** Dokumentert i `docs/gotchas.md`. Cane-corso canonical recap-grid Card 2 linker til `/products/aktiviseringsleke` (CTA «Se aktiviseringsleke →»), men produkt-handle eksisterer ikke i live-katalog (HTTP 404). 44 raseguider arver den døde lenken (43 ved oppdagelse + Lagotto #44). Sprint #44 fulgte canonical bevisst (Valg A) framfor å fikse én bug isolert.
+
+**Hvorfor:** Bug er pre-eksisterende og konsistent overalt. Delvis fiks ville bryte konsistens mellom raseguider — verre enn jevnt 404. Andefanten (`/products/andefanten-hundeleke`, 200 OK) er pipeleke for alenetid, ikke mental-stim — funksjonelt feil substitutt for trøffelhund-moat-vinkelen.
+
+**Konsekvens:** Atomær batch-fix i dedikert infrastructure-sprint etter Sprint #50: enten opprett ekte produkt med handle `aktiviseringsleke` i Shopify, eller global URL-swap til eksisterende mental-stim-SKU over alle 44 filer (inkl. `data-mh-product`-tracking). Ikke fikses delvis.
 
 ### 2026-05-17 (kveld) — King beskrives ALDRI som brachycefal — Petit Brabançon er mesocephalic
 **Beslutning:** I alle «Tips fra King»-seksjoner og sidebar-widgeter skal King beskrives som «småhund med kort snute» eller liknende presis formulering — ALDRI som «brachycefal» eller del av brachycefal-rase-liste. Petit Brabançon klassifiseres ikke som brachycefal-rase (har den lengste snuten av Griffon-trioen); Bruxelles Griffon og Belgian Griffon er kortere/mer flate i snuten, men Petit Brabançon er mesocephalic (medium snute-lengde).
@@ -236,6 +268,28 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 ---
 
 ## SPRINT-LOG — append-only, nyeste øverst
+
+### Uke 21 — 2026-05-19 (kveld) (sprint #41–#44, raseguider 38 → 41, single-coat-cluster fullført, wordcount-disiplin-regel etablert, to platform-funn dokumentert)
+
+**Tema: Single-coat-cluster (Pudel + Yorkshire Terrier + Lagotto Romagnolo) bygget på én kveld + Labrador Trigger B-omdefinering. Tre nye raseguider deler hypoallergen single-coat-vinkel og krysslenker hverandre. Ny HARD-regel for wordcount-disiplin (3700–3950) etablert etter at Lagotto landet på 4726 ord — Sondre låste budsjettet for Sprint #45+. CLAUDE.md refactored til path-scoped rules. To pre-eksisterende platform-funn dokumentert i gotchas (`/llms.txt`→`/agents.md`-regresjon + `/products/aktiviseringsleke` 404).**
+
+**2026-05-19 (kveld — sprint #44: Lagotto Romagnolo — italiensk trøffelhund + tre-mutasjon-helse-moat)**
+- **NEW breed entry.** Cane-corso canonical pattern. Commits `7bff61e` (single-commit publish, 9 filer +1008/-6) + `3466f78` (gotchas: /llms.txt-regresjon).
+- **Moat-innhold:** ATG4D/Lagotto Storage Disease (Kyöstilä et al. PLOS Genetics 2015, c.1288G>A, autofagi-mekanisme, cerebellær debut 4 mnd–4 år); LGI2/BFJE (Jokinen 2007 + Seppälä 2011, juvenil epilepsi 5–9 uker som spontant remitterer); SLC2A9/hyperurikosuri. NLK (stiftet 2005) anbefaler ATG4D-test begge foreldre før parring — formulert «anbefaler», ikke «obligatorisk» (E-E-A-T uten kildebelegg).
+- **Unik vinkel:** Eneste hunderase i verden spesifikt avlet for trøffeljakt (Tuber magnatum + Tuber melanosporum); vannapportør-arv fra Comacchio-myrene 1500-tallet; jaktinstinkt mot vilt avlet bort.
+- **Recap-grid:** aktiviseringsleke + TurPakken + Beroligende seng (Medium) — PELSFJERNER DROPPED (single-coat, samme som Pudel/Yorkshire).
+- **Back-link audit (3):** Pudel (body §4 single-coat-bridge + les-også prepend), Labrador Retriever (les-også), Cocker Spaniel (les-også). Alle 200 OK.
+- **18-checkpoint canonical audit alle grønne.** FAQ HTML/JSON-LD byte-identical 8/8. TOC↔JS anchors 12/12. Wordcount 4726 (pre-regel, akseptert).
+- **Admin-step pending:** `/pages/lagotto-romagnolo` = 404 til page opprettes i Shopify Admin (handle `lagotto-romagnolo`, template `lagotto-romagnolo`, Visible).
+
+**2026-05-19 (kveld — sprint #43: Yorkshire Terrier — toy-format single-coat + patellaluksasjon/LCP/tracheal collapse)**
+- NEW breed entry. Cane-corso canonical. Commit `085af02`. Britisk yorkshire-arbeider-arv 1860-tallet, single-coat toy-format, helse-moat patellaluksasjon + Legg-Calvé-Perthes + tracheal collapse + portosystemisk shunt. Back-link til Chihuahua.
+
+**2026-05-19 (kveld — sprint #42: Pudel — fransk vannapportør single-coat + autoimmune-moat)**
+- NEW breed entry. Cane-corso canonical. Commit `3f8d8ac`. Fire FCI-størrelser, Stanley Coren intelligens #2, single-coat hypoallergen-profil, autoimmune-moat (Addison's disease + sebaceous adenitis hos Stor Puddel), NPK 1956, NPK/NKK-posisjon mot Doodle-blandinger. Back-link i Labrador + Cocker.
+
+**2026-05-19 (formiddag/ettermiddag — sprint #41: Labrador Retriever Trigger B-omdefinering)**
+- IKKE ny rase — full overhaul av eksisterende Labrador-guide. Commit `a6881b5`. POMC-genmutasjon-moat (hvorfor labradoren alltid er sulten), chocolate-lifespan-gap (VetCompass-funn), Working vs Show-divergens, HD/AD/EIC/PRA fire helse-pilarer.
 
 ### Uke 21 — 2026-05-18 til 2026-05-19 (sprint #32–#40, raseguider 31 → 38, britisk fuglehund-cluster fullført, canonical migration av 20 legacy-raseguider, helse-tetralogi-mønster etablert)
 
