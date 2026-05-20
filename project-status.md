@@ -2,20 +2,20 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-05-19 (kveld — sprint #41 Labrador Trigger B + sprint #42 Pudel + sprint #43 Yorkshire Terrier + sprint #44 Lagotto Romagnolo; 41 raseguider live etter sprint #44 admin-step)
+> **Sist generert:** 2026-05-20 (kveld — sprint #45–#52 levert samme dag: Malteser, Newfoundland, Dvergpinscher, Dvergschnauzer, Mellomschnauzer, Riesenschnauzer, Vizsla, Coton de Tulear; 49 raseguider live, 1 igjen til 50-målet)
 > **Mirror:** https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md (public repo — claude.ai blokkerer gist-domenet)
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
 
-## STATUS — 2026-05-19 (kveld — sprint #44 Lagotto Romagnolo deployed (admin-step pending); 41 raseguider etter admin-step; ny HARD-regel wordcount-disiplin 3700–3950 effective Sprint #45+; CLAUDE.md refactored til path-scoped rules; `/llms.txt` → `/agents.md` Shopify-platform-regresjon dokumentert)
+## STATUS — 2026-05-20 (kveld — sprint #45–#52 levert (8 raseguider på én dag); 49/50 raseguider live; komplett Schnauzer-trio (Dverg/Mellom/Riesen) + bidirectional fuglehund-cluster (Vizsla↔Vorsteh) + bichon-cluster (Coton↔Malteser↔Bichon Havanais); 1 rase igjen (#53), så cleanup-sprint #54)
 
 ### Innhold
 - **54 hundetips-artikler** publisert i `/pages/hundetips`-hubben, fordelt på 5 kategorier:
   - Helse: 20 · Atferd: 16 · Stell: 8 · Aktivitet: 5 · Ernæring: 5
-- **41 raseguider** publisert i dedikert `/pages/raseguider`-hub (40 live + 1 pending admin-step etter Sprint #44 Lagotto) — **topp 10 norske hunderaser + BOAS-trio + norsk nasjonalrase-trio + tysk brukshund-cluster + britisk fuglehund-cluster + vannhund-trio (Pudel + Lagotto Romagnolo + Yorkshire single-coat-bridge)** etablert. Nyeste sprinter 2026-05-19 (kveld) leverte 3 nye raseguider + 1 Trigger B-omdefinering: **Pudel** (#42, single-coat-rase med fransk vannapportør-arv + Stanley Coren-intelligens + autoimmune-moat Addison/SA + NPK 1956), **Yorkshire Terrier** (#43, toy-format single-coat med britisk yorkshire-arbeider-arv 1860-tallet + patellaluksasjon + LCP + tracheal collapse-moat), **Lagotto Romagnolo** (#44, italiensk trøffelhund + ATG4D/LSD Helsinki/Bern 2015 + LGI2/BFJE 2011 + SLC2A9/HUU + NLK 1956 — single-coat-cluster komplett). Sprint #41 var Trigger B-omdefinering av Labrador Retriever (POMC-moat + chocolate-lifespan-gap + Working vs Show-divergens, ikke ny rase). Tidligere sprinter 2026-05-18/19 (formiddag): #32 Sibirsk Husky · #33 Sankt Bernhardshund · #34 Rhodesian Ridgeback · #35 Korthåret Vorstehhund · #36 Cane Corso · #38 Engelsk Springer Spaniel · #39 Pointer. Sprint #37 var Trigger B Engelsk Cocker Spaniel. Sprint #40 var canonical migration av 20 legacy-filer (4163 ins / 6370 del):
+- **49 raseguider** publisert i dedikert `/pages/raseguider`-hub (alle live etter admin-steg; 1 igjen til 50-målet) — **topp 10 norske hunderaser + BOAS-trio + norsk nasjonalrase-trio + tysk brukshund-cluster + britisk fuglehund-cluster + vannhund-trio (Pudel + Lagotto Romagnolo + Yorkshire single-coat-bridge)** etablert. Nyeste sprinter 2026-05-19 (kveld) leverte 3 nye raseguider + 1 Trigger B-omdefinering: **Pudel** (#42, single-coat-rase med fransk vannapportør-arv + Stanley Coren-intelligens + autoimmune-moat Addison/SA + NPK 1956), **Yorkshire Terrier** (#43, toy-format single-coat med britisk yorkshire-arbeider-arv 1860-tallet + patellaluksasjon + LCP + tracheal collapse-moat), **Lagotto Romagnolo** (#44, italiensk trøffelhund + ATG4D/LSD Helsinki/Bern 2015 + LGI2/BFJE 2011 + SLC2A9/HUU + NLK 1956 — single-coat-cluster komplett). Sprint #41 var Trigger B-omdefinering av Labrador Retriever (POMC-moat + chocolate-lifespan-gap + Working vs Show-divergens, ikke ny rase). Tidligere sprinter 2026-05-18/19 (formiddag): #32 Sibirsk Husky · #33 Sankt Bernhardshund · #34 Rhodesian Ridgeback · #35 Korthåret Vorstehhund · #36 Cane Corso · #38 Engelsk Springer Spaniel · #39 Pointer. Sprint #37 var Trigger B Engelsk Cocker Spaniel. Sprint #40 var canonical migration av 20 legacy-filer (4163 ins / 6370 del):
   - **Topp 10 norske raser:** Labrador Retriever · Golden Retriever · Border Collie · Cocker Spaniel · Cavalier King Charles Spaniel · Chihuahua · Norsk Elghund Grå · Tysk Schäferhund · Pomeranian · Finsk Lapphund
-  - **Supplerende populære raser:** Griffon Petit Brabançon · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter · Dansk-svensk Gårdshund · Mops · Jack Russell Terrier · Berner Sennenhund · Fransk Bulldog · Engelsk Bulldog · Shetland Sheepdog · Norsk Elghund Sort · Norsk Buhund · Beagle · Boxer · Rottweiler · Dachshund · Tibetansk Spaniel · Australian Shepherd · Welsh Corgi Pembroke · Shiba Inu · Sibirsk Husky · Sankt Bernhardshund · Rhodesian Ridgeback · Korthåret Vorstehhund · Cane Corso · Engelsk Springer Spaniel · Pointer · **Pudel** · **Yorkshire Terrier** · **Lagotto Romagnolo**
+  - **Supplerende populære raser:** Griffon Petit Brabançon · Staffordshire Bull Terrier · Bichon Havanais · Engelsk Setter · Dansk-svensk Gårdshund · Mops · Jack Russell Terrier · Berner Sennenhund · Fransk Bulldog · Engelsk Bulldog · Shetland Sheepdog · Norsk Elghund Sort · Norsk Buhund · Beagle · Boxer · Rottweiler · Dachshund · Tibetansk Spaniel · Australian Shepherd · Welsh Corgi Pembroke · Shiba Inu · Sibirsk Husky · Sankt Bernhardshund · Rhodesian Ridgeback · Korthåret Vorstehhund · Cane Corso · Engelsk Springer Spaniel · Pointer · **Pudel** · **Yorkshire Terrier** · **Lagotto Romagnolo** · **Malteser** · **Newfoundland** · **Dvergpinscher** · **Dvergschnauzer** · **Mellomschnauzer** · **Riesenschnauzer** · **Vizsla** · **Coton de Tulear**
 - **11 produkter** i katalog. **10 custom PDPs** har nå fått full audit-sweep (cart drawer-fix + produkt-spesifikke trust badges + a11y).
 
 ### Produkt-PDP-status
@@ -31,7 +31,7 @@
 - **Newsletter popup:** KING10 to-stegs flow, 30s scroll trigger. Live siden 2026-05-11.
 
 ### Neste fase
-**Raseguide-sprint utvidet til 41 av 50-milepælen (9 igjen). Single-coat-cluster fullført 2026-05-19 kveld: Pudel (#42) + Yorkshire Terrier (#43) + Lagotto Romagnolo (#44) deler hypoallergen single-coat-vinkel og krysslenker hverandre. Sprint #44 Lagotto Romagnolo deployed 2026-05-19 kveld — italiensk trøffelhund med tre kommersielt testbare rasespesifikke mutasjoner (ATG4D/Lagotto Storage Disease Helsinki/Bern 2015; LGI2/BFJE Helsinki 2011; SLC2A9/hyperurikosuri), vannapportør-arv fra Comacchio-myrene, eneste rase i verden avlet for trøffeljakt. Venter på manuell admin-step (page-creation i Shopify Admin) før `/pages/lagotto-romagnolo` går fra 404 til 200. Sprint #43 Yorkshire Terrier + #42 Pudel levert samme dag (begge NEW). Sprint #41 var Trigger B-omdefinering av Labrador Retriever (POMC-moat, ikke ny rase).
+**Raseguide-sprint nå på 49 av 50-milepælen (1 igjen — sprint #53). Etter siste rase: cleanup-sprint #54 (aktiviseringsleke 404-fix globalt + `last_updated` framtidsdato-fix + wordcount-target-justering). Komplett Schnauzer-trio levert sprint #48–#50 (Dvergschnauzer/Mellomschnauzer/Riesenschnauzer) med "stamfar-rase"-moat-arkitektur; Vizsla #51 + Coton de Tulear #52 med rasespesifikke moat (polymyositt/BNAt).** (Historikk #44 nedenfor uendret:) **Raseguide-sprint utvidet til 41 av 50-milepælen (9 igjen). Single-coat-cluster fullført 2026-05-19 kveld: Pudel (#42) + Yorkshire Terrier (#43) + Lagotto Romagnolo (#44) deler hypoallergen single-coat-vinkel og krysslenker hverandre. Sprint #44 Lagotto Romagnolo deployed 2026-05-19 kveld — italiensk trøffelhund med tre kommersielt testbare rasespesifikke mutasjoner (ATG4D/Lagotto Storage Disease Helsinki/Bern 2015; LGI2/BFJE Helsinki 2011; SLC2A9/hyperurikosuri), vannapportør-arv fra Comacchio-myrene, eneste rase i verden avlet for trøffeljakt. Venter på manuell admin-step (page-creation i Shopify Admin) før `/pages/lagotto-romagnolo` går fra 404 til 200. Sprint #43 Yorkshire Terrier + #42 Pudel levert samme dag (begge NEW). Sprint #41 var Trigger B-omdefinering av Labrador Retriever (POMC-moat, ikke ny rase).
 
 **Ny HARD-regel etablert (effective Sprint #45+):** Raseguide wordcount-disiplin 3700–3950 ord (se BESLUTNINGER 2026-05-19 kveld). Cane Corso 4777 + Lagotto 4726 markert som pre-regel-unntak. CLAUDE.md refactored til path-scoped rules (`.claude/rules/raseguide-canonical.md` + `template-deletion.md`). To pre-eksisterende platform-funn dokumentert i `docs/gotchas.md`: `/llms.txt` → `/agents.md` Shopify-redirect (custom article-data ikke synlig på magic-route; page-route `/pages/llms-txt` fungerer), og `/products/aktiviseringsleke` 404 (44 raseguider linker hit, batch-fix etter Sprint #50).
 
@@ -66,6 +66,14 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-05-20 (kveld) — Schnauzer-trio "stamfar-rase"-moat-arkitektur + cleanup-sprint #54 scope
+**Beslutning:** Schnauzer-trioen (#48 Dvergschnauzer, #49 Mellomschnauzer, #50 Riesenschnauzer) bygget med Mellomschnauzer som eksplisitt "stamfar-rase" (de to andre avlet fram fra den) som gjennomgående moat-vinkel i §1/§2/§10, full bidirectional cross-linking mellom alle tre. Cleanup-sprint #54 scope LOCKED: (1) `/products/aktiviseringsleke` 404 global batch-fix på alle ~49 raseguider; (2) Dvergpinscher `last_updated`-framtidsdato; (3) revurder wordcount-target i `.claude/rules/raseguide-canonical.md` fra 3700–3950 til realistisk 3300–3500.
+**Hvorfor:** Faktisk wordcount-landing de siste 8 sprintene er ~3300–3650 (Dvergschnauzer 3651 høyest, Vizsla 3201 lavest) — target 3700–3950 treffes aldri fordi disiplin-regelen ("under-budsjett vinner, ikke pad") er korrekt. Target-bandet er villedende og bør samsvare med praksis. aktiviseringsleke-fixen utsatt til #54 for å holde sprint-scope rent (én rase per sprint, ikke infrastruktur-cleanup blandet inn).
+
+### 2026-05-20 (formiddag) — Dvergpinscher §2 1946-klubb cross-guide-korreksjon
+**Beslutning:** Dvergpinscher-guidens §2 sa feilaktig "Norsk Dvergpinscherklubb stiftet 1946"; korrigert til "Norsk Schnauzer Klubb (spesialklubb for schnauzere + Bouvier des Flandres); Dvergpinscher inn 1979" — verifisert mot nsbk.no. Fanget på Phase 2-gaten i Mellomschnauzer-sprinten (#49) som cross-guide-konflikt.
+**Hvorfor:** Mellomschnauzer- og Dvergpinscher-guidene må være konsistente på samme historiske faktum. Phase 2-gaten fanget motsetningen før den gikk live — eksempel på hvorfor STOP-gatene ikke skal hoppes.
 
 ### 2026-05-19 (kveld) — Raseguide wordcount-disiplin: 3700–3950 ord (HARD, effective Sprint #45+)
 **Beslutning:** Canonical raseguide body wordcount-budsjett låst til **3700–3950 ord** (alle 11 H2 + FAQ + recap-grid + disclaimers, målt på `<article>`-innhold etter strip av HTML/Liquid). Drift til 4500–4800 ord (Cane Corso 4777, Labrador 4500, Lagotto Romagnolo 4726) er IKKE etablert praksis — det er scope creep. Cane Corso 4777 var et uhell, ikke en standard å replisere.
@@ -268,6 +276,30 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 ---
 
 ## SPRINT-LOG — append-only, nyeste øverst
+
+### Uke 21 — 2026-05-20 (sprint #45–#52, raseguider 41 → 49, komplett Schnauzer-trio + fuglehund/bichon-cluster, 8 raseguider på én dag)
+
+**Tema: Rekorddag — 8 nye raseguider levert (41 → 49 av 50-målet). Komplett Schnauzer-trio bygget (#48 Dvergschnauzer → #49 Mellomschnauzer → #50 Riesenschnauzer) med "stamfar-rase"-moat-arkitektur og full bidirectional cross-linking. Vizsla (#51) med velcro-dog/kreft/polymyositt-moat; Coton de Tulear (#52) med Madagaskar-nasjonalhund/BNAt-moat. Alle fulgte 4-Phase STOP-gate-protokollen strengt. Wordcount-mønster bekreftet ~3300–3650 (target 3700–3950 treffes aldri → TODO #54). Alle commits single-commit publish + live push + admin-step-flagg.**
+
+**2026-05-20 (kveld — sprint #52: Coton de Tulear — Madagaskars nasjonalhund + BNAt-moat)**
+- **NEW breed entry.** Cane-corso canonical. Commit `86be15c` (7 filer). Wordcount 3297. 18/18 audit.
+- **Moat:** eneste hunderase fra Madagaskar (offisiell nasjonalhund); skipsforlis/pirat-opphavsteorier 1400–1500-tallet; BNAt (Bandera's Neonatal Ataxia) — GRM1 62 bp insertion exon 8 (Zeng 2011, autosomal recessiv, DNA-test gullstandard); PRA/patella/IVDD (Jeløya Dyreklinikk-spesialisering). Genetisk opphav-spek bevisst hedget (E-E-A-T).
+- **6 crossover** (inkl bichon-havanais 6. som bichon-cluster). **Back-link (3):** Malteser, Yorkshire Terrier, Pudel. Recap: Aktivisering/Beroligende seng XS/TurPakken (pelsfjerner DROPPED — single-coat).
+
+**2026-05-20 (kveld — sprint #51: Vizsla — Ungarns gylne fuglehund + velcro-dog/kreft-moat)**
+- **NEW breed entry.** Cane-corso canonical. Commit `d67579e` (9 filer, inkl gotchas-TODO #54). Wordcount 3201. 18/18 audit.
+- **Moat:** Ungarsk fuglehund, madjar-opphav 900-tallet; "velcro dog"-temperament; kreft (Dobson 2013 46,7 %; VCA 2023 HSA 35 %); Vizsla-polymyositt (Massey 2013 MHC kl II); Zink 2014 gonadektomi-kreft (n=2505, lymfom OR 4,3).
+- **Weimaraner-kontingens:** crossover #1 byttet til Korthåret Vorstehhund (gruppe 7-cluster). **Back-link (4):** Labrador, Rhodesian Ridgeback, Golden Retriever, Korthåret Vorstehhund (reciprocal fuglehund-cluster). Recap: Aktivisering/TurPakken/Beroligende seng Large (pelsfjerner DROPPED).
+
+**2026-05-20 (sprint #48–#50: komplett Schnauzer-trio)**
+- **#50 Riesenschnauzer** (`cb3c524`, 3349 ord): yngst av trioen, kvegdrivhund (IKKE rotte-jeger), autoimmun hypothyroidisme (Bianchi 2020 IFNA-deletion p=0,0001; Wilbe 2010 DLA OR 6,5; Ferm 2009); HD/GDV/tå-kreft. Labrador §8 DLA-haplotype-crossover. Back-link: Mellomschnauzer/Dvergschnauzer/Schäferhund.
+- **#49 Mellomschnauzer** (`d85d94f`, 3358 ord): STAMFAR-rasen, pulmonisk stenose (Brambilla 2020) + HD/cataract/PRA/SLC2A9. **Cross-guide fix:** Dvergpinscher §2 1946-klubb korrigert til "Norsk Schnauzer Klubb" (verifisert nsbk.no). Back-link: Dvergschnauzer/Dvergpinscher/Rottweiler.
+- **#48 Dvergschnauzer** (`4311c63`, 3651 ord): hypertriglyseridemi (Xenoulis 2007 32,8 %), Schnauzer Comedo Syndrome, MPS VI ARSB 56 bp deletion (Raj 2020). Back-link: Dvergpinscher (§2+§8 bridge)/Yorkshire/Pudel.
+
+**2026-05-20 (formiddag — sprint #45–#47):**
+- **#47 Dvergpinscher** (`2ce96e9`), **#46 Newfoundland** (`f549d48`), **#45 Malteser** (`86b2f37`) — alle NEW breed entries, cane-corso canonical. (CLAUDE.md `5eb7118`: 4-Phase STOP-gate-protokoll forsterket, effective #46+.)
+
+**Platform-funn / TODO for cleanup-sprint #54:** (1) `/products/aktiviseringsleke` 404 — LOCKED canonical recap hero, global batch-fix #54; (2) Dvergpinscher `last_updated='november 2026'` framtidsdato; (3) wordcount-target 3700–3950 urealistisk (faktisk snitt ~3400) → vurder revisjon til 3300–3500. Alle dokumentert i `docs/gotchas.md`.
 
 ### Uke 21 — 2026-05-19 (kveld) (sprint #41–#44, raseguider 38 → 41, single-coat-cluster fullført, wordcount-disiplin-regel etablert, to platform-funn dokumentert)
 
