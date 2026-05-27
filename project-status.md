@@ -58,7 +58,6 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 - XL-seng-blokker fortsatt aktiv for de tre storrasene (Schäferhund, Finsk Lapphund, Berner Sennen) — seng-CTA droppet på alle tre, recap-grid bruker pelsfjerner/aktivisering/vannskål i stedet.
 
 ### Åpne tråder (ikke besluttet ennå)
-- **Breadcrumb-snippet handle-registration-gap** (oppdaget 2026-05-27 under hundetips-sprint #1 schema-markup-audit) — `snippets/mh-breadcrumb-schema.liquid` bruker hardcoded case/when handle-liste per kategori (Helse/Atferd/Stell/Aktivitet/Ernæring) for å bygge 4-nivå BreadcrumbList. Minst **8 Helse-artikler er IKKE registrert** og renderer 2-nivå fallback (Hjem › [page.title]) i stedet for 4-nivå (Hjem › Hundetips › Helse › [page.title]): `allergi-hos-hund`, `eldre-hund`, `hund-darlig-ande`, `hund-i-bil`, `hund-og-varmen`, `hund-smerte-tegn`, `kennelhoste-hund`, `orebetennelse-hund` (nyeste artikkel før hund-lukter-vondt!). Tilsvarende cluster-gaps er sannsynlig i Atferd/Stell/Aktivitet/Ernæring-listene — ikke verifisert. Konsekvens: tap av BreadcrumbList rich-snippet i Google SERP + svakere site-hierarki-signal for AI/LLM-crawlers. **Action:** dedikert audit-sprint som bulk-registrerer alle manglende handler i breadcrumb-snippet (sjekk `templates/page.hundetips.json`-cards mot snippet-listene per kategori, oppdater snippet, push). Lav-risiko sitewide endring. Ingen prioritering satt.
 - **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
@@ -67,6 +66,31 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-05-27 — **RESOLVED** Breadcrumb-snippet handle-registration-gap — full sitewide-fix (18 hundetips + 60 raseguider + hund-oeyne reclassify)
+
+Lukker Åpne tråder-entry registrert tidligere samme dag. `snippets/mh-breadcrumb-schema.liquid` hadde 40 av 116 handler registrert; 76 manglet/var feil. Full audit + refactor + push i ett løp.
+
+**Audit-funn:**
+- 18 hundetips-handler manglet i case/when-lista (Helse 8, Atferd 6, Stell 2, Aktivitet 1, Ernæring 1) — alle renderte 2-nivå fallback i stedet for 4-nivå.
+- 60 raseguider hadde INGEN snippet-branch overhodet — alle renderte 2-nivå fallback i stedet for 3-nivå (Hjem › Raseguider › [Breed]).
+- `/pages/raseguider` hub hadde ingen 2-nivå-branch.
+- `hund-oeyne` var kategori-feilklassifisert (snippet sa Stell, hub card_14 sier Helse — synlig inkonsistens for sluttbruker).
+- `griffon-petit-brabancon` var i hundetips Stell-lista men ligger faktisk i raseguider-hub.
+
+**Fix (commit `c42c854`):**
+- Lagt til 18 manglende hundetips-handler i korrekte kategori-lister.
+- Lagt til ny `Raseguide`-case-branch med 60 breed-handler + ny 3-nivå-rendering.
+- Lagt til `RASEGUIDER_HUB`-marker + 2-nivå-rendering for `/pages/raseguider`.
+- Reklassifisert `hund-oeyne` Stell → Helse.
+- Fjernet `griffon-petit-brabancon` fra Stell (rutes nå via Raseguide-branch).
+- Renamed `HUB` → `HUNDETIPS_HUB` for klarhet.
+
+**Verifisert live (cache-busted):** orebetennelse-hund + hund-oeyne + allergi-hos-hund + eldre-hund + hund-alene-hjemme + hund-kroppsspraak + hund-hopper-pa-folk + hund-og-barn + klippe-klor-hund + weimaraner + cocker-spaniel + cane-corso + `/pages/raseguider` hub + hund-lukter-vondt (regression).
+
+**Kjent restproblem:** 5 URL-er serverte fortsatt stale HTML fra Shopify-internt `page_cache` etter push (`hund-graver-i-hagen`, `hund-spiser-avforing`, `pelsskifte-hund`, `valpe-utstyr-sjekkliste`, `hva-kan-hund-spise`). Snippet-output er korrekt på serveren — kjent Shopify page_cache-TTL-oppførsel (jf. memory `8162: Shopify Internal page_cache Serves Stale JRT — Cannot Be Bypassed Client-Side`). Vil klare seg selv via naturlig TTL. Ingen ytterligere kode-endring nødvendig.
+
+**Lærdom for fremtidige sprints:** Breadcrumb-snippet bruker hardcoded handle-liste, ikke automatisk fra hub-cards. NYE artikler må manuelt registreres i snippet AS WELL AS i hub-templates. Verifisering: kjør cross-reference `hub_map vs snippet_map`-script (se hundetips-sprint #1 audit-pattern) hvert kvartal eller når nytt artikkel-batch er deployet.
 
 ### 2026-05-27 — **Hundetips-sprint #1** hund-lukter-vondt: strategisk pivot fra raseguide til hundetips, fyller Sjampobørste-content-gap (0 → 1 artikkel)
 
