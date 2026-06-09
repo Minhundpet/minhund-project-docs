@@ -631,6 +631,19 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
+### Uke 24 — 2026-06-09 (GSC-drevet CTR-optimalisering: hund-kaster-opp for «gult skum»-query-cluster — commit `e96c4e4`)
+Fersk 90-dagers GSC-pull (sc-domain:minhundpet.no, OAuth re-auth etter token-utløp) avdekket at `/pages/hund-kaster-opp` er sidens høyest-eksponerte URL (5 556 impr/90d) men med lavest CTR (0,70 %, pos 9,5). Diagnose: en cluster av «gult oppkast / gult skum / gult slim»-spørringer (~700 impr/90d på pos 6–8) konverterte ~0 klikk fordi siden hadde gult-skum-svaret begravd som ~30 ord i en farge-liste uten egen heading — Google hadde ingenting boldbart å matche.
+
+**Tre intent-match-endringer (CTR-fix, ikke ny artikkel):**
+- **Admin SEO** (separat, av Sondre): title → «Hund kaster opp gult skum? Årsaker og når du må til vet | Min Hund»; meta description omskrevet til å lede med «gult skum / gult slim».
+- **Ny anchored H2** «Hund som kaster opp gult skum — hva det betyr» (`#gult-skum`, ~148 ord, answer-first): gult skum = galle på tom mage / tom-mage-syndrom (bilious vomiting syndrome), når ufarlig vs vet, fix = lite kveldsmåltid. Lagt inn rett etter eksisterende «Hva fargen betyr»-H2.
+- **Ny FAQ #1** «Hva betyr det når hunden kaster opp gult skum?» (8 → 9 items, HTML `<details>` + FAQPage JSON-LD 1:1).
+- **Ingress** oppdatert: «hva fargen på oppkastet betyr — fra gult skum til blodholdig».
+
+**Post-flight (alle pass):** anchor-integritet 17↔17 (positional JS-array, `gult-skum` på index 3 — alle nedstrøms-ankere holdt seg aligned), FAQ-paritet 9↔9 1:1, FAQPage JSON-LD valid, Article-schema (mh-article-schema snippet) urørt, ingen medisinske claims, vet-disclaimer intakt. Wordcount 2559 → 2813 (hundetips-artikler er ikke bundet av raseguide-2400–2800-cap). Live verifisert HTTP 200; `<title>` propagert. Single-fil commit `e96c4e4` pushet live `#148333264974` + GitHub main. Priority-URL re-indeksert via Indexing API.
+
+**Monitorering:** re-sjekk GSC-CTR på hund-kaster-opp om ~2–3 uker (uke 26–27) for å se om gult-skum-clusteret begynner å konvertere. Hvis mønsteret virker: replikér samme intent-match-grep på de andre høy-impr/lav-CTR-sidene (`/hvor-mye-vann-hund` 0,51 %, `/giftig-mat` 0,43 %) + raseguide-title-cluster (griffon/buhund/newfoundland/stafford pos 9–17 ~0 % CTR).
+
 ### Uke 22 — 2026-05-25 (Hundetips hero-canonical migrasjon: 54 artikler unifisert mot raseguide-pattern — visual parity oppnådd)
 Sandra Fosseli sitt review-pass av live hundetips-corpus triggered. 4 issues funnet, 3 fikset:
 
