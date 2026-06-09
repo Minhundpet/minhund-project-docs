@@ -631,6 +631,21 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
+### Uke 24 — 2026-06-09 (Ny Helse-artikkel: hund-blor-fra-poten «Hund som blør fra poten — årsaker og førstehjelp» — commit `6355d5f`)
+Ny answer-first hundetips-artikkel (Helse), Phase 0–3 godkjent av Sondre før assembly, Phase 4 deploy etter eksplisitt go. Dekker poteomsorg / blod fra pote — et hull i Helse-clusteret (komplementerer vaske-hundens-poter + klippe-klor-hund + allergi-hos-hund).
+
+**Struktur:** 12 answer-first H2 + 8 FAQ (FAQPage JSON-LD 1:1) + Article-schema (mh-article-schema snippet) + BreadcrumbList (handle registrert i mh-breadcrumb-schema Helse-liste) + sticky TOC (13↔13↔13 anchor/H2/TOC) + Tips fra King sidebar + post-FAQ recap-grid. **2739 ord** (godkjent — moat/FAQ-gulv; ingen trim av mandatert innhold).
+
+**Moat-seksjoner (verbatim, Sondre-levert):** pote-anatomi (tredeputer/midtpute/karpalpute + keratin/fettvev/blodåre-nett), klo-pulpa (nedslitt vs avrevet, sporeklør/dewclaws), varm-asfalt 7-sekunders-test + Frostburg University-studie (40/43/51 °C) + 52 °C-skadeterskel, veisalt/is-syklus om vinteren, førstehjelp 6-stegs (trykk 5–10 min, Kwik Stop/maisstivelse, to-finger-bandasje), von Willebrand + rottegift-faresignal (blødning 3–7 dager etter inntak) → vetnett.no for vakt.
+
+**Recap-grid «Anbefalt for poteomsorg»:** Potevasker (hero — restock imminent; beholdt som hero per Sondre-beslutning), Aktiviseringsleke for hund (ærlig ramme: mental aktivisering for kjedsomhets-slikking), Beroligende hundeseng (mykt liggested mens poten gror — ingen medisinsk claim). CalmBall holdt ute (tilsyn-only-regel). Hvite kort + grønn CTA, canonical recommend-pattern.
+
+**Interne lenker:** §8 → allergi-hos-hund (pododermatitt-overlap); les-også × 5 (allergi / vaske-hundens-poter / klippe-klor-hund / hund-og-varmen / livreddende); inbound back-link lagt til FRA allergi-hos-hund (les-også). Alle mål HTTP 200 verifisert.
+
+**Registreringer (6-fil atomic commit `6355d5f`):** ny seksjon + ny page-template (`page.hund-blor-fra-poten`), hub `card_61` (Helse) i page.hundetips.json, llms article_map Helse-entry (split 120, malformed 0, ingen komma/pipe i felt), breadcrumb-handle, allergi back-link. Hero: `poter.png`. last_updated `'juni 2026'`; datePublished/dateModified = Admin-dato (2026-06-09).
+
+**Post-flight (live `#148333264974` + GitHub main):** hub-kort live (card_61 synlig), allergi back-link live, alle les-også/produkt-mål HTTP 200, llms-sync `/pages/llms-txt` = 1. **`/pages/hund-blor-fra-poten` = 404 til Admin-side opprettes** (theme push alene gir 404 — manuelt steg, ikke skippbart fra CLI). **Google re-indeksering UTSATT til etter Admin-side** (URL 404er nå — re-index av 404 er kontraproduktivt). 18/18 self-audit pass før push.
+
 ### Uke 24 — 2026-06-09 (GSC-drevet CTR-optimaliserings-sprint: hund-kaster-opp «gult skum» + hvor-mye-vann-hund «50–60 ml per kg» — commits `e96c4e4` + `428c83c`)
 Fersk 90-dagers GSC-pull (sc-domain:minhundpet.no, OAuth re-auth etter token-utløp) avdekket at `/pages/hund-kaster-opp` er sidens høyest-eksponerte URL (5 556 impr/90d) men med lavest CTR (0,70 %, pos 9,5). Diagnose: en cluster av «gult oppkast / gult skum / gult slim»-spørringer (~700 impr/90d på pos 6–8) konverterte ~0 klikk fordi siden hadde gult-skum-svaret begravd som ~30 ord i en farge-liste uten egen heading — Google hadde ingenting boldbart å matche.
 
