@@ -631,6 +631,17 @@ Stor sveip: prescription-merkenavn fjernet, "forskning viser"-claims kildebelagt
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
+### Uke 24 — 2026-06-12 (Full nettside-helsesjekk + 2 cleanup-tasks — commit `3db6d6a`)
+**Full-site audit (alt grønt):** 122 artikkelsider + 11 produkter + hubs + contact + 129 unike interne lenker = alle HTTP 200, 0 brutte. JSON-LD (Article/FAQPage/BreadcrumbList på artikler+raseguider; Product+BreadcrumbList på produkter) rendrer. JSON-validitet OK (5 «feil» = Shopify stock JSONC; «apps»×11 = app-block-placeholder). Schema-navn ≤25 (våre custom; stock bruker `t:`-nøkler). Breadcrumb-handles synket (4 templateSuffix-avvik = falske positiver). llms split 120/malformed 0/0 komma-pipe. Sitemap 127 sider, ny artikkel inkludert. Ingen fremtidsdatoer.
+
+**Cleanup 1 — danger-list flex-regresjon** (bommet i 2026-05-09-sweepen): `aktivisering-article.liquid` + `bade-hund-article.liquid` hadde `display:flex` på `.mh-article__danger-list li` (fete overskrifter klemt i smal kolonne m/ stygg orddeling). Byttet til hanging-indent + canonical danger-icon.
+
+**Cleanup 2 — genericisert navngitte konkurrent-autoriteter** → generisk veterinær-autoritet i 7 filer: hund-lugger-i-band (H2 «AniCuras tre-fire-fem-skritt-metode» → «Tre-fire-fem-metoden: belønn riktig posisjon» + anchor anicura→tre-fire-fem + llms article_map Trigger-B), cavalier-king-charles-spaniel (Agria, prosa+FAQ+JSON-LD), hund-liker-ikke-bading (Agria), fjerne-hundehaar-article (Evidensia/AniCura + co-located Royal Canin), bade-hund-article (Evidensia/AniCura), hund-spiser-gress (AniCura + co-located FirstVet/EMPET), dansk-svensk-gardshund (AniCura). Beslutning: co-located ikke-listede merker (Royal Canin/FirstVet/EMPET) fjernet for ren merkefri prosa.
+
+**Checkpoint:** 0 merke-residu i 7 filer, flex=0/text-indent=1, band anchors 12=12, FAQ 1:1 (cavalier+fjerne), llms split 120/malformed 0, æøå+en-dash intakt. Live verifisert via cache-buster (edge-cache-lag ga falske ikke-null treff på først pass — fresh render = 0). 9-fil commit `3db6d6a` live `#148333264974` + GitHub main.
+
+**ÅPEN — 8. fil flagget:** `hundetips-aktivisere-hund-pa-tur.liquid:62` har «Agria og andre norske forsikringsselskaper ser dette hvert år» — IKKE i Sondres 7-fil-liste, derfor IKKE rørt. Venter på go for samme genericiserings-fix.
+
 ### Uke 24 — 2026-06-09 (Ny Helse-artikkel: hund-blor-fra-poten «Hund som blør fra poten — årsaker og førstehjelp» — commit `6355d5f`)
 Ny answer-first hundetips-artikkel (Helse), Phase 0–3 godkjent av Sondre før assembly, Phase 4 deploy etter eksplisitt go. Dekker poteomsorg / blod fra pote — et hull i Helse-clusteret (komplementerer vaske-hundens-poter + klippe-klor-hund + allergi-hos-hund).
 
