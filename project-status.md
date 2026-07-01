@@ -67,6 +67,16 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-01 — Feriekampanje teardown: sommerferie-banner + feriebeskjed fjernet (revert av `ce99199`, commit `34787fe`)
+
+Sommerferien 19.–28. juni er over; hele feriekampanjen som ble lagt inn i `ce99199` (toppbanner + feriebeskjed på PDP/cart + CSS, alt merket «FJERN ETTER 28. JUNI 2026») er fjernet.
+
+- **Metode:** `git revert --no-commit ce99199` med `.claude/settings.local.json` bevisst ekskludert (lokale hooks/permissions beholdt). ce99199 var HEAD + rent working tree → isolert, trygg revert. Commit `34787fe` (15 filer, 1 ins / 106 del).
+- **Fjernet:** `snippets/mh-ferie-notice.liquid` (slettet), `announcement-bar`-blokk i `header-group.json` (order → `header_section`), FERIEKAMPANJE-blokk i `assets/custom.css`, render-kall i cart-drawer (`header-actions.liquid`) + alle 11 custom PDP-seksjoner.
+- **Orphan-cleanup:** `--only`-push sletter ikke remote-filer, så `mh-ferie-notice.liquid` lå igjen inert på live. Full theme-push kjørt etter live-vs-lokal diff-verifisering (eneste fil på live men ikke lokalt var nettopp den snippeten, 0 utilsiktede slettinger) → snippet slettet fra live-tema `#148333264974`, re-pull bekreftet borte.
+- **KING10 beholdes aktiv.** Koden brukes også som velkomstrabatt i nyhetsbrev-popupen (`sections/newsletter-popup.liquid`, default `KING10`) — uavhengig av ferie. Deaktivering ville gitt død kode i popupen; derfor IKKE rørt.
+- **Verifisert på produksjon:** banner + feriebeskjed = 0 forekomster på forside + 2 PDP-er (calmball, pelsfjerner) + cart-drawer. Google re-indeksering forespurt for forside + calmball + pelsfjerner + potevasker (Indexing API, service account).
+
 ### 2026-05-27 — **RESOLVED** Breadcrumb-snippet handle-registration-gap — full sitewide-fix (18 hundetips + 60 raseguider + hund-oeyne reclassify)
 
 Lukker Åpne tråder-entry registrert tidligere samme dag. `snippets/mh-breadcrumb-schema.liquid` hadde 40 av 116 handler registrert; 76 manglet/var feil. Full audit + refactor + push i ett løp.
