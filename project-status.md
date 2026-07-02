@@ -58,7 +58,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 - XL-seng-blokker fortsatt aktiv for de tre storrasene (Schäferhund, Finsk Lapphund, Berner Sennen) — seng-CTA droppet på alle tre, recap-grid bruker pelsfjerner/aktivisering/vannskål i stedet.
 
 ### Åpne tråder (ikke besluttet ennå)
-- **GSC-avlesing ~2026-07-30 → v2-retrofit-beslutning** — mål løft på (a) hund-i-bil etter vei-A additivt løft (baseline 582 impr / 5 klikk / 0,86 % CTR / pos 13,5; watch «hund i bagasjerom uten bur» var pos 12,5) og (b) ny ferie-med-hund-i-norge-artikkel. Utfallet avgjør om v2-design (factstrip/temptable/checklist + answer-first) retrofittes på eksisterende korpus (~40 hundetips + 60 raseguider) eller kun brukes på nye artikler. Ikke start retrofit før denne avlesingen.
+- **GSC-avlesing ~2026-07-30 → v2-retrofit-beslutning** — mål løft på (a) hund-i-bil etter vei-A additivt løft (baseline 582 impr / 5 klikk / 0,86 % CTR / pos 13,5; watch «hund i bagasjerom uten bur» var pos 12,5) og (b) ny ferie-med-hund-i-norge-artikkel. Utfallet avgjør om v2-design (factstrip/temptable/checklist + answer-first) retrofittes på eksisterende korpus (~40 hundetips + 60 raseguider) eller kun brukes på nye artikler. **Oppdatering 2026-07-02:** én de-risket Tier-1-pilot (`hva-kan-hund-spise`, baseline 5 220 impr / 22 klikk / 0,42 % / pos 9,9) er launchet tidlig som parallelt datapunkt — se beslutning øverst. Korpus-bred retrofit forblir gated på 2026-07-30-avlesingen.
 - **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
@@ -67,6 +67,24 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-07-02 — v2-retrofit PILOT #1 live: `hva-kan-hund-spise` (ren additiv vei-A på eksisterende side)
+
+**Første v2-retrofit på en EKSISTERENDE side** (commit `9a297f6`, theme `#148333264974`). Valgt fra GSC-prioritering (90d, alle `/pages/`): Tier 1 = høye impressions + pos 8–25, under-optimalisert. `hva-kan-hund-spise` valgt som de-risket første pilot (worst CTR-gap, kun 22 klikk i risiko, list-formet innhold ideelt for hurtigtabell).
+
+- **GSC-baseline (90d, 2026-04-03→07-01):** **5 220 impr / 22 klikk / 0,42 % CTR / snittposisjon 9,9.** CTR-fix er hovedmålet (0,42 % er i bånn for pos 9,9). Re-avlesing **~2026-07-30** (samme klokke som hund-i-bil + ferie).
+- **Ren additiv vei-A** (som hund-i-bil): body/H1/URL/kategori (Ernæring) urørt, ingen eksisterende H2-tekst/-rekkefølge endret. Additivt v2-lag scoped `.mh-article--v2` (leak-test 0):
+  - Answer-first-ingress i alle 11 innholds-H2 + ny H2 «Kan hunden spise det? Hurtigoversikt»
+  - Factstrip (10–15 % / 15 000 år / 0 druer-rosiner-sjokolade)
+  - Checklist «Huskeregler for menneskemat»
+  - **Hurtigtabell** 17 rader (6 trygt / 5 med måte / 6 aldri), `data-label` + mobil kort-stack ≤640px + kort-tittel-fix. Datatabell-undermønster (uavhengige rader).
+- **YMYL:** null nye matvare-påstander — tabellen speiler eksisterende vettet copy; toksiske punkter ASPCA-forankret (druer=nyre, løk/hvitløk=RBC, xylitol, methylxantiner, makadamia). Disclaimer intakt.
+- **Productduo DROPPET her** (bevisst): YMYL-ernæringsside, naturlig produkt-krok (aktiveringsleker) først midt i artikkel, og siden har allerede 4 produkt-touchpoints. Unngår påtvunget kobling. CalmBall + Aktiviseringsskål verifisert `InStock` (gotcha #12) i tilfelle senere toggle.
+- **Meta (CTR-fix):** tittel A «Hva kan hund spise? Komplett liste — trygt og farlig | Min Hund» + ny beskrivelse — settes i admin av Sondre.
+- **llms Trigger B:** article_map wc 2950→3650 + Hurtigoversikt-H2 (122 entries, 0 malformed).
+- **Re-indexing:** Indexing API-submit feilet «Insufficient Permission» (kjent GSC-gap: service account ikke Owner). **Manuell «Request indexing» i GSC UI anbefalt.**
+
+**Merk vs. korpus-gate:** dette er ÉN de-risket Tier-1-pilot, ikke korpus-retrofit. Korpus-bred retrofit (~40 hundetips + 60 raseguider) forblir gated på ~2026-07-30-avlesingen. Denne piloten starter sin egen 4-ukers klokke parallelt for et tidlig datapunkt.
 
 ### 2026-07-02 — Ny hundetips-artikkel «Ferie med hund i Norge» live + v2-design blir CANONICAL for nye artikler
 
