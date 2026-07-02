@@ -68,6 +68,19 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-03 — v2-retrofit PILOT #2 live: `giftig-mat` (additiv vei-A + productduo)
+
+**Andre Tier-1-pilot** (commit `8d1ccc1`, theme `#148333264974`, live verifisert via cache-bust). Neste side i GSC-prioriteringen: worst-CTR-profil (list-formet toksisitet).
+
+- **GSC-baseline (90d, 2026-04-03→07-01):** **4 874 impr / 19 klikk / 0,39 % CTR / snittposisjon 8,3.** Re-avlesing **~2026-07-31**.
+- **Ren additiv vei-A:** body/H1/URL/kategori (Helse) urørt. Additivt v2-lag scoped `.mh-article--v2` (leak-test 0): 10 answer-first, factstrip (1 drue / 17–18 t / 0 min), farenivå-tabell 11 rader (4 livsfarlig / 5 farlig / 2 moderat) ved §farligste med mobil kort-stack.
+- **⚠ Sidespesifikk gotcha (LÆRDOM):** giftig-mat tildeler TOC-ankre via **JS-indeks** (`querySelectorAll('.mh-article__body h2')` mot en fast 13-element `anchors`-array). En ny H2 inne i `.mh-article__body` ville forskjøvet ALLE påfølgende ankre og brutt TOC. Løsning: **INGEN ny H2** — factstrip (utenfor body), answer-first (`<p>`), tabell (`<figure>`) og productduo (`<div>`) legges additivt uten å øke h2-antallet. Verifisert: 13 h2 = 13 anchors live. **Sjekk alltid om en side bruker index-basert JS-anchor-tildeling før du legger til H2 i en retrofit.**
+- **Productduo (CalmBall + Aktiviseringsskål) ved §trygt** — safe-food-pivoten, bevisst borte fra forgiftnings-/nødsituasjon-innholdet. Selvstendig knapp (siden hadde ingen base `.mh-article__product-btn`). **Ingen sidebar-produktboks** lagt til (restraint på YMYL-forgiftningsside — siden hadde null produkt-touchpoints fra før; én tasteful duo er nok). Lager live (gotcha #12): 249/149 kr, InStock.
+- **YMYL:** null nye påstander (tabell speiler vettet copy, ASPCA-forankret); disclaimer + FAQ 8:8 urørt.
+- **Meta:** tittel A «Giftig mat for hund — komplett liste + hva du gjør | Min Hund» + beskrivelse — settes i admin.
+- **llms Trigger B:** article_map wc 2600→1850 (korrigerer prior over-estimat; faktisk body ~1834 ord; H2-liste uendret). 122 entries, 0 malformed.
+- **Re-indexing:** Indexing API fortsatt «Insufficient Permission» — manuell «Request indexing» i GSC UI.
+
 ### 2026-07-02 — v2-retrofit PILOT #1 live: `hva-kan-hund-spise` (ren additiv vei-A på eksisterende side)
 
 **Første v2-retrofit på en EKSISTERENDE side** (commit `9a297f6`, theme `#148333264974`). Valgt fra GSC-prioritering (90d, alle `/pages/`): Tier 1 = høye impressions + pos 8–25, under-optimalisert. `hva-kan-hund-spise` valgt som de-risket første pilot (worst CTR-gap, kun 22 klikk i risiko, list-formet innhold ideelt for hurtigtabell).
