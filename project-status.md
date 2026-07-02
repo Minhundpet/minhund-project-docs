@@ -58,6 +58,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 - XL-seng-blokker fortsatt aktiv for de tre storrasene (Schäferhund, Finsk Lapphund, Berner Sennen) — seng-CTA droppet på alle tre, recap-grid bruker pelsfjerner/aktivisering/vannskål i stedet.
 
 ### Åpne tråder (ikke besluttet ennå)
+- **GSC-avlesing hund-i-bil ~2026-07-30** — mål løft etter vei-A additivt løft (baseline 582 impr / 5 klikk / 0,86 % CTR / pos 13,5). Watch spesielt «hund i bagasjerom uten bur» (var pos 12,5) etter ny answer-first + meta.
 - **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
@@ -66,6 +67,19 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-07-02 — Hund i bil: vei-A additivt løft live (data-drevet, ikke overhaul) + v2-designeksperiment + gotcha #11
+
+**Kontekst:** Brief ba om «ny artikkel» Hund i bil, men artikkelen fantes allerede live (3 491 ord, kategori Helse, i hub + llms). I stedet for overhaul ble beslutningen tatt på GSC-data.
+
+- **GSC-baseline `/pages/hund-i-bil` (siste 12 mnd, avlest 2026-07-02):** 582 impressions / 5 klikk / 0,86 % CTR / snittposisjon 13,5. Alle topp-queries on-topic (hund i bil regler, sikring av hund i bil, hund i bil bot). → **Vei A valgt** (behold indeksert body/kategori/H1/URL; kun additivt), fordi 582 impr på relevante queries = under-optimalisert, ikke død. Re-avlesing planlagt **~2026-07-30** for å måle løft.
+- **Additivt levert (commit `1e2efd2`, live `#148333264974`):**
+  - **11 answer-first** lead-setninger (én per substans-H2; H2-tekst/rekkefølge urørt). §Metoder svarer eksplisitt på «hund i bagasjerom uten bur» (posisjon-12,5-query): lovlig hvis forsvarlig sikret (f.eks. bak gitter), men bur tryggest.
+  - **+~800 ord fakta**: 2 600 kr gebyr, 85 °C/22 °C (Mattilsynet), +22 °C/time, 80 % første 30 min, bagasjerom +10 °C, burstørrelse-formel (×1,10 / ×2,5 / hodehøyde), heteslag-førstehjelp (lunkent vann, 38–39 °C, dog mode ikke feilsikkert). Wordcount 3 491 → 4 278 (ingen kutt).
+  - **v2-designeksperiment, scoped `.mh-article--v2`** (CSS inline, 0 globale lekkasjer — verifisert på hund-og-varmen live): **factstrip** under hero (2 600 kr / 85 °C / 0), **temptable** i §Varme (gradient hvit→rød, tysk bilorg. + Mattilsynet-kilde), **checklist** «Før du kjører» (✓ via CSS, ikke emoji).
+  - Vannskål-lenke (in-stock) i pakkeliste; last_updated mai→juli 2026; llms word_count 3500→4300.
+  - **Ny meta-tittel/-beskrivelse** satt i admin («Hund i bil — sikring, regler og varme | Min Hund»); **re-indeksert 2× 2026-07-02** (etter push, og på nytt etter meta-endring).
+- **Gotcha #11 dokumentert (`docs/gotchas.md`):** curl-preview av et *upublisert* tema via `preview_theme_id` er brutt — myshopify-domenet 301-redirecter til primærdomenet og stripper param, så curl validerer LIVE, ikke preview. Dette avdekket et **hull i `template-deletion.md` Step C** → Step C skrevet om til **browser-basert** verifisering (cookiet preview-sesjon) + evidenskrav i commit + scriptbar theme-pull-kryss-sjekk (commit `c243522`).
 
 ### 2026-07-01 — Feriekampanje teardown: sommerferie-banner + feriebeskjed fjernet (revert av `ce99199`, commit `34787fe`)
 
