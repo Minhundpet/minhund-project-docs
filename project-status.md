@@ -58,7 +58,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 - XL-seng-blokker fortsatt aktiv for de tre storrasene (Schäferhund, Finsk Lapphund, Berner Sennen) — seng-CTA droppet på alle tre, recap-grid bruker pelsfjerner/aktivisering/vannskål i stedet.
 
 ### Åpne tråder (ikke besluttet ennå)
-- **GSC-avlesing hund-i-bil ~2026-07-30** — mål løft etter vei-A additivt løft (baseline 582 impr / 5 klikk / 0,86 % CTR / pos 13,5). Watch spesielt «hund i bagasjerom uten bur» (var pos 12,5) etter ny answer-first + meta.
+- **GSC-avlesing ~2026-07-30 → v2-retrofit-beslutning** — mål løft på (a) hund-i-bil etter vei-A additivt løft (baseline 582 impr / 5 klikk / 0,86 % CTR / pos 13,5; watch «hund i bagasjerom uten bur» var pos 12,5) og (b) ny ferie-med-hund-i-norge-artikkel. Utfallet avgjør om v2-design (factstrip/temptable/checklist + answer-first) retrofittes på eksisterende korpus (~40 hundetips + 60 raseguider) eller kun brukes på nye artikler. Ikke start retrofit før denne avlesingen.
 - **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
@@ -67,6 +67,20 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-07-02 — Ny hundetips-artikkel «Ferie med hund i Norge» live + v2-design blir CANONICAL for nye artikler
+
+**Artikkel live** (`/pages/ferie-med-hund-i-norge`, kategori Aktivitet, commit `0cab3b4`, theme `#148333264974`). Net-new, 2330 ord, 12 answer-first H2 + 8 FAQ 1:1. Admin-side opprettet manuelt (handle + template `page.ferie-med-hund-i-norge` + SEO); template-kobling verifisert live (HTTP 200, artikkel rendrer).
+
+- **Bygget på hund-i-bil v2-standarden:** scoped `.mh-article--v2` (factstrip, temptable som «Sommerens farer»-tabell, checklist «Pakkeliste»). Leak-test: 0 v2-klasser på hund-og-reise live.
+- **Hero:** IMG_0273.jpg (King på campingplass), unified hero-canonical (1:1 cover, scale-bleed).
+- **Schema:** inline Article med `about` (båndtvang/flått/hoggorm) + `lastReviewed` + FAQPage + BreadcrumbList (bevisst avvik fra `mh-article-schema`-snippet, som mangler `about`).
+- **Intern lenking:** 2× hund-i-bil (§4 + §8) + krysslenke hund-og-reise; **back-link FRA hund-i-bil** (§lange-turer, additiv) TIL denne. Begge URL-er re-indeksert.
+- **Produktkoblinger:** TurPakken, vannskål, potevasker, ullgenser, aktiviseringsleke/-skål, pelsfjerner (tekstil-only), CalmBall (tilsyn). Hub-kort card_62 + llms-entry (121 entries, 0 malformed).
+
+**⚖️ BESLUTNING — v2-design er ny CANONICAL for ALLE NYE hundetips-artikler fra 2026-07-02.** Factstrip + temptable + checklist, scoped via `.mh-article--v2`, answer-first per H2, inline Article-schema med about-entiteter. **Retrofit av eksisterende korpus (~40 hundetips + 60 raseguider) besluttes IKKE nå** — avventer GSC-avlesing ~2026-07-30 av hund-i-bil (vei-A-baseline 582 impr / pos 13,5) + ferie-artikkelen, for å måle om v2 faktisk løfter CTR/posisjon før vi investerer i retrofit.
+
+**Sidegevinst — gotcha #12:** potevasker var feilaktig dokumentert som «OUT OF STOCK» i `docs/products.md` (stale). Verifisert live in-stock (179 kr, `schema.org/InStock`). Regel dokumentert: lager verifiseres alltid live, aldri fra docs/products.md. Doc-linje korrigert.
 
 ### 2026-07-02 — Hund i bil: vei-A additivt løft live (data-drevet, ikke overhaul) + v2-designeksperiment + gotcha #11
 
