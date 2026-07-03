@@ -68,6 +68,18 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-03 — v2-retrofit PILOT #3 live: `hund-oeyne` (lettere additiv lift, ingen duo)
+
+**Tredje Tier-1-pilot** (commit `d3b382a`, live verifisert via cache-bust). Baseline **4 719 impr / 64 klikk / 1,36 % CTR / pos 8,1** (90d) → avlesing **~2026-07-31**.
+
+- **Ren additiv vei-A**, scoped `.mh-article--v2` (leak-test 0): 10 answer-first, factstrip (0,6 mm hornhinne / 3× hornhinnesår-risiko Packer et al. / 24–48 t glaukom→blindhet).
+- **INGEN ny H2** (gotcha #13 — hund-oeyne bruker index-basert JS-anchor; verifisert 12 h2 = uendret mapping).
+- **Triage-farger på EKSISTERENDE symptomtabell** i stedet for ny tabell: la til rad-klasser (`is-safe/is-mod/is-danger/is-critical`) + scoped CSS (desktop bg-tint, mobil venstre-aksent, hastenivå-celle farget). Struktur og eksisterende mobil-stack urørt. Mønster: **når en side allerede har en severity-tabell, fargekod den i stedet for å legge til en v2-temptable.**
+- **Productduo bevisst DROPPET:** eneste naturlig relevante produkt for øye-side er sjampobørsten (allerede sidebar-boks + 1 inline tekstlenke). Ingen naturlig produkt nr. 2 for øyne i katalogen → en duo ville tvunget inn urelatert produkt på YMYL-side. **Lærdom: productduo-konsolidering forutsetter ≥2 naturlig relaterte produkter; med bare 1 relevant produkt beholdes eksisterende enkelt-sidebar-boks.**
+- Lettere lift enn #1/#2 (siden rangerer bedre, 1,36 % vs 0,39–0,42 %) — CTR-løft ligger primært i meta + answer-first-snippets.
+- **Meta:** tittel A «Hundens øyne: symptomer, sykdommer og trygg rens | Min Hund» + beskrivelse — settes i admin.
+- **llms Trigger B:** wc 3400→3800 (+answer-first; H2-liste uendret). 122 entries, 0 malformed. Re-index: manuell GSC UI (Indexing API permission-blokkert).
+
 ### 2026-07-03 — v2-retrofit PILOT #2 live: `giftig-mat` (additiv vei-A + productduo)
 
 **Andre Tier-1-pilot** (commit `8d1ccc1`, theme `#148333264974`, live verifisert via cache-bust). Neste side i GSC-prioriteringen: worst-CTR-profil (list-formet toksisitet).
