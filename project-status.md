@@ -68,6 +68,25 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-03 — v2-retrofit BATCH #1 live: `hvor-mye-vann` + `hund-spiser-gress` + `hund-sover-mye` (siste batch før GSC-avlesing)
+
+**Tre Tier-1-piloter i én batch** (commit `4ebe74e`, live verifisert via cache-bust etter en forbigående Shopify 503). Siste retrofit-batch før avlesing ~30–31.07. Parallellisert: 3 subagenter kjørte den mekaniske retrofiten (én per fil), deretter egen verifisering + 2 konsolideringsfikser + samlet preview/push.
+
+Baselines (90d) → avlesing **~2026-07-31**:
+| Side | Impr | Clicks | CTR | Pos |
+|---|---|---|---|---|
+| hvor-mye-vann-hund | 3 896 | 23 | 0,59 % | 7,5 |
+| hund-spiser-gress | 3 853 | 30 | 0,78 % | 7,8 |
+| hund-sover-mye | 3 121 | 23 | 0,74 % | 7,3 |
+
+- **Felles:** ren additiv vei-A, INGEN ny H2 (alle index-basert JS-anchor, gotcha #13 — h2-antall verifisert uendret: 9/14/14), scoped `.mh-article--v2` leak-test 0, FAQ 1:1 (7/8/8), YMYL null nye påstander (factstrip-tall verifisert mot eksisterende body).
+- **Productduo (alle 3 hadde naturlige par):** vann = TurPakken + Vannskål (begge 299 kr — verifisert distinkte produkter/bilder, ikke render-bug); gress = Aktiviseringsleke + Aktiviseringsskål (begge 149); sover = Beroligende hundeseng (799) + Aktiviseringsleke (149). Alle InStock.
+- **sover NY søvntabell** (Valp/Voksen/Senior → timer/døgn) med mobil kort-stack — mønster: legg til v2-temptable på sider UTEN eksisterende tabell.
+- **2 subagent-avvik fanget + fikset i egen review:** (1) vann hadde redundant TurPakken bunn-CTA → fjernet; (2) gress hadde repurposet bunn-CTA til «aktiviseringsleken Andefanten» (feilmerking — Andefanten er kosedyr-leke, ikke aktiviseringsleke) → fjernet helt. **Lærdom: verifiser subagent-output manuelt — produkt-feilmerking + redundante CTA-er sniker seg inn.**
+- **Meta:** A-varianter satt i admin av Sondre (alle tre).
+- **llms Trigger B:** wc vann 1650→1000 (kalkulator-side, kort prosa), gress 3100→3000, sover 2700→2150 (korrigerer prior over-estimater; H2-lister uendret). 122 entries, 0 malformed.
+- **PAUSE etter batch #1.** Ingen flere retrofits før GSC-avlesing ~30.07 av de nå 6 live pilotene (hva-kan-hund-spise, giftig-mat, hund-oeyne + disse 3). Mega-sidene (hund-kaster-opp, hvor-mye-mat) forblir gated. Sidenote: `hvordan-fjerne-hundehar-effektivt-hjemme` vurdert (742 impr, flat 12mnd, money-queries pos 23–55) → Tier 3, IKKE verdt tidlig retrofit (ranking-problem, ikke CTR); revurderes evt. i dedikert pelsfjerner-cluster-pass.
+
 ### 2026-07-03 — v2-retrofit PILOT #3 live: `hund-oeyne` (lettere additiv lift, ingen duo)
 
 **Tredje Tier-1-pilot** (commit `d3b382a`, live verifisert via cache-bust). Baseline **4 719 impr / 64 klikk / 1,36 % CTR / pos 8,1** (90d) → avlesing **~2026-07-31**.
