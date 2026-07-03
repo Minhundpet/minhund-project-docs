@@ -68,6 +68,18 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-03 — YMYL-korreksjon live: `reise-til-utlandet-med-hund` bendelorm/28-dagersregelen (offentlig påpekt presisjon)
+
+**Utløser:** offentlig påpekt at artikkelens formulering «bendelormkuren kan ikke gjøres i Norge» var upresis — den gjelder kun **hovedregelen**, ikke 28-dagersregelen. Verifisert mot Mattilsynet (3 sider: hovedregel + 28-dagersregelen + Sverige-side) før endring.
+
+**Fire endringer (commit `3b9d30d`, live verifisert på alle 4):**
+1. **§4 Bendelormkuren** — «kan ikke gjøres i Norge» scopet eksplisitt til HOVEDREGEL + direkte henvisning «(unntak: 28-dagersregelen, se neste avsnitt)» + Mattilsynets ordlyd «i landet hunden reiser fra».
+2. **§5 28-dagersregelen** — eksplisitt at de **to oppstartsbehandlingene kan gis hos veterinær i Norge** (Norge er del av EU/EØS), med hyttefolk-poenget (slipper vet i utlandet før hver retur). Mattilsynet-belegg: tillatt config «én i Norge og én i et annet EU/EØS-land».
+3. **FAQ 4** — flatt «Nei» → «Etter hovedregelen: nei» + eget 28-dagers-unntaksledd; JSON-LD FAQPage-schema oppdatert 1:1.
+4. **Fase-tidslinje** — Fase 2-badge merket «(hovedregel)» + figcaption presiserer at 28-dagers-brukere følger eget løp.
+
+**Verifiserte Mattilsynet-fakta:** hovedregel 24–120 t før innreise av vet i avreiselandet; 28-dager: to oppstartsbehandlinger maks 28 dager fra hverandre, vedlikehold minst hver 28. dag, avslutning med siste behandling i Norge. Ingen andre endringer (~+80 ord, under 20 %-terskel → ingen llms.txt Trigger B). **⚠ Re-indeksering feilet på GSC «Insufficient Permission»** (kjent tilbakevendende service-account/OAuth-tilgang) — Google fanger endringen ved neste crawl; manuell re-submit i GSC anbefalt når tilgang er gjenopprettet.
+
 ### 2026-07-03 — v2-retrofit BATCH #1 live: `hvor-mye-vann` + `hund-spiser-gress` + `hund-sover-mye` (siste batch før GSC-avlesing)
 
 **Tre Tier-1-piloter i én batch** (commit `4ebe74e`, live verifisert via cache-bust etter en forbigående Shopify 503). Siste retrofit-batch før avlesing ~30–31.07. Parallellisert: 3 subagenter kjørte den mekaniske retrofiten (én per fil), deretter egen verifisering + 2 konsolideringsfikser + samlet preview/push.
