@@ -68,6 +68,24 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-13 — Pelsfjerner-cluster P1–P4: cannibalization-drevet konsolidering (theme-side live; 3 admin-steg utestående)
+
+**Utløser:** dedikert cannibalization-analyse av 3-URL pelsfjerner-clusteret (GSC, 365d — første store service-account-lesejobb, alt OK). Funn: PDP `/products/pelsfjerner` vinner **10 av 11 delte queries** (pos 9–16 på money-terms), artikkelen co-rangerer men henter **0 klikk på 12 mnd** (pos 22–70), comparison-siden `/pages/beste-pelsfjerner-2026` er **praktisk talt død** (1 relevant impr/365d, 0/28d, rangerer ikke for «beste pelsfjerner» — ingen etterspørsel). Fjerde URL `pelsfjerner-for-sofa-klaer-og-bil` er avindeksert (handle-migrasjon, ufarlig). Strategi: PDP eier KJØP, artikkelen differensieres til ren INFO og trakter til PDP, comparison-siden retires.
+
+**Theme-side gjennomført + live-verifisert (commit `badb733`, GitHub main):**
+- **P2 — artikkel `hvordan-fjerne-hundehar-effektivt-hjemme`:** ny H1 «Slik fjerner du hundehår hjemme — metoder som faktisk funker» (bevisst unntak fra vei-A — H1 endres for å bryte title-overlap med PDP; URL urørt). Full v2-retrofit: factstrip (2×/70–80 %/5 min), 11 answer-first-blokker, **over-fold product-box → PDP** (kommersielt anker «Se pelsfjerner-hansken», produktregel-compliant: elektrostatisk fiber/tørr/kun tekstil), top-disclaimer, scoped `.mh-article--v2` CSS. Method-level «hvilken type bør du velge»-merge (ingen merkenavn — bevart INFO-signal). Egen beste-pelsfjerner-selvlenke fjernet. 3251 ord. FAQ 1:1 (8/8) bevart.
+- **P3 — PDP→artikkel:** `mh-product-readmore` link1 → INFO-anker «Les guiden: Slik fjerner du hundehår hjemme»; link3 av-pekt fra beste-pelsfjerner → `pelsskifte-hund` (respekterer horizon-cart-regel — kun content-snippet, ingen beskyttede cart-filer rørt).
+- **P4 theme-side:** hub-kort `card_34` fjernet + featured-tittel oppdatert; llms-entry beste-pelsfjerner fjernet (121 entries, 0 malformed); inbound-repoint i `hund-bader-ute`.
+- **P1 PDP-title live:** `Pelsfjerner til sofa, klær & bil | Min Hund` (bekreftet i live-HTML).
+- **Re-indeksering:** `/products/pelsfjerner` + artikkelen sendt via service-account request_indexing.py — begge ✅ (ingen auth-feil; service-account-migrasjonen holder).
+
+**⚠ UTESTÅENDE admin-steg (verifisert IKKE på plass 2026-07-13):**
+1. **P4 301-redirect IKKE lagt inn** — `/pages/beste-pelsfjerner-2026` returnerer fortsatt **HTTP 200** og rendrer comparison-innholdet. Template/section-filene bevisst beholdt på disk (ingen deletion-protokoll). Redirect må legges i Admin → URL Redirects → mål `/pages/hvordan-fjerne-hundehar-effektivt-hjemme`.
+2. **P2b artikkel SEO-title fortsatt gammel** — live `<title>` er «Hvordan fjerne hundehår effektivt hjemme — komplett guide». H1 (theme) er ny, men admin-meta-title ikke oppdatert → differensieringen er ufullstendig til den byttes.
+3. **P1 PDP meta-description ikke bekreftet satt** — tom i live-HTML; kun title er inne.
+
+**Konklusjon:** P1(title)/P2/P3/P4(theme) komplett & live; **P1(meta-desc) + P2b(title) + P4(301) gjenstår i Admin** før clusteret er fullt lukket. Cluster tjener kun ~6 klikk/12 mnd (alle PDP) — største gevinst er PDP-CTR/posisjon + INFO→PDP-trakting, ikke av-kannibalisering (mild, PDP vinner allerede).
+
 ### 2026-07-03 — YMYL-korreksjon live: `reise-til-utlandet-med-hund` bendelorm/28-dagersregelen (offentlig påpekt presisjon)
 
 **Utløser:** offentlig påpekt at artikkelens formulering «bendelormkuren kan ikke gjøres i Norge» var upresis — den gjelder kun **hovedregelen**, ikke 28-dagersregelen. Verifisert mot Mattilsynet (3 sider: hovedregel + 28-dagersregelen + Sverige-side) før endring.
