@@ -68,6 +68,18 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-20 — Pelsfjerner-cluster P1–P4 KOMPLETT (admin-steg lukket + curl-verifisert)
+
+Lukker de tre utestående admin-stegene fra 2026-07-13-oppføringen. Curl-verifisert live 2026-07-20:
+- **P4 301-redirect ✅** — `/pages/beste-pelsfjerner-2026` → **HTTP 301** → `/pages/hvordan-fjerne-hundehar-effektivt-hjemme` (final 200). Comparison-siden satt Hidden i Admin + redirect aktiv; template/section-filer bevisst beholdt på disk (ingen deletion-protokoll).
+- **P2b artikkel SEO-title ✅** — live `<title>` = «Slik fjerner du hundehår hjemme — guide | Min Hund». INFO-differensieringen nå komplett (H1 + title + meta byttet bort fra kommersiell «pelsfjerner»-framing).
+- **P1 PDP-title ✅** (fra før) = «Pelsfjerner til sofa, klær & bil | Min Hund».
+- **Re-indeksering:** `/products/pelsfjerner` + artikkelen sendt på nytt via service-account — begge ✅.
+
+**Eneste gjenstående (valgfritt, ikke-blokkerende):** PDP `/products/pelsfjerner` meta-**description** er fremdeles tom i live-HTML (kun title satt). Google auto-genererer i mellomtiden; kan settes ved anledning med foreslått tekst («Elektrostatisk pelsfjerner som drar hundehår ut av sofa, klær og bilseter — dobbeltsidig, brukes tørr, ingen refill. Kun for tekstil. Fri frakt fra Norge.»).
+
+**Status: cluster P1–P4 lukket.** PDP eier KJØP, artikkelen er ren INFO-hub som trakter til PDP via over-fold product-box, comparison-siden retired via 301. Neste: les av effekt i GSC (PDP-posisjon/CTR + om artikkelen begynner å hente INFO-queries) — tidligst ~4–6 uker.
+
 ### 2026-07-13 — Pelsfjerner-cluster P1–P4: cannibalization-drevet konsolidering (theme-side live; 3 admin-steg utestående)
 
 **Utløser:** dedikert cannibalization-analyse av 3-URL pelsfjerner-clusteret (GSC, 365d — første store service-account-lesejobb, alt OK). Funn: PDP `/products/pelsfjerner` vinner **10 av 11 delte queries** (pos 9–16 på money-terms), artikkelen co-rangerer men henter **0 klikk på 12 mnd** (pos 22–70), comparison-siden `/pages/beste-pelsfjerner-2026` er **praktisk talt død** (1 relevant impr/365d, 0/28d, rangerer ikke for «beste pelsfjerner» — ingen etterspørsel). Fjerde URL `pelsfjerner-for-sofa-klaer-og-bil` er avindeksert (handle-migrasjon, ufarlig). Strategi: PDP eier KJØP, artikkelen differensieres til ren INFO og trakter til PDP, comparison-siden retires.
