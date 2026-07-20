@@ -68,6 +68,21 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-20 (kveld) — Batch #2 v2-retrofit LIVE: valp-biter-pa-alt + bandtvang-norge + hund-slikker-ansikt
+
+De 3 batch #2-pilotene (satt opp tidligere samme dag) er retrofittet og **live** (commit `2f91312`). Utvider august-avlesings-sampelet fra 6 til **9 piloter**. Kjørt med 3 parallelle subagenter (én per fil, som batch #1) + egen manuell audit (batch #1-lærdom: subagent-avvik må fanges).
+
+- **Additiv vei-A alle 3:** scoped `.mh-article--v2`, factstrip (3 tall/side), answer-first per informasjonell H2, top-disclaimer (canonical grønn), factstrip-mobil. **0 H2 endret** (gotcha #13 — index-baserte anchors), FAQ 1:1 byte-identisk (8/8 alle), veterinær/juridisk-disclaimer intakt.
+- **Factstrip-tall verifisert mot eksisterende body** (ingen nye påstander/YMYL): valp 12–16 uker / 6–7 mnd / 18–20 t søvn; bandtvang 1.apr–20.aug (Hundeloven §6) / 3 000–5 000 kr forelegg / 6 mnd maks fengsel (§28); slikker 400+ bakteriearter / barn under 5 år / 7 regler.
+- **Product-box kun valp** → `/products/aktiviseringsleke-for-hund` (allerede lenket; framet KUN som mental aktivisering/kanalisering av tygge-trang, **ingen stopp-biting-claim**). bandtvang + slikker: additiv uten product-box (ingen ekte produkt-fit) → nyttig kontrast: isolerer content-løft fra product-box-løft vs batch #1.
+- **Konsolideringsfiks:** subagentene endte inkonsistent på top-disclaimer (bandtvang grå vs 2 andre grønne) → satt alle til canonical grønn.
+- **Ordtelling:** valp 2707→3047, bandtvang 2333→2683, slikker 2011→2293 (additivt).
+- **Admin-meta satt + verifisert av Sondre** (title + description alle 3). Titler: «Valp biter på alt — slik stopper du bitingen», «Båndtvang i Norge — regler, datoer og bøter», «Hund slikker ansikt — er det farlig?».
+- **Re-indeksering:** alle 3 URL-er sendt via service-account — ✅.
+- **Deferred (valgfritt):** llms word_count for de 3 er <20 % drift (Trigger B ikke utløst) → ikke oppdatert. Kan refreshes ved anledning (valp 2750→3050, bandtvang 2300→2700, slikker 2000→2300; H2-lister uendret).
+
+**Neste:** batch #2 teller nå i den rene 14.08-avlesingen (9 piloter totalt). Se Åpne tråder for GO/NO-GO-kriteriet.
+
 ### 2026-07-20 — GSC-avlesing pilot-retrofit: NO-GO korpus (for tidlig/konfundert) + batch #2 satt opp
 
 **Avlesing (28d 22.06–19.07) vs 90d-baseline, 7 sider (6 batch #1-piloter + hund-i-bil):** v2-effekt **ikke isolerbart ennå**. Dominant signal er en bred **impresjons-surge 1,5–5,7× på ALLE sider**, inkl. det ulikt-behandlede hund-i-bil (vei-A additiv) → organisk/sesong + indeksmodning, IKKE v2. Klikk/dag-økning er dermed impresjons-drevet, ikke CTR-drevet. **CTR (metrikken v2 skal flytte) er blandet:** 3 opp (hvor-mye-vann +0,44pp / sover +0,23 / øyne +0,13), 2 ned (hva-kan-spise −0,13 / gress −0,24), 2 flate — og nedgangene korrelerer med de største impresjons-hoppene (fortynning). Posisjon opp 6/7 men samme modnings-confound. **Måle-vindu ~40 % pre-retrofit** (retrofits live 02–03.07). → **NO-GO på full korpus-utrulling**; mega-sider (`hund-kaster-opp`, `hvor-mye-mat`) + 60 raseguider forblir gated. hund-i-bil watch-queries bekreftet bedre posisjon: «hund i bil regler» 22,2→18,3; «hund i bagasjerom uten bur» 12,5→8,2 (men 0 klikk, pos 8–18).
