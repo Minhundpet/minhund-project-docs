@@ -58,7 +58,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 - XL-seng-blokker fortsatt aktiv for de tre storrasene (Schäferhund, Finsk Lapphund, Berner Sennen) — seng-CTA droppet på alle tre, recap-grid bruker pelsfjerner/aktivisering/vannskål i stedet.
 
 ### Åpne tråder (ikke besluttet ennå)
-- **GSC-avlesing ~2026-07-30 → v2-retrofit-beslutning** — mål løft på (a) hund-i-bil etter vei-A additivt løft (baseline 582 impr / 5 klikk / 0,86 % CTR / pos 13,5; watch «hund i bagasjerom uten bur» var pos 12,5) og (b) ny ferie-med-hund-i-norge-artikkel. Utfallet avgjør om v2-design (factstrip/temptable/checklist + answer-first) retrofittes på eksisterende korpus (~40 hundetips + 60 raseguider) eller kun brukes på nye artikler. **Oppdatering 2026-07-02:** én de-risket Tier-1-pilot (`hva-kan-hund-spise`, baseline 5 220 impr / 22 klikk / 0,42 % / pos 9,9) er launchet tidlig som parallelt datapunkt — se beslutning øverst. Korpus-bred retrofit forblir gated på 2026-07-30-avlesingen.
+- **REN AVLESING ~2026-08-14 → v2-korpus GO/NO-GO** — 28d-vindu **17.07–14.08 = 100 % post-retrofit** (isolerer v2-effekt fra baseline-dager). **Sammenlign mot DAGENS 28d-tall (avlesing 20.07), IKKE 90d-baselinen** — apples-to-apples 28d-vindu. **Beslutningskriterium for GO:** median-CTR-løft på tvers av pilotene med **maks 1–2 sider som faller**, ELLER **konsistent posisjonsløft utover organisk modning**. Hold ellers. **Bakgrunn:** første avlesing 20.07 ga **NO-GO** (se BESLUTNINGER 2026-07-20) — for tidlig + konfundert av bred impresjons-surge (1,5–5,7× på ALLE sider, inkl. ulikt-behandlet hund-i-bil = ikke v2-signal) + 28d-vindu var ~40 % pre-retrofit. August-vinduet har **9 piloter** å dømme på (6 batch #1 + 3 batch #2). Mega-sidene (`hund-kaster-opp`, `hvor-mye-mat`) + 60 raseguider forblir gated til GO.
 - **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
@@ -67,6 +67,21 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-07-20 — GSC-avlesing pilot-retrofit: NO-GO korpus (for tidlig/konfundert) + batch #2 satt opp
+
+**Avlesing (28d 22.06–19.07) vs 90d-baseline, 7 sider (6 batch #1-piloter + hund-i-bil):** v2-effekt **ikke isolerbart ennå**. Dominant signal er en bred **impresjons-surge 1,5–5,7× på ALLE sider**, inkl. det ulikt-behandlede hund-i-bil (vei-A additiv) → organisk/sesong + indeksmodning, IKKE v2. Klikk/dag-økning er dermed impresjons-drevet, ikke CTR-drevet. **CTR (metrikken v2 skal flytte) er blandet:** 3 opp (hvor-mye-vann +0,44pp / sover +0,23 / øyne +0,13), 2 ned (hva-kan-spise −0,13 / gress −0,24), 2 flate — og nedgangene korrelerer med de største impresjons-hoppene (fortynning). Posisjon opp 6/7 men samme modnings-confound. **Måle-vindu ~40 % pre-retrofit** (retrofits live 02–03.07). → **NO-GO på full korpus-utrulling**; mega-sider (`hund-kaster-opp`, `hvor-mye-mat`) + 60 raseguider forblir gated. hund-i-bil watch-queries bekreftet bedre posisjon: «hund i bil regler» 22,2→18,3; «hund i bagasjerom uten bur» 12,5→8,2 (men 0 klikk, pos 8–18).
+
+**Batch #2 satt opp (3 Tier-1-piloter, HELD for execution — full standardpakke, samlet gate):** utvider august-sampelet fra 7 til 9 piloter for en robustere GO/NO-GO. Valgt etter GSC-profil (Tier-1-trafikk + page-1-posisjon + CTR-headroom). **Baselines dokumentert (90d / 28d pre-retrofit):**
+| Side | 90d impr/kl/CTR/pos | 28d pre impr/kl/CTR/pos |
+|---|---|---|
+| valp-biter-pa-alt | 5548 / 70 / 1,26 % / 9,6 | 2808 / 36 / 1,28 % / 7,5 |
+| bandtvang-norge | 5957 / 37 / 0,62 % / 8,8 | 3527 / 20 / 0,57 % / 8,5 |
+| hund-slikker-ansikt | 4007 / 28 / 0,70 % / 8,0 | 2185 / 17 / 0,78 % / 7,4 |
+
+- **Design-note:** 2 av 3 mangler ren produkt-fit (ingen bånd/tyggeleke/face-produkt) → batch #2 blir hovedsakelig **additiv vei-A (factstrip + answer-first + schema)**, product-box kun ved ekte fit. Nyttig kontrast: isolerer content-løft fra product-box-løft vs batch #1 (som hadde productduo).
+- **Gotcha #13 gjelder:** valp-biter-pa-alt har index-baserte JS-anchors (#grunner/#plan/#tyggeleker indeksert som egne URL-er) → IKKE legg til/fjern H2 under retrofit.
+- **Timing:** må gå live innen ~utgangen juli for å ha ~25 post-retrofit-dager i 14.08-vinduet. Execution ikke startet — venter GO (samlet gate for alle 3, som batch #1).
 
 ### 2026-07-20 — Pelsfjerner-cluster P1–P4 KOMPLETT (admin-steg lukket + curl-verifisert)
 
