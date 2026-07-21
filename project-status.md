@@ -59,6 +59,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ### Åpne tråder (ikke besluttet ennå)
 - **REN AVLESING ~2026-08-14 → v2-korpus GO/NO-GO** — 28d-vindu **17.07–14.08 = 100 % post-retrofit** (isolerer v2-effekt fra baseline-dager). **Sammenlign mot DAGENS 28d-tall (avlesing 20.07), IKKE 90d-baselinen** — apples-to-apples 28d-vindu. **Beslutningskriterium for GO:** median-CTR-løft på tvers av pilotene med **maks 1–2 sider som faller**, ELLER **konsistent posisjonsløft utover organisk modning**. Hold ellers. **Bakgrunn:** første avlesing 20.07 ga **NO-GO** (se BESLUTNINGER 2026-07-20) — for tidlig + konfundert av bred impresjons-surge (1,5–5,7× på ALLE sider, inkl. ulikt-behandlet hund-i-bil = ikke v2-signal) + 28d-vindu var ~40 % pre-retrofit. August-vinduet har **9 piloter** å dømme på (6 batch #1 + 3 batch #2). Mega-sidene (`hund-kaster-opp`, `hvor-mye-mat`) + 60 raseguider forblir gated til GO.
+- **⏳ Checkout-locale default-flip (Admin UI, manuelt)** — nb er enabled+published via API (2026-07-21 kveld), men **en er fortsatt primær** → checkout rendrer engelsk til Sondre flipper default til Norsk (Bokmål) i Admin → Settings → Languages og deretter fjerner English. Rekkefølge kritisk (aldri disable en mens primær). Se BESLUTNINGER 2026-07-21 (kveld). API-gap: primær-flip går IKKE via Admin API.
 - **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
@@ -67,6 +68,20 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-07-21 (kveld) — Checkout-språk til Norsk Bokmål: nb enabled+published via API, default-flip gjenstår i Admin UI
+
+**Mål:** Shopify-hostet checkout skal rendre på **norsk bokmål (nb)**, ikke engelsk. Butikk-innhold er allerede hardkodet norsk (jf. `theme.liquid` lang="nb"-override); dette gjelder KUN Shopify sin egen checkout/locale-config, ingen tema- eller oversettelses-endring.
+
+**Bakgrunn:** Butikkens **primær-locale er engelsk (en)** — derfor returnerer `request.locale.iso_code` "en" (memory `project_default_locale_is_english.md`), og Shopify-checkout arver engelsk.
+
+**Phase 1-funn (API-gap bekreftet):** `ShopLocaleInput` (Admin API 2026-04) eksponerer kun `published` + `marketWebPresenceIds` — **ingen `primary`-felt**. `ShopLocale.primary` er read-only. **Å flippe default/primær-locale er IKKE mulig via Admin GraphQL API** — krever Shopify Admin UI. Verifisert via Shopify Dev MCP mot 2026-04.
+
+**Utført via API:** **nb enabled + published** (mens en forble primær og urørt — å disable aktiv primær-locale sletter ALLE oversettelser permanent). Trygg, ikke-destruktiv operasjon.
+
+**Token-scope-gotcha:** Alle 5 Shopify CLI-session-tokens mangler `read_locales`/`write_locales`-scope (`['*']`-labelen i CLI-store er en CLI-layer-label, ikke ekte Admin-scope). shopLocales-mutasjoner via CLI-OAuth gir ACCESS_DENIED — et eget custom-app-token med eksplisitte locale-scopes kreves for API-locale-arbeid.
+
+**⏳ MANUELT ADMIN-STEG (Sondre, ikke skriptbart):** I Shopify Admin → Settings → Languages: (1) flipp **default language til Norsk (Bokmål)**, deretter (2) fjern/unpublish **English**. Rekkefølge er kritisk — en må ALDRI disables mens den er primær (sletter oversettelser). Etter flip vil checkout rendre norsk. Til da er nb tilgjengelig men en er fortsatt default.
 
 ### 2026-07-21 — Fri-frakt-terskel 250 kr LIVE: cart-progress-bar + sitewide copy-sweep (commit `a0d6826`)
 
