@@ -68,6 +68,16 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-21 — Fri-frakt-terskel 250 kr LIVE: cart-progress-bar + sitewide copy-sweep (commit `a0d6826`)
+
+**Beslutning:** Innført **fri-frakt-terskel på 250 kr** (betalt frakt **79 kr** under terskel, satt i Shopify Admin). Reverserer den gamle «fri frakt på ALLE ordrer»-regelen (Chihuahua-fix 2026-05-14). Terskel = 250 (ikke 300) fordi vanligste upsell 2× CalmBall ≈ 298 kr må kvalifisere.
+
+**Del A — cart-drawer progress-bar:** ny `snippets/free-shipping-bar.liquid` (`fs_threshold = 25000` øre) + CSS i `assets/custom.css` + én `{% render %}`-linje i `snippets/header-actions.liquid` (drawer). Viser «Du er kr X unna gratis frakt» → «🎉 Du har gratis frakt!» ved 250 kr. Auto-refresh på quantity-endring verifisert empirisk (morphSection av header-seksjonen inkluderer baren). Funksjonstestet på preview (tom kurv skjult / 149 kr = 59 % / 298 kr = full).
+
+**Del B — sitewide copy-sweep:** all ubetinget frakt-copy → «Gratis frakt over 250 kr» på tvers av 88 filer (6 globale: trust-bar/footer/cart-summary[badge slettet]/cart-products/meta-tags/om-oss · 2 template-JSON hero+PDP · 11 PDP-leveringslinjer · 3 llms-flater · 66 artikkel/raseguide trust-linjer) + 6 uncovered (layout topbar, collection-catalog, calmball-PDP-badge, sommer, calmball-oppskrifter, 5 pelsfjerner-test prose incl. FAQ+JSON-LD 1:1). Final audit: 0 ubetingede treff igjen (kun Tier-6 locale-schema-placeholders «over $50 USD» = inaktive). Google Ads-scripts (`create_ad_3.py`, `fix_snippet_header.py`) også oppdatert (kilde — endrer IKKE live-annonser).
+
+**Deploy:** 94 filer pushet live `#148333264974`, pull-verifisert. Regel forankret i CLAUDE.md (Legal/Content Rules) + memory `feedback_fri_frakt_uconditional.md` (reversert). **14 URL-er re-indeksert** (homepage + 11 PDP + pelsfjerner-artikkel[via 301-target hvordan-fjerne-hundehar] + llms-side).
+
 ### 2026-07-20 (kveld) — Batch #2 v2-retrofit LIVE: valp-biter-pa-alt + bandtvang-norge + hund-slikker-ansikt
 
 De 3 batch #2-pilotene (satt opp tidligere samme dag) er retrofittet og **live** (commit `2f91312`). Utvider august-avlesings-sampelet fra 6 til **9 piloter**. Kjørt med 3 parallelle subagenter (én per fil, som batch #1) + egen manuell audit (batch #1-lærdom: subagent-avvik må fanges).
