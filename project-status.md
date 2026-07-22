@@ -64,10 +64,30 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
 - **Sourcing: XL donut-seng (≥40 kg)** — Beroligende hundeseng maxer på 25 kg (Large). Forhindret seng-CTA på Schäfer (publisert uten), og blokkerer fremtidige large-breed-guider (Berner Sennen, Vorsteh, Setter, etc.) hvis sprint forlenges. Sondre må source XL-størrelse før disse rasene får seng-CTA.
+- **GSC page-2 round 2 (~64 gjenstående opps) — GATED på avlesing ~2026-08-12** — top-15-effekten fra page-2-sprinten (Batch A/D/C/B, live 2026-07-22) måles i GSC rundt 12.08 (samordnet med v2-avlesingen 14.08). Virker CTR/posisjon-mønsteret → round 2 (dypere mining under top-15) godkjennes da. Hold til da.
+- **King→griffon sitewide link-equity (deferred)** — «Tips fra King» er hardkodet i **118 filer** (ikke shared snippet); 15 lenker allerede til griffon-guiden. Sitewide King→`/pages/griffon-petit-brabancon` krever FØRST refactor av «Tips fra King» til delt snippet, deretter mass-link. Egen scoped sprint. (Batch C fylte companion-cluster-gapene i stedet.)
+- **2 weak-fit Batch-D-links holdt (Sondre-beslutning utestående)** — `aktivisere-hund-pa-tur`→potevasker (ingen pote/gjørme-kontekst) + `hundehar-bilen`→«fjerne hundehår fra sofa»-anchor (bil-artikkel, off-topic). Ikke shippet; force-add hvis ønsket.
+- **llms.txt H2-drift på hund-kaster-opp (månedlig audit)** — article_map H2-liste stale: «Oppkast vs. rygning» (faktisk «oppgulping») + «Bilsyke»-H2 matcher ikke lenger seksjonsfila. Word_count fikset i sprint 2026-07-22; H2-liste gjenstår for månedlig llms-audit.
 
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-07-22 — GSC page-2 opportunity-sprint: 5 batcher (A/D/C/B + gotcha) live + Andefanten-regel korrigert
+
+**Utløser:** GSC-analyse (service-account, 90d, query×page) av page-2-queries (posisjon 8–20, impr >20) → 300 kandidater, intent-klassifisert (KJØP×3 / INFO / SØPPEL via google-ads-script-negativ-logikk adaptert for organisk). 0 SØPPEL (organisk = alle rader har allerede landingsside). Top-15 sider aggregert (anchor-fragmenter kollapset); 6 KJØP-rader surfacet separat. Rapport-only først, batch-godkjenning per steg (preview → STOP → live).
+
+**Batch A (metas, Admin):** 4 raseguide-meta-rewrites — australian-shepherd (manglet head-term helt), newfoundland / italiensk-mynde / weimaraner (ledet med genetikk-jargong uten click-hook) → head-query front-loaded + reason-to-click, ≤155 tegn. **Rettelse:** min opprinnelige «alle 15 top-sider mangler meta»-funn var FALSK — single-line `curl | grep '<meta name=\"description\"'` bommer på theme-ens multi-line `<meta>`-tags (→ gotcha #14). Alle 15 hadde gode custom metas; kun 4 trengte CTR-omskriving. Nesten forårsaket 15 unødvendige rewrites.
+
+**Batch D (kommersiell, commit `1fd00f2`):** leker-subtittel (collection-catalog) + «rund hundeseng»-answer-block (product-hundeseng) + pelsfjerner «fjerne hundehår fra sofa»-exact-anchor (pelsfjerner-test) + 4 potevasker inbound-links (bader-ute / graver-i-hagen / vil-ikke-ga-tur / i-bil — potevasker hadde kun 8 inbound vs pelsfjerners 60). Admin: seng-title+meta, pelsfjerner-meta, leker-title+meta. **2 frakt-compliance-brudd fanget & fikset:** pelsfjerner-meta «Fri frakt fra Norge» + leker-meta «Gratis frakt i Norge» → «Gratis frakt over 250 kr». **Lukker det åpne punktet fra BESLUTNING 2026-07-20 (linje ~134):** pelsfjerner PDP-meta var tom/non-compliant — nå satt compliant.
+
+**Batch C (interne lenker, commit `8d1cfb3`):** pre-flight viste breed-cluster-grafen allerede tett; kun 7 reelle gap + 2 resiprositets-kompletteringer = 9 crossover-links i 6 «Les også»-blokker (cocker→golden · welsh-corgi/shiba→pomeranian · cavalier/malteser→griffon · griffon→cavalier/bichon/tibetansk · malteser→cavalier). Griffon↔cavalier nå toveis; griffon-blokka hadde NULL breed-links før. Alle mål HTTP 200.
+
+**Batch B (content, commit `2b8050e`):** targeted FAQ i EKSAKT query-frasering, hver speilet 1:1 i FAQPage JSON-LD (verifisert valid + count-match): hund-kaster-opp +3 (hvitt skum / ufordøyd mat / tørrbrekk — alle m/vet-disclaimer) 9→12; bandtvang +1 «Er det båndtvang nå?» (satt først, sesong-snippet) 8→9; hva-kan-hund-spise sukkererter (liste+hurtigoversikt) + 2 FAQ (yoghurt/skinke) 8→10. **Scope-funn:** artiklene var allerede mer komplette enn rapporten antok → holdt lean/high-ROI. llms.txt Trigger B: word_count korrigert (hund-kaster-opp 2550→3050, bandtvang 2300→2750, hva-kan-hund-spise 3650→2550 — map overstated ~1100 ord).
+
+**Andefanten-regel korrigert (Sondre-catch):** memory `feedback_calmball_supervision.md` var INVERTERT (sa «Andefanten = safe alone/alenetid») — motsier `docs/products.md` (revidert 2026-05-28: ALDRI markedsfør Andefanten som safe-alone; begge leker er supervised-only). Fikset i memory + MEMORY.md-indeks + stale cross-referanse i docs/products.md. Canonical beroligende-leker-frasering låst: «myke kosleker som Andefanten». `docs/gotchas.md` #14 lagt til (commit `5e3a858`).
+
+**Verifisering:** alle 9 Admin-felt (4 Batch A-metas + seng-title/meta + pelsfjerner-meta + leker-title/meta) + alle theme-endringer live-verifisert på minhundpet.no. **2 judgment calls holdt** (weak-fit links + King→griffon sitewide — se Åpne tråder). **Round 2 (64 gjenstående page-2-opps) gated på GSC-avlesing ~12.08** (samordnet med v2-avlesingen 14.08).
 
 ### 2026-07-21 (kveld) — Checkout-språk til Norsk Bokmål: nb enabled+published via API, default-flip gjenstår i Admin UI
 
