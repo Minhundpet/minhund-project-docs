@@ -73,6 +73,18 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-23 (kveld) — YMYL legal-accuracy fix på `hund-i-bil` (mest AI-siterte side) live (`5b12d33`)
+Clarity 17.–23. juli: `/pages/hund-i-bil` = mest AI-siterte side (21 siteringer, 100 % Share of Authority på «lov hund i bil uten bur norge» + «dog transport car norway laws»). Våre formuleringer gjengis direkte i AI-svar → feiltall forsterkes. Kildeverifisering mot primærkilder (Lovdata/Mattilsynet/NAF) avdekket to påstander uten hjemmel + småfeil. 8 inline-redigeringer i `sections/hundetips-hund-i-bil.liquid` (ingen delte snippets):
+- **«2 600 kr gebyr» FJERNET** — ingen slik sats i forenklet forelegg (1990-492) eller gebyrforskriften (2021-963). Mykt opp til «kan gi forelegg; beløpet fastsettes av politiet». Ordet «gebyr» var også teknisk feil (last er ikke gebyr-overtredelse).
+- **«prikker på førerkortet» FJERNET** — prikkbelastningsforskriften (2003-1164) §2 lister ikke last-sikring eller §3-aktsomhet → hund-i-fanget gir forelegg, ikke prikker.
+- **Fysikk «over 200 kg / 300 kg»** → NAF-krasjtest-innramming («titalls ganger egenvekten»).
+- **Forsikring**: la til hjemmel forsikringsavtaleloven §4-9 (BEKREFTET ordrett: «grovt uaktsomt … kan settes ned eller falle bort»).
+- **Presisjon**: «kjøretøyforskriften» → «forskrift om bruk av kjøretøy»; «dyrevelferdsloven» → «dyrevelferdsloven §11 (transport)».
+- **Factstrip-kort**: `2 600 kr` → `4 av 6` / «bilseler røk i NAFs frontkollisjonstest i 50 km/t» (hjemlet, står støtt alene for AI-plukk).
+- BEKREFTET uten endring: Mattilsynet 85 °C ved 22 °C (ordrett på mattilsynet.no), NAF bur>sele-test, straffeloven §17 nødrett (knuse rute).
+
+FAQ synlig ↔ FAQPage-schema holdt 1:1 (verifisert `True`). Preview (Development-theme) → live (`#148333264974`) verifisert med cache-buster (0 gamle strenger, alle nye med riktig antall). `/pages/hund-i-bil` sendt til GSC re-indeksering (service-account). Commit `5b12d33`.
+
 ### 2026-07-23 — Homepage restructure phase 1 + 2 + 3: fjernet 2 seksjoner + reorder (`580e763`) + FAQPage JSON-LD (`38b2a59`) + scroll-animasjoner (`1d70200`)
 
 **Kontekst:** Full strukturell inventory av forsiden (`templates/index.json`, 10 seksjoner) kjørt read-only først — kartla render-rekkefølge, shared-use (hvilke section-filer brukes andre steder), schema, theme-editor-avhengigheter, CSS-scoping og hardkodede handles. Ingen homepage-seksjon emitterte JSON-LD; ingen av de berørte filene var shared (recipes-teaser + UGC-block er homepage-only).
