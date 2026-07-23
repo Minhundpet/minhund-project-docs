@@ -73,6 +73,16 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-23 — Homepage restructure phase 1 + 2: fjernet 2 seksjoner + reorder (commit `580e763`) + FAQPage JSON-LD (commit `38b2a59`)
+
+**Kontekst:** Full strukturell inventory av forsiden (`templates/index.json`, 10 seksjoner) kjørt read-only først — kartla render-rekkefølge, shared-use (hvilke section-filer brukes andre steder), schema, theme-editor-avhengigheter, CSS-scoping og hardkodede handles. Ingen homepage-seksjon emitterte JSON-LD; ingen av de berørte filene var shared (recipes-teaser + UGC-block er homepage-only).
+
+**Phase 1 — fjern 2 + reorder (commit `580e763`, live `#148333264974`):** Forsiden gikk fra 10 → 8 seksjoner. Fjernet fra `order` + section-defs: `home_recipes_teaser` (CalmBall-oppskrifter-teaser) og `1768648793c9c64a49` (UGC «Del bilder av din fornøyde hund»). Byttet `custom_liquid_kingPromo` ↔ `section_j3AAXA` slik at **Møt King** nå står FØR nyhetsbrevet. `divider_F98HWb` beholdt før FAQ (breather mellom de to lyse seksjonene; King→nyhetsbrev er mørkegrønn→hvit = naturlig brudd uten divider). **Reversibelt:** `sections/home-recipes-teaser.liquid` + `blocks/ai_gen_block_a93a906.liquid` ligger fortsatt på disk (kun av-wiret fra index.json). Ny rekkefølge: hero → trust-bar → Judge.me → Hundetips/raseguider → Møt King → nyhetsbrev → divider → FAQ. Live-verifisert: begge fjernede seksjoner borte (0 markører), rekkefølge Møt King → nyhetsbrev → FAQ bekreftet.
+
+**Phase 2 — FAQPage JSON-LD (commit `38b2a59`, live):** Homepage-FAQ (`custom_liquid_XRexTm`) rendret et synlig 5-spørsmåls-accordion uten structured data. La til FAQPage JSON-LD som speiler artikkel-korpus-mønsteret (`sections/hundetips-hund-kaster-opp.liquid`): `<script type="application/ld+json">` med `@type` FAQPage + `mainEntity[Question→acceptedAnswer]`. **Svar byte-identiske (1:1) til synlig accordion** — ingen parafrasering, ingen nye claims. Alle 5 Q dekket (Hvor sender dere fra / leveringstid / Hva koster frakt [«over 250 kr»] / trygt å handle / Hvem tester produktene). Pre-push verifisert: JSON-LD parser valid; count matcher accordion (5); frakt-svar bærer «over 250 kr» uten ubetinget frakt-copy; kun én FAQPage på siden (theme.liquid-FAQPage er guardet til `product.pelsfjerner`, ingen homepage-konflikt). Live-verifisert cache-busted: FAQPage present, parser valid, 5 Q.
+
+**Åpent punkt (utsatt til senere pass):** foreldreløse `mh-home-recipes__*`-regler i `assets/custom.css` (14 regler) står igjen — eneste konsument (recipes-teaser) er av-wiret, men CSS-cleanup gjøres i en egen runde for å holde denne endringen reversibel.
+
 ### 2026-07-22 — GSC page-2 opportunity-sprint: 5 batcher (A/D/C/B + gotcha) live + Andefanten-regel korrigert
 
 **Utløser:** GSC-analyse (service-account, 90d, query×page) av page-2-queries (posisjon 8–20, impr >20) → 300 kandidater, intent-klassifisert (KJØP×3 / INFO / SØPPEL via google-ads-script-negativ-logikk adaptert for organisk). 0 SØPPEL (organisk = alle rader har allerede landingsside). Top-15 sider aggregert (anchor-fragmenter kollapset); 6 KJØP-rader surfacet separat. Rapport-only først, batch-godkjenning per steg (preview → STOP → live).
