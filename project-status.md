@@ -73,6 +73,18 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-24 — YMYL travel-rule fix på `hund-og-reise` (3. mest AI-siterte side) live (`559a125`)
+Tredje side i YMYL-runden (14 AI-siteringer). Alle reisekrav verifisert mot Mattilsynet + kryssjekket mot `reise-til-utlandet` og `hund-i-bil` for konsistens. To reelle lovfeil (begge motsa både Mattilsynet OG våre egne sider) + tre presiseringer; 6 redigeringer i `sections/hundetips-reise.liquid`:
+- **Finland FJERNET fra ormekur-krav**: Finland/Malta/Irland er UNNTATT (parasitten finnes ikke). Feilen sto i body + FAQ + FAQPage-schema. FAQ↔schema speilet byte-identisk.
+- **Sverige-rabies RETTET**: direkte Norge↔Sverige krever IKKE rabiesvaksine (Mattilsynets Sverige-side); pass + ormekur kreves fortsatt. Sto i FAQ + schema. Speilet byte-identisk.
+- **Chip må være FØR rabies** (ikke «eller samtidig som») per Mattilsynet.
+- **«1 tonn»-fysikk → NAF-innramming** («titalls ganger egenvekten») — konsistent med hund-i-bil-rettelsen.
+- **«over 40 °C på 10 min» → verifiserte Mattilsynet-tall** («over 40 °C, i verste fall opp mot 85 °C»).
+- **Korpus-sweep**: begge lovfeilene var isolert til denne ene filen — `reise-til-utlandet` hadde allerede korrekt Finland-unntak + Norge–Sverige-rabiesunntak. Sidene er nå konsistente.
+- Uendret: operatør-policy-påstander (ferge/fly/tog/hotell) — hedget, utenfor primærkilde-kravet. Ingen delte snippets.
+
+Preview → live (`#148333264974`) verifisert med cache-buster (0 gamle; FAQ==schema byte-identisk). `/pages/hund-og-reise` sendt til GSC re-indeksering. Commit `559a125`. **Tre mest AI-siterte sider (hund-i-bil, bandtvang-norge, hund-og-reise) er nå kildeverifisert.**
+
 ### 2026-07-24 — YMYL legal-accuracy fix på `bandtvang-norge` (2. mest AI-siterte side) live (`4e99ba7`)
 Fortsettelse av hund-i-bil-metoden på nest mest siterte side (13 AI-siteringer). Alle straffe-/paragraf-/unntak-påstander verifisert mot Hundeloven (LOV-2003-07-04-74) på Lovdata. 8 inline-redigeringer i `sections/hundetips-bandtvang.liquid` (5 korreksjonspunkter; ingen delte snippets, ingen FAQ/schema berørt):
 - **§ 6-sitat UTDATERT → verbatim**: gammelt «quote» («storfe, sau, geit, fjærfe, rein, hest eller vilt…») matchet ikke loven; erstattet med gjeldende «husdyr, tamrein eller viltlevende dyr og deres reir, bo eller hi». Feilsitat av lov på AI-sitert side.
