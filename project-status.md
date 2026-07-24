@@ -73,6 +73,15 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-24 — Helsepåstand-prosjekt Bolk 0: disclaimer-hygiene live (`81c9c61`) + register i docs
+Nytt prosjekt: kildeverifisering av helsepåstander i hele artikkelkorpuset (118 artikler). Full kartlegging fullført (6 parallelle lese-agenter) → `docs/health-claims-register.md` (49 Tier-1, 14 Tier-2, 50 Tier-3, 4 Tier-4; mirrors i FAQ/schema). **Bolk 0 (disclaimer-hygiene) deployet:**
+- **Selv-audit korrigerte parallell-agent-feil:** «dachshund + 5 raseguider mangler topp-disclaimer» var FALSKT — alle 60 raseguider har både topp og bunn. Kun 3 generelle manglet topp.
+- **20 filer normalisert (disclaimer-only):** 3 topp-disclaimer lagt til (hund-og-reise, hundehar-i-bilen, vaske-hundeseng); 4 Tier-1/helse-artikler «kontakt fagperson» → kanonisk vet-frase (hund-sover-mye + hund-vil-ikke-ga-tur beholdt vetnett.no-lenke); 13 raseguider semikolon→komma i avslutningsfrasen (FAQ+schema 1:1 via replace_all).
+- **Kanonisk standard fastslått** (ref. hund-i-bil) og skrevet i registeret: invariant «Er du usikker på din hunds helse, kontakt veterinær.» (komma). Atferds-ruting + sterkere vet-varianter bevisst beholdt.
+- Live-verifisert cache-buster (alle 20); 20 URLer til GSC. Ingen delte snippets.
+
+Neste: Bolk 1 — Tier 1 generelle akutt-artikler (kildeverifisering av tall/tidsfrister/doser).
+
 ### 2026-07-24 — YMYL travel-rule fix på `hund-og-reise` (3. mest AI-siterte side) live (`559a125`)
 Tredje side i YMYL-runden (14 AI-siteringer). Alle reisekrav verifisert mot Mattilsynet + kryssjekket mot `reise-til-utlandet` og `hund-i-bil` for konsistens. To reelle lovfeil (begge motsa både Mattilsynet OG våre egne sider) + tre presiseringer; 6 redigeringer i `sections/hundetips-reise.liquid`:
 - **Finland FJERNET fra ormekur-krav**: Finland/Malta/Irland er UNNTATT (parasitten finnes ikke). Feilen sto i body + FAQ + FAQPage-schema. FAQ↔schema speilet byte-identisk.
