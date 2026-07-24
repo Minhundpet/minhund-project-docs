@@ -73,6 +73,17 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-24 — YMYL legal-accuracy fix på `bandtvang-norge` (2. mest AI-siterte side) live (`4e99ba7`)
+Fortsettelse av hund-i-bil-metoden på nest mest siterte side (13 AI-siteringer). Alle straffe-/paragraf-/unntak-påstander verifisert mot Hundeloven (LOV-2003-07-04-74) på Lovdata. 8 inline-redigeringer i `sections/hundetips-bandtvang.liquid` (5 korreksjonspunkter; ingen delte snippets, ingen FAQ/schema berørt):
+- **§ 6-sitat UTDATERT → verbatim**: gammelt «quote» («storfe, sau, geit, fjærfe, rein, hest eller vilt…») matchet ikke loven; erstattet med gjeldende «husdyr, tamrein eller viltlevende dyr og deres reir, bo eller hi». Feilsitat av lov på AI-sitert side.
+- **§ 11 → § 6 annet ledd**: § 11 er «ro og orden», ikke hjemmel for utvidet båndtvang. Var intern selvmotsigelse (body siterte selv § 6 andre ledd korrekt).
+- **Fengsel-trigger FEIL → rettet**: § 28 første ledd = båndtvangsbrudd uten skade gir BØTER; fengsel inntil 6 mnd (andre ledd) kun når hunden angriper/skader folk eller dyr. Rettet factstrip-label + answer + «strengere reaksjoner»-bullet.
+- **«3 000–5 000 kr» forelegg-sats FJERNET** (ingen fast forskriftssats — som 2600-saken). Factstrip-kort 2 omformulert til § 10 («Enhver kan ta inn en hund som går løs i båndtvangen» — hjemlet + lite kjent); body mykt til skjønnsmessig forelegg.
+- **Jakthund-unntak PRESISERT**: la til datoforbeholdet 20. aug–1. april (utenfor nasjonal båndtvang) per § 9 første ledd f — «under aktiv jakt» uten forbehold var misvisende.
+- BEKREFTET uten endring: § 4 (kontroll hele året), § 9 tjenestehund-unntak, § 10, § 14/§ 15 avliving ved angrep på husdyr/tamrein, samt HELE `reise-til-utlandet-med-hund` (bendelorm 24–120 t, Finland/Malta/Irland-unntak, 28-dagersregel, Sverige-rabies-unntak, 21-dagersregel — alt mot Mattilsynet, holder etter 2026-07-03-korreksjonen).
+
+Preview (Development-theme) → live (`#148333264974`) verifisert med cache-buster (0 gamle strenger). `/pages/bandtvang-norge` sendt til GSC re-indeksering (service-account). Commit `4e99ba7`.
+
 ### 2026-07-23 (kveld) — YMYL legal-accuracy fix på `hund-i-bil` (mest AI-siterte side) live (`5b12d33`)
 Clarity 17.–23. juli: `/pages/hund-i-bil` = mest AI-siterte side (21 siteringer, 100 % Share of Authority på «lov hund i bil uten bur norge» + «dog transport car norway laws»). Våre formuleringer gjengis direkte i AI-svar → feiltall forsterkes. Kildeverifisering mot primærkilder (Lovdata/Mattilsynet/NAF) avdekket to påstander uten hjemmel + småfeil. 8 inline-redigeringer i `sections/hundetips-hund-i-bil.liquid` (ingen delte snippets):
 - **«2 600 kr gebyr» FJERNET** — ingen slik sats i forenklet forelegg (1990-492) eller gebyrforskriften (2021-963). Mykt opp til «kan gi forelegg; beløpet fastsettes av politiet». Ordet «gebyr» var også teknisk feil (last er ikke gebyr-overtredelse).
