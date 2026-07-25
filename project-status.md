@@ -73,6 +73,15 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-25 — Helsepåstand Bolk «varmeklyngen»: 5 varmetall kildeverifisert + konsistensrettet live (`1d39586`)
+Sesong-kritisk (juli). Forsonet 4 sprikende varmetall + hånd-test på tvers av 5 artikler mot primærkilder:
+- **Brachy tur-terskel (viktigst):** sommer 22–23 °C → 18–20 °C — BOAS-litteratur viser brachy overopphetes fra ~21 °C (2,1× mer utsatt, 3× dødelighet). Den for lempelige verdien var det eneste avviket som faktisk kunne skade en hund.
+- **Bil ved 22 °C:** sommer 40 °C/10 min → 35 °C/10 min + 85 °C verste fall (Mattilsynet); hund-og-reise «over 40 °C» aligned til samme innramming.
+- **Asfalt:** ~52/62 °C med kildeforbehold «amerikanske målinger viser» (US-studier, ingen norsk primærkilde); hund-blor-fra-poten urørt (Frostburg-sitert).
+- **Hånd-test:** samlet til 7 sek (var 5/7/8).
+- **Heteslag-startgrense:** bevisst urørt — allerede korrekt spenn-innrammet.
+FAQ↔FAQPage-schema byte-identisk (brachy+7-sek i sommer, 35 °C i hund-og-reise). King-sidebar (Petit Brabançon, mesocephalic) urørt. Live cache-buster-verifisert; 5 URLer til GSC. **Åpent manuelt Admin-steg:** hund-om-sommeren meta-description sier fortsatt «5-sekunders» (SEO-felt, ikke tema).
+
 ### 2026-07-24 — Helsepåstand-prosjekt Bolk 0: disclaimer-hygiene live (`81c9c61`) + register i docs
 Nytt prosjekt: kildeverifisering av helsepåstander i hele artikkelkorpuset (118 artikler). Full kartlegging fullført (6 parallelle lese-agenter) → `docs/health-claims-register.md` (49 Tier-1, 14 Tier-2, 50 Tier-3, 4 Tier-4; mirrors i FAQ/schema). **Bolk 0 (disclaimer-hygiene) deployet:**
 - **Selv-audit korrigerte parallell-agent-feil:** «dachshund + 5 raseguider mangler topp-disclaimer» var FALSKT — alle 60 raseguider har både topp og bunn. Kun 3 generelle manglet topp.
