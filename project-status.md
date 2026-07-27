@@ -73,6 +73,14 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-27 — Helsepåstand Bolk 1 verifisert (27 Tier-1) + Fikse-økt 1: evidensbasert heteslag-kjøling live (`0117a77`)
+Full kildeverifisering av alle 27 generelle Tier-1 akutt-artikler (3 parallelle verbatim-uttrekk-agenter → manuell klinisk fare-rangering). **Ingen FARLIG-funn** av «utsett livstruende vet-besøk»-typen — akutte tilstander (GDV, forgiftning, urinstopp, heteslag, DKA, glaukom, hoggorm) er gjennomgående korrekt rammet «ikke-vent/umiddelbart». To positive nøkkelfunn: (1) ingen artikkel instruerer eier i å framkalle brekning hjemme (giftig-mat/hund-kaster-opp/livreddende forbyr det + flagger saltvann-fare + navngir apomorfin klinikk-only); (2) ingen menneskemedisin med dose.
+**Fikse-økt 1 (A1) deployet — medisinsk oppdatering, ikke omformulering:**
+- Det utdaterte «IKKE iskaldt / bruk lunkent 15–20 °C»-kjølerådet → evidensbasert **kaldt-vann-råd** i 5 filer (sommer, hund-og-varmen, hund-drikker-ikke, hund-i-bil, livreddende). Kildeforankret **Royal Veterinary College «cool first, transport second»** (Hall et al. 2016–2018 UK cooling-studie) — «tepid-ikke-kaldt» er avkreftet myte, samme som i humanmedisin. Dette var eneste funnet med reell (om enn moderat) skade-risiko: rådet kunne få en eier til å nøle med å bruke kaldt vann på en tilstand som dreper på 15–30 min.
+- Bevart: «ikke pakk inn i våte håndklær» + «kjøl først → ring/kjør vet mens du kjøler»-rekkefølge. Lagt til nyanse frisk ung (kaldtvannsbad) vs eldre/syk (helle over + vifte/trekk). Inkl. 2 myte-forkledde ekstra-fikser (hageslange-bullet + drikke-kontekst); fornuftig drikke-råd (små slurker) intakt.
+- Schema speilet 1:1 (sommer L1308+L1340, hund-drikker-ikke L1210, hund-og-varmen L1038; JSON-LD parser OK). Live cache-buster-verifisert (5×200, 0 gjenværende myte-mekanisme); 5 URLer til GSC.
+**Gjenstår i Bolk 1:** Fikse-økt 2 = A2 (hund-oeyne øye-observasjon) + A3 (hund-spiser-for-fort GDV-skille) + B1–B4 konsistens (asfalt 7/8 sek, panikk-terskel, matvegring, fôrbytte) — små lav-risiko innstramminger. Full fare-rangering i `docs/health-claims-register.md`.
+
 ### 2026-07-25 — Helsepåstand Bolk «varmeklyngen»: 5 varmetall kildeverifisert + konsistensrettet live (`1d39586`)
 Sesong-kritisk (juli). Forsonet 4 sprikende varmetall + hånd-test på tvers av 5 artikler mot primærkilder:
 - **Brachy tur-terskel (viktigst):** sommer 22–23 °C → 18–20 °C — BOAS-litteratur viser brachy overopphetes fra ~21 °C (2,1× mer utsatt, 3× dødelighet). Den for lempelige verdien var det eneste avviket som faktisk kunne skade en hund.
