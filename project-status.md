@@ -73,6 +73,9 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-27 (sen kveld) — Pelsfjerner prisstige visuell hierarki-opprydding live (`a0ed251`)
+Styling-only follow-up på variant-restruktureringen, ingen logikkendring. (1) Slettet duplikat undertekst-linje på pakkekortet («Pelsfjerner + hundesjampobørste» duplikerte variantnavn-labelen rett over — labelen står). (2) Tre-nivå hierarki: pris uendret (grønn/bold/16px, primær); «per stk» + fraktlinjer nedtonet til 11px dempet grå (#777) — **grønn reservert til pris + Spar-pill**. «Kun 11 kr mer enn én» beholdt, leser nå som fotnote. Push rett til live (hoppet preview per instruks). **Verifisert live på 375px + desktop (Chrome headless):** fraktlinjen brekker ikke til to linjer på 375px, kortene ikke høyere enn før, konverteringsargumentet intakt. Ingen revert nødvendig. De 4 kolleksjons-SEO-descriptions (fra forrige økt) er nå også rettet i Admin av Sondre + curl-verifisert (alle «Gratis frakt over 250 kr», ingen avkorting).
+
 ### 2026-07-27 (kveld) — Pelsfjerner variant-restrukturering PDP + frakt-copy-opprydding live (`2d40422` + `2740ac6`)
 Admin-prisstige endret: 2 stk 299→269, gammel «3 stk»/399-variant gjenbrukt som **«1 stk + sjampobørste» 379** (ikke slettet). PDP-Liquid oppdatert i takt (commit `2d40422`, 152+/33−, hele STEG 2-logikken + Spar-fiks i én commit):
 - **Metafelt-forankret Spar:** `variant.metafields.custom.referansepris` (Variant, **Desimaltall**) styrer sparebeløpet. Bundel = **478** (Pelsfjerner 179 + Sjampobørste 299 = summen av REELLE enkeltpriser, Markedsføringsloven §§6-8). 1/2 stk tomt → faller tilbake på `single_price × antall`. Lar priser rettes i Admin uten kodeendring (jf. pris-gjennomgang 12. aug).
