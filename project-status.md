@@ -28,7 +28,7 @@
 ### Marketing
 - **Google Ads: PAUSED.** Ingen aktive kampanjer. Søkeordforskning ikke prioritert nå.
 - **Salgs-baseline:** ~2 salg/uke organisk.
-- **Newsletter popup:** KING10 to-stegs flow, 30s scroll trigger. Live siden 2026-05-11.
+- **Newsletter popup:** redesignet 2026-07-28. To varianter (A kommersiell/`KING15`, B innhold/`KINGTIPS15`), tre steg med mikro-ja-segmentering, trigger 12 s eller 40 % scroll. **Første fungerende måling** — `mh_popup_view`/`mh_popup_submit` via Custom Pixel `150765646` til GA4. Målekontrakt satt (se BESLUTNINGER 2026-07-28). **Fryst til 11.08.2026.**
 
 ### Neste fase
 **🏁 Raseguide-sprint MÅLET NÅDD: 50 av 50 (Flat Coated Retriever #50 levert 2026-05-20 sen kveld, commit 2434ddf). Neste: cleanup-sprint #54 (aktiviseringsleke 404-fix globalt + `last_updated` framtidsdato-fix + wordcount-target-justering) + post-#50 crossover-link-audit (`docs/link-audit-2026-05-20.md`). Komplett Schnauzer-trio levert sprint #48–#50 (Dvergschnauzer/Mellomschnauzer/Riesenschnauzer) med "stamfar-rase"-moat-arkitektur; Vizsla #51 + Coton de Tulear #52 med rasespesifikke moat (polymyositt/BNAt).** (Historikk #44 nedenfor uendret:) **Raseguide-sprint utvidet til 41 av 50-milepælen (9 igjen). Single-coat-cluster fullført 2026-05-19 kveld: Pudel (#42) + Yorkshire Terrier (#43) + Lagotto Romagnolo (#44) deler hypoallergen single-coat-vinkel og krysslenker hverandre. Sprint #44 Lagotto Romagnolo deployed 2026-05-19 kveld — italiensk trøffelhund med tre kommersielt testbare rasespesifikke mutasjoner (ATG4D/Lagotto Storage Disease Helsinki/Bern 2015; LGI2/BFJE Helsinki 2011; SLC2A9/hyperurikosuri), vannapportør-arv fra Comacchio-myrene, eneste rase i verden avlet for trøffeljakt. Venter på manuell admin-step (page-creation i Shopify Admin) før `/pages/lagotto-romagnolo` går fra 404 til 200. Sprint #43 Yorkshire Terrier + #42 Pudel levert samme dag (begge NEW). Sprint #41 var Trigger B-omdefinering av Labrador Retriever (POMC-moat, ikke ny rase).
@@ -72,6 +72,56 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-07-28 — Nyhetsbrev-popup redesign LIVE: to varianter, tre steg, første reelle måling
+
+**Utløser:** popupen hadde levert ~5 påmeldinger totalt siden 2026-05-11 og KING10 var innløst **1 gang**. Antatt årsak var trigger-timing; faktisk årsak viste seg å være sammensatt.
+
+**Kartlegging:** popupen er 100 % egenbygget i temaet (`sections/newsletter-popup.liquid` + `assets/newsletter-popup.js`, statisk seksjon fra `layout/theme.liquid:771`, Horizon `dialog.js`). Ingen app, ingen Shopify Forms. Faktisk trigger var **30 s etter første scroll ELLER 50 % scrolldybde** — ikke 20 s som antatt, og armet ikke i det hele tatt uten scroll-event.
+
+**KRITISK FUNN — målingen har aldri eksistert.** Butikken har **ingen GTM-container** (null `GTM-`-treff) og **ingen `gtag()` i hovedsidens scope**. GA4 `G-TR8MTY1BSE`, Google Ads `AW-17878551195` og `GT-NGS3DWB9` kjører alle inne i **Shopifys Web Pixels Manager-sandkasse** via Google & YouTube-kanalappen. Gammel kode gjorde `if (Array.isArray(window.dataLayer)) dataLayer.push(...)` — `window.dataLayer` finnes ikke, vakten feilet, pushen skjedde aldri. **`newsletter_signup` har aldri nådd GA4.** Ingen impression-event fantes uansett, så påmeldingsraten har aldri vært beregnelig. Alle tidligere antakelser om popupens ytelse var udokumenterte.
+
+**Løsning — kanal:** eventene fyrer via `Shopify.analytics.publish` som primærkanal, med dataLayer + gtag + `clarity('set', ...)` som defensive fallbacks (alle i try/catch med eksistenssjekk — fyrer inn i ingenting uten feil hvis pixelen mangler). Ruten var allerede bevist: Custom Pixel «GA4 product_callout_click forw» (id `150765646`, runtimeContext LAX) gjorde samme jobb for callout-sporing. **Utvidet den eksisterende pixelen fremfor å lage ny** — en ny ville lastet `gtag.js` med samme GA4-ID i en andre sandkasse (dobbel konfig, risiko for duplisert sesjonstilskrivning). Verifisert i GA4 DebugView av Friday før live-push: alle seks events lander med korrekte parametere, delt `ga_session_id` holdt over 6 minutter.
+
+**Design:** to varianter valgt server-side på `template.name` (cache-trygt, fullside-cachen er per URL). **A** = kommersielle flater (index/product/collection/search), rabattvinkel, `KING15`, kun nye besøkende. **B** = `/pages/`-artikler, raseguider, blogg, innholdsvinkel, `KINGTIPS15`, ingen ny-besøkende-gate (tilbakevendende leser er den beste kandidaten for et innholdsnyhetsbrev). Tre steg: mikro-ja → e-post → kvittering. Mikro-ja-svaret skrives til `contact[tags]` (`behov-hundehar`/`-hverdag`/`-valp`/`alle-temaer`) → segmenter i Shopify Email. A og B deler underliggende verdier med ulike visningstekster, så segmentene er identiske på tvers. Trigger 12 s fra `DOMContentLoaded` eller 40 % scroll. 30 dagers frekvenstak, permanent suppresjon etter innsending. Liquid-suppresjon på innloggede med tagg `newsletter` + `excluded_paths`. Desktop sentrert modal 420 px, mobil bunn-ark maks 55 dvh, 44 px touch-mål. `?mhpopup=force` omgår all suppresjon for QA (nødvendig — localStorage deles mellom live og preview på samme origin).
+
+**Blokkerende compliance-funn under bygging:** utkastet lovet «kildesjekket mot veterinærfaglig litteratur» på variant B. Korpustelling avslørte at det ikke holder: av 59 generelle hundetips har kun 11 (18 %) navngitt vitenskapelig kilde, 15 kun myndighet/NKK, og **35 ingen navngitt kilde overhodet**. Raseguidene tåler påstanden (35/59 vitenskapelig, 0 uten kilde) — de generelle gjør det ikke, og variant B rendrer på begge. Påstanden fjernet som potensielt villedende etter mfl. § 7. Erstattet med det som faktisk er verifiserbart: vet-disclaimeren finnes i alle 118 artikler.
+
+**Copy-presisjon — tre feil av samme klasse fanget:** (1) «Én e-post i uka» var et kadensløfte butikken ikke holder (12 velkomste-poster totalt) → «Et par e-poster i måneden»; (2) «15 % på første kjøp» stemte ikke med rabattoppsettet (én bruk per kunde, ikke førstegangskjøp) → «15 % velkomstrabatt»; (3) begge feilene lå **også** i den hardkodede samtykketeksten som deles av A og B — en rettelse i schema-feltene alene ville etterlatt motstridende tekst i samme modal. **Lærdom: delt hardkodet copy utenfor schema er en egen feilklasse.** Sveip hele filen, ikke bare feltet som ble meldt.
+
+**Vilkårslinje lagt til** under koden på steg 3 (`discount_terms`, redigerbar): «Gjelder alle produkter. Én bruk per kunde, ingen minstekjøp. Kan kombineres med fraktrabatt. Ingen utløpsdato.» Speiler faktisk Admin-oppsett. Samtykketekst utvidet med lenke til `/policies/privacy-policy`.
+
+**Bevisst utsatt til runde 2:** (a) ikke-modal dialog på mobil så bakgrunnen kan scrolle — native `showModal()` blokkerer bakgrunns-scroll i alle nettlesere, og fokusfelle på ikke-modal dialog må håndskrives (>30 min, a11y-regresjonsrisiko); (b) splitte variant B på raseguide-handles så guidene får den sterkere kildepåstanden de fortjener; (c) kildearbeid på de 35 artiklene uten navngitt kilde.
+
+**Ny-besøkende-gaten feiler ÅPEN — bevisst valg.** Gaten leser `localStorage` + `sessionStorage`, ingen cookies. Blokkert lagring gir `null` overalt → `isNewVisitor()` returnerer `true` → popupen vises. Bivirkning: uten lagring kan heller ikke avvisningen skrives, så de brukerne får popupen på hver sidevisning. Dempet av at samtykkeporten (`userCanBeTracked()`) kjører først og fanger de fleste, og at Safari privat modus har flyktig `localStorage` (én visning per økt). Fail-open er riktig default mens vi trenger volum; revurderes hvis Clarity viser gjentatte visninger.
+
+**Deploy:** popup-filene pushet live `#148333264974` etter preview-verifisering på `#149856485454`; locale-fiks (`free_shipping_over` × 3 språk, «50 USD» → 250 kr/NOK) pushet separat. Snapshots i `~/minhund-rollback/`. Deploy- og rollback-prosedyre skrevet inn i `docs/shopify-rules.md`. To nye gotchas i `docs/gotchas.md`: **#13** preview-temaet er utdatert for alt annet enn pushede filer (kostet en runde da et preview-skjermbilde ble meldt som live-fraktbug — alle tre var rettet på live dagen før); **#14** locale-filer får auto-header ved pull, diff-avvik er ikke feilet push.
+
+---
+
+### 2026-07-28 — MÅLEKONTRAKT: suksesskriterier for nyhetsbrev-popup (satt FØR data)
+
+Satt bevisst før første datapunkt for å hindre etterrasjonalisering.
+
+**Hovedtall: `mh_popup_submit` / `mh_popup_view`**
+
+| Rate | Dom |
+|---|---|
+| **< 2 %** | Noe er fortsatt strukturelt galt — vi graver på nytt |
+| **2–4 %** | Virker, men under det redesignet skulle levere |
+| **> 4 %** | Godkjent |
+| **> 6 %** | Over e-handelssnittet |
+
+**Baseline:** 5 påmeldinger fra popupen totalt, over ukjent periode, uten nevner. Alt over det er teknisk sett forbedring — derfor er det **raten som teller, ikke antallet**.
+
+**Sekundært — diagnostikk, ikke mål:**
+- **Andel `step1_choice = alle`** («Bare send meg alt»). Over 40 % ⇒ mikro-ja-premisset er feil, vurder ettstegs.
+- **`dismiss_method`-fordeling.** Mye `close` mot lite `decline` ⇒ folk lukker refleksivt før de leser.
+- **Variant A vs B på rate.** **Ingen vinner skal kåres på to uker** — volumet er for lavt til signifikans. Vi ser kun etter om den ene er dramatisk dårligere.
+
+**FRYS: ingen endringer på popupen før 11. august 2026**, uansett hva tallene viser underveis. Vi rører den ikke mens vi måler.
+
+---
 
 ### 2026-07-28 — Pelsfjerner pakke-transparens: sjampobørste-avsløring + ærlig re-anker (`f7055de`)
 **Utløser:** pakkekortet «1 stk + sjampobørste» (349 kr) ga null kontekst om hva børsten er — vi ba om ~200 kr ekstra for et ukjent produkt. **Kritisk sidefunn under kartlegging:** sjampobørsten var satt ned 299→**249 kr som ny permanent ordinærpris** (Admin, 27.07 17:35). Det gjorde det eksisterende `referansepris`-ankeret (478 = 179+299) utdatert → «Spar 99» var overdrevet mot reelle enkeltpriser i dag (179+249=428). **Sondre re-ankret i Admin:** `referansepris` 478→**428** + pakkepris 379→**349** → ærlig **Spar 79 kr (18,5 %)**. Verifisert live (bundle 349,00 + Spar 79) før bygging.
