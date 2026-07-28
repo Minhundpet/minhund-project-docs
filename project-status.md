@@ -73,6 +73,31 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-28 — Produktkort inn i hvor-mye-mat + hund-kaster-opp (preview-godkjent, live pending)
+
+**Utløser:** GA4 viser at 95,1 % av øktene siste 30 dager avsluttes uten at brukeren ser en produktside. Tre høyest-trafikkerte artikler uten kjøp kartlagt: hund-om-sommeren (248 visn./91 landinger), hund-kaster-opp (100/88), hvor-mye-mat (90/80).
+
+**Kartleggingsfunn:** Ingen av de tre hadde hund-og-reise-problemet (produkt omtalt uten lenke) — alle produkthandles 200. Problemet var dybde og synlighet. Målt på live-HTML: hund-om-sommeren har over-fold produktboks på 4 % og er allerede riktig bygget (0 kjøp der er ikke et lenkeproblem — sannsynligvis produkt-match/intensjon). hund-kaster-opp hadde første produktlenke på 31 % som ren tekstlenke og **null produktbokser i hele fila**. hvor-mye-mat hadde ingenting før 93 %. **Strukturelt funn på tvers:** sidebar-produktbokser er verdiløse på mobil — `.mh-article__sidebar` ligger utenfor media-queryen og stables nederst i DOM, under bunn-CTA og «Les også». «Vi har produktboks på den siden» kan være sant på desktop og usant for 90 % av trafikken.
+
+**BESLUTNING — plassering avviker bevisst fra reise-mønsteret.** Sondre ba først om samme plassering som `productduo` på reise-til-utlandet (15 % ned). Avvist etter begrunnelse på begge sider: (1) **hvor-mye-mat** har en hoppebanner på linje 34 (`scrollIntoView` til `#kalkulator`) — alt mellom 0 og 32 % hoppes fysisk over av de mest engasjerte leserne. Kortet ligger derfor rett etter kalkulatorblokken (~37 % synlig tekst), der leseren nettopp har fått et gramtall og porsjonskontroll er top-of-mind. (2) **hund-kaster-opp** — 15 % lander midt i «gult skum»/«alvorlige årsaker», rett før bloat (23 %) og pankreatitt (27 %). Produktkort med pris og kjøpsknapp i den sekvensen leser som salg inn i en akuttsituasjon og treffer medisinsk-claim-regelen. Kortet ligger i Forebygging (46 %), der aktiviseringsskål-argumentet allerede står i brødteksten.
+
+**Byggevalg:** enkeltkort-variant `.mh-article__productduo--single` (bilde 104 px venstre / 88 px under 420 px, tekst høyre, knapp full bredde 44 px tapphøyde). Ikke tvunget frem et svakt produkt nummer to for å fylle to-kolonne-gridet. CSS-blokk byte-identisk i begge filer (SHA `c23161bf`, 124 linjer), portert fra reise **uten** `.mh-article--v2`-prefiks — v2 er et helt designsystem og skal ikke dras inn for én komponent. Knappen scopet til `.mh-article__productduo` så den ikke overstyrer den hvite knappen i hvor-mye-mats eksisterende sidebar-boks.
+
+**BESLUTNING — knappefarge:** fylt grønn `#2d6a35` med hvit tekst, IKKE reise-sidens hvit-på-hvit. Raseguide-canonical i CLAUDE.md foreskriver grønn knapp på hvite kort; reise-siden er avviket. Godkjent av Sondre — «ikke kopier den feilen».
+
+**Verifisert:** TOC-ankere intakt (13=13, 17=17 — productduo legger til null `<h2>`, jf. gotcha #13), theme check uten feil, aktiviseringsskål 149 kr `InStock`, preview pull-back byte-identisk. Godkjent på mobil og desktop via temaeditor-preview. **Live-push gjenstår — Sondre gir klarsignal separat.**
+
+### 2026-07-28 — HENDELSE + FIKS: PostToolUse-hook auto-pushet til LIVE (gotcha #15)
+
+**Hva skjedde:** `.claude/settings.local.json` hadde siden commit `23d6787` (28. juni, «Infrastructure day») en `PostToolUse`-hook på `Write|Edit` som kjørte `shopify theme push --theme 148333264974 --allow-live` — hele arbeidstreet til live ved hver redigering av `.liquid/.json/.css/.js`. Den fyrte tre ganger under bygging av productduo-kortene. Fordi hooken fyrer per redigering og ikke per ferdig oppgave, lå `hund-kaster-opp` ute med markup uten CSS (ustylet kort) i vinduet. CSS-en kom via python/Bash, som ikke trigger hooken — den asymmetrien er lett å feiltolke.
+
+**Eksponering:** temafil ~20:33 → ~20:37:50 (≈4 min 50 s); besøkende til ~20:39 pga. Fastly page_cache-etterslep (maks ~6 min). Eksakt sekund for første push ikke gjenopprettbart (mtime overskrevet). Ingen serverlogg-tilgang → kan ikke bekreftes om noen faktisk lastet siden.
+
+**Rollback:** `git show HEAD:` → `/tmp/live-sync` → `theme push --live --only`. Verifisert med fersk pull-back fil for fil: begge sha256 identiske med HEAD, 0 diff-linjer. Verifiser alltid mot **temafilen**, ikke rendret HTML — cachen viste komponenten i ~1 min etter at fila var ren (jf. gotcha #9, `?cb=` buster ikke page_cache).
+
+**BESLUTNING — hooken omskopet, ikke fjernet:** `--theme 149856485454 --force`, `--allow-live` strippet. Live-push krever nå eksplisitt manuell kommando; ingen automasjon når live. Backup: `.claude/settings.local.json.bak-20260728`. **Verifisert aktiv i sesjon** via sentinel-test (sentinel fyrte 21:31:23) + empirisk mål-bevis: med arbeidstreet stashet til HEAD ble preview overskrevet (productduo 36→0) mens live forble urørt. Merk: hooken pusher fortsatt **hele treet**, bare til preview — preview speiler arbeidskopien og er ikke et stabilt snapshot.
+
+
 ### 2026-07-28 — Nyhetsbrev-popup redesign LIVE: to varianter, tre steg, første reelle måling
 
 **Utløser:** popupen hadde levert ~5 påmeldinger totalt siden 2026-05-11 og KING10 var innløst **1 gang**. Antatt årsak var trigger-timing; faktisk årsak viste seg å være sammensatt.
