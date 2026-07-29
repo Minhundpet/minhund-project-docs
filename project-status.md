@@ -73,6 +73,26 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-29 — Kildesettings-prosjektet startet: faktafeil + topp-4 kildesatt live (`2a6b938` + `6ec8107`)
+
+Nytt spor etter popup-compliance-funnet 28.07 (35 av 59 generelle hundetips uten navngitt kilde). Kartlegging reproduserte 35-tallet, men fant **to feilklassifiseringer**: `oppbevaring-torrfor-hund` har FDA+AAFCO (falt utenfor norsk regex-mønster), og `hund-liker-ikke-bading` siterer Hill's Pet + Orvis — kommersielle aktører som bryter kildepolicyen. **Reell status: 33 uten kilde + 2 med problematisk kilde.** Prioritert på GSC-klikk 30 d (GA4 ikke tilgjengelig i sesjonen).
+
+**Batch 1 — faktafeil (`2a6b938`), skilt ut fordi det er feil info, ikke kildemangel:** Mehrabian-myten «80 % av menneskelig kommunikasjon er kroppsspråk» **fjernet** (ikke kildesatt — en myte skal ikke få kilde) ×2 i `hund-kroppsspraak`; utdatert «druetoksinet er uidentifisert» → vinsyre, Wegenast et al. 2022 (JVECC 32(6):812-816); ubelagt «belønning 10× mer effektivt enn straff» → Ziv 2017 (J Vet Behav 19:50-60) uten multiplikator. `giftig-mat` bevisst urørt — «eksakte **dosen** er ukjent» er fortsatt korrekt.
+
+**Batch 2 — topp 4 + sikkerhetsfiks (`6ec8107`, 5 filer live):**
+- **⚠ Kastrering-underfôring.** Prosa sa «20–30 % færre kalorier» OG **kalkulatoren i samme fil brukte faktor 1,4 mot 1,8** (~22 % lavere). Rettet til 10–15 % i tekst og faktor **1,6** i kalkulator (NRC 2006/WSAVA/AAHA). En 20 kg kastrert hund får nå ~14 % høyere anbefaling. **Lærdom: tall som finnes både i prosa og i et interaktivt verktøy må sveipes begge steder — verktøyet er det brukeren handler på.**
+- **Bulldog-«motsigelsen» var ingen motsigelse.** 49,07 (`hund-lukter-vondt`) og 38,1 (`engelsk-bulldog`) er to O'Neill-2022-studier med ulik referansegruppe — blandingsraser (Scientific Reports 12:10553, 905 553 hunder) mot alle andre hunder (Canine Medicine and Genetics). Begge kildesatt og kryss-lenket. **Lærdom: sjekk studiedesign før du «harmoniserer» bort et riktig tall.**
+- **Feil tall:** otitis externa 10 % → **7,30 %** (O'Neill et al. 2021, CMG 8:7). **Periodontitt «minst 80 %» har ingen primærkilde** (Niemiec-lærebok) → erstattet med O'Neill et al. 2021 JSAP 12,52 % ettårsprevalens + eksplisitt merking av 80 %-tallet som lærebokanslag. Lå også i ingressen.
+- **Kildesatt:** NRC 2006 (RER-formel), Kealy et al. 2002 JAVMA (levetid), Glickman et al. 2000 (GDV, gjenbruk), Čonková et al. 2011 Acta Vet Brno (Malassezia, n=147 Slovakia — symptomatisk utvalg presisert), Veterinærinstituttet (blågrønnalger).
+- **Myket opp uten sporbar kilde:** «1 dl saltvann», «70 % Malassezia i otitt», hud-pH-spennet, «særlig på Sørøstlandet».
+- **Harmonisering:** fôrbytte → 7–10 dager (fra 5–7 i hvor-mye-mat, eldre-hund ×2, valpe-utstyr). Løser B4/E2 i registeret.
+
+**Prinsipp fastsatt (Sondre):** *et presist tall uten kilde er verre enn et upresist tall som er sant* — myk opp framfor å sitere noe usikkert. **Aldri oppdikt en sitering:** en feil sitering er mer villedende enn ingen, og består alle automatiske sjekker. Alle nye siteringer slås opp mot primærkilde før de skrives inn (Wegenast-årstallet 2021→2022 ble fanget slik).
+
+**Verifisering:** 21/21 preview-kontrollpunkter PASS; live pre/post-pull 711→711 filer med **kun de 5 forventede endret, 0 kollateral**; sha256 live == HEAD på alle 5; 5 URLer sendt til GSC. `hund-bader-ute` viste page_cache-rotasjon på live (gotcha #10) — kildefil og ucachet render verifisert korrekte. **Metodefelle fanget:** første live-kontroll ga falskt PASS fordi preview-cookien ble gjenbrukt, så «live»-hentingen rendret preview (identisk bytestørrelse avslørte det). Live-kontroll må kjøres **uten cookie-jar**.
+
+**Neste:** punkt 3 = hund-kroppsspraak, hund-sover-mye, hund-vil-ikke-spise, hva-kan-hund-spise (inkl. godbiter 10–15 % → 10 %, godkjent), valp-biter-pa-alt. Deretter punkt 4 = resten av de 33.
+
 ### 2026-07-29 — Raseguide-hub «description»-drift kartlagt (ingen fiks utført)
 
 **Utløser:** Pre-push-snapshotet i King-batchen viste at `templates/page.raseguider.json` i repo har `description` på 21 kort som live mangler helt.
