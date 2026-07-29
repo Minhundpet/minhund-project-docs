@@ -73,6 +73,26 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-29 — Raseguide-hub «description»-drift kartlagt (ingen fiks utført)
+
+**Utløser:** Pre-push-snapshotet i King-batchen viste at `templates/page.raseguider.json` i repo har `description` på 21 kort som live mangler helt.
+
+**ÅRSAK — Shopify stripper udeklarerte block-settings ved opplasting.** `raseguider-grid.liquid`-schemaet deklarerer `description` på blokktypen `featured_article`, men **ikke** på `article_card`. Alle 60 blokkene i malen er `article_card`. Shopify dropper settings som ikke er deklarert i blokkens schema.
+
+**Bevis (naturlig eksperiment):** preview-temaet `#149856485454` fikk fila med alle 21 descriptions i en full push under King-batchen. Pull-back returnerte **0**. Ingen har rørt preview i theme-editoren. Repo 21 → push → pull → 0 på to uavhengige temaer. Strippingen skjer altså i opplastings-/valideringslaget, ikke i theme-editoren. (CLI alene kan ikke skille «strippet ved opplasting» fra «lagret men ikke lest ved pull» — operasjonelt er det uten betydning: fiksen er den samme, deklarer feltet i schemaet og push på nytt.)
+
+**VIKTIGERE FUNN — feltet ville aldri rendret uansett.** `article_card`-grenen (linje 83–135) har **null** referanser til `block.settings.description`. Kun `featured_article`-grenen (linje 58–59) rendrer det, og malen har **0 featured_article-blokker**. `.mh-hub__featured-desc` finnes på live kun som CSS-regel, aldri som HTML-element.
+
+**KORRIGERING av min egen tidligere vurdering:** jeg beskrev dette som at «21 kort mangler beskrivelse på live — det påvirker hvordan hubben leses av både brukere og crawlere». **Det var feil.** De 21 verdiene er død data i repoet og har vært det siden 2026-05-15. Ingen live-regresjon, ingen synlig effekt, ingen SEO-effekt. Verifisert mot rendret live-HTML: 61 `mh-hub__card-title`, 0 kort-beskrivelser, og ingen av prøvestrengene finnes.
+
+**Historikk:** `description` ble lagt til én per sprint fra sprint #10 (Staffordshire, 2026-05-15) t.o.m. sprint #33 (Sankt Bernhardshund, 2026-05-18) — sprint #28/29/30 hoppet over det. Praksisen **opphørte helt fra sprint #34**; de 39 senere kortene har aldri hatt feltet. Det er altså et forlatt mønster, ikke et regressjonstap.
+
+**Omfangs-sjekk:** hundetips-hubben (`hundetips-grid-2`) har **ingen** udeklarerte settings — problemet er isolert til `raseguider-grid`. Eneste udeklarerte felt i hele raseguider-malen er `description` på de 21.
+
+**Ingen fiks utført — kartlegging bestilt, ikke reparasjon.** Reelt valg senere: (a) fjern de 21 døde feltene fra repoet så det speiler live, eller (b) deklarer `description` i `article_card`-schemaet + legg til rendering i kort-grenen + fyll ut de 39 manglende — altså en bevisst designendring av hubben, ikke en «fiks».
+
+**Øvrige to driftfunn — notert, ikke prioritert:** `templates/page.yorkshire-terrier.json` (live har `"settings": {}`, repo utelater nøkkelen — kosmetisk normalisering) og `locales/en.default.schema.json` (JSONC-parse-avvik i Shopifys auto-genererte språkfil). Ingen av dem er fra King-batchen.
+
 ### 2026-07-29 — King-boks fakta-batch deployet live (commit `e298130`, 97 filer)
 
 **Utløser:** King-boksen skulle forbedres visuelt, forkortes og faktarettes. Sondre delte i to runder: **fakta først, alene** — visuelt/tekstlengde i egen runde etterpå.
