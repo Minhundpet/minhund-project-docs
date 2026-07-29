@@ -73,6 +73,28 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-29 — King-boks fakta-batch deployet live (commit `e298130`, 97 filer)
+
+**Utløser:** King-boksen skulle forbedres visuelt, forkortes og faktarettes. Sondre delte i to runder: **fakta først, alene** — visuelt/tekstlengde i egen runde etterpå.
+
+**Kartleggingsfunn:** Ingen delt snippet. Tre helt separate King-komponenter, alle inline: (A) sidebar-boks `mh-article__tips-sidebar` × **122 filer**, (B) body-H2 «Tips fra King» × **73 filer** (median 205 ord), (C) produktside-boks `mh-king-layout` × **10 filer** (inline styles + foto). **205 forekomster i 132 filer.** Visuelt en ren to-deling, ikke tilfeldig drift: mørk grønn gradient på alle generelle hundetips (62), lys krem/grønn tint på alle raseguider (60) — kun `docs/page-patterns.md:85` dokumenterte den mørke.
+
+**BESLUTNING — 5 kg er kanonisk.** Korpuset hadde tre konkurrerende vekter (`4,5 kg` 27 filer, `5,2 kg` 28 filer) pluss fem prosa-varianter. `chihuahua` og `cocker-spaniel` motsa seg selv internt (body vs sidebar). Kun `border-collie` og `golden-retriever` var korrekte fra før.
+
+**BESLUTNING — multiplikator-påstander må reberegnes ved enhver vektendring.** 11 artikler regner «X ganger min vekt» ut fra Kings vekt; 4,5 → 5 gjorde dem feil. Rettet: rhodesian-ridgeback (åtte→sju), riesenschnauzer ×2 (åtte-elleve→sju-ti), weimaraner ×2 (nesten ti→seks-åtte), newfoundland ×2 (tretten-femten→tolv-fjorten), vizsla ×2 (fire-sju→fire-seks), flat-coated ×2 (tretti→seks — feil også før batchen: 25/4,5 = 5,6). Regelen er dokumentert i `docs/products.md`.
+
+**BESLUTNING — Griffon-prefiks kun i sidebar denne runden.** De 74 sidebar-boksene sier nå «Griffon Petit Brabançon» (i tråd med raseguidens egen H1). Body-teksten sier fortsatt «Petit Brabançon» — 238 forekomster, bevisst utsatt til runde 2 sammen med body-H2-varianten. **Midlertidig, ikke permanent, intern inkonsistens — godkjent av Sondre.**
+
+**To funn som kartleggingen bommet på, fanget under gjennomføring:**
+1. **`layout/theme.liquid`** — cedille-feil i den nettstedsomfattende Organization-JSON-LD-en, som rendrer på **hver eneste side** og beskriver King til Google/AI-crawlere. Kartleggingen skannet kun `sections/`, `snippets/`, `templates/` — ikke `layout/`. Fanget først da render-verifisering av preview flagget cedille på alle fem testsider. Sannsynligvis den mest synlige enkeltforekomsten i batchen.
+2. **`weimaraner.liquid:124`** — en 11. multiplikator. Sveipet krevde 60 tegn foran «ganger», så linjer der uttrykket sto tidlig falt ut. **Lærdom: ikke ankre korpus-sveip på fast lookbehind-bredde.**
+
+**IKKE endret:** 226 g fødselsvekt på forsiden (bekreftet korrekt av Sondre). Body-H2 (73 filer) + visuell redesign + snippet-uttrekk av de 122 CSS-blokkene = egen runde.
+
+**Metodisk gjennombrudd — curl-preview av upublisert tema virker.** Gotcha #11 slo fast at `preview_theme_id` strippes på domene-redirecten og at «curl can't replicate the cookie handshake». Det er nå motbevist: en cookie-jar (`-c` + `-b`) overlever redirecten. Prime sesjonen mot store-roten én gang, deretter rendrer alle påfølgende fetch det upubliserte temaet. **Krever alltid en diskriminator-streng som kun finnes på preview** (her: live `/pages/hvor-mye-vann-hund` → 0 treff på `tips-sidebar-link`, preview → 3) — uten den kan man ikke skille «preview rendrer riktig» fra «jeg falt stille tilbake til live». Dette **tetter hullet i `.claude/rules/template-deletion.md` Step C**, der curl-verifisering hittil stille validerte mot LIVE.
+
+**Deploy-funn — live/repo-drift oppdaget i pre-push-snapshot.** Full pull av live før push viste 196 filer som avvek fra HEAD. 200 av 203 JSON-avvik var kun Shopifys auto-genererte kommentar-header (JSONC). **Tre er reell drift, ikke fra denne batchen:** `templates/page.raseguider.json` (repo har `description` på 21 raseguide-kort som live mangler helt), `templates/page.yorkshire-terrier.json` (tom `settings: {}`), `locales/en.default.schema.json`. **En full `theme push` ville overskrevet live med repo-versjonen.** Pushet derfor med 95 eksplisitte `--only`-flagg. Verifisert etterpå: 95/95 batch-filer identiske med HEAD, **0 filer utenfor batchen endret**. → **ÅPEN OPPGAVE: raseguider-hub-driften må undersøkes separat.**
+
 ### 2026-07-28 — Produktkort inn i hvor-mye-mat + hund-kaster-opp (preview-godkjent, live pending)
 
 **Utløser:** GA4 viser at 95,1 % av øktene siste 30 dager avsluttes uten at brukeren ser en produktside. Tre høyest-trafikkerte artikler uten kjøp kartlagt: hund-om-sommeren (248 visn./91 landinger), hund-kaster-opp (100/88), hvor-mye-mat (90/80).
@@ -469,6 +491,15 @@ Sommerferien 19.–28. juni er over; hele feriekampanjen som ble lagt inn i `ce9
 ---
 
 ## SPRINT-LOG — append-only, nyeste øverst
+
+### 2026-07-29 — King-boks fakta-batch (commit `e298130`, 97 filer, live `#148333264974`)
+**246 endringer i 94 tema-filer + 2 docs.** Vekt 108 (alle → 5 kg; Cocker/Springer rasevekt «12,5–14,5 kg» bevart via negativ lookbehind — 0 falske positive). Multiplikator 11 (reberegnet). Brachy→mesocephalic 14 i 9 filer (`mops.liquid:218` var ikke i kartleggingen). Cedille 28 (inkl. `layout/theme.liquid` Organization-JSON-LD). Griffon-prefiks 74 (sidebar). Lenke 12 i 6 filer (`Les mer om King →` + manglende `.mh-article__tips-sidebar-link`-CSS — 116/122 → **122/122**). Alder: om-king «snart sju år» → «over sju år» (evergreen).
+
+**Verifisering:** rendret HTML fra preview via cookie-jar-metoden med live-baseline som diskriminator — 5 sider på tvers av begge visuelle varianter + 6 multiplikator-filer, alle PASS. Etter live-push: 95/95 sha256/semantisk match mot HEAD, 0 filer utenfor batchen endret, 5/6 live-sider PASS. `hvor-mye-vann-hund` viste stale `page_cache` (etag urotert over 3 polls) — kildefil på live verifisert korrekt og ucachet render via `preview_theme_id=148333264974` bekreftet lenke=1/cedille=0. Gotcha #10-oppførsel, ikke innholdsfeil.
+
+**Docs:** `docs/products.md` King canonical facts-tabell + avledet-påstand-regel. `docs/gotchas.md` #11 omskrevet (cookie-jar-metoden).
+
+**NESTE RUNDE (avtalt):** body-H2-varianten (73 filer, median 205 ord) + Griffon-prefiks i body (238 forekomster) + visuell redesign + vurdering av snippet-uttrekk for de 122 inline CSS-blokkene.
 
 ### Uke 24 — 2026-06-12 (Full nettside-helsesjekk + 2 cleanup-tasks — commit `3db6d6a`)
 **Full-site audit (alt grønt):** 122 artikkelsider + 11 produkter + hubs + contact + 129 unike interne lenker = alle HTTP 200, 0 brutte. JSON-LD (Article/FAQPage/BreadcrumbList på artikler+raseguider; Product+BreadcrumbList på produkter) rendrer. JSON-validitet OK (5 «feil» = Shopify stock JSONC; «apps»×11 = app-block-placeholder). Schema-navn ≤25 (våre custom; stock bruker `t:`-nøkler). Breadcrumb-handles synket (4 templateSuffix-avvik = falske positiver). llms split 120/malformed 0/0 komma-pipe. Sitemap 127 sider, ny artikkel inkludert. Ingen fremtidsdatoer.
