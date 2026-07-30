@@ -117,6 +117,16 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — C3b-0 (`6d27fb0`, 2 filer live) + C3b kartlagt
+
+**🔴 `malteser` bar den feilen C1b rettet i `yorkshire-terrier`.** Guiden siterte JAAHA-DOI-en for at Yorkshire Terrier har «omtrent 35 ganger forhøyet risiko sammenlignet med hundepopulasjonen generelt» — alle tre defektene C1b fikset, fortsatt live. **To av våre egne sider motsa hverandre om samme tall fra samme studie i seks dager.** C1b-sveipen fant riktig den femte forekomsten i yorkshires ingress, men krysset aldri filgrensen. **Lærdom: korpus-sveipen ved en tallfiks må kjøre på studie-identifikatoren (DOI, forfatternavn), ikke bare på tallet — og på tvers av filer.** Rettet til C1b-fasiten; kryss-guide-konsistens verifisert på live.
+
+**✅ `riesenschnauzer` 6×-tallet hadde full dekning — mistanken min var feil.** Primærkilden er Egenvall et al. 2000 (Veterinary Record 146(18):519–525), en svensk epidemiologisk kartlegging av forsikrede hunder, sitert i Bianchi 2020s bakgrunn. Navngitt i §8 og faktastripen. **C2b-regelen om overkorreksjon har nå spart oss to ganger** — hadde tallet blitt mykt i C3a, ville en påstand med full dekning blitt fjernet. Kildepolicy avklart samtidig: forbudet mot Agria gjelder kommersielle aktører som *autoritet*, ikke fagfellevurdert forskning som *bruker* et forsikringsregister som datakilde — samme kategori som VetCompass.
+
+**C3b kartlagt: 36 guider gjenstår.** Detektoren har fortsatt støy (`Crufts 1936`, `Bernhardspasset 1050`, `Før 1900` teller som siteringer), så fem–seks guider er rangert for høyt; bunnsjiktet på 12 guider uten kvantitative markører er reelt. Rekkefølge etter alvorlighet, ikke rå score: **cane-corso** (DCM-prevalens 10–15 % hviler på PetMD — kommersiell kilde, samme policyklasse som Hill's/Orvis) → **newfoundland** (seks rangeringspåstander, «høyeste rase-prevalens» for SAS) → **dachshund** (10–12× IVDD-multiplikator tilskrevet «større populasjonsstudier», ingen navngitt studie) → **samojedhund** (Jansen/Zheng uverifisert + allergen-rangering) → **italiensk-mynde** (lettest).
+
+**Neste:** cane-corso.
+
 ### 2026-07-30 — Bolk C3a FULLFØRT (`d4ae954`, 7 filer live)
 
 Seks raseguider kildeverifisert mot primærkilde: `berner-sennenhund`, `vizsla`, `irsk-setter`, `rottweiler`, `riesenschnauzer`, `coton-de-tulear`. C3-omfanget er 42 guider etter detektor-rekalibrering (tredje bolk på rad der omfanget måtte korrigeres for målefeil — whippet ga falsk null fordi mønsteret manglet STOP-liste for landsnavn og klubbforkortelser).
