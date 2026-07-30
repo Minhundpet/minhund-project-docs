@@ -117,6 +117,26 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — C3b-5 italiensk-mynde (`afbb344`) — C3a/C3b-runden FULLFØRT
+
+**🔴 To feil i én setning om FEH.** «14 % av populasjonen klinisk rammet og 30 % bærere ifølge UC Davis VGL» → Gandolfi et al. 2013 sier 30 % av **hundene med normale tenner**, og begge tall er studiens, ikke VGLs. Sanity-testen som avslørte det: 14 % affisert gir ~47 % bærere under Hardy-Weinberg, ikke 30 % — tallene kunne ikke dele nevner. **Lærdom: når to tall fra samme studie står side om side, sjekk om de har samme referansegruppe før du leser dem som et par.**
+
+**🔴 «Pedersen et al. (2013)» var en fantom-sitering — ny feilklasse.** Ikke en feil kilde, men én ekte studie splittet i to: funnet står i Gandolfi 2013, der Pedersen er fjerde forfatter. Medforfatteren hadde fått sin egen fiktive publikasjon et annet år. Består enhver formatsjekk, siden navn og årstall ser riktige ut hver for seg.
+
+**🔴 Beinbrudd-tallet hvilte på n≈30 fra én privat klinikkblogg.** «25–45 % i løpet av livet» kom fra Walkerville Vet, som selv oppgir grunnlaget: 7 brudd blant ~30 hunder i egen pasientliste. Samme policyklasse som PetMD i C3b-1. Tallet ut; NMK RAS sin «relativt vanlig» inn. Kilden skjulte ikke svakheten — den sto i klartekst og var ikke lest.
+
+**🔴 To påstander motsa primærkilden direkte.** Bruddmekanismen: guiden skrev «skjørt skjelett», RAS sier «lange tynne bein **med normal beintetthet**». Og «NMK RAS dokumenterer at mange italienere ligger over standardens 5 kg-tak» — søk på hele RAS gir null treff på `vekt`, `kilo`, `5 kg`, `høyde`. **Lærdom: «X dokumenterer at …» er en verifiserbar påstand om et dokument. Åpne det og søk.**
+
+**🟢 Én flagget påstand hadde dekning likevel.** «Risikoen er høyest før 1,5 år» sto i et Walkerville-attribuert avsnitt, men NMK RAS sier det ordrett. Beholdt, kilde flyttet. En påstand i et avsnitt med dårlig kilde er ikke automatisk dårlig.
+
+**🟡 Fargeregelen var AKCs i en FCI-rammet faktastripe**; whippet-målene kollapset et kjønnsstratifisert tall (FCI #162: hanner 47–51, tisper 44–47) og motsa vår egen whippet-guide. **`whippet` oppgir fortsatt bare hannspennet — eget oppfølgingspunkt.**
+
+**Metodenotat — sirkulær bekreftelse nesten godtatt.** Søk på NMKs stiftelsesår ga vår egen side som toppresultat, med sammendrag ordrett fra guiden. **Regel: finnes en påstand bare i vår egen tekst i søkeresultatene, er den ubekreftet — ikke bekreftet.** Verifisert mot klubbens historieside i stedet.
+
+**Ordtelling-lærdom for C3c.** Rettingene la på 174 ord (2794 → 2968) og krevde fem trimrunder for å lande på 2791. **En kildefiks er ikke ordnøytral — kildeforankring koster typisk 100–200 ord. Guider som allerede ligger på 2750+ må planlegge trim inn i selve fiksen.**
+
+**Åpent Admin-steg:** meta sier «skjøre ben» — samme premiss brødteksten nå avviser. Ingen tallpåstand; blokkerte ikke pushen. Tas i neste Admin-runde.
+
 ### 2026-07-30 — C3b-4 samojedhund (`f74e411`) + FAQ↔schema-funn som ventende bolk
 
 **🔴 FEH-forekomsten var et utvalgstall lest som rasefrekvens.** «1–2 % av samojeder er affisert» → Pedersen et al. 2017 sin egen rasedekkende beregning er ~3,6/1 000, altså **0,36 %** — guiden lå 3–6× over. Studiens 14 affiserte av 182 (7,8 %) er et utvalgstall fra familier rundt kjente tilfeller. Bærertallet 12 % stemte, men forfatternes forbehold om skjevt utvalg manglet. **Lærdom: i en genetikkstudie er andelen affiserte i utvalget nesten aldri rasefrekvensen — se etter forfatternes egen ekstrapolering.**
@@ -135,11 +155,9 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-30 — hvor prosjektet står
 
-**Ferdig i dag:** C1b, C2b, C3a (6 guider), C3b-0 (malteser + riesenschnauzer), C3b-1 (cane-corso + kortharet-vorstehhund), C3b-2 (newfoundland), C3b-3 (dachshund), C3b-4 (samojedhund). **13 raseguider kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig i dag:** C1b, C2b, C3a (6 guider), C3b-0 (malteser + riesenschnauzer), C3b-1 (cane-corso + kortharet-vorstehhund), C3b-2 (newfoundland), C3b-3 (dachshund), C3b-4 (samojedhund), C3b-5 (italiensk-mynde). **14 raseguider kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk. **C3a/C3b-runden er fullført.**
 
-**Neste i C3b:** `italiensk-mynde` — siste av de seks toppkandidatene. Scoren er inflatert av falske siteringstreff; Gandolfi 2013 og Pedersen 2013 må sjekkes, og «risikoen er høyest før 1,5 år» (beinbrudd) trenger kilde.
-
-**Deretter:** 30 gjenstående C3-guider i lavere risikosjikt — 12 av dem uten kvantitative markører i det hele tatt (kun rangeringsspråk å gjennomgå).
+**Neste: C3c — 28 av C3s 42 guider gjenstår, og bolken er ikke kartlagt ennå.** C3a tok de seks høyest rangerte, C3b de sju neste. Restsjiktet er lavere risiko: per C3-kalibreringen har 16 av de opprinnelige 42 **null navngitte siteringer** — der er det rangeringsspråk og udokumenterte prevalenstall som skal gjennomgås, ikke siteringer som skal spot-sjekkes. Første steg i C3c er derfor en kartlegging med samme detektor-kalibrering som C3b, ikke å begynne å rette.
 
 **Køen etter C3:** (1) FAQ↔schema-bolken over. (2) Gordon vs irsk setter vektmotsigelse — krever FCI-standardene for begge raser, holdt bevisst utenfor C3a. (3) «Hypoallergen» i meta-descriptions — minst to forekomster (`coton-de-tulear`, `malteser`), korpuset ikke sveipet.
 
