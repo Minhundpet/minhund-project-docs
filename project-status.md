@@ -117,6 +117,41 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — C3b-4 samojedhund (`f74e411`) + FAQ↔schema-funn som ventende bolk
+
+**🔴 FEH-forekomsten var et utvalgstall lest som rasefrekvens.** «1–2 % av samojeder er affisert» → Pedersen et al. 2017 sin egen rasedekkende beregning er ~3,6/1 000, altså **0,36 %** — guiden lå 3–6× over. Studiens 14 affiserte av 182 (7,8 %) er et utvalgstall fra familier rundt kjente tilfeller. Bærertallet 12 % stemte, men forfatternes forbehold om skjevt utvalg manglet. **Lærdom: i en genetikkstudie er andelen affiserte i utvalget nesten aldri rasefrekvensen — se etter forfatternes egen ekstrapolering.**
+
+**🔴 Jansen 1987: siteringen eksakt, tallene forskjøvet.** Proteinuri 2–3 mnd (ikke 3–4); død av nyresvikt **innen** 15 mnd (ikke «mellom 8–16»). Studien oppgir et *tak*; guiden gjorde det til et *vindu* med en nedre grense studien ikke setter. Rettet i §8 og FAQ+schema.
+
+**🟡 Pedersen-journalen bar dagens navn, ikke publiseringsnavnet** — «Companion Animal Health and Genetics» → *Canine Genetics and Epidemiology* 4:11. En sitering må bære navnet ved publisering. Allergen-rangeringen myket; «IKKE en hypoallergen rase» står uendret. ✅ Zheng 1994 og Catchpole 2013 rene.
+
+## 🔴 NY VENTENDE BOLK — FAQ ↔ schema-avvik i 21 filer
+
+Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avvik mellom synlig FAQ og FAQPage JSON-LD; 17 med reelt innholdsavvik**, 4 kun tegnsetting. HARD-regelbrudd (`CLAUDE.md`, `.claude/rules/hundetips-articles.md`): Google leser noe annet i rikresultatet enn siden viser.
+
+**Besluttet (Sondre): egen bolk ETTER at C3 er ferdig — ikke satt inn nå.** Prioritert: `valp` (8 avvik) og `tannhelse` (7 avvik, helseartikkel) øverst, deretter `hund-liker-ikke-bading` (4), `boxer` (3), `aktivisere-hund-pa-tur` + `sommer` (2 hver), så 11 filer med ett avvik. Full tabell i registeret.
+
+**Metodenotat:** ville ikke blitt oppdaget av kildesettings-sporet — det dukket opp fordi strukturkontrollen kjøres uansett. Argument for å beholde de «trivielle» strukturelle sjekkene selv når fokus er kildeverifisering.
+
+## STATUS PER 2026-07-30 — hvor prosjektet står
+
+**Ferdig i dag:** C1b, C2b, C3a (6 guider), C3b-0 (malteser + riesenschnauzer), C3b-1 (cane-corso + kortharet-vorstehhund), C3b-2 (newfoundland), C3b-3 (dachshund), C3b-4 (samojedhund). **13 raseguider kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+
+**Neste i C3b:** `italiensk-mynde` — siste av de seks toppkandidatene. Scoren er inflatert av falske siteringstreff; Gandolfi 2013 og Pedersen 2013 må sjekkes, og «risikoen er høyest før 1,5 år» (beinbrudd) trenger kilde.
+
+**Deretter:** 30 gjenstående C3-guider i lavere risikosjikt — 12 av dem uten kvantitative markører i det hele tatt (kun rangeringsspråk å gjennomgå).
+
+**Køen etter C3:** (1) FAQ↔schema-bolken over. (2) Gordon vs irsk setter vektmotsigelse — krever FCI-standardene for begge raser, holdt bevisst utenfor C3a. (3) «Hypoallergen» i meta-descriptions — minst to forekomster (`coton-de-tulear`, `malteser`), korpuset ikke sveipet.
+
+**Åpne Admin-steg (kun manuelt i Shopify Admin):**
+- `riesenschnauzer` meta-description: «6x risiko (Bianchi 2020)» → skal til Egenvall et al. 2000
+- `irsk-setter` meta-description sier «NKK #14» — må endres samtidig med brødteksten når NKK-tallet foreligger
+- `hvor-mye-vann-hund`: bindestrek «40-60» der korpuset ellers bruker tankestrek (kosmetisk)
+
+**Holdt tilbake bevisst:** `irsk-setter` NKK #14/427-rangeringen — venter på NKKs registreringsstatistikk for 2024. Et signal om 32 % nedgang gjør både tall og plassering ustabile.
+
+**Prosessendringer fastsatt i dag:** pre-publiseringsporten er nå obligatorisk i produksjonsflyten (koblet inn fire steder, inkludert generator-skillen); ingress-først i kartleggingen; DOI-verifisering som fast steg; retry på alle live-hentinger inkludert sekundære sjekker; korpus-sveip på studie-identifikator på tvers av filer.
+
 ### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
 
 **🔴 Jensen-anbefalingen var forskjøvet med én og motsa guidens egen skala.** «4 eller flere kalsifiseringer» skulle vært «mer enn fire» (fem eller flere) — og guidens egen IDC-skala definerer nettopp 5+ som IDC 3. Feilen gikk i «for streng» retning: en oppdretter kunne avvist et avlsdyr Jensen ville godkjent. **Lærdom: når en guide oppgir både en gradert skala og en terskel, må terskelen sjekkes mot skalaen.**
