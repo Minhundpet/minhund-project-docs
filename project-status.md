@@ -117,6 +117,18 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — Bolk C2b FULLFØRT (`5bbc283`, 3 filer live)
+
+Ren oppmykning av `pomeranian`, `schaferhund`, `norsk-buhund` — ingen nye kilder hentet. To oppdiktede autoriteter og fire ukildede tall fjernet i pomeranian; historisk presisjon uten kilde myket i schaferhund; tre lag konklusjon på ett års øyeblikksbilde skilt fra det målte tallet i norsk-buhund.
+
+**⚠ Overkorreksjon unngått — ny regel.** Planen var å myke rangeringen «Alopecia X rammer pomeranian høyere enn noen annen rase». Brødteksten attribuerte den til AKC Canine Health Foundation med direkte sitat. Rangeringen ble beholdt; defekten var at FAQ og schema gjentok den *uten* attribusjonen. **Speilbildet av korpusets vanlige feil** — normalt overdriver FAQ, her underforankret den. Sjekk brødteksten for attribusjon før du myker en rangering: å fjerne en påstand som har dekning er også en feil.
+
+**Tredje-forekomst-fella:** «Vestlig veterinærdermatologi» hadde en søskenformulering med annen bøyning som `replace_all` ikke traff. Fanget av negativkontrollen, ikke av planen.
+
+**Admin-steg lukket:** rhodesian-ridgeback meta-description bekreftet byttet til «khoikhoi-hund» i alle tre variantene, live-verifisert over tre hentinger.
+
+**Neste:** skaffe JAVMA-fulltekst (Tobias & Rohrbach 2003) og raseklubbens RAS-dokument før C3. Hvis 35× ikke lar seg bekrefte etter fulltekst, mykes tallet framfor å velge mellom 35× og UFAWs 60×.
+
 ### 2026-07-30 — Bolk C2 delvis fullført (`40765d1`, 2 filer live)
 
 **Manuell null-verifisering var avgjørende.** Et rent detektor-resultat sa ingenting om hvilken guide som faktisk hadde mest ukildet helseinnhold: `pomeranian` slo ut med null prosenttall og null årstall, men har 32 helsepåstand-setninger. `irsk-setter` slo ut med 17 «årstall» — alle historiske. Regelen fra i går («ikke stol på et rent resultat uten å sjekke det») holdt.
@@ -155,7 +167,7 @@ Seks raseguider (`cocker-spaniel`, `labrador-retriever`, `flat-coated-retriever`
 
 **Metode-lærdom (to egne feil):** (1) Jeg påsto to ganger at preview ikke kunne curl-verifiseres, med henvisning til sjekkliste D — mens `gotchas.md` gotcha #11 hadde dokumentert cookie-jar-løsningen dagen før. Kryssreferanse lagt inn i `artikkel-sjekkliste.md` D. (2) Cache-rotasjon traff `cocker-spaniel` på live: 2 av 6 hentinger med unik cache-buster ga gammelt innhold. Retry til alle nye strenger treffer er nå påkrevd — én henting er ikke bevis.
 
-**Åpent Admin-steg:** `rhodesian-ridgeback` meta-description sier fortsatt «hottentott-hund» i alle tre variantene.
+**Admin-steg LUKKET samme dag:** `rhodesian-ridgeback` meta-description byttet til «khoikhoi-hund» i alle tre variantene; live-verifisert med cache-buster.
 
 **Neste:** Bolk C (desimal-prevalens uten sitering — `welsh-corgi-pembroke`, `vizsla`, `riesenschnauzer`, `strihaaret-vorstehhund` m.fl.), deretter Bolk D (38 uten navngitt kilde).
 
