@@ -117,6 +117,18 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — C3b-1 cane-corso + kortharet-vorstehhund (2 filer live)
+
+**🔴 Glickman-multiplikatoren var oppdiktet i to guider, med to ulike tall.** `cane-corso` sa «tredobler GDV-risiko», `kortharet-vorstehhund` sa «øker med 110 %». Glickman et al. 2000 (JAVMA 217(10):1492–1499) rapporterer at ~20 % av GDV-tilfellene hos storraser kunne **tilskrives** høyt fôringsbrett — en attributabel andel, ikke et multiplikator. Begge hadde konvertert andelen til en multiplikator og landet ulikt. **Lærdom: når to av våre sider oppgir ulike multiplikatorer for samme funn, er begge sannsynligvis utregnet, ikke sitert.** De tre generelle artiklene som siterer samme studie er rene — de oppgir kun retning. Funnet kom fra korpus-sveip på studie-identifikator, regelen som ble formalisert dagen før.
+
+**🔴 `cane-corso` DCM-prevalens 10–15 % hvilte på PetMD** (kommersiell kilde) og finnes ikke i noen fagfellevurdert studie — Merck lister ikke engang rasen blant de DCM-disponerte. Tallet, rangeringen og PetMD strøket. **Ikke overkorrigert:** ekko-screening fra 2 år står, med eksplisitt setning om at ingen rasespesifikk prevalensstudie finnes.
+
+**Prosessendring (Sondre):** etter fjerde ingress-forekomst på rad er **ingress-først nå et fast steg i kartleggingen**, ikke bare en etterkontroll — rekkefølgen er ingress → faktastripe → recap → FAQ/schema → §-avsnitt. Skrevet inn i `docs/artikkel-sjekkliste.md` seksjon A, sammen med fella at `grep | cut` kan kappe treffet på en lang ingress-linje og se rent ut.
+
+**Metodefunn:** retry gjelder også sekundære live-sjekker. En kryss-guide-konsistenssjekk uten retry ga falsk «gammelt innhold» på begge sider rett etter at hovedverifiseringen passerte og sha256 matchet HEAD.
+
+**Neste:** newfoundland.
+
 ### 2026-07-30 — C3b-0 (`6d27fb0`, 2 filer live) + C3b kartlagt
 
 **🔴 `malteser` bar den feilen C1b rettet i `yorkshire-terrier`.** Guiden siterte JAAHA-DOI-en for at Yorkshire Terrier har «omtrent 35 ganger forhøyet risiko sammenlignet med hundepopulasjonen generelt» — alle tre defektene C1b fikset, fortsatt live. **To av våre egne sider motsa hverandre om samme tall fra samme studie i seks dager.** C1b-sveipen fant riktig den femte forekomsten i yorkshires ingress, men krysset aldri filgrensen. **Lærdom: korpus-sveipen ved en tallfiks må kjøre på studie-identifikatoren (DOI, forfatternavn), ikke bare på tallet — og på tvers av filer.** Rettet til C1b-fasiten; kryss-guide-konsistens verifisert på live.
