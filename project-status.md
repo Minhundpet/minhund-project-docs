@@ -117,6 +117,16 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — Bolk C1b FULLFØRT (`686e5ef`, 2 filer live) — alle YMYL-hull lukket
+
+Begge kildeblokkerte guider er ferdige. **Ingen åpne YMYL-hull igjen i raseguide-sporet.**
+
+**🔴 `yorkshire-terrier` — tre lag feil på samme tall.** Guiden siterte to ulike Tobias-2003-artikler og byttet om på dem: JAAHA-artikkelen er en pedigree-/arvegangsstudie på 82 hunder av én rase, mens rase-risikotallet tilhører Tobias & Rohrbach (JAVMA, 2 400 tilfeller). En pedigree-studie på én rase kan ikke produsere et rase-relativt risikotall. I tillegg feil verdi og feil referansegruppe: «35 ganger enn generell hundepopulasjon» → **36 ganger enn alle andre raser samlet** og **59 ganger enn blandingshunder**. Spriket mot UFAWs 60× var referansegruppe, ikke motsigelse — tredje gang batch 2-fella opptrer. Femte forekomst lå i ingressen, fanget av negativkontrollen.
+
+**🟡 `strihaaret-vorstehhund` — min flagging var feil.** RAS-dokumentet bekrefter Ne=186, innavlsgrad 1,8 % (1947–2013) og HD 92 %/4,2 %/3,8 %. Den beroligende konklusjonen jeg meldte som guidens overtolkning er **raseklubbens egen**, nesten ordrett. Jeg lot en generisk bevaringsgenetisk terskel (Ne<500) overstyre fagvurderingen til dem som forvalter rasen; klubbens mål — innavlsøkning 0,3 % per generasjon — er mer relevant for en levende avlspopulasjon. **Lærdom: en tommelfingerregel er også en referanseramme og kan brukes feil på samme måte som et oddsforhold.**
+
+**Neste:** C3 — de ~30 guidene som har kilder, men der siteringene ikke er spot-sjekket.
+
 ### 2026-07-30 — Bolk C2b FULLFØRT (`5bbc283`, 3 filer live)
 
 Ren oppmykning av `pomeranian`, `schaferhund`, `norsk-buhund` — ingen nye kilder hentet. To oppdiktede autoriteter og fire ukildede tall fjernet i pomeranian; historisk presisjon uten kilde myket i schaferhund; tre lag konklusjon på ett års øyeblikksbilde skilt fra det målte tallet i norsk-buhund.
