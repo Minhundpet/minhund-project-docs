@@ -117,6 +117,18 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — C3b-2 newfoundland (`67fb821`) + PRE-PUBLISERINGSPORT i produksjonsflyten
+
+**🔴 Ny feilklasse: en gyldig DOI som peker på feil forskning.** `newfoundland` siterte «Stern et al. 2014; J Vet Cardiol; DOI 10.1016/j.jvc.2014.10.004» for SAS-arvegang. DOI-en resolver til en artikkel om pulmonal hypertensjon hos hund — ingen Newfoundland, ingen SAS. Riktig kilde er Hum Genet 133(9):1139–1148, DOI 10.1007/s00439-014-1454-0. **En velformet, resolverbar DOI beviser ingenting om innholdet, og består enhver automatisk lenkesjekk.** Den andre DOI-en i fila (Parker 2017) ble sjekket som følge og er korrekt.
+
+**🔴 Meurs 2013 var en boxer-studie** brukt til å bære en Newfoundland-DCM-påstand (Abadie/Evans-klassen). Erstattet med Merck-forankring. I tillegg: SAS-prevalens-rangeringen strøket, «variabel ekspresjon» → inkomplett penetrans med avlskonsekvensen skrevet ut, PICALM konkretisert, Pyle & Patterson strammet, «rasespesifikk» myket i ingress + H2.
+
+**NY FAST REGEL (Sondre): pre-publiseringsporten er nå et obligatorisk steg i produksjonsflyten**, ikke et dokument man skal huske. Gjelder **alt som skrives**, ikke bare det vi retter — målet er at nytt innhold er riktig fra første publisering. Sju porter (ingress først, sitering mot primærkilde, DOI åpnet og lest, referansegruppe ved rangering, presis tall-identifikasjon, verktøy mot prosa, stratifiserte tall stratifisert), koblet inn fire steder: sjekklisten selv, `CLAUDE.md` Phase 3, `.claude/rules/hundetips-articles.md`, og **generator-skillen**.
+
+**Hullet lå i generatoren.** `hundetips-article-creator` — skillen som faktisk produserer nye artikler — hadde null referanser til sjekklisten, og dens 18 post-flight-checks er alle strukturelle. Ingen av dem kan fange en feil kilde eller et feilidentifisert tall. Uten denne koblingen ville kildesettings-prosjektet reprodusert seg selv på nytt innhold.
+
+**Neste:** dachshund.
+
 ### 2026-07-30 — C3b-1 cane-corso + kortharet-vorstehhund (2 filer live)
 
 **🔴 Glickman-multiplikatoren var oppdiktet i to guider, med to ulike tall.** `cane-corso` sa «tredobler GDV-risiko», `kortharet-vorstehhund` sa «øker med 110 %». Glickman et al. 2000 (JAVMA 217(10):1492–1499) rapporterer at ~20 % av GDV-tilfellene hos storraser kunne **tilskrives** høyt fôringsbrett — en attributabel andel, ikke et multiplikator. Begge hadde konvertert andelen til en multiplikator og landet ulikt. **Lærdom: når to av våre sider oppgir ulike multiplikatorer for samme funn, er begge sannsynligvis utregnet, ikke sitert.** De tre generelle artiklene som siterer samme studie er rene — de oppgir kun retning. Funnet kom fra korpus-sveip på studie-identifikator, regelen som ble formalisert dagen før.
