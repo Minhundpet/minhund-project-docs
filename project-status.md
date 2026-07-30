@@ -117,6 +117,18 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — Bolk C2 delvis fullført (`40765d1`, 2 filer live)
+
+**Manuell null-verifisering var avgjørende.** Et rent detektor-resultat sa ingenting om hvilken guide som faktisk hadde mest ukildet helseinnhold: `pomeranian` slo ut med null prosenttall og null årstall, men har 32 helsepåstand-setninger. `irsk-setter` slo ut med 17 «årstall» — alle historiske. Regelen fra i går («ikke stol på et rent resultat uten å sjekke det») holdt.
+
+**🔴 `australian-shepherd` — legemiddelsikkerhet.** 50 % MDR1 er korrekt (WSU VCPL), men åpningsavsnittet sa «omtrent halvparten av alle aussier reagerer ekstremt annerledes», mens guidens egen status-liste rett under korrekt skilte bærere (moderat) fra homozygot affiserte (dramatisk). 50 % omfatter begge. Skillet nå eksplisitt i fem flater. «Nedarves autosomalt recessivt» rettet — den formuleringen var selve kilden til sammenblandingen.
+
+**🔴 `gordon-setter` — kryss-sykdom-sammenligning.** «29 % HA-CA-bærere … høyere enn CLAD-bærerfrekvensen hos irsk setter (12 %)» sammenlignet to ulike sykdommer på tvers av to raser. Fjernet. Geografi rettet: n=82 er Skandinavia **og** USA, ikke Skandinavia alene.
+
+**Ny åpen sak — Gordon vs irsk setter vektmotsigelse.** Gordon-guiden kaller rasen «tyngst av setterne» ved 25,5–29,5 kg og «merkbart kraftigere enn irsk setter»; irsk-setter-guiden oppgir 27–32 kg. Fem speilingsflater. Trolig ulik målebasis (FCI-idealvekt per kjønn vs generelt spenn) — samme klasse som bulldog-motsigelsen i batch 2. Ikke rørt; krever FCI-standardene for begge raser.
+
+**Gjenstår:** C2b-oppmykning (`pomeranian`, `schaferhund`, `norsk-buhund` — trenger ikke kilder, trenger å slutte å påstå presist), samt `yorkshire-terrier` og `strihaaret-vorstehhund` som fortsatt venter på JAVMA-fulltekst og RAS-dokument.
+
 ### 2026-07-30 — Bolk C1 FULLFØRT (`e3c8eb9`, 2 filer live) + scoping-korreksjon
 
 **⚠ Registerets «38 raseguider uten navngitt kilde» var feil — reelt tall er 13.** Detektoren bak tallet krevde `et al.` og var blind for enkeltforfatter-siteringer, PMC-IDer og DOI-er. `whippet` sto oppført med null kilder, men har `Mosher 2007` og `Stern 2015`; `yorkshire-terrier` har `Tobias (2003)` + DOI. Desimal-prevalens uten sitering: 8, ikke 17. **Lærdom: detektoren som definerer en bolks omfang må kalibreres mot kjente positive FØR tallet skrives inn i registeret — ellers arves målefeilen som prosjektplan.** Bolk D er dermed langt mindre enn antatt; Bolk C tettere av alvorlige funn.
