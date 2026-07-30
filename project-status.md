@@ -117,6 +117,22 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — Bolk B FULLFØRT (`6d048e2`, 7 filer live)
+
+Seks raseguider (`cocker-spaniel`, `labrador-retriever`, `flat-coated-retriever`, `rhodesian-ridgeback`, `weimaraner`, `dvergschnauzer`) + `llms-articles-data`. **Den justerte linsen fra Bolk A holdt:** tallene var nesten uten unntak korrekt gjengitt, og alle 14 funnene lå ett nivå over sifrene — fem rangeringsfeil, fire årstalls-/metadatafeil, tre slutninger studiene ikke støtter, to interne selvmotsigelser.
+
+**Alvorligste funn — `weimaraner` vaksinasjonsråd.** Guiden ga et konkret medisinsk råd basert på et utvalg som utelukkende besto av syke valper, uten kontrollgruppe. Etter Sondres skjerping ble også «bekreftet autosomalt recessiv arvegang» **strøket framfor myket** — ingen mutasjon er identifisert. Prinsippet er nå etablert på tvers av eldre-hund (batch 5) og denne: *der terskelen eller rådet kan påvirke en beslutning, mykes aldri konklusjonen — den fjernes hvis den ikke holder.*
+
+**To rangeringsfeil av engelsk-bulldog-typen:** `cocker-spaniel` gjorde otitt til vanligste diagnose (periodontitt er nr. 1 med 20,97 % mot 10,09 %), og `labrador-retriever` påsto førsteplass i NKKs statistikk (2024: golden nr. 1, border collie nr. 2, labrador nr. 3). **Feil gen:** EIC er DNM1, ikke DYNC1. **Feil sitering på riktig tall:** Abadie 2009 er en berner-studie; flat-coats 20 % står i Evans 2021.
+
+**Ekstra funn — fabrikkert screeningkrav.** `weimaraner` ba valpekjøpere kreve vWD-DNA-test i fem posisjoner; testen finnes ikke for rasen. Fjernet. Ny regel: en screeninganbefaling er en påstand som må verifiseres som enhver annen.
+
+**Metode-lærdom (to egne feil):** (1) Jeg påsto to ganger at preview ikke kunne curl-verifiseres, med henvisning til sjekkliste D — mens `gotchas.md` gotcha #11 hadde dokumentert cookie-jar-løsningen dagen før. Kryssreferanse lagt inn i `artikkel-sjekkliste.md` D. (2) Cache-rotasjon traff `cocker-spaniel` på live: 2 av 6 hentinger med unik cache-buster ga gammelt innhold. Retry til alle nye strenger treffer er nå påkrevd — én henting er ikke bevis.
+
+**Åpent Admin-steg:** `rhodesian-ridgeback` meta-description sier fortsatt «hottentott-hund» i alle tre variantene.
+
+**Neste:** Bolk C (desimal-prevalens uten sitering — `welsh-corgi-pembroke`, `vizsla`, `riesenschnauzer`, `strihaaret-vorstehhund` m.fl.), deretter Bolk D (38 uten navngitt kilde).
+
 ### 2026-07-29 — RASEGUIDE-SPORET startet: Bolk A (`04ad4d2`, 2 filer live)
 
 **Kartlegging av 60 raseguider:** 3 med oddsforhold, 17 med desimal-prevalens, 10 med `et al.`-sitering, 18 med journalreferanse — og **38 helt uten navngitt kilde i brødteksten**. Kartleggingen 24.07 sa «0 uten kilde» for raseguidene; målt inne i `<article>` er bildet et helt annet. Raseguidene er ikke i vesentlig bedre forfatning enn de generelle var.
