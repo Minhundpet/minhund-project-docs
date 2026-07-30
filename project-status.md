@@ -117,6 +117,20 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — Bolk C1 FULLFØRT (`e3c8eb9`, 2 filer live) + scoping-korreksjon
+
+**⚠ Registerets «38 raseguider uten navngitt kilde» var feil — reelt tall er 13.** Detektoren bak tallet krevde `et al.` og var blind for enkeltforfatter-siteringer, PMC-IDer og DOI-er. `whippet` sto oppført med null kilder, men har `Mosher 2007` og `Stern 2015`; `yorkshire-terrier` har `Tobias (2003)` + DOI. Desimal-prevalens uten sitering: 8, ikke 17. **Lærdom: detektoren som definerer en bolks omfang må kalibreres mot kjente positive FØR tallet skrives inn i registeret — ellers arves målefeilen som prosjektplan.** Bolk D er dermed langt mindre enn antatt; Bolk C tettere av alvorlige funn.
+
+**🔴 `welsh-corgi-pembroke` — allelfrekvens som bærerfrekvens, seks steder.** 55,49 % er allelfrekvens, ikke bærerandel. Faktisk fordeling (Animals 2024, n=91): 23,08 % frie, 42,86 % bærere, **34,06 % homozygot i risiko**. Feilen skjulte tallet en valpekjøper trenger — at en av tre testede corgier har to kopier sto ikke i guiden i det hele tatt. Samme klasse som prcd-feilen i cocker (Bolk B), men motsatt retning: cocker underdrev, corgi skjulte.
+
+**🔴 `sibirsk-husky` — retningsfeil.** «30,5 % HD-fri» → 30,5 % fikk toppkarakteren «excellent»; «2,2 % alvorlig grad» → 2,2 % var dysplastiske i det hele tatt. Reelt HD-fri ~97,8 %. Avsnittet motsa seg selv i begge ender.
+
+**Holdt tilbake bevisst:** `yorkshire-terrier` (35× lar seg ikke bekrefte; UFAW sier 60× mot blandingshunder — enten er tallet eller referansegruppen feil) og `strihaaret-vorstehhund` (Ne=186 med beroligende konklusjon, ukildet). Krever JAVMA-fulltekst hhv. raseklubbens RAS. **Å bytte ett ubelagt tall mot et annet er ikke en fiks.**
+
+**Verktøystatus:** Shopify CLI-auth virker nå fra Claudes skall — preview- og live-push kjørt uten manuell overtakelse for første gang siden Bolk B.
+
+**Neste:** Bolk C2 (13 reelt ukildede), med manuell verifisering av hver «null».
+
 ### 2026-07-30 — Bolk B FULLFØRT (`6d048e2`, 7 filer live)
 
 Seks raseguider (`cocker-spaniel`, `labrador-retriever`, `flat-coated-retriever`, `rhodesian-ridgeback`, `weimaraner`, `dvergschnauzer`) + `llms-articles-data`. **Den justerte linsen fra Bolk A holdt:** tallene var nesten uten unntak korrekt gjengitt, og alle 14 funnene lå ett nivå over sifrene — fem rangeringsfeil, fire årstalls-/metadatafeil, tre slutninger studiene ikke støtter, to interne selvmotsigelser.
