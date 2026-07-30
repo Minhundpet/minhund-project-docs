@@ -117,6 +117,30 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — Bolk C3a FULLFØRT (`d4ae954`, 7 filer live)
+
+Seks raseguider kildeverifisert mot primærkilde: `berner-sennenhund`, `vizsla`, `irsk-setter`, `rottweiler`, `riesenschnauzer`, `coton-de-tulear`. C3-omfanget er 42 guider etter detektor-rekalibrering (tredje bolk på rad der omfanget måtte korrigeres for målefeil — whippet ga falsk null fordi mønsteret manglet STOP-liste for landsnavn og klubbforkortelser).
+
+**🔴 Den navngitte norske kilden i `berner-sennenhund` finnes ikke.** «46 % av norske bernere dør av kreft (NVH 2014)» lot seg ikke finne i noen indeksert database, og sto i fem flater sammen med 6,9 år. Det som gjorde det verre enn et vanlig ukildet tall: guiden *forklarte* avviket mot Dobson 2012 med «ulik metodikk og noe forskjellig populasjon» — en metodologisk begrunnelse for spriket mellom et verifisert tall og et tall som muligens ikke eksisterer. Naboavsnittet ga påstanden falsk troverdighet. Strøket; Dobson 2012 (n=394) er nå bærende, og Ruple &amp; Morley 2016 forankrer HS-rangeringen (225× risiko, 17× dødelighet, livstidsrisiko opptil 25 %).
+
+**🔴 `irsk-setter` rcd1-frekvens var ~4× for høy.** «Over 30 prosent på tidlig 1990-tall» → verifisert 7,8 % bærerfrekvens (34 av 436 klinisk normale, ISCA 1994–97, J Hered 90(1):143). Oppdagelsen co-krediteres Suber (Cornell) og Clements, begge 1993 uavhengig.
+
+**🟡 `rottweiler`: vår egen divisjon presentert som studiefunn.** OR 13,30 (KI 10,55–16,75) erstatter studiens abstraktsammendrag «over 10». «Mer enn 30 ganger lavere risiko enn Rottweiler» var 10 ÷ 0,30 — regnet fra det understatede tallet, og bichon/fransk bulldog ligger på eksakt 0,30, ikke under. Strøket. 40 kg+ OR 45,44 lagt til.
+
+**🟡 `riesenschnauzer`: samme populasjon talt to ganger.** Alle tre siteringer verifisert (Bianchis IFNA-delesjon ER beskyttende — guiden leste den riktig, tittelen er misvisende). Men «opptil 16 % i svenske kohorter» er Bianchis bakgrunnsoppsummering av nettopp Ferm-materialet guiden alt siterer som 7,2 %.
+
+**🟡 `vizsla`: abstraktet avgjorde uten fulltekst.** Zink 2014 beregner odds per alder ved gonadektomi og per kjønn for hemangiosarkom; de fire tallene guiden oppgav kollapset tre strata til ett og står ikke i abstraktet. Stratifisert innramming + eierundersøkelse-forbeholdet inn.
+
+**✅ `coton-de-tulear`: Zeng 2011 helt ren.** YMYL-fiksen var «aldri mer enn 4–6 timer uten mat» — en ukildet hard terskel. Kryssjekk mot `chihuahua` viste måltidsfrekvens-rammen (3–4 daglig, ingen timegrense), så det var ingen tallmotsigelse å harmonisere. Varseltegn + vet-kontakt lagt til; guiden manglet dem.
+
+**To metodefunn.** Cache-rotasjonen var verre enn i Bolk B: berner og rottweiler krevde forsøk 3, riesenschnauzer 6 av 6 — én henting ville gitt falsk FAIL på halve batchen. Og sha256-kontrollen ga falsk DIFF på alle syv filer fordi `shopify theme pull --path` ikke oppretter katalogen selv; «alle feiler» er samme mistenkte-resultat-klasse som «alle består».
+
+**Bekreftet lukket:** root `/llms.txt` serverer nå den kuraterte lista (124 `/pages/`-lenker) — den gamle åpne saken om native UCP-boilerplate på root-varianten gjelder ikke lenger.
+
+**Tre åpne punkter logget i registeret:** riesenschnauzer «6× risiko» (mistenkt Wilbe-haplotype-sammenblanding; meta-description tilskriver den til den beskyttende studien) skal verifiseres **før C3b starter**; irsk-setter NKK #14 holdt tilbake med koblingen at meta-feltet må endres samtidig; coton «hypoallergen» i meta til generell bøtte.
+
+**Neste:** C3b — kartlegg neste gruppe av de resterende 36 C3-guidene, samme prosess.
+
 ### 2026-07-30 — Bolk C1b FULLFØRT (`686e5ef`, 2 filer live) — alle YMYL-hull lukket
 
 Begge kildeblokkerte guider er ferdige. **Ingen åpne YMYL-hull igjen i raseguide-sporet.**
