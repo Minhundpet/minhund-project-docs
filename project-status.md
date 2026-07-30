@@ -73,6 +73,35 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-07-30 kveld — NYTT SPOR: strukturert data + produktidentifikatorer (`b413927`, `e0936c2`, `c1bb03f`)
+
+Første rene teknisk-SEO-økt siden raseguide-sporet startet. Utløst av en kartlegging Sondre bestilte på fem punkter: Product-schema, Organization-schema, GTIN/MPN, alt-tekster, dobbel H1.
+
+**Kartleggingsfunn (11 produkter, ikke 20 — det tallet stammet fra en eldre Merchant Center-audit):**
+- Product-schema fantes og virket (`snippets/mh-product-schema.liquid`, rendres av alle 11 custom PDP-seksjoner), men manglet alt Merchant Center etterlyser: `priceValidUntil`, `itemCondition`, `shippingDetails`, `hasMerchantReturnPolicy`, `gtin`/`mpn`. `aggregateRating` virket allerede via Judge.me sitt `reviews.rating`-metafelt.
+- **To konkurrerende org-noder** på hver side: `OnlineStore` i `layout/theme.liquid` og en Horizon-stock `Organization` i `sections/header.liquid`. Ingen av dem hadde org.nr eller legalName. Stock-noden hadde i tillegg feil `url` (`request.origin | append: page.url` → tom `page.url` utenfor sidemaler).
+- **GTIN og SKU tomme på alle 20 varianter.** Bekreftet, ikke antatt.
+- **12 av 56 produktbilder uten alt-tekst** — pelsfjerner 7 av 10, potevasker 3 av 4. Ingen filnavn-/placeholder-tekst; rent fravær.
+- **Dobbel H1 kun på forsiden** (header-fallback + hero). Produkt- og kolleksjonssider hadde korrekt 1.
+
+**Levert live:**
+- `b413927` — Product-schema utvidet, Organization konsolidert til én node med `@id`/`legalName`/org.nr 935457017/`sameAs`, forside-H1 2 → 1. `vatID` bevisst utelatt (ikke MVA-registrert).
+- `c1bb03f` — `hei@` → `kontakt@minhundpet.no` i llms.txt-trioen + `docs/research-brief.md` (Trigger D). `hei@` var aldri verifisert; `kontakt@` er adressen `/policies/refund-policy` oppgir.
+- **20 av 20 SKU-er satt** etter konvensjon `MH-<produktkode>[-<variantkode>]` via `mcp__shopify__manage-product-variants`. Priser og varianttitler urørt — verifisert mot storefront.
+
+**Beslutninger som ble tatt underveis:**
+- `price` byttet fra `money_without_currency | replace: ',', '.'` til `divided_by: 100.0`. Den gamle kjeden gav riktig output under 1000 kr, men norsk tusenskille ville gjort `1.234,00` til `"1.234.00"`. Dyreste variant i dag er 999 kr — altså 1 kr fra bruddet.
+- `merchantReturnDays: 30`, ikke 14. Vilkårssiden gir 14 d lovpålagt angrerett **pluss** 30 d utvidet returrett på ubrukte varer; 30 er det bredeste korrekte tallet.
+- Frakt beregnes **per variant** mot 250 kr-terskelen (0 kr over, 79 kr under) i stedet for ett fast tall.
+- `shippingDetails`/`hasMerchantReturnPolicy` gjentas per variant framfor `@id`-referanse — Google leser dem på Offer-nivå.
+
+**Metodefunn (gotcha #16, `e0936c2`):** `shopify theme dev` renderer lokale filer mot ekte butikkdata på localhost. Det er den eneste ekte pre-push-verifiseringen av rendret Liquid, og lukker hullet gotcha #11 etterlot. Fanget at `image_url` gir protokoll-relativ URL som må prependes `https:` for å være gyldig i Product-schema. Etter push gjelder fortsatt gotcha #9/#10: edge-cachen brukte ~4 min og svingte 8 → 5 → 7 → 9 av 11 ferske mellom målinger.
+
+**Ikke gjort — venter:**
+- **GTIN/EAN på alle 20 varianter.** Må komme fra leverandør. Schemaet skriver ut `gtin13` betinget, så det dukker opp av seg selv når `barcode` fylles. Ullgenseren er egenprodusert og skal trolig markeres `identifier_exists: no` i feeden i stedet.
+- **De 12 alt-tekstene.** Kan ikke settes med `mcp__shopify__*` — `update-product` har ikke media-felt og MCP-serveren har ingen media-mutasjon. Krever Admin GraphQL `productUpdateMedia` med et `write_products`-token. Ferdig skript med alle media-GID-er og godkjente tekster: `~/minhund-set-alt-texts.sh`. Tekstene er også dokumentert i `docs/products.md`.
+
+
 ### 2026-07-29 — Kildesettings-prosjektet startet: faktafeil + topp-4 kildesatt live (`2a6b938` + `6ec8107`)
 
 Nytt spor etter popup-compliance-funnet 28.07 (35 av 59 generelle hundetips uten navngitt kilde). Kartlegging reproduserte 35-tallet, men fant **to feilklassifiseringer**: `oppbevaring-torrfor-hund` har FDA+AAFCO (falt utenfor norsk regex-mønster), og `hund-liker-ikke-bading` siterer Hill's Pet + Orvis — kommersielle aktører som bryter kildepolicyen. **Reell status: 33 uten kilde + 2 med problematisk kilde.** Prioritert på GSC-klikk 30 d (GA4 ikke tilgjengelig i sesjonen).
