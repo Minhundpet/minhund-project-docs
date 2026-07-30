@@ -117,6 +117,18 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
+
+**🔴 Jensen-anbefalingen var forskjøvet med én og motsa guidens egen skala.** «4 eller flere kalsifiseringer» skulle vært «mer enn fire» (fem eller flere) — og guidens egen IDC-skala definerer nettopp 5+ som IDC 3. Feilen gikk i «for streng» retning: en oppdretter kunne avvist et avlsdyr Jensen ville godkjent. **Lærdom: når en guide oppgir både en gradert skala og en terskel, må terskelen sjekkes mot skalaen.**
+
+**Min mistanke var feil for tredje gang samme dag.** «19–24 %» og «10–12 ganger» viste seg korrekt gjengitt fra DachsLife 2015 (Packer et al., Canine Genet Epidemiol 2016;3:8). C2b-regelen om overkorreksjon har nå reddet en påstand med dekning tre ganger på én dag. Men tallene er studiens *bakgrunnsoppsummering*, mens dens eget måleresultat er 15,7 % — nå merket eksplisitt, og variantfordelingen lagt til.
+
+**Beste tilføyelsen i dag:** Standard Strihår topper Stigens kalsifiseringstall (27,1 %) og ligger nederst på klinisk IVDD hos DachsLife (7,1 %). Guiden advarte allerede om at kalsifisering ikke er klinisk sykdom, men det sto som en abstrakt reservasjon — nå viser et konkret tallpar hvorfor.
+
+Purina fjernet som kilde, cervikal-rangeringen myket, Stigen 1991 fikk full referanse (Acta Vet Scand 32(2):197–203; utvalget var 16,1 % av alle NKK-registrerte dachshunder 1986–88).
+
+**Neste:** samojedhund, deretter italiensk-mynde.
+
 ### 2026-07-30 — C3b-2 newfoundland (`67fb821`) + PRE-PUBLISERINGSPORT i produksjonsflyten
 
 **🔴 Ny feilklasse: en gyldig DOI som peker på feil forskning.** `newfoundland` siterte «Stern et al. 2014; J Vet Cardiol; DOI 10.1016/j.jvc.2014.10.004» for SAS-arvegang. DOI-en resolver til en artikkel om pulmonal hypertensjon hos hund — ingen Newfoundland, ingen SAS. Riktig kilde er Hum Genet 133(9):1139–1148, DOI 10.1007/s00439-014-1454-0. **En velformet, resolverbar DOI beviser ingenting om innholdet, og består enhver automatisk lenkesjekk.** Den andre DOI-en i fila (Parker 2017) ble sjekket som følge og er korrekt.
