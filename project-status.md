@@ -224,7 +224,7 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **🟡 Pedersen-journalen bar dagens navn, ikke publiseringsnavnet** — «Companion Animal Health and Genetics» → *Canine Genetics and Epidemiology* 4:11. En sitering må bære navnet ved publisering. Allergen-rangeringen myket; «IKKE en hypoallergen rase» står uendret. ✅ Zheng 1994 og Catchpole 2013 rene.
 
-## 🔴 NY VENTENDE BOLK — FAQ ↔ schema-avvik i 21 filer
+## 🔴 VENTENDE BOLK — FAQ ↔ schema-avvik (opprinnelig 21 filer, **nå 20** — WHWT ryddet 31.07)
 
 Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avvik mellom synlig FAQ og FAQPage JSON-LD; 17 med reelt innholdsavvik**, 4 kun tegnsetting. HARD-regelbrudd (`CLAUDE.md`, `.claude/rules/hundetips-articles.md`): Google leser noe annet i rikresultatet enn siden viser.
 
@@ -232,43 +232,105 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 **Metodenotat:** ville ikke blitt oppdaget av kildesettings-sporet — det dukket opp fordi strukturkontrollen kjøres uansett. Argument for å beholde de «trivielle» strukturelle sjekkene selv når fokus er kildeverifisering.
 
-## STATUS PER 2026-07-30 — hvor prosjektet står
+## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig i dag:** C1b, C2b, C3a (6 guider), C3b-0 (malteser + riesenschnauzer), C3b-1 (cane-corso + kortharet-vorstehhund), C3b-2 (newfoundland), C3b-3 (dachshund), C3b-4 (samojedhund), C3b-5 (italiensk-mynde). **14 raseguider kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk. **C3a/C3b-runden er fullført.**
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og tre bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet). **20 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-kartlegging
+### NESTE ØKT STARTER HER — C3c-4: mellomschnauzer
 
-**Regnskapet i C3: 20 av 42 ferdig, 22 gjenstår** (per 31.07, etter C3c-3). ⚠ **Korrigert 31.07:** tidligere «14 ferdig / 28 igjen» var feil — `riesenschnauzer` var talt i både C3a og C3b-0. Riktig var 13 ferdig / 29 igjen ved inngangen til C3c; C3c-1 tok så golden-retriever + griffon. **Git-historikken er nå autoritativ kilde for hva som er gjort** — ikke prosa i registeret.
+**Regnskapet i C3: 20 av 42 ferdig, 22 gjenstår** (per 31.07). Git-historikken er autoritativ kilde for hva som er gjort — ikke prosa i registeret. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
 
-**C3c er en annen jobb enn C3a/C3b — ikke bare flere guider.** I C3a/C3b fantes det siteringer å spot-sjekke mot primærkilde. Per C3-kalibreringen har **16 av de opprinnelige 42 null navngitte siteringer**; i den delen av restsjiktet finnes det ingen sitering å verifisere. Det som skal gjennomgås der er:
-1. **Rangeringsspråk** — «høyest av alle raser», «en av de vanligste», «mer utsatt enn» — uten referansegruppe eller kilde. Samme linse som Bolk B brukte.
-2. **Prevalenstall uten opphav** — desimaler og prosenter som ser presise ut, men ikke lar seg spore.
+#### Umiddelbart neste steg: `mellomschnauzer` er KARTLAGT og kildeforslagene GODKJENT — men ikke skrevet
 
-Metodisk ligger C3c altså nærmere **Bolk B** enn C3b.
+Sondre godkjente forslagene 31.07. **To verifiseringer gjenstår før skriving:**
+1. **NSBK-tallene** mot klubbens egne sider: «over 1000 medlemmer fordelt på sju grupper og ansvar for ni raser».
+2. **Kryss-guide-konsistens mot `dvergschnauzer`** på hypertriglyseridemi — den guiden ble rettet i Bolk B på Xenoulis-tallene, og de to må ikke motsi hverandre.
 
-**Første steg er kartlegging, ikke retting — og detektoren må rekalibreres først.** Tre bolker på rad har måttet korrigere omfanget etter målefeil i detektoren: 38→13 i C1 (krevde `et al.`, blind for enkeltforfattere/PMC/DOI), pomeranian-nullen i C2, whippet-nullen i C3 (manglet STOP-liste for landsnavn og klubbforkortelser). **Regelen fra C1 gjelder: kalibrer mot kjente positive FØR tallet føres inn i registeret.** For C3c betyr det at deteksjonsmønsteret for *rangeringsspråk* må kalibreres — det er et nytt mønster som aldri har vært testet, og det er den mest sannsynlige kilden til feil omfang i neste bolk.
+**Godkjent fikseliste** (3358 ord, pre-regel, intet ordtak):
 
-**Kalibreringsforslag for rangerings-detektoren:** test mot `engelsk-bulldog` (kjent positiv — rangering stikk motsatt av datagrunnlaget, funnet i Bolk A) og `jamthund` (kjent negativ — HONEST health-moat, ingen breed-eksklusiv påstand). Passerer mønsteret begge, kan omfanget føres inn.
+| # | Påstand | Vedtatt håndtering |
+|---|---|---|
+| 1 | «PS er en av de aller vanligste medfødte hjertefeilene (Brambilla og medarbeidere; 2020)» | ✅ Verifisert og faktisk understated — Brambilla et al. 2020 (PLoS One 15(7):e0230160) lister PS **først**. Men studien er fra **ett henvisningssenter**; utvalget skal fram, samme seleksjonsklasse som Kent 2018 og Walkerville |
+| 2 | «…og Mellomschnauzer er blant rasene med kjent disposisjon» | Siteringen bærer mer enn den sier — Brambilla fremhever boxer, fransk/engelsk bulldog og schäfer, ikke mellomschnauzer. Egen kilde eller oppmykning |
+| 3 | «suksessrater rundt 70–85 %» (ballongvalvuloplastikk) | Ukildet intervall → kildesett eller myk |
+| 4 | «13–16 år er normalt» (**4 steder**: ingress, §1, faktastripe, FAQ) | Ukildet og markant over McMillan 2024s median 12,7 år for renrasede. «Eksepsjonelt for en arbeidshund» forsterker uten belegg → myk eller forankre |
+| 5 | «NSBK … over 1000 medlemmer / sju grupper / ni raser» | Verifiseres mot NSBK |
+| 6 | «har **ikke** samme disposisjon for forhøyet blodfett som Dvergschnauzer» | Negativ kryss-rase-påstand — fravær av dokumentasjon er ikke dokumentert fravær. Samordnes med `dvergschnauzer` |
 
-**Ordtelling må planlegges inn i C3c-fiksene.** Fra C3b-5: kildeforankring la på 174 ord og krevde fem trimrunder. **En kildefiks er ikke ordnøytral — regn 100–200 ord.** Guider som allerede ligger på 2750+ må ha trim planlagt som del av fiksen, ikke som opprydning etterpå.
+**Merk:** guiden har **én eneste sitering i hele brødteksten**. Tynt for en guide som bærer hjertefeil-påstander.
 
-**Køen etter C3:** (1) **FAQ↔schema-bolken** — 21 filer med avvik, 17 med reelt innholdsavvik; prioritert `valp` (8) og `tannhelse` (7), full tabell i registeret. (2) **Gordon vs irsk setter vektmotsigelse** — krever FCI-standardene for begge raser, holdt bevisst utenfor C3a. (3) **«Hypoallergen» i meta-descriptions** — minst to forekomster (`coton-de-tulear`, `malteser`), korpuset ikke sveipet. (4) ~~`whippet`-guidens mankehøyde~~ — **strøket 31.07: funnet var falskt.** Guiden oppgir stratifiserte mål begge steder; «kun hannspennet» kom av substreng-telling uten å lese setningen.
+#### Resten av C3c-rekkefølgen (21 guider etter mellomschnauzer)
 
-**Åpne Admin-steg (flate 3 — kun manuelt i Shopify Admin):** sju steg samlet i tabell i `docs/health-claims-register.md` — `riesenschnauzer`, `irsk-setter`, `italiensk-mynde`, `hvor-mye-vann-hund`, `griffon-petit-brabancon` («kort snute-hensyn») og `border-collie` («2. mest registrerte rase 2024»). Ingen blokkerer live-push; tas i én runde.
+Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-**Holdt tilbake bevisst:** `irsk-setter` NKK #14/427-rangeringen — venter på NKKs registreringsstatistikk for 2024. Et signal om 32 % nedgang gjør både tall og plassering ustabile.
+`beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Prosessendringer fastsatt i dag:** pre-publiseringsporten er nå obligatorisk i produksjonsflyten (koblet inn fire steder, inkludert generator-skillen); ingress-først i kartleggingen; DOI-verifisering som fast steg; retry på alle live-hentinger inkludert sekundære sjekker; korpus-sveip på studie-identifikator på tvers av filer.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet` og `west-highland-white-terrier` er ferdige.
 
-**Fire verifiseringsregler lagt til i C3b-5 (italiensk-mynde):**
-1. **Sirkulær bekreftelse.** Et websøk på en påstand kan returnere vår egen side som toppresultat, med sammendrag ordrett fra guiden. **Finnes påstanden bare i vår egen tekst i søkeresultatene, er den ubekreftet — ikke bekreftet.** Nesten godtatt for NMKs stiftelsesår; verifisert mot klubbens historieside i stedet.
-2. **Deler to tall nevner?** Når to tall fra samme studie står side om side, sjekk referansegruppen for hvert. FEH-paret (14 % affisert / 30 % bærere) delte den ikke — 30 % gjaldt bare hunder med normale tenner. Hardy-Weinberg-sanitytest avslørte det: 14 % affisert gir ~47 % bærere, ikke 30 %.
-3. **«X dokumenterer at …» er en verifiserbar påstand om et dokument.** Åpne dokumentet og søk. «NMK RAS dokumenterer at mange ligger over 5 kg-taket» ga null treff på `vekt`, `kilo`, `5 kg`, `høyde` i hele RAS.
-4. **En flagget påstand kan ha egen dekning.** «Høyest før 1,5 år» sto i et avsnitt med dårlig kilde, men NMK RAS sier det ordrett. Sjekk om påstanden har sin egen kilde før den mykes — ellers strykes riktige fakta sammen med gale.
+#### Verktøyet
 
-**Ny feilklasse dokumentert:** *fantom-sitering ved forfatterspaltning.* «Pedersen et al. (2013)» var ikke en feil kilde, men én ekte studie (Gandolfi 2013) splittet i to — medforfatteren fikk sin egen fiktive publikasjon et annet år. Består enhver formatsjekk, siden forfatternavn og årstall ser riktige ut hver for seg.
+`tools/rangeringsdetektor.py` (commit `b8d8223`). Kalibreringsoppskrift i fila: kjent positiv = `git show 04ad4d2^:sections/hundetips-engelsk-bulldog.liquid` (må gi treff på BOAS-trio-rangeringen), kjent negativ = `jamthund` (0/0/0). Fasit v4: 3/3/0 · 2/3/0 · 0/0/0.
+
+**Kjente begrensninger — loggført til neste kalibreringsrunde, bevisst ikke endret midt i bolk:**
+1. **Popularitets- og registreringsrangeringer fanges ikke** (domenegatingen krever helse- eller kryss-rase-kontekst). Golden- og border-collie-ingressene ble funnet manuelt.
+2. **Forfatternavn med `ä`/`ö`/`ü` klassifiseres som ukildet** — CITE-mønsterets `[a-zæøåé\-]` mangler dem. «Heikkilä 2011» havnet i T1 i stedet for T2.
+3. **Sitering der årstallet står i forrige setning** gir falskt prev-treff («Beardow og Buchanans materiale på 394 hunder»).
+4. Mendelske avlsratioer (25/50/25) gir falske prev-treff.
+
+---
+
+## NY VENTENDE BOLK — komma erstattet med semikolon i 14 filer (oppdaget 2026-07-31)
+
+**Besluttet (Sondre 31.07): egen bolk ETTER C3, samme plass som FAQ↔schema-bolken. Ikke satt inn i C3c.**
+
+Median-guiden i korpuset har **10 semikolon** i brødteksten. Disse 14 har **80–240 semikolon mot 3–20 komma**:
+
+`cane-corso` · `coton-de-tulear` · `dansk-svensk-gardshund` · `dvergpinscher` · `dvergschnauzer` · `flat-coated-retriever` · `kortharet-vorstehhund` · `lagotto-romagnolo` · `malteser` · `mellomschnauzer` · `newfoundland` · `riesenschnauzer` · `vizsla` · `yorkshire-terrier`
+
+**2835 semikolon totalt.** Alle 14 opprettet **16.–20. mai 2026** — én sammenhengende produksjonsperiode.
+
+Symptomet, fra `mellomschnauzer`: «en hard; stri dobbeltpels» · «milde tilfeller er symptomfrie; mens alvorlige kan behandles» · «Brambilla og medarbeidere; 2020» · «FCI gruppe 2; seksjon 1».
+
+**Sannsynlig årsak: `article_map`-kommaregelen anvendt på brødtekst.** Den gjelder **kun** Title/H2-felt i `snippets/llms-articles-data.liquid`, der komma er entry-separator og bryter parseren. Den har ingenting med artikkeltekst å gjøre. Samme feil ble gjort av Claude 31.07 i en FAQ-setning (`1;5-årsalder`) og fanget umiddelbart — forvekslingen er lett å gjøre.
+
+**Karakter:** mekanisk og verifiserbart, uavhengig av kildesporet. Ikke et kildeproblem, men en user-visible lesbarhetsdefekt. Kan gjøres som én batch med maskinell erstatning + manuell gjennomlesing, siden noen semikolon er korrekte.
+
+---
+
+## Køen etter C3 (oppdatert 31.07)
+
+1. **FAQ↔schema-bolken** — **20 filer**, ikke 21. WHWTs sju tegnsettingsavvik ble ryddet 31.07 mens fila uansett var åpen. Prioritert `valp` (8 avvik) og `tannhelse` (7, helseartikkel); full tabell i registeret.
+2. **Semikolon-bolken** — 14 filer, se over.
+3. **Gordon vs irsk setter vektmotsigelse** — krever FCI-standardene for begge raser, holdt bevisst utenfor C3a.
+4. **«Hypoallergen» i meta-descriptions** — minst to forekomster (`coton-de-tulear`, `malteser`), korpuset ikke sveipet.
+5. ~~`whippet`-guidens mankehøyde~~ — **strøket 31.07: funnet var falskt.** Guiden oppgir stratifiserte mål begge steder; «kun hannspennet» kom av substreng-telling uten å lese setningen rundt.
+
+## Åpne Admin-steg — flate 3, kun i Shopify Admin (7 steg, full tabell i registeret)
+
+Ingen blokkerer live-push. Samles til én runde.
+
+| # | Side | Skal til |
+|---|---|---|
+| 1 | `riesenschnauzer` | «6x risiko (Bianchi 2020)» → Egenvall et al. 2000 |
+| 2 | `irsk-setter` | «NKK #14» — venter på NKKs registreringsstatistikk |
+| 3 | `italiensk-mynde` | «skjøre ben» ut — premisset brødteksten nå avviser |
+| 4 | `hvor-mye-vann-hund` | bindestrek → tankestrek (kosmetisk) |
+| 5 | `griffon-petit-brabancon` | «brachy-hensyn» → **«kort snute-hensyn»** |
+| 6 | `border-collie` | «2. mest populære» → **«2. mest registrerte rase 2024»** |
+| 7 | `whippet` | «raskeste hund per kilo» → **«en av de raskeste hunderasene i forhold til størrelse»** |
+
+## Verifiseringsregler etablert 30.–31.07 (gjelder alt videre arbeid)
+
+1. **Sirkulær bekreftelse.** Et websøk kan returnere vår egen side som toppresultat med sammendrag ordrett fra guiden. Truffet to ganger på to dager (NMK-stiftelsesår, NAAF-standpunkt). **Finnes påstanden bare i vår egen tekst i søkeresultatene, er den ubekreftet.**
+2. **Deler to tall nevner?** Når to tall fra samme studie står side om side, sjekk referansegruppen for hvert. FEH-paret 14 %/30 % delte den ikke.
+3. **«X dokumenterer at …» er en verifiserbar påstand om et dokument.** Åpne det og søk. «NMK RAS dokumenterer 5 kg-taket» ga null treff i hele RAS.
+4. **En flagget påstand kan ha egen dekning.** «Høyest før 1,5 år» sto i et avsnitt med dårlig kilde, men RAS sier det ordrett.
+5. **Aldersgrenser er den hyppigst forskjøvne tallklassen.** Tre dager på rad: Jansen-vinduene (samojedhund), Beardow-tersklene (cavalier), Favrot-vinduet (WHWT). Sjekk aldersgrenser eksplisitt mot studien hver gang.
+6. **To studier på samme rase med samme n er en konkret forvekslingsrisiko.** Salzmann 2011 og Favrot 2020 har begge n=108 WHWT.
+7. **En ekte kilde kan bære et oppdiktet funn.** Farligere enn en oppdiktet sitering: bibliografien stemmer, formatsjekken passerer, bare resultatet er galt. Salzmann 2011 er korpusets tydeligste eksempel.
+8. **Kontrollmetoden er like feilbarlig som innholdet.** To ganger på to dager lå feilen i kontrollen: substreng-telling uten å lese setningen (whippet-målene), og meta-mønster som krevde `name` som første attributt (falsk «ingen meta» på fem sider).
 
 ### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
 
