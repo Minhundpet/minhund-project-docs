@@ -224,7 +224,7 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **🟡 Pedersen-journalen bar dagens navn, ikke publiseringsnavnet** — «Companion Animal Health and Genetics» → *Canine Genetics and Epidemiology* 4:11. En sitering må bære navnet ved publisering. Allergen-rangeringen myket; «IKKE en hypoallergen rase» står uendret. ✅ Zheng 1994 og Catchpole 2013 rene.
 
-## 🔴 VENTENDE BOLK — FAQ ↔ schema-avvik (opprinnelig 21 filer, **nå 20** — WHWT ryddet 31.07)
+## 🔴 VENTENDE BOLK — FAQ ↔ schema-avvik (opprinnelig 21 filer, **nå 19** — WHWT og boxer ryddet 31.07)
 
 Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avvik mellom synlig FAQ og FAQPage JSON-LD; 17 med reelt innholdsavvik**, 4 kun tegnsetting. HARD-regelbrudd (`CLAUDE.md`, `.claude/rules/hundetips-articles.md`): Google leser noe annet i rikresultatet enn siden viser.
 
@@ -234,15 +234,43 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og fire bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle). **22 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og fire bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **23 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-6: `boxer`
+### NESTE ØKT STARTER HER — C3c-7: `chihuahua`
 
-**Regnskapet i C3: 22 av 42 ferdig, 20 gjenstår** (per 31.07). Git-historikken er autoritativ kilde for hva som er gjort — ikke prosa i registeret. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
+**Regnskapet i C3: 23 av 42 ferdig, 19 gjenstår** (per 31.07, etter boxer). Git-historikken er autoritativ kilde — ikke prosa i registeret. Tallet er kontrollert begge veier: 23 fullførte + 19 gjenstående = 42. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
 
-**Neste guide er `boxer`** (score 6,0). Ingen kartlegging gjort ennå — start med Phase 1 pre-flight og ingress-først-regelen. **Merk to ting for boxer spesifikt:** rasen er brachycefal, så BOAS-påstander må sjekkes mot O'Neill/VetCompass-tallene som allerede er i korpuset (engelsk bulldog, fransk bulldog, mops), og den står oppført med DCM/ARVC — der Meurs-studiene er boxer-spesifikke, i motsetning til newfoundland-tilfellet i C3b-2 der en boxer-studie ble brukt feil. `boxer` har også 3 avvik i den ventende FAQ↔schema-bolken.
+**De 23 fullførte, gruppert etter bolk:**
+
+| Bolk | Guider |
+|---|---|
+| C3a (6) | `berner-sennenhund` · `vizsla` · `irsk-setter` · `rottweiler` · `riesenschnauzer` · `coton-de-tulear` |
+| C3b-0 (1) | `malteser` |
+| C3b-1 (2) | `cane-corso` · `kortharet-vorstehhund` |
+| C3b-2 → C3b-5 (4) | `newfoundland` · `dachshund` · `samojedhund` · `italiensk-mynde` |
+| C3c-1 (2) | `golden-retriever` · `griffon-petit-brabancon` |
+| C3c-2 (3) | `cavalier-king-charles-spaniel` · `bichon-havanais` · `border-collie` |
+| C3c-3 (2) | `west-highland-white-terrier` · `whippet` |
+| C3c-4 → C3c-6 (3) | `mellomschnauzer` · `beagle` · `boxer` |
+
+**Neste guide er `chihuahua`** (score 6,0). Ingen kartlegging gjort ennå — start med Phase 1 pre-flight og ingress-først-regelen. **Merk for chihuahua spesifikt:** guiden har allerede **to** manglende TOC-ankere (`historie` og `faq`, se TOC-bolken), og korpuset har en etablert måltidsfrekvens-ramme fra `coton-de-tulear`-fiksen (3–4 daglig, ingen hard timegrense) som chihuahua-guiden må stemme med. Rasen er dessuten småhund med patella- og trachealkollaps-profil — sjekk mot patella-klyngen som alt er kildesatt.
+
+#### C3c-6 boxer FULLFØRT 31.07 (commit `a4b85b5`, 2 filer live)
+
+Alle elleve godkjente punkter verifisert, pluss de tre FAQ↔schema-avvikene. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
+
+- **Ny feilklasse: studentarbeid løftet til doktorgrad.** «Vibeke Moen Helgelands PhD-arbeid fra NMBU (2007)» er registrert som `OtherStudentWork` i NVA/Sikt — en fordypningsoppgave med Heiene og Indrebø som veiledere. Institusjonen var også anakronistisk: NMBU oppsto i 2014, arbeidet er fra Norges veterinærhøgskole. **Består enhver formatsjekk — bare dokumenttypen er feil.**
+- **BSI feiltolket to ganger:** det er Nordisk Kennel Unions instruks til *utstillingsdommere* om overdrevet eksteriør, ikke avlskrav — og Boxers risikoområder er **pust og hud**, ikke hjerte og bevegelsesapparat.
+- «Over 100 000 kr i forskningsmidler» til spondylose-prosjektet lot seg ikke spore; klubbens dokumenterte ordning er kostnadsrefusjon (1 500 / 750 kr).
+- Lingaas-påstanden pekte på feil prosjekt: hans dokumenterte boxer-arbeid er **nyresvikt-forskning mot en gentest**, ikke gratis obduksjon.
+- Rasestandard: NKK-dato 12.07.2021 → **26.06.2024**; vekt «30–32 kg» → standarden sier **«over 30 kg»** uten øvre grense.
+- Levetid 9–12 år → McMillan 11,3 år (n=17 219) *og* O'Neill 10,5 år (n=346), begge med referansegruppe.
+- Mastcellesvulst tallfestet: **Shoop et al. 2015**, boxer 1,95 % mot 0,27 % samlet (n=168 636) — høyest av alle raser i studien. Førsteforfatter er Shoop, ikke O'Neill.
+- Døvhetstallene for hvit boxer viste seg å være **dalmatiner-tall**; Strain 2004 testet ikke boxer. Forankret i O'Neill 2023 i stedet, som fant ingen helseforskjell mellom hvite og ikke-hvite.
+
+**Nye verifiseringsregler (nr. 15–17), se listen nedenfor.**
 
 #### C3c-5 beagle FULLFØRT 31.07 (commits `3485fac` + `4892d17` + `ea18060`, 2 filer live)
 
@@ -269,13 +297,13 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 **Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen (19 guider etter boxer)
+#### Resten av C3c-rekkefølgen (18 guider etter chihuahua)
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer` og `beagle` er ferdige.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle` og `boxer` er ferdige.
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
@@ -309,15 +337,23 @@ Symptomet, fra `mellomschnauzer`: «en hard; stri dobbeltpels» · «milde tilfe
 
 ---
 
-## Køen etter C3 (oppdatert 31.07)
+## Køen etter C3 (oppdatert 31.07) — TRE ventende korpus-bolker
 
-1. **FAQ↔schema-bolken** — **20 filer**, ikke 21. WHWTs sju tegnsettingsavvik ble ryddet 31.07 mens fila uansett var åpen. Prioritert `valp` (8 avvik) og `tannhelse` (7, helseartikkel); full tabell i registeret.
-2. **Semikolon-bolken** — 14 filer, se over.
-3. **Gordon vs irsk setter vektmotsigelse** — krever FCI-standardene for begge raser, holdt bevisst utenfor C3a.
-4. **«Hypoallergen» i meta-descriptions** — minst to forekomster (`coton-de-tulear`, `malteser`), korpuset ikke sveipet.
-5. ~~`whippet`-guidens mankehøyde~~ — **strøket 31.07: funnet var falskt.** Guiden oppgir stratifiserte mål begge steder; «kun hannspennet» kom av substreng-telling uten å lese setningen rundt.
+Alle tre er **mekaniske og uavhengige av kildesporet**. De tas etter at C3 er ferdig, ikke satt inn underveis (Sondre 30.–31.07).
 
-## Åpne Admin-steg — flate 3, kun i Shopify Admin (7 steg, full tabell i registeret)
+**1. FAQ↔schema-bolken — 19 filer** (opprinnelig 21). To ryddet underveis fordi filene uansett var åpne: WHWT (7 tegnsettingsavvik, C3c-3) og boxer (3 avvik, C3c-6). Prioritert `valp` (8 avvik) og `tannhelse` (7, helseartikkel), deretter `hund-liker-ikke-bading` (4), `aktivisere-hund-pa-tur` + `sommer` (2 hver), så 11 filer med ett avvik. Full tabell i registeret. **HARD-regelbrudd:** Google leser noe annet i rikresultatet enn siden viser.
+
+**2. Semikolon-bolken — 14 filer, 2 835 semikolon.** Median-guiden i korpuset har 10; disse har 80–240 mot 3–20 komma. Alle 14 opprettet 16.–20. mai 2026, én sammenhengende produksjonsperiode. Årsak: `article_map`-kommaregelen feilaktig anvendt på brødtekst — den gjelder **kun** Title/H2-felt i `snippets/llms-articles-data.liquid`. Filer: `cane-corso` · `coton-de-tulear` · `dansk-svensk-gardshund` · `dvergpinscher` · `dvergschnauzer` · `flat-coated-retriever` · `kortharet-vorstehhund` · `lagotto-romagnolo` · `malteser` · `mellomschnauzer` · `newfoundland` · `riesenschnauzer` · `vizsla` · `yorkshire-terrier`. **Merk:** `mellomschnauzer` fikk delvis rydding i C3c-4 (nyskrevet tekst bruker komma), så fila er nå blandet.
+
+**3. TOC-gap-bolken — 55 manglende ankerlenker fordelt på filer (NY, oppdaget 31.07).** Av 107 filer med TOC-JS mangler ankere lenke i innholdsfortegnelsen slik: **`faq` i 43 filer** (var 45; beagle og boxer rettet), `faq-heading` i 4, `tips-king` i 4, `oppsummering` i 3, `historie` i 3. Ankeret og H2-en finnes — bare TOC-lenken mangler, så seksjonen er unåbar fra innholdsfortegnelsen. **Rundt 62 filer har lenken allerede**, så dette er en splittet konvensjon, ikke en universell mangel. Rent mekanisk å fikse. **Metodenotat: funnet ble først meldt som «pre-eksisterende avvik i beagle-fila» — korpus-sveipen viste at det var korpusomfattende. Scop kontrollen til korpuset før du karakteriserer omfanget.**
+
+**Øvrige køpunkter:**
+
+4. **Gordon vs irsk setter vektmotsigelse** — krever FCI-standardene for begge raser, holdt bevisst utenfor C3a.
+5. **«Hypoallergen» i meta-descriptions** — minst to forekomster (`coton-de-tulear`, `malteser`), korpuset ikke sveipet.
+6. ~~`whippet`-guidens mankehøyde~~ — **strøket 31.07: funnet var falskt.** Guiden oppgir stratifiserte mål begge steder; «kun hannspennet» kom av substreng-telling uten å lese setningen rundt.
+
+## Åpne Admin-steg — flate 3, kun i Shopify Admin (9 steg, full tabell i registeret)
 
 Ingen blokkerer live-push. Samles til én runde.
 
@@ -331,6 +367,7 @@ Ingen blokkerer live-push. Samles til én runde.
 | 6 | `border-collie` | «2. mest populære» → **«2. mest registrerte rase 2024»** |
 | 7 | `whippet` | «raskeste hund per kilo» → **«en av de raskeste hunderasene i forhold til størrelse»** |
 | 8 | `mellomschnauzer` | «pulmonisk stenose rasespesifikk hjertedefekt, levetid 13-16 år» — **begge nå avvist i brødteksten** → **«… den originale schnauzer-stamfar-rasen, NSBK 1946, RBM20-DCM med DNA-test, median levetid 13 år.»** |
+| 9 | `boxer` | «… med NMBU-forskning og **NKK-avlsregler**» — avlsreglene er Norsk Boxerklubbs, ikke NKKs → **«… og Norsk Boxerklubbs avlskrav.»** |
 
 ## Verifiseringsregler etablert 30.–31.07 (gjelder alt videre arbeid)
 
@@ -348,6 +385,9 @@ Ingen blokkerer live-push. Samles til én runde.
 12. **Rasestandardens egen historikk-seksjon er en underbrukt primærkilde.** FCI-standardene har en «Brief historical summary» som avgjorde tre påstander i `beagle` alene (pocket beagle-opphavet, at typen ikke forsvant, og Foxhound-nedavlingen). Vi har brukt standardene til mål og klassifisering, men sjelden til historikk. **Sjekk den før historiske påstander mykes eller strykes som ukildede.**
 13. **Standarder oppgir ofte høyde, men ikke vekt.** Ingen av FCI #161, #159 eller #295 har vekt i det hele tatt. Vekttall som presenteres ved siden av standardfestede høydemål leses som standardkrav av leseren. **Sjekk hvert mål separat mot standarden, og merk anslag som anslag** — samme feilklasse som whippet-vekten (C3c-3) og fargeregelen i italiensk-mynde.
 14. **Et treff i residual-sveipen kan være tekstens eget forbehold — eller en ekte overlever.** I `beagle` antok jeg først at «4–5 år» var vår egen setning om at tallet mangler dekning; kontekstlesing viste at det var en gjenglemt forekomst i §8s oppsummering. **Les alltid setningen rundt treffet før du avfeier det.** Utvidelse av regel 8.
+15. **Dokumenttype er en egen påstandsklasse.** `boxer` kalte en fordypningsoppgave et «PhD-arbeid». Forfatter, år og institusjon var riktige hver for seg, så ingen formatsjekk slår ut. **For norske akademiske kilder: `hdl.handle.net`-handelen resolver nå til NVA/Sikt, og NVAs API oppgir `publicationInstance.type` eksplisitt.** Sjekk også at institusjonsnavnet fantes på publiseringstidspunktet — NMBU oppsto først i 2014 (jf. anakronisme-regelen for kennel-anerkjennelse i sprint #63).
+16. **Når en studie kommer fra et program vi siterer ofte, er feil-attribusjon mer sannsynlig, ikke mindre.** Mastcellesvulst-studien er Shoop et al. 2015; O'Neill er 8. forfatter. Jeg var i ferd med å tilskrive den O'Neill fordi det er VetCompass-navnet korpuset kjenner. Samme mekanisme som ga «Pedersen et al. 2013» i samojedhund. **Les forfatterlista, ikke programnavnet.**
+17. **Et sveipe-mønster bygget på den opprinnelige formuleringen finner ikke parafraser av samme tall.** I `boxer` sto «30–32 kg» igjen ett sted, og King-avsnittet sa «mellom 25 og 32 kg» — sistnevnte matchet ikke mønsteret i det hele tatt. **Manuell gjennomlesing av alle setninger i tallklassen slo den regex-baserte sveipen to sprinter på rad.** Etter en tallfiks: les alle setninger som nevner størrelsen, ikke bare de som matcher det gamle strengmønsteret.
 
 ### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
 
