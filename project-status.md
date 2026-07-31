@@ -146,6 +146,22 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-31 — C3c-3 WHWT + whippet (`1b8c2a9`, 2 filer live)
+
+**🔴 Dagens alvorligste funn: en ekte kilde med oppdiktet funn.** WHWT-guiden skrev at Salzmann et al. 2011 «identifiserte en 1,3-Mb-region på CFA 17». Studien konkluderer med det motsatte — **«no chromosomal regions were identified with significant linkage»** — og det subterskel-signalet som fantes lå på **kromosom 7**, ikke 17. **Siteringen var korrekt formatert med journal, år, volum og sidetall og ville bestått enhver formatsjekk.** Dette er farligere enn en oppdiktet sitering: kilden finnes, den er riktig gjengitt bibliografisk, og bare funnet er galt.
+
+**🟢 CAD-benet flyttet til Favrot et al. 2020**, som faktisk måler det guiden påsto: 52 % prevalens i en kohort på 108 valper fulgt i tre år, 60 % debut i første leveår. **Begge studiene har n=108 WHWT — sannsynlig årsak til sammensmeltingen. To studier på samme rase med samme utvalgsstørrelse er en konkret forvekslingsrisiko.**
+
+**🔴 Aldersvindu forskjøvet tredje dag på rad** (Jansen/samojedhund → Beardow/cavalier → Favrot/WHWT). **Aldersgrenser er den hyppigst forskjøvne tallklassen i korpuset og bør sjekkes eksplisitt mot studien hver gang.**
+
+**🟢 NKK-tallet verifisert mot primærkilden.** NKKs egen «Topp 25 registrerte raser 2024» gir «25 Whippet 264» — eksakt som guiden. Samme tabell bekrefter golden 1026 (#1) og border collie 982 (#2), så hele NKK-2024-klyngen henger sammen.
+
+**🔵 Eget funn fra 30.07 strøket.** «Whippet-guiden oppgir kun hannspennet» var falskt — guiden er stratifisert begge steder. Substreng-telling uten å lese setningen. **Andre gang på to dager at kontrollmetoden, ikke innholdet, var feilkilden.**
+
+**🟢 Ordbudsjettering før skriving fungerte — første gang prøvd.** Begge er 2400–2800-guider: WHWT landet 2671 mot planlagt ~2653 (slakk 129), whippet 2527 (slakk 273). Ingen trim-iterasjoner.
+
+**Ventende FAQ↔schema-bolk er nå 20 filer, ikke 21** — WHWTs sju tegnsettingsavvik ble ryddet mens fila uansett var åpen.
+
 ### 2026-07-31 — C3c-2 cavalier + bichon-havanais + border-collie (`b5047b1`, 3 filer live)
 
 **🟢 Forslagslisten min var upresis — guiden hadde allerede kilden.** Jeg foreslo å legge til HR-2023-1901-A og datoen i cavalier-guiden; begge sto der fra før. **Lærdom: verifiser hva guiden faktisk mangler før du foreslår tillegg.** Det som virkelig manglet var Høyesteretts eget terskeltall (minst 15 % av hundene) og Mattilsynets grensegang om at forbudet kun gjelder renraset avl — blanding er ikke omfattet, men kan likevel bryte § 25.
@@ -224,7 +240,7 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ### NESTE ØKT STARTER HER — C3c-kartlegging
 
-**Regnskapet i C3: 18 av 42 ferdig, 24 gjenstår** (per 31.07, etter C3c-2). ⚠ **Korrigert 31.07:** tidligere «14 ferdig / 28 igjen» var feil — `riesenschnauzer` var talt i både C3a og C3b-0. Riktig var 13 ferdig / 29 igjen ved inngangen til C3c; C3c-1 tok så golden-retriever + griffon. **Git-historikken er nå autoritativ kilde for hva som er gjort** — ikke prosa i registeret.
+**Regnskapet i C3: 20 av 42 ferdig, 22 gjenstår** (per 31.07, etter C3c-3). ⚠ **Korrigert 31.07:** tidligere «14 ferdig / 28 igjen» var feil — `riesenschnauzer` var talt i både C3a og C3b-0. Riktig var 13 ferdig / 29 igjen ved inngangen til C3c; C3c-1 tok så golden-retriever + griffon. **Git-historikken er nå autoritativ kilde for hva som er gjort** — ikke prosa i registeret.
 
 **C3c er en annen jobb enn C3a/C3b — ikke bare flere guider.** I C3a/C3b fantes det siteringer å spot-sjekke mot primærkilde. Per C3-kalibreringen har **16 av de opprinnelige 42 null navngitte siteringer**; i den delen av restsjiktet finnes det ingen sitering å verifisere. Det som skal gjennomgås der er:
 1. **Rangeringsspråk** — «høyest av alle raser», «en av de vanligste», «mer utsatt enn» — uten referansegruppe eller kilde. Samme linse som Bolk B brukte.
@@ -238,9 +254,9 @@ Metodisk ligger C3c altså nærmere **Bolk B** enn C3b.
 
 **Ordtelling må planlegges inn i C3c-fiksene.** Fra C3b-5: kildeforankring la på 174 ord og krevde fem trimrunder. **En kildefiks er ikke ordnøytral — regn 100–200 ord.** Guider som allerede ligger på 2750+ må ha trim planlagt som del av fiksen, ikke som opprydning etterpå.
 
-**Køen etter C3:** (1) **FAQ↔schema-bolken** — 21 filer med avvik, 17 med reelt innholdsavvik; prioritert `valp` (8) og `tannhelse` (7), full tabell i registeret. (2) **Gordon vs irsk setter vektmotsigelse** — krever FCI-standardene for begge raser, holdt bevisst utenfor C3a. (3) **«Hypoallergen» i meta-descriptions** — minst to forekomster (`coton-de-tulear`, `malteser`), korpuset ikke sveipet. (4) **`whippet`-guidens mankehøyde** — oppgir kun hannspennet 47–51 cm fem steder; FCI #162 er hanner 47–51, tisper 44–47. Oppdaget i C3b-5 da italiensk-mynde motsa den. Kryss-guide-motsigelse, ikke feil tall.
+**Køen etter C3:** (1) **FAQ↔schema-bolken** — 21 filer med avvik, 17 med reelt innholdsavvik; prioritert `valp` (8) og `tannhelse` (7), full tabell i registeret. (2) **Gordon vs irsk setter vektmotsigelse** — krever FCI-standardene for begge raser, holdt bevisst utenfor C3a. (3) **«Hypoallergen» i meta-descriptions** — minst to forekomster (`coton-de-tulear`, `malteser`), korpuset ikke sveipet. (4) ~~`whippet`-guidens mankehøyde~~ — **strøket 31.07: funnet var falskt.** Guiden oppgir stratifiserte mål begge steder; «kun hannspennet» kom av substreng-telling uten å lese setningen.
 
-**Åpne Admin-steg (flate 3 — kun manuelt i Shopify Admin):** seks steg samlet i tabell i `docs/health-claims-register.md` — `riesenschnauzer`, `irsk-setter`, `italiensk-mynde`, `hvor-mye-vann-hund`, `griffon-petit-brabancon` («kort snute-hensyn») og `border-collie` («2. mest registrerte rase 2024»). Ingen blokkerer live-push; tas i én runde.
+**Åpne Admin-steg (flate 3 — kun manuelt i Shopify Admin):** sju steg samlet i tabell i `docs/health-claims-register.md` — `riesenschnauzer`, `irsk-setter`, `italiensk-mynde`, `hvor-mye-vann-hund`, `griffon-petit-brabancon` («kort snute-hensyn») og `border-collie` («2. mest registrerte rase 2024»). Ingen blokkerer live-push; tas i én runde.
 
 **Holdt tilbake bevisst:** `irsk-setter` NKK #14/427-rangeringen — venter på NKKs registreringsstatistikk for 2024. Et signal om 32 % nedgang gjør både tall og plassering ustabile.
 
