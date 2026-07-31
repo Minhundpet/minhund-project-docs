@@ -234,40 +234,37 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og tre bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet). **20 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og fire bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer). **21 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-4: mellomschnauzer
+### NESTE ØKT STARTER HER — C3c-5: `beagle`
 
-**Regnskapet i C3: 20 av 42 ferdig, 22 gjenstår** (per 31.07). Git-historikken er autoritativ kilde for hva som er gjort — ikke prosa i registeret. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
+**Regnskapet i C3: 21 av 42 ferdig, 21 gjenstår** (per 31.07). Git-historikken er autoritativ kilde for hva som er gjort — ikke prosa i registeret. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
 
-#### Umiddelbart neste steg: `mellomschnauzer` er KARTLAGT og kildeforslagene GODKJENT — men ikke skrevet
+**Neste guide er `beagle`** (score 6,0, øverst i den godkjente rekkefølgen). Ingen kartlegging gjort ennå — start med Phase 1 pre-flight og ingress-først-regelen.
 
-Sondre godkjente forslagene 31.07. **To verifiseringer gjenstår før skriving:**
-1. **NSBK-tallene** mot klubbens egne sider: «over 1000 medlemmer fordelt på sju grupper og ansvar for ni raser».
-2. **Kryss-guide-konsistens mot `dvergschnauzer`** på hypertriglyseridemi — den guiden ble rettet i Bolk B på Xenoulis-tallene, og de to må ikke motsi hverandre.
+#### C3c-4 mellomschnauzer FULLFØRT 31.07 (commit `f6baaec`, 2 filer live)
 
-**Godkjent fikseliste** (3358 ord, pre-regel, intet ordtak):
+Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget under verifiseringen. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
 
-| # | Påstand | Vedtatt håndtering |
-|---|---|---|
-| 1 | «PS er en av de aller vanligste medfødte hjertefeilene (Brambilla og medarbeidere; 2020)» | ✅ Verifisert og faktisk understated — Brambilla et al. 2020 (PLoS One 15(7):e0230160) lister PS **først**. Men studien er fra **ett henvisningssenter**; utvalget skal fram, samme seleksjonsklasse som Kent 2018 og Walkerville |
-| 2 | «…og Mellomschnauzer er blant rasene med kjent disposisjon» | Siteringen bærer mer enn den sier — Brambilla fremhever boxer, fransk/engelsk bulldog og schäfer, ikke mellomschnauzer. Egen kilde eller oppmykning |
-| 3 | «suksessrater rundt 70–85 %» (ballongvalvuloplastikk) | Ukildet intervall → kildesett eller myk |
-| 4 | «13–16 år er normalt» (**4 steder**: ingress, §1, faktastripe, FAQ) | Ukildet og markant over McMillan 2024s median 12,7 år for renrasede. «Eksepsjonelt for en arbeidshund» forsterker uten belegg → myk eller forankre |
-| 5 | «NSBK … over 1000 medlemmer / sju grupper / ni raser» | Verifiseres mot NSBK |
-| 6 | «har **ikke** samme disposisjon for forhøyet blodfett som Dvergschnauzer» | Negativ kryss-rase-påstand — fravær av dokumentasjon er ikke dokumentert fravær. Samordnes med `dvergschnauzer` |
+- **Moat byttet:** PS var «rasens mest rasespesifikke helseutfordring» på seks flater, men mellomschnauzer står ikke på noen dokumentert PS-disposisjonsliste (Brambilla n=1 779, UC Davis n=80 943, Merck). Dverg- og riesenschnauzer gjør — **disposisjonen var arvet fra nabo-rasene i familien**. Erstattet med RBM20-assosiert DCM (Leach et al. 2022: 19,7 % bærere, 1,5 % homozygote, 92,9 % av homozygote affisert), som også er NSBKs egen anbefaling.
+- **Fem NSBK-påstander falt samtidig** da klubbens avlsdokument ble åpnet: ekko-anbefalingen finnes ikke, «NSBK krever HD» forvekslet NKKs krav med NSBKs anbefaling, «årlig øyelysning» er før parring med 12 mnd gyldighet, paringsalderen var feil for begge kjønn, og innavlsgrad-grensen på 6,25 % står ingen steder.
+- **Medlemstallet gikk feil vei:** klubben oppgir selv «i underkant av 1000», ikke «over 1000». Det gamle tallet lever videre på NKKs regionside.
+- Levetid 13–16 «eksepsjonelt» → median 13,0 år (McMillan Tabell S3, n=1 261). Ballongvalvuloplastikk 70–85 % → Bussadori 2001 + Johnson & Martin 2004.
+- Ordtelling 3358 → 4190. **Sondre besluttet at den får stå** — reelt moat-bytte, ikke oppblåsthet, og godt innenfor pre-regel-båndet.
 
-**Merk:** guiden har **én eneste sitering i hele brødteksten**. Tynt for en guide som bærer hjertefeil-påstander.
+**Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen (21 guider etter mellomschnauzer)
+#### Resten av C3c-rekkefølgen (20 guider etter beagle)
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
 `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet` og `west-highland-white-terrier` er ferdige.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier` og `mellomschnauzer` er ferdige.
+
+**Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
 #### Verktøyet
 
@@ -320,6 +317,7 @@ Ingen blokkerer live-push. Samles til én runde.
 | 5 | `griffon-petit-brabancon` | «brachy-hensyn» → **«kort snute-hensyn»** |
 | 6 | `border-collie` | «2. mest populære» → **«2. mest registrerte rase 2024»** |
 | 7 | `whippet` | «raskeste hund per kilo» → **«en av de raskeste hunderasene i forhold til størrelse»** |
+| 8 | `mellomschnauzer` | «pulmonisk stenose rasespesifikk hjertedefekt, levetid 13-16 år» — **begge nå avvist i brødteksten** → **«… den originale schnauzer-stamfar-rasen, NSBK 1946, RBM20-DCM med DNA-test, median levetid 13 år.»** |
 
 ## Verifiseringsregler etablert 30.–31.07 (gjelder alt videre arbeid)
 
@@ -331,6 +329,9 @@ Ingen blokkerer live-push. Samles til én runde.
 6. **To studier på samme rase med samme n er en konkret forvekslingsrisiko.** Salzmann 2011 og Favrot 2020 har begge n=108 WHWT.
 7. **En ekte kilde kan bære et oppdiktet funn.** Farligere enn en oppdiktet sitering: bibliografien stemmer, formatsjekken passerer, bare resultatet er galt. Salzmann 2011 er korpusets tydeligste eksempel.
 8. **Kontrollmetoden er like feilbarlig som innholdet.** To ganger på to dager lå feilen i kontrollen: substreng-telling uten å lese setningen (whippet-målene), og meta-mønster som krevde `name` som første attributt (falsk «ingen meta» på fem sider).
+9. **Klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.** I `mellomschnauzer` sto én NSBK-påstand på fikselista; da klubbens avlsdokument faktisk ble åpnet, falt fem til. Er én påstand tilskrevet en klubb feil, kommer de øvrige i samme fil sannsynligvis fra samme ukontrollerte kilde. Samme mønster som «finner du én gal DOI, sjekk alle de andre i fila».
+10. **En rasepåstand kan være arvet fra en nabo-rase.** Mellomschnauzer bar dverg- og riesenschnauzers PS-disposisjon som sin egen. **Ved raser i en familie med størrelses- eller fargevarianter: sjekk om disposisjonen tilhører rasen selv eller slektningen.** Første forekomst av feilklassen i korpuset.
+11. **Et autoritativt domene er ikke automatisk primærkilde for en tredjeparts nøkkeltall.** NKKs regionside oppga «over 1000 medlemmer» for NSBK; klubbens egen side sier «i underkant av 1000». Katalog- og oversiktssider speiler ofte foreldet tekst.
 
 ### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
 
