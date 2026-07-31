@@ -146,6 +146,26 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-31 — C3c åpnet: detektor bygget og kalibrert (`b8d8223`) + C3c-1 (`7591e45`, 2 filer live)
+
+**Nytt verktøy i repoet: `tools/rangeringsdetektor.py`.** C3c er en annen jobb enn C3a/C3b — der fantes siteringer å spot-sjekke, her er det rangeringsspråk og prevalens uten opphav. Fire kalibreringsrunder er reell arbeidstid og skal ikke gjøres om igjen; verktøyet er dokumentert i fila.
+
+**Viktigste prinsipp fra kalibreringen: en detektor som skal finne en feilklasse må kalibreres mot en versjon der feilen fortsatt finnes.** Kjent positiv måtte hentes pre-fiks (`git show 04ad4d2^`) — dagens `engelsk-bulldog` har fått påstanden rettet i Bolk A, så arbeidstreet ville gitt falsk negativ.
+
+**Designvalg som bar mest: to nivåer, ikke ett.** Første versjon hoppet over siterte setninger. Men Bolk A/B viste at de alvorligste feilene satt nettopp der — ekte siteringer festet til rangeringer datagrunnlaget ikke støttet. T1 = uten kilde, T2 = med kilde (verifiser at kilden støtter rangeringen), prev = prevalens uten opphav.
+
+**Omfanget måtte korrigeres for fjerde gang — men denne gangen i bokføringen, ikke detektoren.** `riesenschnauzer` var dobbelttalt. Git-historikken er nå autoritativ.
+
+**Ordtellings-rådet mitt fra 30.07 var for bredt.** Wordcount-taket er æra-scopet: 25 av 29 restguider ligger på 3300–4800 ord og er alle pre-regel, altså uten tak å sprenge. Kun `jamthund` (+381), `whippet` (+280) og `west-highland-white-terrier` (+155) er skrevet under 2400–2800-regelen. **Trim-planlegging gjelder 3 guider, ikke 25.**
+
+**C3c-1 levert samme dag.** Golden gikk fra T1=5 til 0/0/0; griffon fra T1=5 til én benign tilbake-referanse.
+- **Golden-ingressen motsa guidens egen faktastripe** — femte forekomst av ingress-drift, men her var kilden allerede i fila («Norges mest registrerte rase 2024 (NKK)»). Feilen var ikke manglende kilde, men at ingressen aldri ble oppdatert.
+- **Kildesetting endret konklusjonen, ikke bare fotnoten:** «kortere snittlevetid enn mange andre raser» viste seg overdrevet da McMillan et al. 2024 ga referansegruppen (median 12,7 år for renrasede mot guidens ~12).
+- **Griffons selvmotsigelse lå løst i kilden.** NMHKs RAS sier både «ikke hos veterinæren oftere eller sjeldnere enn gjennomsnittshunden» **og** «likevel enkelte problemer de er spesielt utsatt for». Guiden hadde sitert første setning og droppet den andre. **Lærdom: når to påstander i samme guide utelukker hverandre, sjekk om begge stammer fra samme kilde.**
+- **Øyeskade-påstanden kildesatt på anatomien, aldri på rasemerkelappen.** RAS' egen formulering («anatomien i hode- og øyeregionen påvirkes av mange gener») traff rammen bedre enn O'Neill alene.
+
+**Kjent blindsone i detektoren:** popularitets- og registreringsrangeringer fanges ikke — domenegatingen krever helse- eller kryss-rase-kontekst. Golden-ingressen ble funnet manuelt. **Ikke utvid detektoren uten ny kalibrering.**
+
 ### 2026-07-30 — C3b-5 italiensk-mynde (`afbb344`) — C3a/C3b-runden FULLFØRT
 
 **🔴 To feil i én setning om FEH.** «14 % av populasjonen klinisk rammet og 30 % bærere ifølge UC Davis VGL» → Gandolfi et al. 2013 sier 30 % av **hundene med normale tenner**, og begge tall er studiens, ikke VGLs. Sanity-testen som avslørte det: 14 % affisert gir ~47 % bærere under Hardy-Weinberg, ikke 30 % — tallene kunne ikke dele nevner. **Lærdom: når to tall fra samme studie står side om side, sjekk om de har samme referansegruppe før du leser dem som et par.**
@@ -190,7 +210,7 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ### NESTE ØKT STARTER HER — C3c-kartlegging
 
-**Regnskapet i C3: 14 av 42 ferdig, 28 gjenstår.** C3a tok de seks høyest rangerte, C3b de åtte neste (malteser, riesenschnauzer, cane-corso, korthåret vorstehhund, newfoundland, dachshund, samojedhund, italiensk-mynde). **C3c er restsjiktet og er ikke kartlagt ennå.**
+**Regnskapet i C3: 15 av 42 ferdig, 27 gjenstår** (per 31.07). ⚠ **Korrigert 31.07:** tidligere «14 ferdig / 28 igjen» var feil — `riesenschnauzer` var talt i både C3a og C3b-0. Riktig var 13 ferdig / 29 igjen ved inngangen til C3c; C3c-1 tok så golden-retriever + griffon. **Git-historikken er nå autoritativ kilde for hva som er gjort** — ikke prosa i registeret.
 
 **C3c er en annen jobb enn C3a/C3b — ikke bare flere guider.** I C3a/C3b fantes det siteringer å spot-sjekke mot primærkilde. Per C3-kalibreringen har **16 av de opprinnelige 42 null navngitte siteringer**; i den delen av restsjiktet finnes det ingen sitering å verifisere. Det som skal gjennomgås der er:
 1. **Rangeringsspråk** — «høyest av alle raser», «en av de vanligste», «mer utsatt enn» — uten referansegruppe eller kilde. Samme linse som Bolk B brukte.
@@ -210,6 +230,7 @@ Metodisk ligger C3c altså nærmere **Bolk B** enn C3b.
 - `riesenschnauzer` meta-description: «6x risiko (Bianchi 2020)» → skal til Egenvall et al. 2000
 - `irsk-setter` meta-description sier «NKK #14» — må endres samtidig med brødteksten når NKK-tallet foreligger
 - `italiensk-mynde` meta-description sier «skjøre ben» — samme premiss brødteksten nå avviser (NMK RAS: normal beintetthet). Ingen tallpåstand; blokkerte ikke live-pushen (Sondre, 2026-07-30)
+- `griffon-petit-brabancon` meta sier «brachy-hensyn» på en side som ER Petit Brabançon-guiden — leses som at rasen er brachycefal, i strid med prosjektregelen. Brødteksten er korrekt. **Skal til «kort snute-hensyn»** (Sondre, 31.07)
 - `hvor-mye-vann-hund`: bindestrek «40-60» der korpuset ellers bruker tankestrek (kosmetisk)
 
 **Holdt tilbake bevisst:** `irsk-setter` NKK #14/427-rangeringen — venter på NKKs registreringsstatistikk for 2024. Et signal om 32 % nedgang gjør både tall og plassering ustabile.
