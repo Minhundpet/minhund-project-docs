@@ -146,6 +146,20 @@ Live: 711→711, kun de 14 forventede, 0 kollateral, sha256 == HEAD, 14 URLer ti
 
 **Enkeltpunktene lukket (`9e356ff`):** Hill's/Orvis/AKC ut av `hund-liker-ikke-bading` → BOAS-forankring (Packer et al.; VetCompass). Feberterskel i `hund-vil-ikke-spise` kildesatt til referanseintervall-studie av >9 000 hunder (37,7–39,5 °C; 39,2 beholdt som oppmerksomhetsnivå, ikke hard grense). Eskaleringstrappa: ingen navngitt WSAVA/AAHA-konsensus funnet — autoriteten myket, **tersklene urørt** (over-48-timer ×6, valpeunntak ×5 verifisert som egne PASS-krav). Alle fire meta-descriptions bekreftet oppdatert på live; Admin-seksjonen lukket.
 
+### 2026-07-31 — C3c-2 cavalier + bichon-havanais + border-collie (`b5047b1`, 3 filer live)
+
+**🟢 Forslagslisten min var upresis — guiden hadde allerede kilden.** Jeg foreslo å legge til HR-2023-1901-A og datoen i cavalier-guiden; begge sto der fra før. **Lærdom: verifiser hva guiden faktisk mangler før du foreslår tillegg.** Det som virkelig manglet var Høyesteretts eget terskeltall (minst 15 % av hundene) og Mattilsynets grensegang om at forbudet kun gjelder renraset avl — blanding er ikke omfattet, men kan likevel bryte § 25.
+
+**🔴 Bilyd-tallene var riktige i retning, forskjøvet i grensene.** Beardow & Buchanan 1993 (n=394) måler 56 % fra **fire** år og 100 % ved ti; guiden hadde 5 år og «over 90 prosent». Samme klasse som Jansen-vinduene i samojedhund — studien oppgir én grense, guiden gjenga en annen.
+
+**🔴 Sirkulær bekreftelse nesten godtatt for andre gang på to dager.** Søket på NAAFs standpunkt ga **vår egen bichon-side** som treff nr. 2, med sammendraget ordrett fra guiden. Verifisert mot NAAFs egen side i stedet. Regelen bør nå regnes som fast.
+
+**🔴 Ingress-drift for tredje gang på rad.** Border collie: ingressen sa «2. mest populære», faktastripen sa allerede «2. mest registrerte rase 2024 (NKK)». Kilden lå i fila. Golden hadde nøyaktig samme feil samme dag; labrador hadde den i Bolk B.
+
+**🟡 CEA-tallet myket framfor kildesatt — bevisst.** Publiserte tall spriker mellom 7,8 % allelfrekvens og 29,6 % bærerfrekvens. Å velge ett ville reprodusert allel-vs-bærer-feilen fra corgi, cocker og samojedhund. **Når to publiserte tall for samme forhold er av ulik type, er oppmykning riktigere enn å velge — valget ser ut som presisjon og er det ikke.**
+
+**🟢 To klubbkilder verifisert mot egne sider:** NAAF («ingen forskjell mellom hunderasene … derimot ganske stor forskjell fra hund til hund, innenfor samme rase» — den innenfor-rase-variasjonen manglet i guiden) og NBHK (patellakravet gjengitt korrekt).
+
 ### 2026-07-31 — C3c åpnet: detektor bygget og kalibrert (`b8d8223`) + C3c-1 (`7591e45`, 2 filer live)
 
 **Nytt verktøy i repoet: `tools/rangeringsdetektor.py`.** C3c er en annen jobb enn C3a/C3b — der fantes siteringer å spot-sjekke, her er det rangeringsspråk og prevalens uten opphav. Fire kalibreringsrunder er reell arbeidstid og skal ikke gjøres om igjen; verktøyet er dokumentert i fila.
@@ -210,7 +224,7 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ### NESTE ØKT STARTER HER — C3c-kartlegging
 
-**Regnskapet i C3: 15 av 42 ferdig, 27 gjenstår** (per 31.07). ⚠ **Korrigert 31.07:** tidligere «14 ferdig / 28 igjen» var feil — `riesenschnauzer` var talt i både C3a og C3b-0. Riktig var 13 ferdig / 29 igjen ved inngangen til C3c; C3c-1 tok så golden-retriever + griffon. **Git-historikken er nå autoritativ kilde for hva som er gjort** — ikke prosa i registeret.
+**Regnskapet i C3: 18 av 42 ferdig, 24 gjenstår** (per 31.07, etter C3c-2). ⚠ **Korrigert 31.07:** tidligere «14 ferdig / 28 igjen» var feil — `riesenschnauzer` var talt i både C3a og C3b-0. Riktig var 13 ferdig / 29 igjen ved inngangen til C3c; C3c-1 tok så golden-retriever + griffon. **Git-historikken er nå autoritativ kilde for hva som er gjort** — ikke prosa i registeret.
 
 **C3c er en annen jobb enn C3a/C3b — ikke bare flere guider.** I C3a/C3b fantes det siteringer å spot-sjekke mot primærkilde. Per C3-kalibreringen har **16 av de opprinnelige 42 null navngitte siteringer**; i den delen av restsjiktet finnes det ingen sitering å verifisere. Det som skal gjennomgås der er:
 1. **Rangeringsspråk** — «høyest av alle raser», «en av de vanligste», «mer utsatt enn» — uten referansegruppe eller kilde. Samme linse som Bolk B brukte.
@@ -226,12 +240,7 @@ Metodisk ligger C3c altså nærmere **Bolk B** enn C3b.
 
 **Køen etter C3:** (1) **FAQ↔schema-bolken** — 21 filer med avvik, 17 med reelt innholdsavvik; prioritert `valp` (8) og `tannhelse` (7), full tabell i registeret. (2) **Gordon vs irsk setter vektmotsigelse** — krever FCI-standardene for begge raser, holdt bevisst utenfor C3a. (3) **«Hypoallergen» i meta-descriptions** — minst to forekomster (`coton-de-tulear`, `malteser`), korpuset ikke sveipet. (4) **`whippet`-guidens mankehøyde** — oppgir kun hannspennet 47–51 cm fem steder; FCI #162 er hanner 47–51, tisper 44–47. Oppdaget i C3b-5 da italiensk-mynde motsa den. Kryss-guide-motsigelse, ikke feil tall.
 
-**Åpne Admin-steg (flate 3 — kun manuelt i Shopify Admin, samles til én runde):**
-- `riesenschnauzer` meta-description: «6x risiko (Bianchi 2020)» → skal til Egenvall et al. 2000
-- `irsk-setter` meta-description sier «NKK #14» — må endres samtidig med brødteksten når NKK-tallet foreligger
-- `italiensk-mynde` meta-description sier «skjøre ben» — samme premiss brødteksten nå avviser (NMK RAS: normal beintetthet). Ingen tallpåstand; blokkerte ikke live-pushen (Sondre, 2026-07-30)
-- `griffon-petit-brabancon` meta sier «brachy-hensyn» på en side som ER Petit Brabançon-guiden — leses som at rasen er brachycefal, i strid med prosjektregelen. Brødteksten er korrekt. **Skal til «kort snute-hensyn»** (Sondre, 31.07)
-- `hvor-mye-vann-hund`: bindestrek «40-60» der korpuset ellers bruker tankestrek (kosmetisk)
+**Åpne Admin-steg (flate 3 — kun manuelt i Shopify Admin):** seks steg samlet i tabell i `docs/health-claims-register.md` — `riesenschnauzer`, `irsk-setter`, `italiensk-mynde`, `hvor-mye-vann-hund`, `griffon-petit-brabancon` («kort snute-hensyn») og `border-collie` («2. mest registrerte rase 2024»). Ingen blokkerer live-push; tas i én runde.
 
 **Holdt tilbake bevisst:** `irsk-setter` NKK #14/427-rangeringen — venter på NKKs registreringsstatistikk for 2024. Et signal om 32 % nedgang gjør både tall og plassering ustabile.
 
