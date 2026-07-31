@@ -234,15 +234,28 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og fire bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer). **21 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og fire bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle). **22 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-5: `beagle`
+### NESTE ØKT STARTER HER — C3c-6: `boxer`
 
-**Regnskapet i C3: 21 av 42 ferdig, 21 gjenstår** (per 31.07). Git-historikken er autoritativ kilde for hva som er gjort — ikke prosa i registeret. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
+**Regnskapet i C3: 22 av 42 ferdig, 20 gjenstår** (per 31.07). Git-historikken er autoritativ kilde for hva som er gjort — ikke prosa i registeret. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
 
-**Neste guide er `beagle`** (score 6,0, øverst i den godkjente rekkefølgen). Ingen kartlegging gjort ennå — start med Phase 1 pre-flight og ingress-først-regelen.
+**Neste guide er `boxer`** (score 6,0). Ingen kartlegging gjort ennå — start med Phase 1 pre-flight og ingress-først-regelen. **Merk to ting for boxer spesifikt:** rasen er brachycefal, så BOAS-påstander må sjekkes mot O'Neill/VetCompass-tallene som allerede er i korpuset (engelsk bulldog, fransk bulldog, mops), og den står oppført med DCM/ARVC — der Meurs-studiene er boxer-spesifikke, i motsetning til newfoundland-tilfellet i C3b-2 der en boxer-studie ble brukt feil. `boxer` har også 3 avvik i den ventende FAQ↔schema-bolken.
+
+#### C3c-5 beagle FULLFØRT 31.07 (commits `3485fac` + `4892d17` + `ea18060`, 2 filer live)
+
+Alle ti godkjente punkter verifisert mot primærkilde. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
+
+- **Lafora-debuten var forskjøvet fire år, i farlig retning:** «4–5 års alder» → Flegel et al. 2021 (JVIM 35(5):2359–2365, n=28) gir gjennomsnitt **8,3 år, spenn 6,3–13,3**, og ingen hund i serien debuterte før 6 år. En frisk 6-åring kunne blitt lest som forbi risikoalderen, når det er da den begynner.
+- **Klubbens tall brukt mot klubbens egen konklusjon:** guiden skrev at 4,2 % AMS-symptomer «underbygger at tilstanden er reell». BeagleRingen skriver selv at diagnose kun stilles ved spinalprøve og at symptomer ikke betyr sykdom. **Samme klasse som Salzmann i C3c-3.**
+- **Ingen av FCI-standardene #161/#159/#295 oppgir vekt.** Alle tre lastet ned og lest. Høydene rettet (Foxhound 58–64, Harrier 48–55). Pocket beagle: «under 25 cm» usporbart, og typen forsvant ikke — standarden sier mindre eksemplarer fortsatt fødes.
+- Fedme-superlativet → Salt et al. 2019 (JVIM 33(1):89–99), der beagle er én av tolv raser: HR 2,40, rundt to års kortere median levetid. Kohort-forbeholdet skrevet inn så tallene ikke leses mot McMillans 12,5.
+- **Tre påstander holdt:** MLS-1970-tallet (Bader 2010, som også ga oss 2–3 % i britiske/australske delpopulasjoner), CHIC-kravet, og NKK/FCI-datoene. Én av dem fjernet jeg først som uverifisert og satte tilbake da den viste seg korrekt.
+- Ordtelling 3924 → 4643. Meta-description ren; **ingen nytt Admin-steg**.
+
+**Ny verifiseringsregel (nr. 12), se listen nedenfor:** rasestandardens egen historikk-seksjon er en underbrukt primærkilde.
 
 #### C3c-4 mellomschnauzer FULLFØRT 31.07 (commit `f6baaec`, 2 filer live)
 
@@ -256,13 +269,13 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 **Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen (20 guider etter beagle)
+#### Resten av C3c-rekkefølgen (19 guider etter boxer)
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier` og `mellomschnauzer` er ferdige.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer` og `beagle` er ferdige.
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
@@ -332,6 +345,9 @@ Ingen blokkerer live-push. Samles til én runde.
 9. **Klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.** I `mellomschnauzer` sto én NSBK-påstand på fikselista; da klubbens avlsdokument faktisk ble åpnet, falt fem til. Er én påstand tilskrevet en klubb feil, kommer de øvrige i samme fil sannsynligvis fra samme ukontrollerte kilde. Samme mønster som «finner du én gal DOI, sjekk alle de andre i fila».
 10. **En rasepåstand kan være arvet fra en nabo-rase.** Mellomschnauzer bar dverg- og riesenschnauzers PS-disposisjon som sin egen. **Ved raser i en familie med størrelses- eller fargevarianter: sjekk om disposisjonen tilhører rasen selv eller slektningen.** Første forekomst av feilklassen i korpuset.
 11. **Et autoritativt domene er ikke automatisk primærkilde for en tredjeparts nøkkeltall.** NKKs regionside oppga «over 1000 medlemmer» for NSBK; klubbens egen side sier «i underkant av 1000». Katalog- og oversiktssider speiler ofte foreldet tekst.
+12. **Rasestandardens egen historikk-seksjon er en underbrukt primærkilde.** FCI-standardene har en «Brief historical summary» som avgjorde tre påstander i `beagle` alene (pocket beagle-opphavet, at typen ikke forsvant, og Foxhound-nedavlingen). Vi har brukt standardene til mål og klassifisering, men sjelden til historikk. **Sjekk den før historiske påstander mykes eller strykes som ukildede.**
+13. **Standarder oppgir ofte høyde, men ikke vekt.** Ingen av FCI #161, #159 eller #295 har vekt i det hele tatt. Vekttall som presenteres ved siden av standardfestede høydemål leses som standardkrav av leseren. **Sjekk hvert mål separat mot standarden, og merk anslag som anslag** — samme feilklasse som whippet-vekten (C3c-3) og fargeregelen i italiensk-mynde.
+14. **Et treff i residual-sveipen kan være tekstens eget forbehold — eller en ekte overlever.** I `beagle` antok jeg først at «4–5 år» var vår egen setning om at tallet mangler dekning; kontekstlesing viste at det var en gjenglemt forekomst i §8s oppsummering. **Les alltid setningen rundt treffet før du avfeier det.** Utvidelse av regel 8.
 
 ### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
 
