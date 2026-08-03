@@ -234,13 +234,13 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og fire bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **23 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua). **24 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-7: `chihuahua`
+### NESTE ØKT STARTER HER — C3c-8: `engelsk-setter`
 
-**Regnskapet i C3: 23 av 42 ferdig, 19 gjenstår** (per 31.07, etter boxer). Git-historikken er autoritativ kilde — ikke prosa i registeret. Tallet er kontrollert begge veier: 23 fullførte + 19 gjenstående = 42. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
+**Regnskapet i C3: 24 av 42 ferdig, 18 gjenstår** (per 03.08, etter chihuahua). Git-historikken er autoritativ kilde — ikke prosa i registeret. Tallet er kontrollert begge veier: 24 fullførte + 18 gjenstående = 42. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
 
 **De 23 fullførte, gruppert etter bolk:**
 
@@ -253,9 +253,24 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 | C3c-1 (2) | `golden-retriever` · `griffon-petit-brabancon` |
 | C3c-2 (3) | `cavalier-king-charles-spaniel` · `bichon-havanais` · `border-collie` |
 | C3c-3 (2) | `west-highland-white-terrier` · `whippet` |
-| C3c-4 → C3c-6 (3) | `mellomschnauzer` · `beagle` · `boxer` |
+| C3c-4 → C3c-7 (4) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` |
 
-**Neste guide er `chihuahua`** (score 6,0). Ingen kartlegging gjort ennå — start med Phase 1 pre-flight og ingress-først-regelen. **Merk for chihuahua spesifikt:** guiden har allerede **to** manglende TOC-ankere (`historie` og `faq`, se TOC-bolken), og korpuset har en etablert måltidsfrekvens-ramme fra `coton-de-tulear`-fiksen (3–4 daglig, ingen hard timegrense) som chihuahua-guiden må stemme med. Rasen er dessuten småhund med patella- og trachealkollaps-profil — sjekk mot patella-klyngen som alt er kildesatt.
+**Neste guide er `engelsk-setter`** (score 6,0). Ingen kartlegging gjort ennå — start med Phase 1 pre-flight og ingress-først-regelen. **Merk for engelsk-setter spesifikt:** korpuset har en åpen sak på setter-vekt (se «Gordon vs irsk setter»-punktet over) som må kryssjekkes, og guiden ligger i HD-indeksavl-klyngen sammen med `norsk-elghund-gra` og `schaferhund` — sjekk at HD-formuleringene stemmer overens på tvers.
+
+#### C3c-7 chihuahua FULLFØRT 03.08 (commit `501b7fa`, 1 fil live)
+
+Alle fjorten godkjente punkter levert. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
+
+- **Hjertescreening satt for sent — bolkens YMYL-funn.** Guiden sa «årlig auskultasjon fra 7–8 års alder». Pålsson et al. 2025 (J Vet Cardiol; n=97 friske chihuahuaer via Svenska Chihuahuaklubben): **halvparten affisert ved 6,4 år**, 80 % ved 9–10 år. Rådet flyttet til fem–seks år. Hjertesykdom er samtidig største registrerte dødsårsak (18,8 %) — den lå som siste kulepunkt med formuleringen «sjeldnere så alvorlig».
+- **Rasestandarden var utgått på to punkter.** Molera sto som rasetypisk kjennetegn; gjeldende NKK-standard lister **åpen fontanell som diskvalifiserende feil**. Og «mankehøyde 15–23 cm» sto i faktalista, mens standarden sier ordrett «kun vekt vurderes; ikke høyde». **Speilvendt beagle-funnet.**
+- **Vekten feil i tre flater — og virkeligheten ligger over taket.** Standarden: 1–3 kg, ideal 1,5–2,5, over 3 kg diskvalifiserende. VetCompass median voksenvekt: **3,4 kg**. Begge tall oppgitt med hver sin referansegruppe.
+- **Sykdomsrangeringen snudd:** periodontal sykdom 13,5 % mot patellaluksasjon 4,0 % i samme materiale. Guiden kalte patella «dominerende» og tannhelse «nest største». Samme feilklasse som engelsk-bulldog i Bolk A.
+- **Levealder 12–18 år var ukildet i fire flater.** O'Neill: median dødsalder 8,2 år (tisper 10,2, hanner 6,9), med forfatternes eget forbehold om ung og voksende populasjon skrevet inn.
+- **To påstander strøket framfor kildesatt** (403 på begge kildekandidater), og **én foreslått kilde forkastet i skrivefasen**: den koreanske trachea-serien mangler nevner og kan ikke bære en overrepresentasjons-påstand.
+
+Ordtelling 3924 → 5525. **Ingen nytt Admin-steg** — Sondre besluttet eksplisitt å skippe meta-fiksen.
+
+**Nye verifiseringsregler (nr. 18–20), se listen nedenfor.**
 
 #### C3c-6 boxer FULLFØRT 31.07 (commit `a4b85b5`, 2 filer live)
 
@@ -297,13 +312,13 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 **Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen (18 guider etter chihuahua)
+#### Resten av C3c-rekkefølgen (17 guider etter engelsk-setter)
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle` og `boxer` er ferdige.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer` og `chihuahua` er ferdige.
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
@@ -388,6 +403,9 @@ Ingen blokkerer live-push. Samles til én runde.
 15. **Dokumenttype er en egen påstandsklasse.** `boxer` kalte en fordypningsoppgave et «PhD-arbeid». Forfatter, år og institusjon var riktige hver for seg, så ingen formatsjekk slår ut. **For norske akademiske kilder: `hdl.handle.net`-handelen resolver nå til NVA/Sikt, og NVAs API oppgir `publicationInstance.type` eksplisitt.** Sjekk også at institusjonsnavnet fantes på publiseringstidspunktet — NMBU oppsto først i 2014 (jf. anakronisme-regelen for kennel-anerkjennelse i sprint #63).
 16. **Når en studie kommer fra et program vi siterer ofte, er feil-attribusjon mer sannsynlig, ikke mindre.** Mastcellesvulst-studien er Shoop et al. 2015; O'Neill er 8. forfatter. Jeg var i ferd med å tilskrive den O'Neill fordi det er VetCompass-navnet korpuset kjenner. Samme mekanisme som ga «Pedersen et al. 2013» i samojedhund. **Les forfatterlista, ikke programnavnet.**
 17. **Et sveipe-mønster bygget på den opprinnelige formuleringen finner ikke parafraser av samme tall.** I `boxer` sto «30–32 kg» igjen ett sted, og King-avsnittet sa «mellom 25 og 32 kg» — sistnevnte matchet ikke mønsteret i det hele tatt. **Manuell gjennomlesing av alle setninger i tallklassen slo den regex-baserte sveipen to sprinter på rad.** Etter en tallfiks: les alle setninger som nevner størrelsen, ikke bare de som matcher det gamle strengmønsteret.
+18. **En rasestandard kan være utgått uten at noe i guiden ser galt ut.** `chihuahua` beskrev molera som rasetypisk og oppga mankehøyde i cm. Begge deler stemte med en ELDRE standard (og med AKC), men gjeldende NKK-versjon lister åpen fontanell som diskvalifiserende og sier eksplisitt at høyde ikke vurderes. **Sjekk alltid NKK-datoen på standarden, ikke bare FCI-datoen — og sjekk om standarden i det hele tatt normerer den dimensjonen guiden oppgir**, ikke bare om tallet stemmer.
+19. **En kildeuthenting som oppgir feil land, dato eller temperament er mistenkt — ikke kilden.** FCIs egen chihuahua-PDF ble automatisk lest som «opprinnelsesland Belgia»; det var FCI-sekretariatets adresse i Thuin. Et gjettet PMID ga en artikkel om pasientsikkerhet i humanmedisin. **Når et felt ikke passer rasen, last ned dokumentet og les det selv.** De tre sterkeste funnene i bolken lå i dokumentet uthentingen hadde forvansket.
+20. **En foreslått kilde kan falle i skrivefasen, og skal da falle.** Trachea-kilden overlevde kartleggingen fordi søketreffet sa «over-represented breeds»; ved gjennomlesing viste studien seg å være en kasusserie uten nevner — fordeling blant affiserte, ikke overrepresentasjon. **Kartleggingen godkjenner en kildekandidat, ikke en konklusjon.** Les hele studien før påstanden skrives, og vær villig til å svekke en påstand du allerede har fått godkjent.
 
 ### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
 
