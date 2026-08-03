@@ -234,13 +234,13 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua). **24 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua) og C3c-8 (engelsk-setter). **25 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-8: `engelsk-setter`
+### NESTE ØKT STARTER HER — C3c-9: `fransk-bulldog`
 
-**Regnskapet i C3: 24 av 42 ferdig, 18 gjenstår** (per 03.08, etter chihuahua). Git-historikken er autoritativ kilde — ikke prosa i registeret. Tallet er kontrollert begge veier: 24 fullførte + 18 gjenstående = 42. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
+**Regnskapet i C3: 25 av 42 ferdig, 17 gjenstår** (per 03.08, etter engelsk-setter). Git-historikken er autoritativ kilde — ikke prosa i registeret. Tallet er kontrollert begge veier: 25 fullførte + 17 gjenstående = 42. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
 
 **De 23 fullførte, gruppert etter bolk:**
 
@@ -253,9 +253,25 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 | C3c-1 (2) | `golden-retriever` · `griffon-petit-brabancon` |
 | C3c-2 (3) | `cavalier-king-charles-spaniel` · `bichon-havanais` · `border-collie` |
 | C3c-3 (2) | `west-highland-white-terrier` · `whippet` |
-| C3c-4 → C3c-7 (4) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` |
+| C3c-4 → C3c-8 (5) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` |
 
-**Neste guide er `engelsk-setter`** (score 6,0). Ingen kartlegging gjort ennå — start med Phase 1 pre-flight og ingress-først-regelen. **Merk for engelsk-setter spesifikt:** korpuset har en åpen sak på setter-vekt (se «Gordon vs irsk setter»-punktet over) som må kryssjekkes, og guiden ligger i HD-indeksavl-klyngen sammen med `norsk-elghund-gra` og `schaferhund` — sjekk at HD-formuleringene stemmer overens på tvers.
+**Neste guide er `fransk-bulldog`** (score 6,0). Ingen kartlegging gjort ennå — start med Phase 1 pre-flight og ingress-først-regelen. **Merk for fransk-bulldog spesifikt:** rasen ligger i BOAS-trioen sammen med `engelsk-bulldog` og `mops`, der Bolk A alt fant en rangering stikk motsatt av datagrunnlaget — kryssjekk BOAS-formuleringene mot begge. Rasen har dessuten NKK patellakrav (f.o.m. 01.07.2017, verifisert under C3c-7) og et keisersnitt-/fødsels-tema der YMYL-terskelen er lav.
+
+#### C3c-8 engelsk-setter FULLFØRT 03.08 (commit `26b357b`, 1 fil live)
+
+Ni godkjente punkter levert, inkludert en godkjent omskriving av guidens bærende kapittel. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
+
+- **Ny feilklasse: selektivt sitat som snur kildens mening.** Guiden siterte NESKs dommerkompendium på at showsetteren er «uegnet som jakthund» og klippet setningen midt i. Samme setning kritiserer fieldtrial-typen like hardt. Klubben avviser **begge** ytterpunktene. Sitatet består enhver kildesjekk — kilden finnes, ordlyden er ordrett, dokumentet er riktig.
+- **Kapittelet bygde på en type-deling kilden sier ikke finnes her:** «Som kjent har vi ikke en slik deling av type her i Skandinavia … Hele Skandinavia står samlet bak målsettingen om at engelsk setteren skal være en dual purpose dog.» Fire flater bar premisset. **Sondre besluttet å snu kapittelet framfor å slette det.**
+- «Norsk jakthund-standard 58–64/54–60 cm» finnes ikke; både standarden og kompendiet oppgir 65–68 / 61–65.
+- **Glutenintoleranse sto på feil rase** — tilhører irsk setter, og manglet der.
+- **NCL/CLN8 lagt til** (Katz et al. 2005): rasens best dokumenterte arvelige sykdom, som guiden ikke nevnte.
+- **Døvhet fikk tall** (Marsh et al. 2020, n=447): 3,6 % ensidig / 0,9 % bilateral. Guidens ukildede påstand stemte. 4,6×-tallet for utestede foreldre gjør BAER-rådet begrunnet.
+- Rasestandarden oppgir **ingen vekt** — berører den åpne setter-vektsaken.
+
+Ordtelling 3693 → 4267 (+574). **Ingen nytt Admin-steg.**
+
+**Nye verifiseringsregler (nr. 21–22), se listen nedenfor.**
 
 #### C3c-7 chihuahua FULLFØRT 03.08 (commit `501b7fa`, 1 fil live)
 
@@ -312,13 +328,13 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 **Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen (17 guider etter engelsk-setter)
+#### Resten av C3c-rekkefølgen (16 guider etter fransk-bulldog)
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`fransk-bulldog` · `staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer` og `chihuahua` er ferdige.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua` og `engelsk-setter` er ferdige.
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
@@ -406,6 +422,8 @@ Ingen blokkerer live-push. Samles til én runde.
 18. **En rasestandard kan være utgått uten at noe i guiden ser galt ut.** `chihuahua` beskrev molera som rasetypisk og oppga mankehøyde i cm. Begge deler stemte med en ELDRE standard (og med AKC), men gjeldende NKK-versjon lister åpen fontanell som diskvalifiserende og sier eksplisitt at høyde ikke vurderes. **Sjekk alltid NKK-datoen på standarden, ikke bare FCI-datoen — og sjekk om standarden i det hele tatt normerer den dimensjonen guiden oppgir**, ikke bare om tallet stemmer.
 19. **En kildeuthenting som oppgir feil land, dato eller temperament er mistenkt — ikke kilden.** FCIs egen chihuahua-PDF ble automatisk lest som «opprinnelsesland Belgia»; det var FCI-sekretariatets adresse i Thuin. Et gjettet PMID ga en artikkel om pasientsikkerhet i humanmedisin. **Når et felt ikke passer rasen, last ned dokumentet og les det selv.** De tre sterkeste funnene i bolken lå i dokumentet uthentingen hadde forvansket.
 20. **En foreslått kilde kan falle i skrivefasen, og skal da falle.** Trachea-kilden overlevde kartleggingen fordi søketreffet sa «over-represented breeds»; ved gjennomlesing viste studien seg å være en kasusserie uten nevner — fordeling blant affiserte, ikke overrepresentasjon. **Kartleggingen godkjenner en kildekandidat, ikke en konklusjon.** Les hele studien før påstanden skrives, og vær villig til å svekke en påstand du allerede har fått godkjent.
+21. **Les setningen ferdig, og les avsnittet etter.** `engelsk-setter` siterte NESK ordrett og korrekt — men stoppet midt i setningen, nøyaktig der meningen snudde, og avsnittet etter opphevet premisset for hele kapittelet. **Et sitat som er ordrett kan likevel være uredelig.** Ved klubb- og standardsitater: hent alltid hele setningen og minst ett avsnitt på hver side før du bruker det.
+22. **Når guiden avviker fra allmenn kunnskap, men følger primærkilden, er det kilden som gjelder.** NKKs rasestandard skriver «Edward Lavarack»; historisk korrekt er *Laverack*. Guiden fulgte standarden. **Ikke «rett» bort fra primærkilden** — flagg avviket i registeret i stedet. Motstykket til regel 19: der var uthentingen mistenkt, her er allmennkunnskapen det.
 
 ### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
 
