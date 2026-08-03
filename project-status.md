@@ -234,20 +234,65 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog) og C3c-10 (staffordshire-bull-terrier). **27 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **28 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-11: `dvergpinscher`
+### NESTE ØKT STARTER HER — C3c-12: `engelsk-springer-spaniel`
 
-**Regnskapet i C3: 27 av 42 ferdig, 15 gjenstår** (per 03.08, etter staffordshire-bull-terrier). Git-historikken er autoritativ kilde. Neste guide er **`dvergpinscher`** (score 5,0) — første i 5,0-gruppen. Ingen kartlegging gjort ennå.
+**Regnskapet i C3: 28 av 42 ferdig, 14 gjenstår** (per 03.08, etter dvergpinscher). Git-historikken er autoritativ. Kontrollert begge veier: 28 + 14 = 42.
 
-**Hva å se etter i `dvergpinscher`, basert på mønstre som nå har gjentatt seg:**
-- **Port 7 (kjønnsstratifiserte mål) har slått ut fire sprinter på rad** — vizsla, whippet, fransk-bulldog, staffordshire-bull-terrier. Sjekk mankehøyde og vekt mot standarden separat og stratifisert før noe annet.
-- **Klubbpåstander verifiseres som blokk (regel 9), og «krav» vs «anbefaling» må skilles (regel 24-adjacent).** SBT-bolken viste at hele mekanismen kan være feil, ikke bare regelen.
-- Rasen er i patella-clusteret — kryss mot eksisterende patella-guider, og merk at SBT-bolken nettopp etablerte at patellaluksasjon-rangeringer må sjekkes mot Pegram-materialet før de gjentas.
+Neste guide er **`engelsk-springer-spaniel`** (score 5,0). Ingen kartlegging gjort ennå.
 
-#### 🟠 NY ÅPEN SAK — dobbel BreadcrumbList på raseguidene
+**Hva de to siste bolkene sier du bør se etter:**
+- **Krav vs. anbefaling er nå en egen risikoklasse.** SBT oppgraderte en anbefaling til krav; dvergpinscher nedgraderte et krav til anbefaling. To sprinter på rad, motsatt retning. Verifiser klubbdokumentet ordrett — og sjekk hvilken *mekanisme* kravet henger på.
+- **Nabo-rase-import (regel 10) har nå tre forekomster** — mellomschnauzer (PS), dvergpinscher (patella fra Yorkshire, urinstein fra dvergschnauzer). Springer spaniel har flere nære slektninger; sjekk om disposisjoner tilhører rasen selv.
+- **Port 7 gjentok seg ikke i dvergpinscher** (FCI oppgir ikke kjønnsdelte mål der), men slo ut fire sprinter på rad før det. Sjekk standarden separat uansett.
+
+#### 🔴 ÅPNE ADMIN-STEG (kan ikke gjøres fra CLI)
+
+| Side | Hva | Status |
+|---|---|---|
+| `/pages/dvergpinscher` | Meta-description fremhever «hackney-trav» — påstanden som nettopp ble rettet som en standard-FEIL. Også «importerte første» (flertall) mot NPKs «en dvergpinscher fra England» | **ÅPEN — godkjent tekst under** |
+
+**Godkjent erstatningstekst (Sondre, 03.08):**
+
+> Dvergpinscher raseguide — median levealder 13,7 år, MPS VI og ARSB-gentest (Raj 2020), og Norsk Pinscherklubbs faktiske avlskrav: patella 0/0 og gyldig øyelysning.
+
+Settes i Shopify Admin → Online Store → Pages → `dvergpinscher` → Search engine listing.
+
+`staffordshire-bull-terrier` (C3c-10) trengte **ingen** meta-fiks — feltet var rent.
+
+#### C3c-11 dvergpinscher FULLFØRT 03.08 (commit `e4e1c49`, 2 filer live)
+
+Alle godkjente punkter levert. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
+
+- **«Hackney-travet» var oppført som ett av tre definerende rasetrekk — det er en FEIL etter FCI-standard nr. 185**, som lister «Hackney gait» under FAULTS. Standardens egen beskrivelse av korrekt gangart er den motsatte. Sannsynlig AKC-import; Norge følger FCI/NKK. Erstattet i ingressen med rasens dokumenterte levetidsfordel.
+- **Ny feilklasse: en utregning kilden eksplisitt forbyr.** Guiden regnet Hardy-Weinberg ut fra allelfrekvensen 0,133 og oppga 23 % bærere / 1,8 % affiserte. Raj et al. 2020 advarer i samme avsnitt: «this is a biased population». Siteringen var korrekt — slutningen var ikke. **Farligere enn en feilsitering, fordi HWE er ekte matematikk og resultatet ser rigorøst ut.**
+- **Patella-rangeringen snudd av rasens egen klubb.** NPK: «ikke en utbredt sykdom på rasen». O'Neill et al. 2016 (n=210 824): dvergpinscher er ikke blant de 11 rasene med forhøyet odds. Guiden hadde lånt disposisjonen fra Yorkshire Terrier.
+- **Klubbhistorikken feil på to punkter:** Norsk Dvergpinscherklubb ble stiftet 1946 (ikke Norsk Schnauzer Klubb), innlemmet 1978 (ikke 1979).
+- **Øyelysning kalt «anbefalt» — det er et krav.** Motsatt retning av SBT-feilen.
+- **Klubbkrav-blokken ga fem avvik samtidig** (regel 9): patella 0/0 av smådyrspesialist, tispe 18 mnd / hann 12 mnd, HD ikke i kravene, demodikose-avlsforbud manglet, matadoravl maks 34 avkom manglet.
+- **Levealder:** McMillan Table S3 gir **median 13,7 år (KI 13,1–14,2), HR 0,75** — blant de lengstlevende rasene. Erstattet ukildet «12–15 år» på fem flater.
+
+Ordtelling 3326 → 4344.
+
+**To nye faste kontroller (se listen nedenfor og `docs/artikkel-sjekkliste.md`).**
+
+**De 28 fullførte, gruppert etter bolk:**
+
+| Bolk | Guider |
+|---|---|
+| C3a (6) | `berner-sennenhund` · `vizsla` · `irsk-setter` · `rottweiler` · `riesenschnauzer` · `coton-de-tulear` |
+| C3b-0 (1) | `malteser` |
+| C3b-1 (2) | `cane-corso` · `kortharet-vorstehhund` |
+| C3b-2 → C3b-5 (4) | `newfoundland` · `dachshund` · `samojedhund` · `italiensk-mynde` |
+| C3c-1 (2) | `golden-retriever` · `griffon-petit-brabancon` |
+| C3c-2 (3) | `cavalier-king-charles-spaniel` · `bichon-havanais` · `border-collie` |
+| C3c-3 (2) | `west-highland-white-terrier` · `whippet` |
+| C3c-4 → C3c-11 (8) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` · `dvergpinscher` |
+
+#### 🟠 ÅPEN SAK — dobbel BreadcrumbList på raseguidene
 
 Oppdaget under C3c-10. **`/pages/staffordshire-bull-terrier` rendrer to `BreadcrumbList`-blokker i JSON-LD:** én inline i seksjonsfila og én fra `snippets/mh-article-schema.liquid`. Begge parser rent, så ingen automatisk sjekk slår ut.
 
@@ -379,13 +424,13 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 **Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen — 15 guider igjen, navngitt
+#### Resten av C3c-rekkefølgen — 14 guider igjen, navngitt
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (score 5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (score 5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog` og `staffordshire-bull-terrier` er ferdige. 6,0-gruppen er dermed tømt.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier` og `dvergpinscher` er ferdige. 6,0-gruppen er tømt; 5,0-gruppen er påbegynt.
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
@@ -475,6 +520,8 @@ Ingen blokkerer live-push. Samles til én runde.
 20. **En foreslått kilde kan falle i skrivefasen, og skal da falle.** Trachea-kilden overlevde kartleggingen fordi søketreffet sa «over-represented breeds»; ved gjennomlesing viste studien seg å være en kasusserie uten nevner — fordeling blant affiserte, ikke overrepresentasjon. **Kartleggingen godkjenner en kildekandidat, ikke en konklusjon.** Les hele studien før påstanden skrives, og vær villig til å svekke en påstand du allerede har fått godkjent.
 21. **Les setningen ferdig, og les avsnittet etter.** `engelsk-setter` siterte NESK ordrett og korrekt — men stoppet midt i setningen, nøyaktig der meningen snudde, og avsnittet etter opphevet premisset for hele kapittelet. **Et sitat som er ordrett kan likevel være uredelig.** Ved klubb- og standardsitater: hent alltid hele setningen og minst ett avsnitt på hver side før du bruker det.
 22. **Når guiden avviker fra allmenn kunnskap, men følger primærkilden, er det kilden som gjelder.** NKKs rasestandard skriver «Edward Lavarack»; historisk korrekt er *Laverack*. Guiden fulgte standarden. **Ikke «rett» bort fra primærkilden** — flagg avviket i registeret i stedet. Motstykket til regel 19: der var uthentingen mistenkt, her er allmennkunnskapen det.
+26. **Ordestimatet skal regnes per H2 — og det bommer likevel.** To sprinter på rad bommet totalanslaget grovt: SBT anslag +400–600 mot faktisk +2583, dvergpinscher anslag +370 mot faktisk +1110. Etter SBT innførte jeg per-H2-budsjettering; dvergpinscher bommet fortsatt med faktor tre, og hele avviket lå i **én** seksjon (§9: budsjettert +260, faktisk +606). **Lærdommen er ikke at metoden er feil, men at seksjoner som får en ny kildeblokk — klubbkrav, avlsregler, en studies fulle resultatliste — konsistent koster 2–3× det prosaen alene skulle tilsi.** Legg inn den multiplikatoren for den seksjonen som mottar den nye kilden, og oppgi et bånd framfor ett tall. **Og meld fra om avviket før push, ikke etter** — det er Sondres beslutning om lengden, ikke en detalj å rydde stille.
+25. **HTML-tagger skal aldri inn i JSON-LD-tekst.** Under skrivingen av `dvergpinscher` la jeg `<strong>` og `<em>` inn i et FAQ-svar. Fordi svaret speiles i både synlig HTML og FAQPage-schema, ville det både brutt 1:1-sjekken (som stripper tagger fra synlig side, men ikke fra schema) og gitt ugyldig praksis i strukturert data. **Ny fast kontroll i pre-publiseringsrutinen: `HTML-tagger i schema-tekst == 0`.** Beslektet observasjon: HTML-balansesjekken viser `div 31/28` og `section 1/0` på raseguidene — det er et **måleartefakt**, fordi `</article>` også finnes i produktkortene og den ikke-grådige regexen i korpusets audit-kommando kutter tidlig. Identisk i HEAD. Ikke «rett» den.
 24. **En lav detektorscore er ikke et kvalitetsstempel.** `staffordshire-bull-terrier` ga T1=2/T2=0/prev=0 — laveste baseline i hele C3c — og viste seg å inneholde bolkens groveste feil: en klubbanbefaling framstilt som krav, to helserangeringer snudd av datagrunnlaget, og en myte presentert som dokumentert lokalhistorie. **Detektoren finner rangeringsspråk og ukildet prevalens. Den finner ikke regulatoriske påstander, mekanismer som ikke finnes, eller historiske påstander uten opphav.** Når en artikkels risiko ligger i juss, klubbregler eller historie framfor i tall, må kartleggingen gjøres manuelt uansett hva detektoren sier. Motstykket gjelder også: etter fiksen ga detektoren T1=3/prev=8, og **alle 11 var falske positive** — de tre rangeringstreffene var guidens egne *anti*-rangeringsforbehold. Høy score etter en fiks kan bety at teksten har fått bedre forbehold, ikke dårligere dekning. Les alltid treffet.
 23. **Sirkulær bekreftelse virker begge veier.** I `fransk-bulldog` var jeg i ferd med å underkjenne en KORREKT regulatorisk påstand fordi et søketreff som «bekreftet» den viste seg å ha vår egen mops-guide som tredje treff. Regelen fra italiensk-mynde — «finnes en påstand bare i vår egen tekst i søkeresultatene, er den ubekreftet» — betyr **ubekreftet, ikke motbevist**. Gå til utsteders primærside før du konkluderer i noen av retningene. Her lå svaret på NKKs egen graderingsside, og guiden hadde rett hele veien.
 
