@@ -234,13 +234,13 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua) og C3c-8 (engelsk-setter). **25 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter) og C3c-9 (fransk-bulldog). **26 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-9: `fransk-bulldog`
+### NESTE ØKT STARTER HER — C3c-10: `staffordshire-bull-terrier`
 
-**Regnskapet i C3: 25 av 42 ferdig, 17 gjenstår** (per 03.08, etter engelsk-setter). Git-historikken er autoritativ kilde — ikke prosa i registeret. Tallet er kontrollert begge veier: 25 fullførte + 17 gjenstående = 42. (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
+**Regnskapet i C3: 26 av 42 ferdig, 16 gjenstår** (per 03.08, etter fransk-bulldog). Git-historikken er autoritativ kilde — ikke prosa i registeret. Tallet er kontrollert begge veier: 26 fullførte + 16 gjenstående = 42, og de 16 er listet ved navn under «Resten av C3c-rekkefølgen». (Historikk: «14 ferdig / 28 igjen» var feil fordi `riesenschnauzer` var talt i både C3a og C3b-0.)
 
 **De 23 fullførte, gruppert etter bolk:**
 
@@ -253,9 +253,30 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 | C3c-1 (2) | `golden-retriever` · `griffon-petit-brabancon` |
 | C3c-2 (3) | `cavalier-king-charles-spaniel` · `bichon-havanais` · `border-collie` |
 | C3c-3 (2) | `west-highland-white-terrier` · `whippet` |
-| C3c-4 → C3c-8 (5) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` |
+| C3c-4 → C3c-9 (6) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` |
 
-**Neste guide er `fransk-bulldog`** (score 6,0). Ingen kartlegging gjort ennå — start med Phase 1 pre-flight og ingress-først-regelen. **Merk for fransk-bulldog spesifikt:** rasen ligger i BOAS-trioen sammen med `engelsk-bulldog` og `mops`, der Bolk A alt fant en rangering stikk motsatt av datagrunnlaget — kryssjekk BOAS-formuleringene mot begge. Rasen har dessuten NKK patellakrav (f.o.m. 01.07.2017, verifisert under C3c-7) og et keisersnitt-/fødsels-tema der YMYL-terskelen er lav.
+**Neste guide er `staffordshire-bull-terrier`** (score 6,0) — siste guide i 6,0-gruppen. Ingen kartlegging gjort ennå. **Merk spesifikt:** rasen er hyppig gjenstand for rasepolitiske påstander (listeførte hunder, temperamenttall), der ukildede superlativer og feilsiterte bittstatistikker er en kjent felle — kjør rangeringsdetektoren tidlig og vær særlig streng på port 4 (referansegruppe) og port 5 (odds vs. risiko).
+
+#### C3c-9 fransk-bulldog FULLFØRT 03.08 (commit `252846e`, 1 fil live)
+
+Ni godkjente punkter levert. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
+
+- **Bolkens viktigste funn er at en påstand HOLDT.** Guidens BOAS-graderingsregel ble nesten meldt som oppdiktet — men et «bekreftende» søk hadde **vår egen mops-guide som treff nr. 3**. NKKs egen graderingsside avgjorde: grad II og III er begge «Klinisk påvirket, og skal ikke brukes i avl», første graderingskurs 29.08.2019. Guiden hadde rett; kun presisjonen ordning (2019) vs. krav (01.08.2022) er rettet.
+- **Kjønnsstratifisert vekt kollapset:** standarden sier hann 9–14 kg / tispe 8–13 kg med 500 g toleranse; guiden skrev «8–14 kg». Port 7, tredje forekomst etter vizsla og whippet. Mankehøyde manglet helt.
+- **Rasestandard-datoen var to revisjoner bak** (1986/2015 → publisert 10.08.2023). Tredje sprint på rad.
+- **BSI feillest for tredje gang** — NKUs dommerinstruks, ikke NKKs avlsverktøy, og ikke rangert.
+- **Levealder lå over begge publiserte tall:** Teng et al. 2022 gir 4,53 år (livstabell fra fødsel, lavest av alle raser), McMillan et al. 2024 gir median 9,8 år. Begge oppgitt med skillet forklart.
+- **Moat: O'Neill et al. 2021** (n=2 781 mot 21 850) — forhøyet odds for 20 av 43 diagnoser, med begge forbeholdene skrevet inn: oddsforhold ≠ risikomultiplikator, og **redusert odds for 11 av de samme 43**.
+
+Ordtelling 4516 → 5442 (+926). **Ingen nytt Admin-steg.**
+
+**Ny verifiseringsregel (nr. 23), se listen nedenfor.**
+
+### 🔴 ÅPENT PUNKT TIL `mops` STÅR FOR TUR — BOAS-datoen
+
+Oppdaget under C3c-9. **`mops` skriver at NKK siden 2019 har hatt obligatorisk BOAS-screening «som premiss for valperegistrering». Mops' registreringskrav kom først 01.01.2023.** Screeningordningen fantes fra høsten 2019, men den var ikke et registreringskrav for mops før 2023.
+
+Til sammenligning: `engelsk-bulldog` har allerede det korrekte skillet (ordning 2019, krav 01.08.2022), og `fransk-bulldog` fikk det inn nå. **Mops er den siste av BOAS-trioen med feil framstilling.** Rasen ligger i 3,0-gruppen i C3c-rekkefølgen. Rettes der — ikke som eget hastetiltak.
 
 #### C3c-8 engelsk-setter FULLFØRT 03.08 (commit `26b357b`, 1 fil live)
 
@@ -328,13 +349,13 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 **Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen (16 guider etter fransk-bulldog)
+#### Resten av C3c-rekkefølgen — 16 guider igjen, navngitt
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`fransk-bulldog` · `staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`staffordshire-bull-terrier` (score 6,0) → `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua` og `engelsk-setter` er ferdige.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter` og `fransk-bulldog` er ferdige.
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
@@ -424,6 +445,7 @@ Ingen blokkerer live-push. Samles til én runde.
 20. **En foreslått kilde kan falle i skrivefasen, og skal da falle.** Trachea-kilden overlevde kartleggingen fordi søketreffet sa «over-represented breeds»; ved gjennomlesing viste studien seg å være en kasusserie uten nevner — fordeling blant affiserte, ikke overrepresentasjon. **Kartleggingen godkjenner en kildekandidat, ikke en konklusjon.** Les hele studien før påstanden skrives, og vær villig til å svekke en påstand du allerede har fått godkjent.
 21. **Les setningen ferdig, og les avsnittet etter.** `engelsk-setter` siterte NESK ordrett og korrekt — men stoppet midt i setningen, nøyaktig der meningen snudde, og avsnittet etter opphevet premisset for hele kapittelet. **Et sitat som er ordrett kan likevel være uredelig.** Ved klubb- og standardsitater: hent alltid hele setningen og minst ett avsnitt på hver side før du bruker det.
 22. **Når guiden avviker fra allmenn kunnskap, men følger primærkilden, er det kilden som gjelder.** NKKs rasestandard skriver «Edward Lavarack»; historisk korrekt er *Laverack*. Guiden fulgte standarden. **Ikke «rett» bort fra primærkilden** — flagg avviket i registeret i stedet. Motstykket til regel 19: der var uthentingen mistenkt, her er allmennkunnskapen det.
+23. **Sirkulær bekreftelse virker begge veier.** I `fransk-bulldog` var jeg i ferd med å underkjenne en KORREKT regulatorisk påstand fordi et søketreff som «bekreftet» den viste seg å ha vår egen mops-guide som tredje treff. Regelen fra italiensk-mynde — «finnes en påstand bare i vår egen tekst i søkeresultatene, er den ubekreftet» — betyr **ubekreftet, ikke motbevist**. Gå til utsteders primærside før du konkluderer i noen av retningene. Her lå svaret på NKKs egen graderingsside, og guiden hadde rett hele veien.
 
 ### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
 
