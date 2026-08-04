@@ -234,13 +234,13 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel). **29 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel) og C3c-13 (jack-russell-terrier). **30 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-13: neste i rekkefølgen
+### NESTE ØKT STARTER HER — C3c-14: `shiba-inu`
 
-**Regnskapet i C3: 29 av 42 ferdig, 13 gjenstår** (per 04.08, etter engelsk-springer-spaniel). Git-historikken er autoritativ. Kontrollert begge veier: 29 + 13 = 42.
+**Regnskapet i C3: 30 av 42 ferdig, 12 gjenstår** (per 04.08, etter jack-russell-terrier). Git-historikken er autoritativ. Kontrollert begge veier: 30 + 12 = 42.
 
 **Hva de tre siste bolkene sier du bør se etter:**
 - **Krav vs. anbefaling er nå den mest produktive risikoklassen — tre sprinter på rad.** SBT oppgraderte en anbefaling til krav; dvergpinscher og engelsk springer spaniel nedgraderte krav til anbefaling. Verifiser klubbdokumentet ordrett, og last det ned framfor å lese en oppsummering — springer-funnet lå i en PDF-tabell som ingen søkeoppsummering gjenga.
@@ -266,6 +266,20 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 Settes i Shopify Admin → Online Store → Pages → `<handle>` → Search engine listing.
 
 `staffordshire-bull-terrier` (C3c-10) trengte **ingen** meta-fiks — feltet var rent.
+
+#### C3c-13 jack-russell-terrier FULLFØRT 04.08 (commit `d663d53`, 2 filer live)
+
+Alle 6 godkjente punkter + 2 speilingsflater levert. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
+
+- **🔴 En falsk negativ påstand med transplantert attribusjon — tre lag på én setning.** Guiden skrev at LOA/CAPN1 «IKKE» gjelder Jack Russell, tilskrev det negative funnet til «University of Missouri og Animal Health Trust», og brukte det som teknisk begrunnelse for at russell-rasene er separate populasjoner. **The Kennel Club har hatt LOA som offisiell DNA-ordning for Jack Russell siden mai 2017.** Studien er **Gast et al. 2016, BMC Vet Res 12:225, Hannover** — og den fant ingen CAPN1 i *noen* av rasene, heller ikke Parson Russell. Missouri/AHT er korrekt for **PLL**-testen; attribusjonen var flyttet mellom to naboavsnitt i samme fil.
+- **🔴 En feil som gjorde en annen feil konsistent.** Samme avsnitt oppga at RKC-pakken «dekker både PLL og SCA» — den dekker tre tester. Undertellingen matchet nøyaktig den falske LOA-påstanden. **Slike par er vanskeligere å oppdage enn hver feil for seg, fordi teksten er internt konsistent.**
+- **🔴 Graderingsskalaen matchet ikke registeret guiden ba leseren slå opp.** Guiden ga 1–4; **NKK graderer 0–3**. Samtidig instruerte den leseren i å sjekke DogWeb og «spørre om grad». Samme klasse som dachshund/Jensen (C3b-3).
+- **🔴 Intern logisk motsigelse:** NKK-kravet ble kalt «det enkleste skillet mellom en seriøs og en hobby-oppdretter», mens guiden fire avsnitt senere skrev at alle NKK-registrerte kull oppfyller det per definisjon. **Det faktiske skillet manglet: RG Jacks avlskriterier** (fri for patella — ikke bare kjent status — øyenlyst, 2 × excellent, tispe 20 mnd, maks 2 gjentakelser).
+- **Krav-hierarkiet er nå skrevet ut i tre nivåer** — NKK krever, RG Jack krever mer, DNA-testene er vår anbefaling. Fjerde sprint på rad hvor krav/anbefaling var funnklassen.
+- **Klubbens egen prioritering manglet:** NTK peker på **ulykker** som største årsak til skade og tidlig død, mens guiden kalte patella rasens «definerende helsekonsern».
+- **Ikke overkorrigert:** registreringsrestriksjonen 01.01.2019, kravet om *kjent* status, og SCA-debut 2–12 måneder er alle bekreftet og beholdt.
+
+Ordtelling 3885 → 4571 (+686) mot estimat +850–900 — **under budsjett; regel 27s 3× holdt som øvre grense.**
 
 #### C3c-12 engelsk-springer-spaniel FULLFØRT 04.08 (commit `3d8600e`, 1 fil live)
 
@@ -299,7 +313,7 @@ Ordtelling 3326 → 4344.
 
 **To nye faste kontroller (se listen nedenfor og `docs/artikkel-sjekkliste.md`).**
 
-**De 29 fullførte, gruppert etter bolk:**
+**De 30 fullførte, gruppert etter bolk:**
 
 | Bolk | Guider |
 |---|---|
@@ -310,7 +324,7 @@ Ordtelling 3326 → 4344.
 | C3c-1 (2) | `golden-retriever` · `griffon-petit-brabancon` |
 | C3c-2 (3) | `cavalier-king-charles-spaniel` · `bichon-havanais` · `border-collie` |
 | C3c-3 (2) | `west-highland-white-terrier` · `whippet` |
-| C3c-4 → C3c-12 (9) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` · `dvergpinscher` · `engelsk-springer-spaniel` |
+| C3c-4 → C3c-13 (10) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` · `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` |
 
 #### 🟠 ÅPEN SAK — dobbel BreadcrumbList på raseguidene
 
@@ -444,13 +458,13 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 **Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen — 13 guider igjen, navngitt
+#### Resten av C3c-rekkefølgen — 12 guider igjen, navngitt
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (score 5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`shiba-inu` · `tibetansk-spaniel` (score 5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher` og `engelsk-springer-spaniel` er ferdige. 6,0-gruppen er tømt; 5,0-gruppen har tre igjen. **Neste: `jack-russell-terrier`.**
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher`, `engelsk-springer-spaniel` og `jack-russell-terrier` er ferdige. 6,0-gruppen er tømt; 5,0-gruppen har to igjen. **Neste: `shiba-inu`.**
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
