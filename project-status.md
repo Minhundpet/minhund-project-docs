@@ -234,13 +234,13 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel) og C3c-13 (jack-russell-terrier). **30 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier) og C3c-14 (shiba-inu). **31 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-14: `shiba-inu`
+### NESTE ØKT STARTER HER — C3c-15: `tibetansk-spaniel`
 
-**Regnskapet i C3: 30 av 42 ferdig, 12 gjenstår** (per 04.08, etter jack-russell-terrier). Git-historikken er autoritativ. Kontrollert begge veier: 30 + 12 = 42.
+**Regnskapet i C3: 31 av 42 ferdig, 11 gjenstår** (per 04.08, etter shiba-inu). Git-historikken er autoritativ. Kontrollert begge veier: 31 + 11 = 42.
 
 **Hva de tre siste bolkene sier du bør se etter:**
 - **Krav vs. anbefaling er nå den mest produktive risikoklassen — tre sprinter på rad.** SBT oppgraderte en anbefaling til krav; dvergpinscher og engelsk springer spaniel nedgraderte krav til anbefaling. Verifiser klubbdokumentet ordrett, og last det ned framfor å lese en oppsummering — springer-funnet lå i en PDF-tabell som ingen søkeoppsummering gjenga.
@@ -266,6 +266,21 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 Settes i Shopify Admin → Online Store → Pages → `<handle>` → Search engine listing.
 
 `staffordshire-bull-terrier` (C3c-10) trengte **ingen** meta-fiks — feltet var rent.
+
+#### C3c-14 shiba-inu FULLFØRT 04.08 (commit `56f08a8`, 2 filer live)
+
+Alle 4 godkjente punkter levert. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
+
+- **🔴 Hele guidens norske moat hvilte på et forslag som ikke ble innført — og datert to år feil.** «JUN 2024-forslaget» er i realiteten **sak 5-2 på årsmøtet 2022**, med tre punkter (patella, øyelysning, gonioskopi), mens HD-indeks var en egen sak 5-3. **Bare HD-indeks ble vedtatt og innført** (JUNs egen årsberetning 2022). JUNs gjeldende retningslinjer har ett helsekrav: HD-røntgen fra 01.07.2009. Moaten er snudd til et presist krav/anbefaling-skille.
+- **🔴 Bevisst tilbakeholdt:** jeg påstår ikke at forslaget ble *nedstemt* — protokollen finnes ikke i arkivet, og en søkeoppsummering er ikke et referat. **Regel 20 holdt.**
+- **Metodefunn:** første søk ga **vår egen side** som toppresultat (sirkulær bekreftelse). Saksdokumentet lot seg bare finne via **Waybacks CDX-indeks på `junnorge.no/wp-content/uploads/2022*`** — klubbens live nettsted er under omlegging. Det er nå den raskeste veien til klubbdokumenter når et nettsted er i «kommer»-tilstand.
+- **🔴 Guiden hadde null norske tall.** RAS 2021: **bare 12 shiba gonioskopert 2009–2020 — 6 frie, 6 med glaukom.** Skrevet eksplisitt at 50/50 ikke er en prevalens. 194 øyelyste 1996–2020 (88,1 % frie), 4 av 182 med akutt glaukom.
+- **🔴 Port 7 igjen, i verste variant:** FCI 257 har et avsnitt som **heter «Size and weight» men oppgir ingen vekt**. Høydene var dessuten feil (40/37 → 39,5/36,5 cm).
+- **🟡 Pemphigus foliaceus var akita-import** (regel 10, femte forekomst).
+- **🟡 Levetid:** «12–15 år» → JUNs egne tall gir snitt **9,23 år** med 24 % over 13 år, og **ni av 54 døde hunder avlivet på grunn av atferd**. Knytter helse til temperament.
+- **Egen feil fanget før push:** semikolon i desimaltall («39;5 cm») — komma-regelen gjelder kun `article_map`, aldri brødtekst. Ny fast desimal-kontroll.
+
+Ordtelling 4011 → 4602 (+591) mot estimat +500–560.
 
 #### C3c-13 jack-russell-terrier FULLFØRT 04.08 (commit `d663d53`, 2 filer live)
 
@@ -313,7 +328,7 @@ Ordtelling 3326 → 4344.
 
 **To nye faste kontroller (se listen nedenfor og `docs/artikkel-sjekkliste.md`).**
 
-**De 30 fullførte, gruppert etter bolk:**
+**De 31 fullførte, gruppert etter bolk:**
 
 | Bolk | Guider |
 |---|---|
@@ -324,7 +339,7 @@ Ordtelling 3326 → 4344.
 | C3c-1 (2) | `golden-retriever` · `griffon-petit-brabancon` |
 | C3c-2 (3) | `cavalier-king-charles-spaniel` · `bichon-havanais` · `border-collie` |
 | C3c-3 (2) | `west-highland-white-terrier` · `whippet` |
-| C3c-4 → C3c-13 (10) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` · `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` |
+| C3c-4 → C3c-14 (11) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` · `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` |
 
 #### 🟠 ÅPEN SAK — dobbel BreadcrumbList på raseguidene
 
@@ -458,13 +473,13 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 **Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen — 12 guider igjen, navngitt
+#### Resten av C3c-rekkefølgen — 11 guider igjen, navngitt
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`shiba-inu` · `tibetansk-spaniel` (score 5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`tibetansk-spaniel` (score 5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher`, `engelsk-springer-spaniel` og `jack-russell-terrier` er ferdige. 6,0-gruppen er tømt; 5,0-gruppen har to igjen. **Neste: `shiba-inu`.**
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher`, `engelsk-springer-spaniel`, `jack-russell-terrier` og `shiba-inu` er ferdige. 6,0-gruppen er tømt; 5,0-gruppen har én igjen. **Neste: `tibetansk-spaniel`.**
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
