@@ -232,24 +232,65 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 **Metodenotat:** ville ikke blitt oppdaget av kildesettings-sporet — det dukket opp fordi strukturkontrollen kjøres uansett. Argument for å beholde de «trivielle» strukturelle sjekkene selv når fokus er kildeverifisering.
 
+## FULL STATUS 2026-08-04 kveld — økta i sammendrag
+
+**Levert i denne økta: C3c-17, C3c-18 og C3c-19.** Tre guider kildeverifisert, rettet, verifisert mot preview og live, og deployet med docs og mirror-synk. **C3 står nå på 36 av 42; seks gjenstår.**
+
+| Sprint | Guide | Commit | Tyngste funn |
+|---|---|---|---|
+| C3c-17 | `norsk-elghund-sort` (+ `norsk-elghund-gra`) | `738f3b6` | «Eneste kritisk truede norske rase» · oppdretter gjort til NMBU-forsker · §9 fire år bak forskningen (LTV 5–10 % mot Bergs 28,6 %) |
+| C3c-18 | `pointer` | `45d433e` | NPKs avlskrav oppdiktet i én ende og utelatt i den andre · fire «rasestandard»-sitater fra rasebeskrivelsen · AMS-genet var menneskets |
+| C3c-19 | `pudel` | `b1a8299` | Oppdiktet lovforbud om vibrisser · Combination Poodle aldri et NPK-krav · FCI-standard sitert riktig og gjengitt feil |
+
+**Detektorscore i alle tre: T1=1, T2=0, prev=0.** I to av tre var treffet guidens eget forbehold eller en enkeltstående multiplikator. **Regel 24 har nå holdt ti sprinter på rad: en lav detektorscore sier ingenting om filens kvalitet når risikoen ligger i regelverk, attribusjon eller aldrende forskning.**
+
+### Mønsteret som går igjen
+
+Tre av tre sprinter hadde **feil om hva en klubb eller myndighet faktisk krever** — og i alle tre gikk feilen i begge retninger samtidig: krav som ikke finnes ble oppgitt som bindende, mens de ekte kravene manglet. Pointer krevde tre «ufravikelige» DNA-tester klubben ikke ber om, og utelot 20 jaktprøvestarter og AK-premiering. Pudel gjorde et kommersielt panel til inngangsbillett, og utelot øyelysing — klubbens mest universelle krav. Norsk elghund sort gjorde en klubbanbefaling om HD-indeks til et krav, og snudde retningen på hva indeksen kvalifiserer til.
+
+**Attribusjonsfeil er funnklasse i alle tre:** feil yrkestittel på en navngitt privatperson (Nygaard), feil kildedokument for fire ordrette sitater (pointer), og en lov som ikke sier det den tilskrives (pudel).
+
+**Port 7 er snudd.** FCI 125, 257, 242, 1 og 172 oppgir ingen vekt — fire av dem har overskrifter som lover det. **Fravær er nå default-antakelsen; tilstedeværelse må verifiseres.**
+
+**Ordbudsjettet bommet alle tre gangene** (+742, +659, +827 mot anslag). Regel 27 holder likevel presist: seksjoner som får ny kildeblokk koster 3×, seksjoner uten flytter seg null. Anslagene er for lave, ikke modellen.
+
+### Nye regler etablert i økta
+
+**28–30** (C3c-17): forskningsseksjoner eldes · klubbens egen begrunnelse slår vår rekonstruksjon · yrkestittel er en verifiserbar påstand om en levende person.
+**31–32** (C3c-18): et sitat kan være ordrett riktig og feil tilskrevet · å rette en rangering med en annen rangering er ingen fiks.
+**33–35** (C3c-19): «loven forbyr X» er den dyreste påstandsklassen · riktig sitert dokument beskytter ikke mot feil gjengitt innhold · adresser lesernes misforståelse, aldri vår egen tidligere ordlyd.
+
+### Åpne saker ved øktas slutt
+
+- **16 admin-steg** venter. **A7 (`norsk-elghund-sort`) er sendt isolert** fordi feltnavnet var limt inn i meta-feltet og synlig i Google; de øvrige 15 venter til sweepen er ferdig. Pointer og pudel trengte ingen nye.
+- **Fire ventende korpus-bolker:** FAQ↔schema (19 filer) · semikolon (14 filer) · TOC-gap (nå ~53 filer etter at tre er ryddet) · **ny: `article_map`-ordtellingsdrift**, oppdaget i C3c-17 der `norsk-elghund-gra` lå 1 004 ord feil. Korpuset er ikke sveipet.
+- **Div-strukturavvik i `pointer`:** 2 body-divs mot 12 H2 der canonical krever én per H2. Ingen forbudte Cocker-markører. Egen sak, ikke rørt.
+- **Gonioskopi-motsigelsen** (4 filer) og **dobbel BreadcrumbList** står uendret.
+
+### Neste økt
+
+**C3c-20 `sankt-bernhardshund`** — siste i 3,0-gruppen. Deretter gjenstår kun stikkprøve-gruppen på fem null-treff-guider: `dansk-svensk-gardshund`, `finsk-lapphund`, `jamthund`, `norsk-elghund-gra` og `shetland-sheepdog`. **Merk at `norsk-elghund-gra` fikk en liten kontrollert vektfiks i C3c-17, men er ikke kildeverifisert** — den står fortsatt som full stikkprøve. Ordtak gjelder kun `jamthund` (2419 ord).
+
+Første steg for sankt-bernhardshund, gitt mønsteret over: slå opp rasen i NKKs «Raser med krav for registrering» **og** i NKKs DNA-dokument, og finn klubbens gjeldende avlskrav med vedtaksdato, før noe annet.
+
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier), C3c-14 (shiba-inu), C3c-15 (tibetansk-spaniel), C3c-16 (mops), C3c-17 (norsk-elghund-sort) og C3c-18 (pointer). **35 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier), C3c-14 (shiba-inu), C3c-15 (tibetansk-spaniel), C3c-16 (mops), C3c-17 (norsk-elghund-sort), C3c-18 (pointer) og C3c-19 (pudel). **36 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-19: `pudel`
+### NESTE ØKT STARTER HER — C3c-20: `sankt-bernhardshund`
 
-**Regnskapet i C3: 35 av 42 ferdig, 7 gjenstår** (per 04.08, etter pointer). Git-historikken er autoritativ. Kontrollert begge veier: 35 + 7 = 42.
+**Regnskapet i C3: 36 av 42 ferdig, 6 gjenstår** (per 04.08, etter pudel). Git-historikken er autoritativ. Kontrollert begge veier: 36 + 6 = 42.
 
-**De 7 som gjenstår, i godkjent rekkefølge:**
+**De 6 som gjenstår, i godkjent rekkefølge:**
 
 | Gruppe | Guider | Merknad |
 |---|---|---|
-| 3,0 (2 igjen) | `pudel` · `sankt-bernhardshund` | `mops`, `norsk-elghund-sort` og `pointer` er nå ferdige |
+| 3,0 (1 igjen) | `sankt-bernhardshund` | `mops`, `norsk-elghund-sort`, `pointer` og `pudel` er nå ferdige |
 | 0,0 — stikkprøve til slutt (5) | `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` | Null detektortreff; tas som kontroll av om detektorens nullpunkt er reelt |
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk). De øvrige seks er pre-regel-guider uten tak.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk). De øvrige fem er pre-regel-guider uten tak.
 
 **Hva de fem siste sprintene sier du bør se etter:**
 - **Krav vs. anbefaling er nå funnklassen i fem sprinter på rad** — SBT, dvergpinscher, engelsk-springer-spaniel, jack-russell-terrier, tibetansk-spaniel og mops. Skriv alltid ut kravhierarkiet i nivåer: NKK-registreringskrav → raseklubbens tilleggskrav → vår egen anbefaling.
@@ -259,7 +300,9 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 - **Port 7: anta at vekt IKKE står i standarden.** FCI 125, 257, 242 og 1 oppgir ingen vekt — og 257, 242 og 1 har alle overskrifter som lover det. Kun FCI 231 oppgir begge deler. **Fire av fem siste standarder manglet vekt. Fravær er nå default-antakelsen; det er tilstedeværelse som må verifiseres.**
 - **Sjekk om guidens forskningsseksjon har eldet.** Sier den siterte RAS-en «det pågår forsknings-studie», er det et utløpsstempel (regel 28). `norsk-elghund-sort` lå fire år bak: forekomst underrapportert med faktor tre, klinisk betydning og arvegang presentert som uavklarte etter publisering.
 - **Attribusjonsfeil er funnklassen tre sprinter på rad** — feil fornavn (mops/Sjølie), feil yrkestittel (elghund sort/Nygaard), feil kildedokument (pointer/rasestandard vs rasebeskrivelse). Sjekk bylinen OG hvilket dokument sitatet står i (regel 30 og 31).
-- **«Klubben krever X» er to spørsmål, ikke ett:** krever klubben det, og finnes testen for rasen? `pointer` krevde DNA-test for chondrodysplasi som «ufravikelig» — klubben krever den ikke, og den validerte testen gjelder norsk elghund grå og karelsk bjørnhund, ikke pointer.
+- **«Klubben krever X» er to spørsmål, ikke ett:** krever klubben det, og finnes testen for rasen? `pointer` krevde DNA-test for chondrodysplasi som «ufravikelig» — klubben krever den ikke, og den validerte testen gjelder norsk elghund grå og karelsk bjørnhund, ikke pointer. `pudel` gjorde et kommersielt DNA-panel til inngangsbilletten til klubbens valpeliste; kun én av panelets fem tester er faktisk krav.
+- **Sjekk om klubben har vedtatt nye krav siden guiden sist ble rørt.** NPK strammet inn på generalforsamlingen 12.05.2024, NEKF/AUNES i 2023–24, NPK (pointer) justerer kvartalsvis. **Fire av de siste seks guidene lå bak klubbens gjeldende regelverk.** Sammenlign vedtaksdato mot guidens `last_updated`.
+- **Let etter kravet som ikke er en test.** Øyelysing hos `pudel` er NPKs mest universelle krav og manglet helt, fordi guiden tenkte i gentester. Utstillingskrav, aldersgrenser, innavlsgrenser og medlemskapskrav er lette å overse av samme grunn.
 - **`article_map`-ordtellingen har drift.** `norsk-elghund-gra` lå 1 004 ord feil. Sjekk oppføringen mot fila når du uansett er inne — og vurder en korpus-sveip som egen mekanisk bolk.
 
 ---
@@ -316,6 +359,22 @@ Disse er bevisst holdt utenfor C3c-sprintene for ikke å blande sammen kildeveri
 | 7 | **Raseguider-hub description-drift** | 21 døde `description`-felt i `templates/page.raseguider.json` | 🟢 Ingen live-effekt — feltet rendres aldri (`article_card`-grenen har null referanser). Reelt valg: fjern de 21, eller deklarer feltet og fyll ut de 39 manglende | 29.07 |
 
 ---
+
+#### C3c-19 pudel FULLFØRT 04.08 (commit `b1a8299`, 2 filer live)
+
+Detektor **T1=1/T2=0/prev=0**. **Regel 24 tiende gang.**
+
+- **🔴 Oppdiktet lovforbud, to steder.** «Vibrissene er beskyttet av norsk dyrevelferdslov — klipping er forbudt», med egen H3 og instruks om å kreve bekreftelse av frisøren før betaling. **Dyrevelferdsloven nevner ikke vibrisser**; § 14 gjelder vold, hjelpeløs tilstand, seksuelle handlinger og levende agn. NKKs utstillingsregler tillater normal trimming. **Reneste fabrikkerte regelverkspåstand i C3c** — konkret lov, konkret handling, konkret instruks.
+- **🔴 Combination Poodle-testen var aldri et NPK-krav**, men bar hele valpekjøper-rådet: «standard screening-panel» i ingressen, og FAQ + schema sa «NPK krever dette panelet for valpekull på offisiell valpeliste». Av panelets fem mutasjoner er **kun prcd-PRA et krav**; resten er anbefalinger.
+- **🔴 NPKs faktiske krav manglet — §10 bygget fra bunnen.** Vedtatt GF 12.05.2024. Alle størrelser: innavlsgrad maks 6,25 %, én Very Good etter 9 mnd, **øyelysing av alle avlsdyr**. Per størrelse: HD A/B + HD-indeks-alternativ og AD-krav fra 2024 (stor), HD/patella/prcd (mellom), patella/prcd og 18 mnd (dverg/toy). **Øyelysing — klubbens mest universelle krav — var ikke nevnt én eneste gang.** Lagt til: NKKs avkomsgrenser 65/85 fra 01.06.2023.
+- **🔴 Guiden siterte FCI #172 gyldig fra 01.08.2024 og gjenga innholdet fra før den.** «Alle FCI-anerkjente solide farger» — men 2024-revisjonen anerkjenner partifarget, mantle, tan-tegnet, trefarget og brindle. Samme klasse som chihuahua (C3c-7).
+- **🔴 Toy «under 28 cm»** (3 steder) — standarden sier **over 24** opp til 28, og utelukker eksplisitt dvergvekst.
+- **🔴 «Eneste rase med fire størrelser»** — tysk spisshund har fem under FCI #97. Guiden motsa seg selv (ingress «én av få» mot §3 «den eneste»).
+- **🟠 Addison-multiplikator uten nevner:** «30 ganger høyere» → Famula et al. 2003, 8,6 % mot under 0,5 %, begge oppgitt. Pedersen-siteringen selv verifisert riktig, men flaskehalsen var feildatert (tidlig 1900-tall → midten av århundret).
+- **🟠 Vekt i FCI 172 — femte standard på rad** med «SIZE AND WEIGHT»-overskrift og bare høyder.
+- Ordtelling 4181 → 5008 (**+827** mot anslag +500–750). Sjette bom.
+
+**Ny redaksjonell konvensjon (Sondre 04.08):** når en rettet påstand også er en utbredt misforståelse blant lesere, skal misforståelsen adresseres direkte («Mange tror det er forbudt. Det er det ikke») — men **aldri** med metakommentar om vår egen tidligere ordlyd. Korpuset retter stille.
 
 #### C3c-18 pointer FULLFØRT 04.08 (commit `45d433e`, 2 filer live)
 
@@ -589,9 +648,9 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher`, `engelsk-springer-spaniel`, `jack-russell-terrier`, `shiba-inu`, `tibetansk-spaniel`, `mops`, `norsk-elghund-sort` og `pointer` er ferdige. **6,0- og 5,0-gruppene er tømt; `mops` og `norsk-elghund-sort` er tatt av 3,0-gruppen.** **Neste: `pudel`.** Merk at `norsk-elghund-gra` i stikkprøve-gruppen fikk en liten kontrollert vektfiks under C3c-17, men er IKKE kildeverifisert — den står fortsatt som stikkprøve.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher`, `engelsk-springer-spaniel`, `jack-russell-terrier`, `shiba-inu`, `tibetansk-spaniel`, `mops`, `norsk-elghund-sort`, `pointer` og `pudel` er ferdige. **6,0- og 5,0-gruppene er tømt; `mops` og `norsk-elghund-sort` er tatt av 3,0-gruppen.** **Neste: `sankt-bernhardshund` — siste i 3,0-gruppen. Deretter kun stikkprøve-gruppen igjen.** Merk at `norsk-elghund-gra` i stikkprøve-gruppen fikk en liten kontrollert vektfiks under C3c-17, men er IKKE kildeverifisert — den står fortsatt som stikkprøve.
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
@@ -691,6 +750,9 @@ Ingen blokkerer live-push. Samles til én runde.
 30. **En yrkestittel er en verifiserbar påstand om en levende person.** «NMBU-forsker Karianne Nygaard» — Nationens byline sier «registrert oppdretter og eier av jaktpremierte hunder». Tittelen var ikke pynt: den ga et debattinnlegg forskningsvekt og flyttet tyngdepunktet i en pågående faglig strid. **Sjekk alltid bylinen/kildens egen presentasjon av en navngitt person før du gjengir rolle eller institusjon.** Samme klasse som feil fornavn i C3c-16 (Sigurd vs Renate Sjølie) — to sprinter på rad med personattribusjonsfeil.
 31. **Et sitat kan være ordrett riktig og likevel feil tilskrevet — sjekk hvilket dokument det står i.** `pointer` siterte NKK fire ganger med «i sin rasestandard». Ordlyden stemte perfekt, men den står i NKKs **rasebeskrivelse** — rasepresentasjonen for valpekjøpere — mens rasestandarden er et eksteriør- og bedømmelsesdokument uten slike anbefalinger. NKKs egen side skiller mellom de to. **En rasestandard sier hvordan hunden skal se ut og bevege seg; den sier ikke hvem rasen passer for.** Ser du en «standard» som uttaler seg om egnethet som familiehund, alenetid eller aktivitetsbehov, er det nesten sikkert et annet dokument. Andre sprint på rad med sitat-attribusjonsfeil (mops/Sjølie i C3c-16).
 32. **Å rette en rangering med en annen rangering er ingen fiks.** I `pointer` fjernet jeg «Pointer dominerer høyfjellsjakt-segmentet» og skrev i stedet «engelsk setter er den klart mest tallrike av de tre» — like ukildet, men den *føltes* som en oppmyking fordi den var mer beskjeden på rasens vegne. **Oppmyking betyr å fjerne rangeringen, ikke å flytte den til en annen rase.** Fanget i egen gjennomlesing samme økt. Beslektet med C2b-regelen om overkorreksjon, men motsatt retning: der reddet forsiktighet en korrekt påstand, her innførte forsiktighet en ny ukildet.
+33. **En påstand om at «loven forbyr X» er den dyreste klassen vi har.** `pudel` hevdet at norsk dyrevelferdslov forbyr å klippe vibrisser, i en egen H3, med instruks om å kreve bekreftelse av hundefrisøren før betaling. Loven nevner ikke vibrisser. **Juridiske påstander har tre egenskaper som gjør dem verre enn andre feil:** de er sjekkbare mot én autoritativ tekst (så det finnes ingen unnskyldning), leseren kan ikke etterprøve dem selv uten juridisk kjennskap, og de får leseren til å konfrontere en tredjepart — her hundefrisøren — på feil grunnlag. **Slå alltid opp lovteksten på Lovdata, aldri en sekundærkilde.** Beslektet med regel 24: detektoren finner ikke juss.
+34. **Å sitere riktig dokument beskytter ikke mot å gjengi feil innhold.** `pudel` navnga FCI-standard #172 med korrekt gyldighetsdato (01.08.2024) og beskrev deretter fargeseksjonen slik den så ut før den revisjonen — den nye standarden anerkjenner partifarget, tan-tegnet, trefarget og brindle, mens guiden skrev «alle FCI-anerkjente solide farger». Samme mønster som `chihuahua` (C3c-7). **En korrekt datert kildehenvisning er et signal om nøyaktighet som ikke nødvendigvis er innfridd — åpne dokumentet selv om datoen ser fersk ut.** Motstykket til regel 31: der var ordlyden riktig og dokumentet feil, her er dokumentet riktig og innholdet feil.
+35. **Når en rettet påstand også er en utbredt misforståelse, adresser misforståelsen — ikke vår egen ordlyd.** Fastsatt av Sondre 04.08 etter `pudel`. Første utkast skrev «vi har tidligere skrevet at loven forbyr dette — det stemmer ikke». Korpuset retter stille; en metakommentar om egne feil er ikke innhold leseren har bruk for. Riktig form er «Mange tror det er forbudt i Norge. Det er det ikke» — som fanger opp at leseren sannsynligvis har hørt påstanden andre steder også, uten å gjøre vår historikk til tema.
 
 ### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
 
