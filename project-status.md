@@ -234,13 +234,15 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier) og C3c-14 (shiba-inu). **31 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier), C3c-14 (shiba-inu) og C3c-15 (tibetansk-spaniel). **32 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-15: `tibetansk-spaniel`
+### NESTE ØKT STARTER HER — C3c-16: `mops`
 
-**Regnskapet i C3: 31 av 42 ferdig, 11 gjenstår** (per 04.08, etter shiba-inu). Git-historikken er autoritativ. Kontrollert begge veier: 31 + 11 = 42.
+**Regnskapet i C3: 32 av 42 ferdig, 10 gjenstår** (per 04.08, etter tibetansk-spaniel). Git-historikken er autoritativ. Kontrollert begge veier: 32 + 10 = 42.
+
+**⚠ `mops` har en KJENT feil som allerede er loggført** (oppdaget under C3c-9): guiden skriver at NKK siden 2019 har hatt obligatorisk BOAS-screening «som premiss for valperegistrering». Mops' registreringskrav kom først **01.01.2023**; screeningordningen fantes fra høsten 2019, men var ikke registreringskrav for mops før 2023. `engelsk-bulldog` har allerede det korrekte skillet (ordning 2019, krav 01.08.2022), og `fransk-bulldog` fikk det i C3c-9. **Mops er den siste av BOAS-trioen med feil framstilling** — start kartleggingen der.
 
 **Hva de tre siste bolkene sier du bør se etter:**
 - **Krav vs. anbefaling er nå den mest produktive risikoklassen — tre sprinter på rad.** SBT oppgraderte en anbefaling til krav; dvergpinscher og engelsk springer spaniel nedgraderte krav til anbefaling. Verifiser klubbdokumentet ordrett, og last det ned framfor å lese en oppsummering — springer-funnet lå i en PDF-tabell som ingen søkeoppsummering gjenga.
@@ -266,6 +268,20 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 Settes i Shopify Admin → Online Store → Pages → `<handle>` → Search engine listing.
 
 `staffordshire-bull-terrier` (C3c-10) trengte **ingen** meta-fiks — feltet var rent.
+
+#### C3c-15 tibetansk-spaniel FULLFØRT 04.08 (commit `f97e440`, 1 fil live)
+
+Alle 5 godkjente punkter + 2 funn til. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
+
+- **🔴 NKKs registreringskrav var tilskrevet raseklubben.** Øyelysningskravet er NKKs restriksjon f.o.m. **01.04.2014** — og NMHKs eget RAS har de to nivåene under hver sin overskrift. Seksjonen motsa seg selv internt (H2 sa «NKK-kravet», teksten sa «NMHK innførte»). Motsatt retning av boxer (C3c-6).
+- **🔴 Ny defektklasse: å delegere regelen til leseren.** Guiden ba valpekjøperen «sjekke gjeldende NKK-anbefaling for hvor nytt resultatet skal være». Regelen er konkret (senest 12 mnd. før paring, ERG teller ikke, ECVO i DogWeb). **Det ser ansvarlig ut, men flytter arbeidet til den som har minst forutsetning for å gjøre det — i nettopp den seksjonen guiden finnes for.**
+- **🔴 §10 bygget om til to nivåer:** NKKs ene krav mot NMHKs fem tilleggskrav (fri for PRA, 20 mnd. for **begge kjønn**, Very Good, ID-merking, etiske retningslinjer). Teksten sier nå rett ut hva NKK-registrering *ikke* garanterer.
+- **🔴 Levetid én bånd for høyt i seks flater** — «14–16 år» mot RAS' «12-15 år, men gjerne også eldre». **Andre sprint på rad hvor guidens levetid ligger over klubbens eget dokument** (shiba: 12–15 mot RAS-snitt 9,23). Levetid mot RAS bør bli fast sjekkpunkt.
+- **🟡 Premisset var snudd:** guiden kalte populasjonen «relativt smal» som begrunnelse for både bærer-avl og matadoravl-grensen. RAS: innavlsgrad 0,94 % (2015), «stor avlsbase» — og det er *grunnen* til at 2 %-regelen gjelder. **Feil premiss brukt til å begrunne en regel som finnes av motsatt grunn.**
+- **🟡 Katarakt manglet helt.** RAS navngir «Katarakt og PRA» som de to arvelige øyesykdommene øyelysningen skal fange; guiden fremstilte kravet som rent PRA3-tiltak.
+- **Ikke overkorrigert:** «48 kull i 2015 med ukjent PRA3-status» er ordrett match i RAS, og cherry eye/navlebrokk er nær ordrett gjengitt. **Port 7 slår ikke ut** — FCI 231 normerer faktisk vekt.
+
+Ordtelling 3990 → 4338 (+348) mot estimat +560–620. **Nyanse til regel 27: 3×-multiplikatoren gjelder når kildeblokken kommer i TILLEGG; erstatter den en eksisterende feil blokk, blir netto langt lavere.** Live-verifisering krevde **forsøk 5 av 6**.
 
 #### C3c-14 shiba-inu FULLFØRT 04.08 (commit `56f08a8`, 2 filer live)
 
@@ -328,7 +344,7 @@ Ordtelling 3326 → 4344.
 
 **To nye faste kontroller (se listen nedenfor og `docs/artikkel-sjekkliste.md`).**
 
-**De 31 fullførte, gruppert etter bolk:**
+**De 32 fullførte, gruppert etter bolk:**
 
 | Bolk | Guider |
 |---|---|
@@ -339,7 +355,7 @@ Ordtelling 3326 → 4344.
 | C3c-1 (2) | `golden-retriever` · `griffon-petit-brabancon` |
 | C3c-2 (3) | `cavalier-king-charles-spaniel` · `bichon-havanais` · `border-collie` |
 | C3c-3 (2) | `west-highland-white-terrier` · `whippet` |
-| C3c-4 → C3c-14 (11) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` · `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` |
+| C3c-4 → C3c-15 (12) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` · `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` |
 
 #### 🟠 ÅPEN SAK — dobbel BreadcrumbList på raseguidene
 
@@ -473,13 +489,13 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 **Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen — 11 guider igjen, navngitt
+#### Resten av C3c-rekkefølgen — 10 guider igjen, navngitt
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`tibetansk-spaniel` (score 5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher`, `engelsk-springer-spaniel`, `jack-russell-terrier` og `shiba-inu` er ferdige. 6,0-gruppen er tømt; 5,0-gruppen har én igjen. **Neste: `tibetansk-spaniel`.**
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher`, `engelsk-springer-spaniel`, `jack-russell-terrier`, `shiba-inu` og `tibetansk-spaniel` er ferdige. **6,0- og 5,0-gruppene er nå tømt; 3,0-gruppen er neste.** **Neste: `mops`.**
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
