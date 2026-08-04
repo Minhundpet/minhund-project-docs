@@ -234,40 +234,94 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier), C3c-14 (shiba-inu) og C3c-15 (tibetansk-spaniel). **32 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier), C3c-14 (shiba-inu), C3c-15 (tibetansk-spaniel) og C3c-16 (mops). **33 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-16: `mops`
+### NESTE ØKT STARTER HER — C3c-17: `norsk-elghund-sort`
 
-**Regnskapet i C3: 32 av 42 ferdig, 10 gjenstår** (per 04.08, etter tibetansk-spaniel). Git-historikken er autoritativ. Kontrollert begge veier: 32 + 10 = 42.
+**Regnskapet i C3: 33 av 42 ferdig, 9 gjenstår** (per 04.08, etter mops). Git-historikken er autoritativ. Kontrollert begge veier: 33 + 9 = 42.
 
-**⚠ `mops` har en KJENT feil som allerede er loggført** (oppdaget under C3c-9): guiden skriver at NKK siden 2019 har hatt obligatorisk BOAS-screening «som premiss for valperegistrering». Mops' registreringskrav kom først **01.01.2023**; screeningordningen fantes fra høsten 2019, men var ikke registreringskrav for mops før 2023. `engelsk-bulldog` har allerede det korrekte skillet (ordning 2019, krav 01.08.2022), og `fransk-bulldog` fikk det i C3c-9. **Mops er den siste av BOAS-trioen med feil framstilling** — start kartleggingen der.
+**De 9 som gjenstår, i godkjent rekkefølge:**
 
-**Hva de tre siste bolkene sier du bør se etter:**
-- **Krav vs. anbefaling er nå den mest produktive risikoklassen — tre sprinter på rad.** SBT oppgraderte en anbefaling til krav; dvergpinscher og engelsk springer spaniel nedgraderte krav til anbefaling. Verifiser klubbdokumentet ordrett, og last det ned framfor å lese en oppsummering — springer-funnet lå i en PDF-tabell som ingen søkeoppsummering gjenga.
-- **Nabo-rase-import (regel 10) har nå fire forekomster** — mellomschnauzer (PS), dvergpinscher (patella fra Yorkshire, urinstein fra dvergschnauzer), engelsk springer spaniel (farge-aggresjon fra cocker). Mønsteret er stabilt: jo nærmere slektning, jo mer sannsynlig at en disposisjon er lånt.
-- **Et helt fravær er like alvorlig som en feil påstand.** Springer-guiden hadde null feil om gonioskopi — den nevnte det ikke. Detektoren kan per definisjon ikke finne det som mangler. **Spør alltid: hva er rasens faktiske avlskrav i Norge, og står det i guiden?**
-- **Sjekk om «etablert mekanisme» har rasespesifikk dekning.** Springer-guidens EEG-narrativ hvilte på en kasusserie med tre hunder uten rasetilhørighet. Samme klasse som Salzmann (C3c-3): kilden finnes, men den handler ikke om denne rasen.
-
-#### 🔴 ÅPNE ADMIN-STEG (kan ikke gjøres fra CLI)
-
-| Side | Hva | Status |
+| Gruppe | Guider | Merknad |
 |---|---|---|
-| `/pages/dvergpinscher` | Meta-description fremhever «hackney-trav» — påstanden som nettopp ble rettet som en standard-FEIL. Også «importerte første» (flertall) mot NPKs «en dvergpinscher fra England» | **ÅPEN — godkjent tekst under** |
-| `/pages/engelsk-springer-spaniel` | Meta-description har 3 forekomster av «DNA-test-quartet» (rasen har fem offisielle KC-ordninger, og det norske kravet er gonioskopi) og «fra 1885 til Fant 1992» (1893-separasjonen er strøket som anakronisme) | **ÅPEN — godkjent tekst under** |
+| 3,0 (4 igjen) | `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` | `mops` var femte og er nå ferdig |
+| 0,0 — stikkprøve til slutt (5) | `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` | Null detektortreff; tas som kontroll av om detektorens nullpunkt er reelt |
 
-**Godkjent erstatningstekst dvergpinscher (Sondre, 03.08):**
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk). De øvrige åtte er pre-regel-guider uten tak.
 
-> Dvergpinscher raseguide — median levealder 13,7 år, MPS VI og ARSB-gentest (Raj 2020), og Norsk Pinscherklubbs faktiske avlskrav: patella 0/0 og gyldig øyelysning.
+**Hva de fem siste sprintene sier du bør se etter:**
+- **Krav vs. anbefaling er nå funnklassen i fem sprinter på rad** — SBT, dvergpinscher, engelsk-springer-spaniel, jack-russell-terrier, tibetansk-spaniel og mops. Skriv alltid ut kravhierarkiet i nivåer: NKK-registreringskrav → raseklubbens tilleggskrav → vår egen anbefaling.
+- **Slå opp rasen i NKKs «Raser med krav for registrering» som fast første steg.** Fire av de siste seks guidene hadde feil her: feil dato, feil utsteder, oppdiktet krav eller manglende krav.
+- **Levetid mot RAS er nytt fast sjekkpunkt** — to sprinter på rad lå guidens levetid over raseklubbens eget dokument (shiba 12–15 mot RAS-snitt 9,23; tibetansk spaniel 14–16 mot RAS 12–15).
+- **Sirkulær bekreftelse traff to ganger i denne bolken** (shiba-forslaget, mops-sitatet). Når et søk «bekrefter» en påstand, sjekk om treffet er vår egen side før du konkluderer.
+- **Port 7 er ikke universell.** FCI 125 og 257 oppgir ingen vekt (og 257 har til og med en overskrift som lover det); FCI 231 oppgir både høyde og vekt. Sjekk per standard.
 
-**Godkjent erstatningstekst engelsk springer spaniel (Sondre, 04.08):**
+---
 
-> Engelsk Springer Spaniel raseguide — Norsk Spaniel Klubs gonioskopi-krav, fem offisielle DNA-testordninger, og tallene fra Reisner et al. 2005 om eierrettet aggresjon i rasen.
+## 🔴 SAMLEDE ADMIN-STEG — flate 3, kan ikke gjøres fra CLI
 
-Settes i Shopify Admin → Online Store → Pages → `<handle>` → Search engine listing.
+**Status: samlet og ventende. Sendes til Friday først når hele sweepen er ferdig** — ikke fortløpende. Alle tekster under er godkjent av Sondre og klare til innliming i Shopify Admin → Online Store → Pages → `<handle>` → Search engine listing.
 
-`staffordshire-bull-terrier` (C3c-10) trengte **ingen** meta-fiks — feltet var rent.
+### Fra denne bolken (C3c-11 → C3c-16), alle godkjent 03.–04.08
+
+| # | Side | Hvorfor | Godkjent tekst |
+|---|---|---|---|
+| A1 | `dvergpinscher` | Fremhever «hackney-trav» — påstanden som ble rettet som en standard-FEIL. Også «importerte første» (flertall) mot NPKs «en dvergpinscher fra England» | Dvergpinscher raseguide — median levealder 13,7 år, MPS VI og ARSB-gentest (Raj 2020), og Norsk Pinscherklubbs faktiske avlskrav: patella 0/0 og gyldig øyelysning. |
+| A2 | `engelsk-springer-spaniel` | 3 forekomster av «DNA-test-quartet» (rasen har fem offisielle KC-ordninger; det norske kravet er gonioskopi) og «fra 1885 til Fant 1992» (1893-separasjonen strøket som anakronisme) | Engelsk Springer Spaniel raseguide — Norsk Spaniel Klubs gonioskopi-krav, fem offisielle DNA-testordninger, og tallene fra Reisner et al. 2005 om eierrettet aggresjon i rasen. |
+| A3 | `jack-russell-terrier` | «PLL- og SCA-gentester» — samme undertelling som ble rettet i brødteksten; LOA mangler, og RG Jacks avlskriterier er ikke nevnt | Alt om Jack Russell Terrier: forskjellen til Parson Russell, NKKs patellakrav og RG Jacks strengere avlskriterier, DNA-testene PLL, SCA og LOA, og hverdagsliv. Ærlig norsk raseguide. |
+| A4 | `shiba-inu` | Sier «det norske helsekrav-**forslaget** fra Japansk Urhundklubb» — nettopp rammen som ble rettet | Japansk primitiv urhund med 2500 års arv. Glaukom og gonioskopi forklart — hva som faktisk er avlskrav i Norge, og hva som bare er klubbanbefaling. |
+| A5 | `tibetansk-spaniel` | Blander de to kravnivåene («NKK-krav fra 2014, og Norsk Miniatyrhund Klubbs avlsregler») | Tibetansk klosterhund med over 1000 års historikk. NKKs øyelysningskrav fra 2014 forklart — og hvor Norsk Miniatyrhund Klubbs egne avlskrav går lenger. |
+| A6 | `mops` | Sier «NKKs BOAS-screening» uten dato, og «Norges mest omdiskuterte rase» — kravdatoene mangler helt | Alt om mops: NKKs tre registreringskrav (patella 2020, BOAS og øyelysning 2023), hva BOAS-graderingen faktisk måler, helseutfordringer og hverdagsliv. Ærlig norsk raseguide. |
+
+### Fra tidligere bolker — fortsatt åpne (godkjent 31.07)
+
+| # | Side | Hvorfor | Skal til |
+|---|---|---|---|
+| B1 | `riesenschnauzer` | «6× risiko» tilskrevet Bianchi 2020 — er Egenvall et al. 2000 | Egenvall-attribusjon |
+| B2 | `irsk-setter` | «NKK #14» | Endres samtidig med brødteksten når NKK-tallet foreligger |
+| B3 | `italiensk-mynde` | «skjøre ben» — premisset brødteksten nå avviser (NMK RAS: normal beintetthet) | Omformulering uten «skjøre» |
+| B4 | `hvor-mye-vann-hund` | Bindestrek «40-60» der korpuset bruker tankestrek | Kosmetisk |
+| B5 | `griffon-petit-brabancon` | «brachy-hensyn» på siden som ER Petit Brabançon-guiden — i strid med prosjektregelen | «kort snute-hensyn» |
+| B6 | `border-collie` | «2. mest populære rase 2024» i alle tre meta-variantene | «2. mest registrerte rase 2024» |
+| B7 | `whippet` | «raskeste hund per kilo» — rangeringen som ble myket i brødteksten | «en av de raskeste hunderasene i forhold til størrelse» |
+| B8 | `mellomschnauzer` | «pulmonisk stenose rasespesifikk hjertedefekt, levetid 13-16 år» — begge avvist i brødteksten | Mellomschnauzer raseguide — den originale schnauzer-stamfar-rasen, NSBK 1946, RBM20-DCM med DNA-test, median levetid 13 år. |
+| B9 | `boxer` | «NKK-avlsregler» — reglene er Norsk Boxerklubbs | «… og Norsk Boxerklubbs avlskrav.» |
+
+**Sum: 15 åpne admin-steg** (6 nye fra denne bolken + 9 fra tidligere). `staffordshire-bull-terrier` (C3c-10) trengte ingen — feltet var rent.
+
+---
+
+## 🟠 VENTENDE KORPUS-BOLKER — alle logget, ingen påbegynt
+
+Disse er bevisst holdt utenfor C3c-sprintene for ikke å blande sammen kildeverifisering med opprydding. Rekkefølge ikke fastsatt.
+
+| # | Bolk | Omfang | Alvorlighet | Oppdaget |
+|---|---|---|---|---|
+| 1 | **FAQ ↔ schema-avvik** | 19 filer (opprinnelig 21; WHWT og boxer ryddet underveis) | 🔴 HARD-regelbrudd — Google leser noe annet i rikresultatet enn siden viser. Prioritet: `valp` (8 avvik) og `tannhelse` (7, helseartikkel) | 30.07 |
+| 2 | **Semikolon-bolken** | 14 filer, 2 835 semikolon mot 3–20 komma | 🟡 Lesbarhet. Årsak: `article_map`-kommaregelen feilaktig anvendt på brødtekst. `mellomschnauzer` er nå blandet etter delvis rydding i C3c-4 | 31.07 |
+| 3 | **TOC-gap-bolken** | 55 manglende ankerlenker; `faq` i 43 filer, `faq-heading` i 4, `tips-king` i 4, `oppsummering` i 3, `historie` i 3 | 🟡 Seksjoner unåbare fra innholdsfortegnelsen. Rent mekanisk. Omfatter `jack-russell-terrier` (anchors 13 mot 12 H2) | 31.07 |
+| 4 | **Dobbel BreadcrumbList** | Sannsynligvis alle raseguider med både inline breadcrumb-schema og `mh-article-schema` | 🟡 Duplikat strukturert data; begge parser rent, så ingen automatisk sjekk slår ut | 03.08 (C3c-10) |
+| 5 | **NKK-krav endret siden siste retting** | `pomeranian` mangler patellakrav fra 01.07.2025 helt. `bichon-havanais` beskriver klubbens 0/0-krav, men ser ut til å utelate NKK-registreringskravet fra 01.04.2016 — og har en avkomsgrense fra 01.01.2026 som ikke er verifisert | 🔴 Gjeldende regelverk mangler i live guider. Regel: sammenlign ikrafttredelsesdato mot guidens siste fikse-dato | 04.08 (C3c-13) |
+| 6 | **Gonioskopi-motsigelsen** | 4 filer: `engelsk-springer-spaniel` (krav), `flat-coated-retriever` («standard»), `sibirsk-husky` («liten gruppe … sammen med Shiba Inu»), `shiba-inu` (anbefaling) | 🟡 Guidene rangerer utbredelsen ulikt og siterer hverandre. Krever faktisk opptelling mot NKKs raseklubb-oversikt før harmonisering i én commit | 04.08 (C3c-14) |
+| 7 | **Raseguider-hub description-drift** | 21 døde `description`-felt i `templates/page.raseguider.json` | 🟢 Ingen live-effekt — feltet rendres aldri (`article_card`-grenen har null referanser). Reelt valg: fjern de 21, eller deklarer feltet og fyll ut de 39 manglende | 29.07 |
+
+---
+
+#### C3c-16 mops FULLFØRT 04.08 (commit `e49dfa2`, 2 filer live)
+
+Alle 7 godkjente punkter levert. Siste av BOAS-trioen med feil framstilling. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
+
+- **🔴 Alle tre kravdatoene var gale.** Guiden sa tre ganger «siden 2019 … som premiss for valperegistrering». Faktisk: **mops 01.01.2023**, engelsk og fransk bulldog **01.08.2022**. Ordningen fantes fra høsten 2019 — som ordning, ikke krav.
+- **🔴 Ett krav var oppdiktet, to ekte var nedgradert.** §9 påsto at «NKK krever HD-screening» — HD er *ikke* blant kravene. Patellastatus (krav siden **01.01.2020**) sto som «tilleggsmål»; øyelysning (krav siden **01.01.2023**) manglet helt. FAQ-svaret hadde begge feilene i én setning, nøyaktig invertert.
+- **🔴 Sitatet var tilskrevet feil person — og «bekreftet» av oss selv.** «Sigurd Sjølie» → **Renate Sjølie**, NKKs veterinær og **leder for FCIs BOAS-gruppe**. Et søk på sitatet returnerte vår egen mops-side som kilde og «bekreftet» samtidig navnet, «100 veterinærer», «30 land» og 80 %-tallet. **Sondres beslutning: parafraser uten anførselstegn** — la ikke sitattegn stå på en ordlyd vi aldri har lest i primærkilden.
+- **🔴 Statistikken var kollapset og hentet fra feil raser.** «Nesten 1000 testet, ~80 % grad 0/1» → **80 % av 131 engelske bulldoger og 85 % av 336 franske**. Mops-tallet mangler helt — og NKK opplyser selv at graderingskriteriene er «noe ulik for mops og de to bulldograsene».
+- **🟡 Superlativene erstattet med en verifiserbar rolle:** Renate Sjølie leder FCIs BOAS-gruppe og representerte NKK med Jane Ladlow ved lansering av BOAS-gradering for 14 nye raser under Crufts 2026.
+- **🟡 Tre fakta guiden manglet:** belastningstesten (3 min trav i 6–8 km/t), operative vilkår (min. 18 mnd, maks 24 mnd før paring, kun NKK-kurset veterinær), og — viktigst — at **en BOAS-operert hund automatisk får grad III**. Kirurgi kvalifiserer ikke et avlsdyr, den utelukker det.
+- **Fjernet framfor myket:** «over 100 veterinærer» og «30 land» lot seg kun bekrefte sirkulært.
+
+Ordtelling 4185 → 4451 (+266). llms.txt Trigger B kjørt (H2 endret).
 
 #### C3c-15 tibetansk-spaniel FULLFØRT 04.08 (commit `f97e440`, 1 fil live)
 
@@ -344,7 +398,7 @@ Ordtelling 3326 → 4344.
 
 **To nye faste kontroller (se listen nedenfor og `docs/artikkel-sjekkliste.md`).**
 
-**De 32 fullførte, gruppert etter bolk:**
+**De 33 fullførte, gruppert etter bolk:**
 
 | Bolk | Guider |
 |---|---|
@@ -355,7 +409,7 @@ Ordtelling 3326 → 4344.
 | C3c-1 (2) | `golden-retriever` · `griffon-petit-brabancon` |
 | C3c-2 (3) | `cavalier-king-charles-spaniel` · `bichon-havanais` · `border-collie` |
 | C3c-3 (2) | `west-highland-white-terrier` · `whippet` |
-| C3c-4 → C3c-15 (12) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` · `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` |
+| C3c-4 → C3c-16 (13) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` · `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` · `mops` |
 
 #### 🟠 ÅPEN SAK — dobbel BreadcrumbList på raseguidene
 
@@ -489,13 +543,13 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 **Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen — 10 guider igjen, navngitt
+#### Resten av C3c-rekkefølgen — 9 guider igjen, navngitt
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher`, `engelsk-springer-spaniel`, `jack-russell-terrier`, `shiba-inu` og `tibetansk-spaniel` er ferdige. **6,0- og 5,0-gruppene er nå tømt; 3,0-gruppen er neste.** **Neste: `mops`.**
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher`, `engelsk-springer-spaniel`, `jack-russell-terrier`, `shiba-inu` og `tibetansk-spaniel` er ferdige. **6,0- og 5,0-gruppene er tømt, og `mops` er tatt av 3,0-gruppen.** **Neste: `norsk-elghund-sort`.**
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
