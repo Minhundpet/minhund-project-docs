@@ -234,29 +234,32 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier), C3c-14 (shiba-inu), C3c-15 (tibetansk-spaniel) og C3c-16 (mops). **33 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier), C3c-14 (shiba-inu), C3c-15 (tibetansk-spaniel), C3c-16 (mops) og C3c-17 (norsk-elghund-sort). **34 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-17: `norsk-elghund-sort`
+### NESTE ØKT STARTER HER — C3c-18: `pointer`
 
-**Regnskapet i C3: 33 av 42 ferdig, 9 gjenstår** (per 04.08, etter mops). Git-historikken er autoritativ. Kontrollert begge veier: 33 + 9 = 42.
+**Regnskapet i C3: 34 av 42 ferdig, 8 gjenstår** (per 04.08, etter norsk-elghund-sort). Git-historikken er autoritativ. Kontrollert begge veier: 34 + 8 = 42.
 
-**De 9 som gjenstår, i godkjent rekkefølge:**
+**De 8 som gjenstår, i godkjent rekkefølge:**
 
 | Gruppe | Guider | Merknad |
 |---|---|---|
-| 3,0 (4 igjen) | `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` | `mops` var femte og er nå ferdig |
+| 3,0 (3 igjen) | `pointer` · `pudel` · `sankt-bernhardshund` | `mops` og `norsk-elghund-sort` er nå ferdige |
 | 0,0 — stikkprøve til slutt (5) | `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` | Null detektortreff; tas som kontroll av om detektorens nullpunkt er reelt |
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk). De øvrige åtte er pre-regel-guider uten tak.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk). De øvrige sju er pre-regel-guider uten tak.
 
 **Hva de fem siste sprintene sier du bør se etter:**
 - **Krav vs. anbefaling er nå funnklassen i fem sprinter på rad** — SBT, dvergpinscher, engelsk-springer-spaniel, jack-russell-terrier, tibetansk-spaniel og mops. Skriv alltid ut kravhierarkiet i nivåer: NKK-registreringskrav → raseklubbens tilleggskrav → vår egen anbefaling.
 - **Slå opp rasen i NKKs «Raser med krav for registrering» som fast første steg.** Fire av de siste seks guidene hadde feil her: feil dato, feil utsteder, oppdiktet krav eller manglende krav.
 - **Levetid mot RAS er nytt fast sjekkpunkt** — to sprinter på rad lå guidens levetid over raseklubbens eget dokument (shiba 12–15 mot RAS-snitt 9,23; tibetansk spaniel 14–16 mot RAS 12–15).
 - **Sirkulær bekreftelse traff to ganger i denne bolken** (shiba-forslaget, mops-sitatet). Når et søk «bekrefter» en påstand, sjekk om treffet er vår egen side før du konkluderer.
-- **Port 7 er ikke universell.** FCI 125 og 257 oppgir ingen vekt (og 257 har til og med en overskrift som lover det); FCI 231 oppgir både høyde og vekt. Sjekk per standard.
+- **Port 7 er ikke universell.** FCI 125, 257 og 242 oppgir ingen vekt (257 og 242 har til og med overskrifter som lover det); FCI 231 oppgir både høyde og vekt. Sjekk per standard. **Tre av fire siste standarder manglet vekt — anta fravær, ikke tilstedeværelse.**
+- **Sjekk om guidens forskningsseksjon har eldet.** Sier den siterte RAS-en «det pågår forsknings-studie», er det et utløpsstempel (regel 28). `norsk-elghund-sort` lå fire år bak: forekomst underrapportert med faktor tre, klinisk betydning og arvegang presentert som uavklarte etter publisering.
+- **Personattribusjon er nå funnklasse to sprinter på rad** — feil fornavn (mops/Sjølie) og feil yrkestittel (elghund sort/Nygaard). Sjekk bylinen før du gjengir rolle eller institusjon (regel 30).
+- **`article_map`-ordtellingen har drift.** `norsk-elghund-gra` lå 1 004 ord feil. Sjekk oppføringen mot fila når du uansett er inne — og vurder en korpus-sveip som egen mekanisk bolk.
 
 ---
 
@@ -289,7 +292,11 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 | B8 | `mellomschnauzer` | «pulmonisk stenose rasespesifikk hjertedefekt, levetid 13-16 år» — begge avvist i brødteksten | Mellomschnauzer raseguide — den originale schnauzer-stamfar-rasen, NSBK 1946, RBM20-DCM med DNA-test, median levetid 13 år. |
 | B9 | `boxer` | «NKK-avlsregler» — reglene er Norsk Boxerklubbs | «… og Norsk Boxerklubbs avlskrav.» |
 
-**Sum: 15 åpne admin-steg** (6 nye fra denne bolken + 9 fra tidligere). `staffordshire-bull-terrier` (C3c-10) trengte ingen — feltet var rent.
+| A7 | `norsk-elghund-sort` | **SENDT ISOLERT 04.08 — annen alvorsklasse.** Feltnavnet er limt inn i selve feltet: `<title>` = «Page title: …» og alle tre description-taggene = «Meta description: …». Synlig i Google nå. Kontrollert mot mops, tibetansk-spaniel, norsk-elghund-gra og pointer — alle rene, altså isolert til denne siden | Page title: `Norsk Elghund Sort — komplett raseguide \| Min Hund` · Meta: `Norsk Elghund Sort — kritisk truet nasjonalrase og bandhund-spesialist. NKKs gentestkrav fra 2024, HD-indeks og hva forskningen sier om overgangsvirvel.` |
+
+**Sum: 16 åpne admin-steg** (7 nye fra denne bolken + 9 fra tidligere). `staffordshire-bull-terrier` (C3c-10) trengte ingen — feltet var rent.
+
+**Unntak fra samle-regelen (Sondre 04.08):** A7 sendes til Friday **isolert og umiddelbart**, ikke i bunken. Begrunnelse: de øvrige 15 er formuleringer som er feil men troverdige og venter internt uten skade; A7 er et innlimingsartefakt som er synlig i søkeresultatet akkurat nå. **Presedens: alvorsklasse avgjør om et admin-steg kan vente, ikke hvilken bolk det tilhører.**
 
 ---
 
@@ -308,6 +315,22 @@ Disse er bevisst holdt utenfor C3c-sprintene for ikke å blande sammen kildeveri
 | 7 | **Raseguider-hub description-drift** | 21 døde `description`-felt i `templates/page.raseguider.json` | 🟢 Ingen live-effekt — feltet rendres aldri (`article_card`-grenen har null referanser). Reelt valg: fjern de 21, eller deklarer feltet og fyll ut de 39 manglende | 29.07 |
 
 ---
+
+#### C3c-17 norsk-elghund-sort FULLFØRT 04.08 (commit `738f3b6`, 3 filer live)
+
+Detektor **T1=1/T2=0/prev=0**, og det ene treffet var guidens eget forbehold — **reelt nullpunkt, og likevel bolkens tyngste funnliste. Regel 24 åttende gang.**
+
+- **🔴 «Den eneste kritisk utrydningstruede norske rasen»** — i ingress, §2 og oppsummering. NES **er** kritisk truet (Norsk genressurssenter v/ Nina Svartedal, Nationen 29.01.2025), men seks av sju norske nasjonalraser regnes som truet (NIBIO), og haldenstøveren har 7–21 valper/år mot NES' 230. **Rangeringen var nesten omvendt av virkeligheten.**
+- **🔴 En oppdretter var gjort til NMBU-forsker.** Nationens byline: «registrert oppdretter og eier av jaktpremierte hunder». Feil yrkestittel på navngitt privatperson, og et debattinnlegg fikk forskningsvekt.
+- **🔴 HD-indeksen sto med snudd retning:** «må ha indeks 200 for å kvalifisere til jaktprøver og utstillings-premiering». RAS sier «anbefales», AUNES gjør det til krav, og jaktpremiering/Very Good er **separate** kriterier. Skrevet ut i tre nivåer.
+- **🔴 Helseundersøkelsen feil tilskrevet** «NEKF/AUNES, dekker både Grå og Sort» → Frode Lingaas, NMBU, 19.11.2021, rasespesifikk, n=763.
+- **🔴 Levetid 12–13 år ukildet** mot rasens eget dokument: 10,3 år (45 døde hunder). **Tredje sprint på rad med levetid over klubbens eget tall.**
+- **🔴 §9 lå fire år bak forskningen.** LTV-forekomst 5–10 % (RAS 2021) presentert som rasens tall; **Berg et al. 2024 (Vet J 303:106056) gir 28,6 %** (195/679), mot 18,5 % samlet over 14 raser. Begge oppgis nå med hver sin referansegruppe. **Berg et al. 2025 (Acta Vet Scand 67:10)**: LTV type 2/3 henger sammen med korsryggsmerte (P=0,012, kun 10 NES). **Berg et al. 2025 (67:25)**: arvbarhet 0,199 for NES, blant de høyeste av ni raser — og genetisk korrelasjon LTV↔HD **0,615**, mens studien ikke finner noen generell sammenheng på tvers av raser. 28,6 % ble verifisert i primærtabellen, ikke bare i klubbens gjengivelse.
+- **🟠 Pelsfargen i strid med FCI 268 på fem flater** — «hvite tegninger» som rasekjennetegn og «som regel et lite halsbånd», mens standarden tolererer «a little white» og fører hvite sokker som FEIL.
+- **🟠 Kryss-guide-motsigelse:** «Grå over 25 kg» mot vår egen grå-guides 23 kg. **FCI 242 har overskriften «SIZE AND WEIGHT» og oppgir ingen vekt** — tredje forekomst etter FCI 125/257. Begge guider rettet i samme commit.
+- Ordtelling 3532 → 4274 (**+742** mot anslag +450–650). §8/§9/§2 fikk nye kildeblokker og står for 588; **de seks seksjonene uten ny kilde flyttet seg null ord.** Meldt før push.
+
+**Sidefunn:** `article_map` hadde 3500 ord for `norsk-elghund-gra` mens fila har 4504 — **1 004 ord drift** fra en Trigger B-synk som aldri ble kjørt. Rettet. **Kan gjelde flere guider; ikke sveipet.**
 
 #### C3c-16 mops FULLFØRT 04.08 (commit `e49dfa2`, 2 filer live)
 
@@ -547,9 +570,9 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher`, `engelsk-springer-spaniel`, `jack-russell-terrier`, `shiba-inu` og `tibetansk-spaniel` er ferdige. **6,0- og 5,0-gruppene er tømt, og `mops` er tatt av 3,0-gruppen.** **Neste: `norsk-elghund-sort`.**
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher`, `engelsk-springer-spaniel`, `jack-russell-terrier`, `shiba-inu`, `tibetansk-spaniel`, `mops` og `norsk-elghund-sort` er ferdige. **6,0- og 5,0-gruppene er tømt; `mops` og `norsk-elghund-sort` er tatt av 3,0-gruppen.** **Neste: `pointer`.** Merk at `norsk-elghund-gra` i stikkprøve-gruppen fikk en liten kontrollert vektfiks under C3c-17, men er IKKE kildeverifisert — den står fortsatt som stikkprøve.
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
@@ -644,6 +667,9 @@ Ingen blokkerer live-push. Samles til én runde.
 24. **En lav detektorscore er ikke et kvalitetsstempel.** `staffordshire-bull-terrier` ga T1=2/T2=0/prev=0 — laveste baseline i hele C3c — og viste seg å inneholde bolkens groveste feil: en klubbanbefaling framstilt som krav, to helserangeringer snudd av datagrunnlaget, og en myte presentert som dokumentert lokalhistorie. **Detektoren finner rangeringsspråk og ukildet prevalens. Den finner ikke regulatoriske påstander, mekanismer som ikke finnes, eller historiske påstander uten opphav.** Når en artikkels risiko ligger i juss, klubbregler eller historie framfor i tall, må kartleggingen gjøres manuelt uansett hva detektoren sier. Motstykket gjelder også: etter fiksen ga detektoren T1=3/prev=8, og **alle 11 var falske positive** — de tre rangeringstreffene var guidens egne *anti*-rangeringsforbehold. Høy score etter en fiks kan bety at teksten har fått bedre forbehold, ikke dårligere dekning. Les alltid treffet.
 23. **Sirkulær bekreftelse virker begge veier.** I `fransk-bulldog` var jeg i ferd med å underkjenne en KORREKT regulatorisk påstand fordi et søketreff som «bekreftet» den viste seg å ha vår egen mops-guide som tredje treff. Regelen fra italiensk-mynde — «finnes en påstand bare i vår egen tekst i søkeresultatene, er den ubekreftet» — betyr **ubekreftet, ikke motbevist**. Gå til utsteders primærside før du konkluderer i noen av retningene. Her lå svaret på NKKs egen graderingsside, og guiden hadde rett hele veien.
 27. **En seksjon som får en helt ny kildeblokk koster 3× prosaen — anta det, ikke regn det ut.** (Fastsatt av Sondre 03.08 etter tredje bom på rad.) SBT: anslag +400–600, faktisk +2583. Dvergpinscher: anslag +370, faktisk +1110. Engelsk springer spaniel: anslag +450–750, faktisk +1441 — og der hadde jeg *allerede* lagt inn 2×-multiplikatoren fra regel 26 og bommet med ytterligere en faktor to. Fordelingen var entydig: de to seksjonene som fikk ny kildeblokk stod for +716 av +1441 (§9 +412 mot estimert 120–200, §10 +304 mot estimert 150–250), mens de fire seksjonene uten ny kilde flyttet seg 0–27 ord til sammen. **Multiplikatoren skal ikke reberegnes per sprint — den meldes som et fast forbehold i Phase 1:** «seksjon X får ny kildeblokk, regn 3× prosa-estimatet.» Årsaken er strukturell, ikke sløv skriving: en ny kilde drar med seg forfatter, år, journal, n, referansegruppe, forbehold om utvalget og hva funnet *ikke* sier — seks–sju setninger som ikke fantes i den ukildede versjonen. Kildeforankring er dyrere enn prosa fordi den må bære sin egen etterprøvbarhet.
+28. **En guides forskningsseksjon eldes selv om ingen rører den.** `norsk-elghund-sort` §9 var korrekt mot RAS 2021 og gal mot 2026: forekomsten var underrapportert med faktor tre (5–10 % mot Bergs 28,6 %), klinisk betydning ble presentert som uavklart etter at den var publisert, og arvegangen som ukjent etter at arvbarheten var estimert. **Når en guide siterer et RAS-dokument som sier «det pågår forsknings-studie», er det et utløpsstempel — søk opp om studien har publisert.** Klubbens egne oppdaterte notater (her AUNES 02.10.2025) er den raskeste inngangen, men gå videre til artikkelen: klubbnotatet ga tallet 28,6 %, primærtabellen bekreftet det.
+29. **Et klubbnotat kan bære forskerens konklusjon bedre enn vår egen resonnering.** Guiden begrunnet fraværet av LTV-avlsrestriksjoner med effektiv populasjon og et «omvendt føre-var-prinsipp» — plausibelt, velskrevet og **lagt i munnen på AUNES**. Utvalgets egen begrunnelse var kortere og bedre: «før vi har flere svar enn spørsmål». **Når du tilskriver en aktør et resonnement, sjekk om aktøren har formulert det selv — parafraser den, ikke din egen rekonstruksjon.** Beslektet med regel 9 (klubbattribuerte påstander verifiseres som blokk) og med anførselstegn-regelen fra C3c-16.
+30. **En yrkestittel er en verifiserbar påstand om en levende person.** «NMBU-forsker Karianne Nygaard» — Nationens byline sier «registrert oppdretter og eier av jaktpremierte hunder». Tittelen var ikke pynt: den ga et debattinnlegg forskningsvekt og flyttet tyngdepunktet i en pågående faglig strid. **Sjekk alltid bylinen/kildens egen presentasjon av en navngitt person før du gjengir rolle eller institusjon.** Samme klasse som feil fornavn i C3c-16 (Sigurd vs Renate Sjølie) — to sprinter på rad med personattribusjonsfeil.
 
 ### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
 
