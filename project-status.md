@@ -234,34 +234,54 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **28 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel). **29 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-12: `engelsk-springer-spaniel`
+### NESTE ØKT STARTER HER — C3c-13: neste i rekkefølgen
 
-**Regnskapet i C3: 28 av 42 ferdig, 14 gjenstår** (per 03.08, etter dvergpinscher). Git-historikken er autoritativ. Kontrollert begge veier: 28 + 14 = 42.
+**Regnskapet i C3: 29 av 42 ferdig, 13 gjenstår** (per 04.08, etter engelsk-springer-spaniel). Git-historikken er autoritativ. Kontrollert begge veier: 29 + 13 = 42.
 
-Neste guide er **`engelsk-springer-spaniel`** (score 5,0). Ingen kartlegging gjort ennå.
-
-**Hva de to siste bolkene sier du bør se etter:**
-- **Krav vs. anbefaling er nå en egen risikoklasse.** SBT oppgraderte en anbefaling til krav; dvergpinscher nedgraderte et krav til anbefaling. To sprinter på rad, motsatt retning. Verifiser klubbdokumentet ordrett — og sjekk hvilken *mekanisme* kravet henger på.
-- **Nabo-rase-import (regel 10) har nå tre forekomster** — mellomschnauzer (PS), dvergpinscher (patella fra Yorkshire, urinstein fra dvergschnauzer). Springer spaniel har flere nære slektninger; sjekk om disposisjoner tilhører rasen selv.
-- **Port 7 gjentok seg ikke i dvergpinscher** (FCI oppgir ikke kjønnsdelte mål der), men slo ut fire sprinter på rad før det. Sjekk standarden separat uansett.
+**Hva de tre siste bolkene sier du bør se etter:**
+- **Krav vs. anbefaling er nå den mest produktive risikoklassen — tre sprinter på rad.** SBT oppgraderte en anbefaling til krav; dvergpinscher og engelsk springer spaniel nedgraderte krav til anbefaling. Verifiser klubbdokumentet ordrett, og last det ned framfor å lese en oppsummering — springer-funnet lå i en PDF-tabell som ingen søkeoppsummering gjenga.
+- **Nabo-rase-import (regel 10) har nå fire forekomster** — mellomschnauzer (PS), dvergpinscher (patella fra Yorkshire, urinstein fra dvergschnauzer), engelsk springer spaniel (farge-aggresjon fra cocker). Mønsteret er stabilt: jo nærmere slektning, jo mer sannsynlig at en disposisjon er lånt.
+- **Et helt fravær er like alvorlig som en feil påstand.** Springer-guiden hadde null feil om gonioskopi — den nevnte det ikke. Detektoren kan per definisjon ikke finne det som mangler. **Spør alltid: hva er rasens faktiske avlskrav i Norge, og står det i guiden?**
+- **Sjekk om «etablert mekanisme» har rasespesifikk dekning.** Springer-guidens EEG-narrativ hvilte på en kasusserie med tre hunder uten rasetilhørighet. Samme klasse som Salzmann (C3c-3): kilden finnes, men den handler ikke om denne rasen.
 
 #### 🔴 ÅPNE ADMIN-STEG (kan ikke gjøres fra CLI)
 
 | Side | Hva | Status |
 |---|---|---|
 | `/pages/dvergpinscher` | Meta-description fremhever «hackney-trav» — påstanden som nettopp ble rettet som en standard-FEIL. Også «importerte første» (flertall) mot NPKs «en dvergpinscher fra England» | **ÅPEN — godkjent tekst under** |
+| `/pages/engelsk-springer-spaniel` | Meta-description har 3 forekomster av «DNA-test-quartet» (rasen har fem offisielle KC-ordninger, og det norske kravet er gonioskopi) og «fra 1885 til Fant 1992» (1893-separasjonen er strøket som anakronisme) | **ÅPEN — godkjent tekst under** |
 
-**Godkjent erstatningstekst (Sondre, 03.08):**
+**Godkjent erstatningstekst dvergpinscher (Sondre, 03.08):**
 
 > Dvergpinscher raseguide — median levealder 13,7 år, MPS VI og ARSB-gentest (Raj 2020), og Norsk Pinscherklubbs faktiske avlskrav: patella 0/0 og gyldig øyelysning.
 
-Settes i Shopify Admin → Online Store → Pages → `dvergpinscher` → Search engine listing.
+**Godkjent erstatningstekst engelsk springer spaniel (Sondre, 04.08):**
+
+> Engelsk Springer Spaniel raseguide — Norsk Spaniel Klubs gonioskopi-krav, fem offisielle DNA-testordninger, og tallene fra Reisner et al. 2005 om eierrettet aggresjon i rasen.
+
+Settes i Shopify Admin → Online Store → Pages → `<handle>` → Search engine listing.
 
 `staffordshire-bull-terrier` (C3c-10) trengte **ingen** meta-fiks — feltet var rent.
+
+#### C3c-12 engelsk-springer-spaniel FULLFØRT 04.08 (commit `3d8600e`, 1 fil live)
+
+Alle 14 godkjente punkter levert. **Full dokumentasjon i `docs/health-claims-register.md`.** Hovedpunktene:
+
+- **🔴 Rage syndrome-narrativet var galt i begge retninger samtidig.** Guiden anslo forekomst til «under 1 %» (ukildet), framstilte temporallapps-epilepsi som etablert mekanisme, og hentet farge-sammenhengen fra cocker. Alle tre falt. Det som FAKTISK er dokumentert — **Reisner, Houpt & Shofer 2005, JAVMA 227(10):1594–1603, n=1053: 48,4 % knurring eller verre mot egen eier, 26,3 % bitthistorikk**, risiko forbundet med hannkjønn, kastrert status, show-linje og alder >4 år — sto ikke i guiden i det hele tatt. **Nettoeffekten var at guiden understatet rasens reelle problem og overstatet mekanismen.** Studiens egen konklusjon (velg tispe av jakttype fra erfaren oppdretter) er nå med ordrett.
+- **🔴 EEG-påstanden hvilte på tre hunder uten rase.** Dodman 1992 er en kasusserie på n=3 der rasetilhørighet ikke oppgis. **Ny variant av Salzmann-klassen: kilden finnes og er korrekt gjengitt, men den handler ikke om denne rasen.**
+- **🔴 Gonioskopi — rasens eneste rasespesifikke avlskrav — manglet helt (0 treff i fila).** NSKs avlsanbefalinger krever gonioskopering før første parring og deretter hvert 3. år, med parringsmatrise og forbud mot å krysse glaukom-linjer. Guiden presenterte i stedet en «DNA-test-quartet» som definisjonen på ansvarlig avl. **Et fravær som detektoren per definisjon ikke kan finne.**
+- **🔴 HD-rangeringen snudd av datagrunnlaget.** BVA 2024: springer 15-års median **10** (n=850) mot labrador 9, rottweiler 8, berner sennenhund 9. Guiden sa «lavere HD-risiko enn storraser» på to steder.
+- **Klubbkrav-blokken ga fem avvik samtidig** (regel 9): NSK- ikke NKK-medlemskap, manglende kullkrav og dispensasjonsadgang, manglende aktivitets- og premieringskrav, og HD nedgradert fra «skal ha kjent status» til «ikke offisielt avlskrav».
+- **Fabrikkert standardsitat i fem flater.** «Vennlig, åpen, glad, aktiv og livlig» tilskrevet NKK; standarden sier «Vennlig, glad og medgjørlig». Femte forekomst lå i **ingressen** — port 1 slo ut på nytt.
+- **Standarden angir ingen vekt** (regel 13): «FCI-standarden angir 19–25 kg» → standardens Størrelse er kun «Mankehøyde: Ca 51 cm». Cocker-standarden oppgir derimot vekt — nabo-standarden ga falsk trygghet.
+- **Ikke overkorrigert:** «Den eldste av fuglehundrasene» står ordrett i NKK-standarden, hele den norske Fant-historikken bekreftes av NJFF, og otitis-retningen «lavere enn cocker» fikk endelig kilde (O'Neill 2021: springer OR 1,24 ikke-signifikant, cocker OR 1,67) — det var *mekanismen* som var oppfunnet, ikke retningen.
+- **Forkastet kilde:** Reisner 1996 (CSF-serotonin) ville vært en sterk springer-moat, men utvalget lot seg ikke bekrefte som springere. Regel 20 holdt.
+
+Ordtelling 4045 → 5486. **Ny regel 27 (3×-multiplikator ved ny kildeblokk).**
 
 #### C3c-11 dvergpinscher FULLFØRT 03.08 (commit `e4e1c49`, 2 filer live)
 
@@ -279,7 +299,7 @@ Ordtelling 3326 → 4344.
 
 **To nye faste kontroller (se listen nedenfor og `docs/artikkel-sjekkliste.md`).**
 
-**De 28 fullførte, gruppert etter bolk:**
+**De 29 fullførte, gruppert etter bolk:**
 
 | Bolk | Guider |
 |---|---|
@@ -290,7 +310,7 @@ Ordtelling 3326 → 4344.
 | C3c-1 (2) | `golden-retriever` · `griffon-petit-brabancon` |
 | C3c-2 (3) | `cavalier-king-charles-spaniel` · `bichon-havanais` · `border-collie` |
 | C3c-3 (2) | `west-highland-white-terrier` · `whippet` |
-| C3c-4 → C3c-11 (8) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` · `dvergpinscher` |
+| C3c-4 → C3c-12 (9) | `mellomschnauzer` · `beagle` · `boxer` · `chihuahua` · `engelsk-setter` · `fransk-bulldog` · `staffordshire-bull-terrier` · `dvergpinscher` · `engelsk-springer-spaniel` |
 
 #### 🟠 ÅPEN SAK — dobbel BreadcrumbList på raseguidene
 
@@ -424,13 +444,13 @@ Alle seks godkjente fikser levert, pluss fem NSBK-attribusjonsfeil oppdaget unde
 
 **Ny verifiseringsregel (nr. 9), se listen nedenfor:** klubbattribuerte påstander verifiseres som blokk, ikke enkeltvis.
 
-#### Resten av C3c-rekkefølgen — 14 guider igjen, navngitt
+#### Resten av C3c-rekkefølgen — 13 guider igjen, navngitt
 
 Godkjent rekkefølge: score-orden, med de fem null-treff-guidene til slutt som stikkprøve.
 
-`engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (score 5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
+`jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` (score 5,0) → `mops` · `norsk-elghund-sort` · `pointer` · `pudel` · `sankt-bernhardshund` (3,0) → **stikkprøve til slutt:** `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` (0,0).
 
-**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier` og `dvergpinscher` er ferdige. 6,0-gruppen er tømt; 5,0-gruppen er påbegynt.
+**Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk) av de gjenstående. Resten er pre-regel-guider på 3300–4800 ord uten tak. `whippet`, `west-highland-white-terrier`, `mellomschnauzer`, `beagle`, `boxer`, `chihuahua`, `engelsk-setter`, `fransk-bulldog`, `staffordshire-bull-terrier`, `dvergpinscher` og `engelsk-springer-spaniel` er ferdige. 6,0-gruppen er tømt; 5,0-gruppen har tre igjen. **Neste: `jack-russell-terrier`.**
 
 **Ordbudsjett-erfaring fra C3c-4:** et **moat-bytte** koster 4–8× en vanlig kildefiks (100–200 ord) — mellomschnauzer landet på +832. Skal en guide bytte helse-moat, planlegg ordkostnaden inn i Phase 1 framfor å trimme den bort i Phase 3.
 
@@ -524,6 +544,7 @@ Ingen blokkerer live-push. Samles til én runde.
 25. **HTML-tagger skal aldri inn i JSON-LD-tekst.** Under skrivingen av `dvergpinscher` la jeg `<strong>` og `<em>` inn i et FAQ-svar. Fordi svaret speiles i både synlig HTML og FAQPage-schema, ville det både brutt 1:1-sjekken (som stripper tagger fra synlig side, men ikke fra schema) og gitt ugyldig praksis i strukturert data. **Ny fast kontroll i pre-publiseringsrutinen: `HTML-tagger i schema-tekst == 0`.** Beslektet observasjon: HTML-balansesjekken viser `div 31/28` og `section 1/0` på raseguidene — det er et **måleartefakt**, fordi `</article>` også finnes i produktkortene og den ikke-grådige regexen i korpusets audit-kommando kutter tidlig. Identisk i HEAD. Ikke «rett» den.
 24. **En lav detektorscore er ikke et kvalitetsstempel.** `staffordshire-bull-terrier` ga T1=2/T2=0/prev=0 — laveste baseline i hele C3c — og viste seg å inneholde bolkens groveste feil: en klubbanbefaling framstilt som krav, to helserangeringer snudd av datagrunnlaget, og en myte presentert som dokumentert lokalhistorie. **Detektoren finner rangeringsspråk og ukildet prevalens. Den finner ikke regulatoriske påstander, mekanismer som ikke finnes, eller historiske påstander uten opphav.** Når en artikkels risiko ligger i juss, klubbregler eller historie framfor i tall, må kartleggingen gjøres manuelt uansett hva detektoren sier. Motstykket gjelder også: etter fiksen ga detektoren T1=3/prev=8, og **alle 11 var falske positive** — de tre rangeringstreffene var guidens egne *anti*-rangeringsforbehold. Høy score etter en fiks kan bety at teksten har fått bedre forbehold, ikke dårligere dekning. Les alltid treffet.
 23. **Sirkulær bekreftelse virker begge veier.** I `fransk-bulldog` var jeg i ferd med å underkjenne en KORREKT regulatorisk påstand fordi et søketreff som «bekreftet» den viste seg å ha vår egen mops-guide som tredje treff. Regelen fra italiensk-mynde — «finnes en påstand bare i vår egen tekst i søkeresultatene, er den ubekreftet» — betyr **ubekreftet, ikke motbevist**. Gå til utsteders primærside før du konkluderer i noen av retningene. Her lå svaret på NKKs egen graderingsside, og guiden hadde rett hele veien.
+27. **En seksjon som får en helt ny kildeblokk koster 3× prosaen — anta det, ikke regn det ut.** (Fastsatt av Sondre 03.08 etter tredje bom på rad.) SBT: anslag +400–600, faktisk +2583. Dvergpinscher: anslag +370, faktisk +1110. Engelsk springer spaniel: anslag +450–750, faktisk +1441 — og der hadde jeg *allerede* lagt inn 2×-multiplikatoren fra regel 26 og bommet med ytterligere en faktor to. Fordelingen var entydig: de to seksjonene som fikk ny kildeblokk stod for +716 av +1441 (§9 +412 mot estimert 120–200, §10 +304 mot estimert 150–250), mens de fire seksjonene uten ny kilde flyttet seg 0–27 ord til sammen. **Multiplikatoren skal ikke reberegnes per sprint — den meldes som et fast forbehold i Phase 1:** «seksjon X får ny kildeblokk, regn 3× prosa-estimatet.» Årsaken er strukturell, ikke sløv skriving: en ny kilde drar med seg forfatter, år, journal, n, referansegruppe, forbehold om utvalget og hva funnet *ikke* sier — seks–sju setninger som ikke fantes i den ukildede versjonen. Kildeforankring er dyrere enn prosa fordi den må bære sin egen etterprøvbarhet.
 
 ### 2026-07-30 — C3b-3 dachshund (`eece6f1`, 1 fil live)
 
