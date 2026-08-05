@@ -261,6 +261,68 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 **Metodenotat:** ville ikke blitt oppdaget av kildesettings-sporet — det dukket opp fordi strukturkontrollen kjøres uansett. Argument for å beholde de «trivielle» strukturelle sjekkene selv når fokus er kildeverifisering.
 
+## 🏁 SLUTTSTATUS C3 — 2026-08-05: KILDEVERIFISERINGEN ER FERDIG, 42 AV 42
+
+**C3c-21 levert** (commit `eaef8ef`, 6 filer live): `norsk-elghund-gra`, `dansk-svensk-gardshund`, `finsk-lapphund`, `jamthund`, `shetland-sheepdog` — kjørt som én bulk. **Med disse er hele C3-sporet ferdig: 42 av 42 raseguider kildeverifisert, rettet og live.** Regnskapet kontrollert begge veier: 37 + 5 = 42.
+
+### Hva C3 endte med å være
+
+Sporet startet som en jakt på rangeringsspråk og ukildet prevalens. Det ble noe annet. **Den dominerende funnklassen gjennom hele C3c var regulatoriske påstander — hva en klubb eller myndighet faktisk krever.** Mønsteret traff seks sprinter på rad til slutt, og feilen gikk nesten alltid i begge retninger samtidig: krav som ikke fantes ble oppgitt som bindende, mens klubbens ekte krav manglet.
+
+**Detektoren fant ikke dette.** De fem siste guidene scoret alle 0/0/0, og hadde likevel to fabrikkerte NKK-krav, en retnings-invertering, et regelverk guiden lå bak, og en klubb som eksplisitt sier den ikke stiller krav. **Regel 24 er den mest bekreftede regelen i prosjektet: en lav detektorscore sier ingenting om filens kvalitet når risikoen ligger i regelverk, attribusjon eller aldrende forskning.**
+
+### Den ene selvinnførte feilen
+
+I C3c-20 konkluderte jeg med at sankt bernhardshund ikke har NKK-krav. Det var galt og sto live i noen timer (`025c55a` → rettet i `7088ad2`). Jeg leste oversiktssida, som eksplisitt sier at HD/AD- og DNA-listene ligger i egne dokumenter. **Regel 39: fravær er bare bevis når kilden er uttømmende for det du spør om.** Dette er den eneste selvinnførte faktafeilen i C3, og den eneste som har vært live.
+
+### Regler etablert i C3 (24–39)
+
+**24** detektorscore sier ingenting om kvalitet · **27** kildeforankring koster 3× prosa · **28** forskningsseksjoner eldes · **29** klubbens egen begrunnelse slår vår rekonstruksjon · **30** yrkestittel er en verifiserbar påstand om en levende person · **31** et sitat kan være ordrett riktig og feil tilskrevet · **32** å rette en rangering med en rangering er ingen fiks · **33** «loven forbyr X» er dyreste påstandsklasse · **34** adresser lesernes misforståelse, aldri vår egen tidligere ordlyd · **35** riktig sitert dokument beskytter ikke mot feil gjengitt innhold · **36** å gjøre oss strengere enn klubben er like galt som å gjøre oss slappere · **37** HD- og AD-aldersgrenser kan være ulike innen samme rase · **38** sidebar-widgeten er en fjerde speilingsflate · **39** fravær er bare bevis når kilden er uttømmende.
+
+---
+
+## 🔴 ALLE ÅPNE POSTER ETTER C3
+
+### 1. Admin-steg — flate 3, kan ikke gjøres fra CLI (17 stk)
+
+Godkjente tekster ligger i `docs/health-claims-register.md`. **Sendes samlet til Friday nå som sweepen er ferdig.**
+
+| Gruppe | Antall | Saker |
+|---|---|---|
+| A-serien (innholdsfeil i meta) | 7 | `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` · `mops` · `norsk-elghund-sort` (A7 — **allerede sendt isolert 04.08**, innlimingsartefakt synlig i Google) |
+| B-serien (formuleringer) | 9 | `riesenschnauzer` · `irsk-setter` · `italiensk-mynde` · `hvor-mye-vann-hund` · `griffon-petit-brabancon` · `border-collie` · `whippet` · `mellomschnauzer` · `boxer` |
+| Nytt fra C3c-20 | 1 | `sankt-bernhardshund` — meta bærer «51–80 kg», «8–10 år» og «NSBK + NKK-rammeverk» |
+
+**C3c-21 genererte ingen nye.** Alle fem meta-descriptions ble lest og var rene.
+
+**Presedens (Sondre 04.08):** alvorsklasse avgjør om et admin-steg kan vente, ikke hvilken bolk det tilhører.
+
+### 2. Ventende korpus-bolker (7)
+
+| # | Bolk | Omfang | Alvorlighet |
+|---|---|---|---|
+| 1 | **FAQ ↔ schema-avvik** | 19 filer | 🔴 HARD-regelbrudd — Google leser noe annet i rikresultatet enn siden viser |
+| 2 | **Semikolon-bolken** | 14 filer, 2 835 semikolon mot 3–20 komma | 🟡 Lesbarhet. `article_map`-kommaregelen feilaktig anvendt på brødtekst |
+| 3 | **TOC-gap-bolken** | 55 manglende ankerlenker (`faq` i 43 filer, `faq-heading` 4, `tips-king` 4, `oppsummering` 3, `historie` 3) | 🟡 Seksjoner unåbare fra innholdsfortegnelsen |
+| 4 | **Dobbel BreadcrumbList** | Trolig alle raseguider med både inline schema og `mh-article-schema` | 🟡 Duplikat strukturert data; begge parser rent |
+| 5 | **NKK-krav endret siden siste retting** | `pomeranian` mangler patellakrav fra 01.07.2025; `bichon-havanais` utelater trolig NKK-registreringskravet fra 01.04.2016 og har en uverifisert avkomsgrense fra 01.01.2026 | 🔴 Gjeldende regelverk mangler i live guider |
+| 6 | **Gonioskopi-motsigelsen** | 4 filer: `engelsk-springer-spaniel` (krav) · `flat-coated-retriever` («standard») · `sibirsk-husky` («liten gruppe … sammen med Shiba Inu») · `shiba-inu` (anbefaling) | 🟡 Guidene rangerer utbredelsen ulikt og siterer hverandre |
+| 7 | **Raseguider-hub description-drift** | 21 døde `description`-felt i `templates/page.raseguider.json` | 🟢 Ingen live-effekt — feltet rendres aldri |
+
+**Ny bolk 8 — `article_map`-ordtellingsdrift.** Bekreftet i stor skala i C3c-21: `finsk-lapphund` lå 1 000 ord feil, `dansk-svensk-gardshund` 950, `shetland-sheepdog` 500. Tidligere funnet i `norsk-elghund-gra` (C3c-17, 1 004 ord). **Korpuset er ikke sveipet** — kun de guidene vi har vært inne i er rettet. 🟡 Degraderer verdien av `/llms.txt` for AI-crawlere.
+
+### 3. Åpne enkeltsaker (3)
+
+- **Div-strukturavvik i `pointer`:** 2 body-divs mot 12 H2 der canonical krever én per H2. Ingen forbudte Cocker-markører. Ikke rørt.
+- **Språk-default i Shopify Admin:** butikkens default locale er fortsatt engelsk. Manuelt steg — flipp default til Norsk (Bokmål) **først**, deretter unpublish English. Rekkefølgen er kritisk.
+- **`jamthund` meta-description:** nevner ikke det nye gradskravet fra 01.04.2026. Ikke feil, derfor ikke logget som admin-steg — men kan oppdateres hvis ønskelig.
+
+### 4. Neste fase
+
+C3 er lukket. Naturlige kandidater i prioritert rekkefølge: **bolk 1 (FAQ↔schema, 19 filer — eneste røde av de mekaniske)**, deretter **bolk 5 (NKK-krav endret — også rødt, og samme feilklasse som dominerte C3c)**, så de gule mekaniske bolkene. Rekkefølge ikke fastsatt av Sondre.
+
+---
+
 ## FULL STATUS 2026-08-05 — C3c-20 levert, 3,0-gruppen tømt
 
 **C3c-20 `sankt-bernhardshund` fullført** (commit `025c55a`, 2 filer live). 19 funn godkjent samlet av Sondre, alle rettet. **C3 står nå på 37 av 42; fem gjenstår** — hele 0,0-stikkprøvegruppen.
@@ -348,7 +410,7 @@ Første steg for sankt-bernhardshund, gitt mønsteret over: slå opp rasen i NKK
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier), C3c-14 (shiba-inu), C3c-15 (tibetansk-spaniel), C3c-16 (mops), C3c-17 (norsk-elghund-sort), C3c-18 (pointer) og C3c-19 (pudel). **37 av C3s 42 guider er kildeverifisert og live** (C3c-20 `sankt-bernhardshund` levert 05.08), alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier), C3c-14 (shiba-inu), C3c-15 (tibetansk-spaniel), C3c-16 (mops), C3c-17 (norsk-elghund-sort), C3c-18 (pointer) og C3c-19 (pudel). **42 av C3s 42 guider er kildeverifisert og live** — sporet lukket 05.08 med C3c-21-bulken, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
