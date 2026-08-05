@@ -78,7 +78,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 Parallelt spor ved siden av raseguide-sporet (C3c-18/19 gikk samtidig i samme repo). Alt live på `#148333264974`, alt pushet til GitHub main.
 
-**Produktet.** Valpepakken, handle `valpepakken`, 449 kr, ingen compare-at. Innhold: CalmBall + tyggering i silikon + drikkeflaske i rustfritt stål/silikon. Sondre opprettet produktet, bildene, opsjonen `Farge` (Blå/Rosa), variantbilder, SKU (`MH-VP-BLAA`/`MH-VP-ROSA`) og alt-tekster i Admin underveis i økta. `templateSuffix = valpepakken` (ett av få som matcher URL-handle). **Rosa har 0 på lager** — alle 9 enhetene ligger på Blå, så Rosa rendres som utsolgt.
+**Produktet.** Valpepakken, handle `valpepakken`, 449 kr, ingen compare-at. Innhold: CalmBall + tyggering i silikon + drikkeflaske i rustfritt stål/silikon. Sondre opprettet produktet, bildene, opsjonen `Farge` (Blå/Rosa), variantbilder, SKU (`MH-VP-BLAA`/`MH-VP-ROSA`) og alt-tekster i Admin underveis i økta. `templateSuffix = valpepakken` (ett av få som matcher URL-handle). Lager per 05.08: **5 Blå + 5 Rosa**, begge InStock i Product-schemaet. (Var kortvarig 9/0 natten mellom 04. og 05.08 mens oppsettet pågikk — rettet i Admin 02:14.)
 
 **Levert.**
 1. `sections/product-valpepakken.liquid` + `templates/product.valpepakken.json` — kanonisk PDP-mønster (hero-galleri, trust-badges, ATC via `product-form-component` urørt, King-sitat, accordions, readmore, related, sticky mobil-ATC). BEM-prefiks `vp-`. FAQPage JSON-LD inline (snippeten `mh-product-faq-schema` krever en objekt-array Liquid ikke kan bygge uten metafelt).
@@ -97,7 +97,7 @@ Parallelt spor ved siden av raseguide-sporet (C3c-18/19 gikk samtidig i samme re
 **Verifiseringsmetode (ny).** Visuell verifisering før push løst ved: lokal `shopify theme dev` → hente det rendrede kortet + seksjonens egen CSS → isolert HTML-fil → skjermbilde i headless Chrome → beskjære og forstørre 2×. Headless Chrome henger på dev-server-URL-en direkte (eksterne Shopify-ressurser blokkert), men fungerer på lokale filer. `getBoundingClientRect` injisert via `--dump-dom` ga eksakte layout-tall. Første lille rendring så ut som produktet var klippet — 2×-utsnittet viste at det var slagskyggen. **Lærdom: ikke konkluder på lavoppløste utsnitt.**
 
 **Gjenstår.**
-- Lagerfordeling Rosa/Blå bør vurderes (Rosa 0 stk = halve fargevalget er utsolgt).
+- ~~Lagerfordeling Rosa/Blå~~ — løst 05.08: 5 + 5. Merk at PDP-ens lagervarsel («Kun N igjen på lager») trigges under 6 og derfor vises fra dag én på begge farger. Korrekt, men ikke et faktisk knapphetssignal.
 - Bildefilene bør beskjæres ved kilden; zoom er en midlertidig kompensasjon for hvit luft i eksporten.
 - Tre `.mh-article__cta-wrap`-CSS-regler står igjen som død CSS i valpe-artiklene etter at HTML-blokkene ble fjernet.
 - Attributt-mønsteret bør sveipes i de resterende PDP-ene.
