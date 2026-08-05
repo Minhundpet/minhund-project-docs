@@ -68,7 +68,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 - **GSC page-2 round 2 (~64 gjenstående opps) — GATED på avlesing ~2026-08-12** — top-15-effekten fra page-2-sprinten (Batch A/D/C/B, live 2026-07-22) måles i GSC rundt 12.08 (samordnet med v2-avlesingen 14.08). Virker CTR/posisjon-mønsteret → round 2 (dypere mining under top-15) godkjennes da. Hold til da.
 - **King→griffon sitewide link-equity (deferred)** — «Tips fra King» er hardkodet i **118 filer** (ikke shared snippet); 15 lenker allerede til griffon-guiden. Sitewide King→`/pages/griffon-petit-brabancon` krever FØRST refactor av «Tips fra King» til delt snippet, deretter mass-link. Egen scoped sprint. (Batch C fylte companion-cluster-gapene i stedet.)
 - **2 weak-fit Batch-D-links holdt (Sondre-beslutning utestående)** — `aktivisere-hund-pa-tur`→potevasker (ingen pote/gjørme-kontekst) + `hundehar-bilen`→«fjerne hundehår fra sofa»-anchor (bil-artikkel, off-topic). Ikke shippet; force-add hvis ønsket.
-- **llms.txt H2-drift på hund-kaster-opp (månedlig audit)** — article_map H2-liste stale: «Oppkast vs. rygning» (faktisk «oppgulping») + «Bilsyke»-H2 matcher ikke lenger seksjonsfila. Word_count fikset i sprint 2026-07-22; H2-liste gjenstår for månedlig llms-audit.
+- ~~**llms.txt H2-drift på hund-kaster-opp (månedlig audit)**~~ — **LUKKET 05.08.2026** som del av H2-liste-driften (19 oppføringer, commit `ad28542` + `pointer`-tillegg). «Oppkast vs. rygning» → «oppgulping» rettet. **Korreksjon til den opprinnelige noten: «Bilsyke»-halvdelen var aldri reell** — «Bilsyke — når hunden kaster opp i bil» matchet seksjonsfila eksakt hele tiden. Bare rygning/oppgulping var drift.
 
 ---
 
@@ -321,6 +321,14 @@ Godkjente tekster ligger i `docs/health-claims-register.md`. **Sendes samlet til
 | 7 | **Raseguider-hub description-drift** | 21 døde `description`-felt i `templates/page.raseguider.json` | 🟢 Ingen live-effekt — feltet rendres aldri |
 
 **✅ Bolk 8 — `article_map`-ordtellingsdrift LUKKET 05.08.** 82 oppføringer rettet mot registerets terskel på 100 ord; gjenværende drift er 0. 43 193 ord manglet totalt, snitt +526. Alle 121 oppføringer er nå målbare — de fire «umappede» skyldtes handle ≠ template-navn, ikke drift. Historikk: Alle 73 er **positive** avvik — `article_map` undertelder systematisk. Den gamle målingen ga 42 avvik hvorav 11 negative; **alle de negative var måleartefakter** fra den ødelagte `<article>`-regexen (`reise-til-utlandet-med-hund` målte 409 ord, reelt 2468). Verste reelle: `chihuahua` +2081, `hund-sover-mye` +1686, `cane-corso` +1552. 🟡 Degraderer verdien av `/llms.txt` for AI-crawlere. **Merk:** Bolk 5-rettelsene la 32–178 ord på 22 guider — under Trigger B-terskelen på 20 %, så de utløser ikke i seg selv `article_map`-oppdatering, men de inngår i tallene over.
+
+**✅ Bolk 9 — `article_map` H2-liste-drift LUKKET 05.08.** 19 oppføringer synket mot seksjonsfil (commit `ad28542` + `pointer`-tillegg, begge live, sha256 live == HEAD).
+
+**Hovedfunnet var ikke at listene hadde blitt gamle — det var at `article_map` er en usynlig flate i rettelsessveip.** Ni av avvikene stammer fra rettelseskommiter: seksjonsfila ble korrigert, `article_map` ble aldri synket, og `/llms.txt` fortsatte å servere nøyaktig de påstandene rettingen fjernet. Blant dem et sikkerhetstall (`5-` mot faktisk `7-sekunder-regelen`), sykdomsrangeringen C3c-7 snudde tilbake på `chihuahua`, typedelingen C3c-8 slo fast ikke finnes i Norge på `engelsk-setter`, feil produkt-form-factor (`Slikkematte` mot `Slikkeball` — og `slikkematte-hund` er et *annet* produkt), og et `beroligende`-claim fjernet for markedsføringsloven §§6-8. Skarpeste illustrasjon: `4bd8496` navnga eksplisitt flatene sine («11 occurrences across 4 articles + TOC + JS anchor») — `article_map` sto ikke på lista og overlevde i to av dem. Ny **Trigger E** i `.claude/rules/llms-txt.md` + gotcha #20.
+
+**To kalibreringsfeller dokumentert:** (1) 100 H2 med `;` der fila har `,` er *påkrevd* sanitering, ikke drift — verbatim-krav ville gitt 100 falske positive; (2) «fila har flere H2 enn lista» er spec-konformt (4–8 representative) — 10 oppføringer på nøyaktig 8 er ikke defekter. Detektoren ble kalibrert mot tre kjente tilfeller før omfanget ble festet; `berner-sennenhund` falt ut fordi gårsdagens FAQ-H2-fiks allerede hadde lukket den.
+
+**`pointer` ble tatt som nr. 19** utover de 18 godkjente: to tankestrek-vs-kolon-avvik jeg først klassifiserte som kosmetiske. De måtte rettes fordi verifiseringsporten i Trigger E ellers aldri ville lest 0 — **en sjekk som alltid rapporterer avvik blir ignorert.**
 
 ### 3. Åpne enkeltsaker (3)
 
