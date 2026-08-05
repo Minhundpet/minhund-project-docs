@@ -281,6 +281,20 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 **37 (C3c-20): aldersgrenser for HD og AD kan være ulike innenfor samme rase.** Sankt bernhardshund har HD fra 18 mnd og AD fra 12. «Samtidig med HD-røntgen» er en påstand som må verifiseres per rase, ikke antas.
 **38 (C3c-20): sidebar-widgeten er en fjerde speilingsflate.** Tre av funnene overlevde i «Tips fra King»-sidebaren etter at brødteksten var ren. Speilingslisten er nå: ingress → faktastripe → recap → FAQ+schema → **sidebar-widget** → kildedisclaimer → meta.
 
+### 🔴 Selvinnført feil i C3c-20 — oppdaget og rettet samme dag (`7088ad2`)
+
+I C3c-20 konkluderte jeg med at sankt bernhardshund **ikke** har NKK-registreringskrav. Det var galt, og det sto live i noen timer. Den opprinnelige guiden hadde rett; jeg gjorde en riktig påstand feil.
+
+**Årsak:** jeg sjekket kun oversiktssida for «Raser med krav for registrering». Den enumererer øyelysing og patella inline, men sier eksplisitt at HD/AD- og DNA-listene ligger i egne dokumenter. Jeg trakk konklusjon fra fravær på en side som selv opplyser at listen står et annet sted.
+
+**Fasit** (NKKs HD/AD-dokument, ajourført 05.01.2026): «Sankt bernhardshund fra 01.01.87» (HD) og «Sankt Bernhardshund fra 01.01.06» (AD).
+
+**Hvorfor kontrollen ikke fanget det:** den positive kontrollen slo ut — mops, springer og rottweiler sto på sida. Men de står der for øyelysing/patella, ikke HD/AD. **Positiv kontroll må kalibreres mot samme kravtype som konklusjonen gjelder, ikke bare mot «finnes det rasenavn på sida».**
+
+**Ny regel 39:** *fravær er bare bevis når kilden er uttømmende for det du spør om.* Sjekk alltid om dokumentet selv sier at listen ligger et annet sted. Regelen er skrevet inn i `docs/artikkel-sjekkliste.md` seksjon A med de tre dokumentene som må hentes.
+
+Dette er første selvinnførte faktafeil i C3-sporet, og den eneste som har vært live. Alt annet i C3c-20 står uendret.
+
 ### Åpne saker
 
 **17 admin-steg** venter (16 + `sankt-bernhardshund`). Godkjent tekst ligger i registeret.
