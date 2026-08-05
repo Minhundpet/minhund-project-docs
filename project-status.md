@@ -297,11 +297,18 @@ Godkjente tekster ligger i `docs/health-claims-register.md`. **Sendes samlet til
 
 **Presedens (Sondre 04.08):** alvorsklasse avgjør om et admin-steg kan vente, ikke hvilken bolk det tilhører.
 
-### 2. Ventende korpus-bolker (7)
+### 2. Ventende korpus-bolker — status 2026-08-05 ettermiddag
+
+**✅ Bolk 5 (NKK-krav) og Bolk 1 del A (FAQ↔schema) er ferdig skrevet og verifisert; venter på Sondres push-godkjenning.** 31 filer endret. Detaljert funnliste i `docs/health-claims-register.md`.
+
+- **Bolk 5 vokste fra 2 til 22 guider** etter full kryss-sjekk av alle 60 raseguider mot NKKs tre kravdokumenter. Fire retningsinverteringer (`cane-corso`, `rottweiler`, `greyhound`, `australian-shepherd`) der guiden både oppga krav som ikke finnes og utelot dem som gjelder. To selvkomponerte kravlister (`italiensk-mynde`, `weimaraner`). 16 med manglende krav.
+- **Bolk 1 var 6 filer, ikke 19** — det gamle tallet slo sammen tre kategorier. 27 tekstavvik rettet; 14 filer avskrevet som ikke-defekter (`<a>`-lenke i synlig svar, prosa identisk). Nytt funn: `product-calmball` hadde 8 synlige FAQ og null schema — bygget.
+- **Ordtellings-detektoren i `.claude/rules/raseguide-canonical.md` var ødelagt** og er fikset. `<article>` er nøstet i flere filer; både `re.search` og `findall` bommet. Alle ordtellinger fra før 05.08.2026 er systematisk feil — `jamthund` ble rapportert 2572 i C3c-21, reelt 2657 (2819 etter Bolk 5-tillegget).
 
 | # | Bolk | Omfang | Alvorlighet |
 |---|---|---|---|
-| 1 | **FAQ ↔ schema-avvik** | 19 filer | 🔴 HARD-regelbrudd — Google leser noe annet i rikresultatet enn siden viser |
+| 1 | ~~FAQ ↔ schema-avvik~~ | ~~19 filer~~ → **6 reelle, alle rettet 05.08** | ✅ Lukket. Kategori B (5 filer tegnsetting) flyttet til semikolon-bolken |
+| 5 | ~~NKK-krav endret~~ | ~~2 guider~~ → **22 guider, alle rettet 05.08** | ✅ Lukket |
 | 2 | **Semikolon-bolken** | 14 filer, 2 835 semikolon mot 3–20 komma | 🟡 Lesbarhet. `article_map`-kommaregelen feilaktig anvendt på brødtekst |
 | 3 | **TOC-gap-bolken** | 55 manglende ankerlenker (`faq` i 43 filer, `faq-heading` 4, `tips-king` 4, `oppsummering` 3, `historie` 3) | 🟡 Seksjoner unåbare fra innholdsfortegnelsen |
 | 4 | **Dobbel BreadcrumbList** | Trolig alle raseguider med både inline schema og `mh-article-schema` | 🟡 Duplikat strukturert data; begge parser rent |
@@ -309,7 +316,7 @@ Godkjente tekster ligger i `docs/health-claims-register.md`. **Sendes samlet til
 | 6 | **Gonioskopi-motsigelsen** | 4 filer: `engelsk-springer-spaniel` (krav) · `flat-coated-retriever` («standard») · `sibirsk-husky` («liten gruppe … sammen med Shiba Inu») · `shiba-inu` (anbefaling) | 🟡 Guidene rangerer utbredelsen ulikt og siterer hverandre |
 | 7 | **Raseguider-hub description-drift** | 21 døde `description`-felt i `templates/page.raseguider.json` | 🟢 Ingen live-effekt — feltet rendres aldri |
 
-**Ny bolk 8 — `article_map`-ordtellingsdrift.** Bekreftet i stor skala i C3c-21: `finsk-lapphund` lå 1 000 ord feil, `dansk-svensk-gardshund` 950, `shetland-sheepdog` 500. Tidligere funnet i `norsk-elghund-gra` (C3c-17, 1 004 ord). **Korpuset er ikke sveipet** — kun de guidene vi har vært inne i er rettet. 🟡 Degraderer verdien av `/llms.txt` for AI-crawlere.
+**Bolk 8 — `article_map`-ordtellingsdrift. Omfang målt på nytt 05.08 med fikset detektor: 73 av 117 sjekkbare oppføringer har ≥150 ords drift, snitt 676 ord.** Alle 73 er **positive** avvik — `article_map` undertelder systematisk. Den gamle målingen ga 42 avvik hvorav 11 negative; **alle de negative var måleartefakter** fra den ødelagte `<article>`-regexen (`reise-til-utlandet-med-hund` målte 409 ord, reelt 2468). Verste reelle: `chihuahua` +2081, `hund-sover-mye` +1686, `cane-corso` +1552. 🟡 Degraderer verdien av `/llms.txt` for AI-crawlere. **Merk:** Bolk 5-rettelsene la 32–178 ord på 22 guider — under Trigger B-terskelen på 20 %, så de utløser ikke i seg selv `article_map`-oppdatering, men de inngår i tallene over.
 
 ### 3. Åpne enkeltsaker (3)
 
