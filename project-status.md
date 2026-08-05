@@ -23,6 +23,7 @@
 - **Vannflaske (TurPakken 3-i-1)** — light pass (cart drawer + product-specific badges + a11y carryover). Live.
 - **8 andre custom PDPs** — mekanisk sveip (cart drawer-wrap, @import font-fjerning, kontrast-fikser, badge-bytte). Live.
   - hundeseng, andefanten, aktiviseringsleke, aktiviseringsskal (CalmBall), ullgenser, sjampoborste, vannskal, potevasker
+- **Valpepakken** — NY 04.08.2026, katalogens 12. produkt. Custom PDP etter kanonisk mønster + swatch-basert fargevelger (Rosa/Blå) med krysstonende galleribilde. Live. Se BESLUTNINGER 2026-08-04 kveld.
 - Generisk Horizon-template: dekker resten av katalogen.
 
 ### Marketing
@@ -72,6 +73,34 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-08-04 kveld — NYTT PRODUKT: Valpepakken PDP + fargevelger + valpe-artikkel-integrasjon (`21a8117` → `0154120`, 8 commits)
+
+Parallelt spor ved siden av raseguide-sporet (C3c-18/19 gikk samtidig i samme repo). Alt live på `#148333264974`, alt pushet til GitHub main.
+
+**Produktet.** Valpepakken, handle `valpepakken`, 449 kr, ingen compare-at. Innhold: CalmBall + tyggering i silikon + drikkeflaske i rustfritt stål/silikon. Sondre opprettet produktet, bildene, opsjonen `Farge` (Blå/Rosa), variantbilder, SKU (`MH-VP-BLAA`/`MH-VP-ROSA`) og alt-tekster i Admin underveis i økta. `templateSuffix = valpepakken` (ett av få som matcher URL-handle). **Rosa har 0 på lager** — alle 9 enhetene ligger på Blå, så Rosa rendres som utsolgt.
+
+**Levert.**
+1. `sections/product-valpepakken.liquid` + `templates/product.valpepakken.json` — kanonisk PDP-mønster (hero-galleri, trust-badges, ATC via `product-form-component` urørt, King-sitat, accordions, readmore, related, sticky mobil-ATC). BEM-prefiks `vp-`. FAQPage JSON-LD inline (snippeten `mh-product-faq-schema` krever en objekt-array Liquid ikke kan bygge uten metafelt).
+2. Swatch-basert fargevelger — datadrevet, rendres kun ved nøyaktig én opsjon med flere verdier (fail-safe). Grønn ring på valgt, hover-glow, `aria-pressed`, piltaster, `aria-live`. Galleribildet krysstoner (`opacity .35s`), `prefers-reduced-motion` sjekkes i JS. Swatch-farge utledes av variant-tittel — **nye fargenavn må legges inn i `case`-en, ellers blir prikken grå**.
+3. Produktkort i alle fire valpe-artiklene (`valp`, `valp-biter-pa-alt`, `valp-tisser-inne`, `valpe-utstyr-sjekkliste`) etter `--featured`-mønsteret fra `hundetips-aktivisere-hund-pa-tur`. Bilde og pris hentes via `all_products['valpepakken']`.
+4. Valpepakken er nå **eneste produktanbefaling** på de fire sidene — 5 produktbokser, 3 bunn-CTA-er og 5 inline prose-lenker fjernet. De resterende produktlenkene på sidene ligger i **sidefoten**, som er global og ikke ble rørt.
+5. `snippets/llms-products-data.liquid` — Valpepakken inn (Trigger C), 11 → 12 produkter.
+6. `snippets/mh-product-readmore.liquid` — nytt `valpepakken`-case med tre valpe-artikler.
+
+**To feil funnet og rettet underveis.**
+- *Sammenlimte HTML-attributter.* `{%- … -%}` rundt betingede attributt-blokker spiste mellomrommet MELLOM attributter (`data-media-type="image"data-image-url=…`). 14 tilfeller på valpepakken-PDP-en, og samme arvede mønster i `product-vannflaske` (8), `product-calmball` (12) og `product-pelsfjerner` (20). Alle rettet — grenene starter nå med eksplisitt mellomrom. **Mønsteret finnes trolig i flere PDP-er som ikke ble sjekket.**
+- *Claim-brudd i llms.txt.* CalmBall-linja påsto «aktiverer parasympatisk nervesystem. Reduserer stress under separasjon» og Andefanten «Trygg for supervised lek og alenetid» — begge i strid med HARD-reglene i `docs/products.md`. Erstattet. Hundeseng-linja står med vilje («beroligende» kommer fra produktnavnet).
+
+**Bildezoom — metode verdt å gjenbruke.** Bildene er portrett 1512×2016 med mye hvit luft; produktene fyller bare 30 % av bildehøyden. Målt ved å konvertere kilden til BMP og analysere piksler (`sips -s format bmp` + ren python — PIL finnes ikke på maskinen): solide produktpiksler ligger x 14–84 %, y 35–65 %. PDP endte på `scale(1.44)` av beregnet maks 1.90; artikkelkortet på `scale(1.5)` av maks 1.99, samme sikkerhetsmargin (0.758). Kortet trengte også `overflow: hidden` på `.mh-article__product-media` — uten det maler det oppskalerte bildet inn i tekstspalten.
+
+**Verifiseringsmetode (ny).** Visuell verifisering før push løst ved: lokal `shopify theme dev` → hente det rendrede kortet + seksjonens egen CSS → isolert HTML-fil → skjermbilde i headless Chrome → beskjære og forstørre 2×. Headless Chrome henger på dev-server-URL-en direkte (eksterne Shopify-ressurser blokkert), men fungerer på lokale filer. `getBoundingClientRect` injisert via `--dump-dom` ga eksakte layout-tall. Første lille rendring så ut som produktet var klippet — 2×-utsnittet viste at det var slagskyggen. **Lærdom: ikke konkluder på lavoppløste utsnitt.**
+
+**Gjenstår.**
+- Lagerfordeling Rosa/Blå bør vurderes (Rosa 0 stk = halve fargevalget er utsolgt).
+- Bildefilene bør beskjæres ved kilden; zoom er en midlertidig kompensasjon for hvit luft i eksporten.
+- Tre `.mh-article__cta-wrap`-CSS-regler står igjen som død CSS i valpe-artiklene etter at HTML-blokkene ble fjernet.
+- Attributt-mønsteret bør sveipes i de resterende PDP-ene.
 
 ### 2026-07-30 kveld — NYTT SPOR: strukturert data + produktidentifikatorer (`b413927`, `e0936c2`, `c1bb03f`)
 
