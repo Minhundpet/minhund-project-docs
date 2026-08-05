@@ -261,9 +261,39 @@ Oppdaget da strukturkontrollen slo ut på samojedhund. **21 av 118 filer har avv
 
 **Metodenotat:** ville ikke blitt oppdaget av kildesettings-sporet — det dukket opp fordi strukturkontrollen kjøres uansett. Argument for å beholde de «trivielle» strukturelle sjekkene selv når fokus er kildeverifisering.
 
+## FULL STATUS 2026-08-05 — C3c-20 levert, 3,0-gruppen tømt
+
+**C3c-20 `sankt-bernhardshund` fullført** (commit `025c55a`, 2 filer live). 19 funn godkjent samlet av Sondre, alle rettet. **C3 står nå på 37 av 42; fem gjenstår** — hele 0,0-stikkprøvegruppen.
+
+**Detektor T1=1 / T2=0 / prev=0 — regel 24 holder ellevte sprint på rad.**
+
+### Tyngste funn
+
+**Klubbkrav-mønsteret traff for femte sprint på rad, med en ny vri.** Guiden oppga NKK-krav som ikke finnes (rasen står ikke på NKKs kravliste i det hele tatt), utelot NSBKs to faktiske krav, og — det nye — **satte en oppdiktet terskel som var STRENGERE enn klubbens egen**. «HD-grad A eller B» utestengte C- og D-hunder NSBK godkjenner for avl. Pointer, pudel og springer diktet opp krav der ingen fantes; her ble en ekte klubbregel overskrevet med en hardere.
+
+**FCI #62 var en annen rase.** Sto 8 steder som «langhåret variant» — er Steirische Rauhhaarbracke, en østerriksk bracke på 45–53 cm. Og standarden hadde ingen vekt: femte FCI-standard på rad uten vektangivelse.
+
+**Osteosarkom: riktig studie, rase som aldri var med.** Edmunds et al. 2021 gjennomsøkt i fulltekst — null treff på «St Bernard», mens Rottweiler-kontrollen slår ut.
+
+### Nye regler etablert
+
+**36 (C3c-20): å gjøre oss strengere enn klubben er like galt som å gjøre oss slappere.** Begge feilretninger feilinformerer valpekjøperen om hva et lovlig avlsdyr er. Sjekk alltid terskelen mot klubbens ordlyd, ikke bare om et krav finnes.
+**37 (C3c-20): aldersgrenser for HD og AD kan være ulike innenfor samme rase.** Sankt bernhardshund har HD fra 18 mnd og AD fra 12. «Samtidig med HD-røntgen» er en påstand som må verifiseres per rase, ikke antas.
+**38 (C3c-20): sidebar-widgeten er en fjerde speilingsflate.** Tre av funnene overlevde i «Tips fra King»-sidebaren etter at brødteksten var ren. Speilingslisten er nå: ingress → faktastripe → recap → FAQ+schema → **sidebar-widget** → kildedisclaimer → meta.
+
+### Åpne saker
+
+**17 admin-steg** venter (16 + `sankt-bernhardshund`). Godkjent tekst ligger i registeret.
+
+### Neste økt — BULK, ikke én om gangen
+
+**De fem siste C3-guidene kjøres samlet** etter Sondres beslutning 05.08: `norsk-elghund-gra`, `dansk-svensk-gardshund`, `finsk-lapphund`, `jamthund`, `shetland-sheepdog`. Kartlegg alle fem → rapporter alle fem funnlistene samlet → én godkjenning → skriv/preview/verifiser alle fem → én samlet live-push. **Unntak: viser én av dem seg vesentlig tyngre enn resten, tas den separat.** Ordtak gjelder kun `jamthund` (2419 ord).
+
+---
+
 ## FULL STATUS 2026-08-04 kveld — økta i sammendrag
 
-**Levert i denne økta: C3c-17, C3c-18 og C3c-19.** Tre guider kildeverifisert, rettet, verifisert mot preview og live, og deployet med docs og mirror-synk. **C3 står nå på 36 av 42; seks gjenstår.**
+**Levert i denne økta: C3c-17, C3c-18 og C3c-19.** Tre guider kildeverifisert, rettet, verifisert mot preview og live, og deployet med docs og mirror-synk. **C3 sto etter denne økta på 36 av 42.** (Oppdatert 05.08: 37 av 42 etter C3c-20.)
 
 | Sprint | Guide | Commit | Tyngste funn |
 |---|---|---|---|
@@ -304,19 +334,19 @@ Første steg for sankt-bernhardshund, gitt mønsteret over: slå opp rasen i NKK
 
 ## STATUS PER 2026-07-31 — hvor prosjektet står
 
-**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier), C3c-14 (shiba-inu), C3c-15 (tibetansk-spaniel), C3c-16 (mops), C3c-17 (norsk-elghund-sort), C3c-18 (pointer) og C3c-19 (pudel). **36 av C3s 42 guider er kildeverifisert og live**, alle med retry-verifisering, GSC-innsending, commit og docs-synk.
+**Ferdig 30.07:** C1b, C2b, C3a (6 guider), C3b-0 → C3b-5. **Ferdig 31.07:** C3c åpnet med nytt verktøy, og seks bolker levert — C3c-1 (golden-retriever + griffon), C3c-2 (cavalier + bichon-havanais + border-collie), C3c-3 (WHWT + whippet), C3c-4 (mellomschnauzer), C3c-5 (beagle), C3c-6 (boxer). **Ferdig 03.08:** C3c-7 (chihuahua), C3c-8 (engelsk-setter), C3c-9 (fransk-bulldog), C3c-10 (staffordshire-bull-terrier) og C3c-11 (dvergpinscher). **Ferdig 04.08:** C3c-12 (engelsk-springer-spaniel), C3c-13 (jack-russell-terrier), C3c-14 (shiba-inu), C3c-15 (tibetansk-spaniel), C3c-16 (mops), C3c-17 (norsk-elghund-sort), C3c-18 (pointer) og C3c-19 (pudel). **37 av C3s 42 guider er kildeverifisert og live** (C3c-20 `sankt-bernhardshund` levert 05.08), alle med retry-verifisering, GSC-innsending, commit og docs-synk.
 
 **Utenfor kildesporet i dag:** `b413927` «feat(seo): Product-schema utvidet + Organization konsolidert + dobbel H1 fjernet» — Organization-schema i `layout/theme.liquid` anriket med `@id`, `legalName` (Uleberg Appdrift), organisasjonsnummer 935457017 og `sameAs`. Gjort i egen fane, committet separat fra italiensk-mynde. Dukket opp som drift i arbeidstreet under C3b-5-verifiseringen fordi live lå foran repoet; ikke reversert.
 
-### NESTE ØKT STARTER HER — C3c-20: `sankt-bernhardshund`
+### NESTE ØKT STARTER HER — C3c-21: bulk av de fem siste (0,0-gruppen)
 
-**Regnskapet i C3: 36 av 42 ferdig, 6 gjenstår** (per 04.08, etter pudel). Git-historikken er autoritativ. Kontrollert begge veier: 36 + 6 = 42.
+**Regnskapet i C3: 37 av 42 ferdig, 5 gjenstår** (per 05.08, etter sankt-bernhardshund). Git-historikken er autoritativ. Kontrollert begge veier: 36 + 6 = 42.
 
 **De 6 som gjenstår, i godkjent rekkefølge:**
 
 | Gruppe | Guider | Merknad |
 |---|---|---|
-| 3,0 (1 igjen) | `sankt-bernhardshund` | `mops`, `norsk-elghund-sort`, `pointer` og `pudel` er nå ferdige |
+| 3,0 | ✅ TØMT | `mops`, `norsk-elghund-sort`, `pointer`, `pudel` og `sankt-bernhardshund` er alle ferdige |
 | 0,0 — stikkprøve til slutt (5) | `dansk-svensk-gardshund` · `finsk-lapphund` · `jamthund` · `norsk-elghund-gra` · `shetland-sheepdog` | Null detektortreff; tas som kontroll av om detektorens nullpunkt er reelt |
 
 **Ordtak gjelder kun `jamthund`** (2419 ord, +381 slakk). De øvrige fem er pre-regel-guider uten tak.
@@ -367,7 +397,7 @@ Første steg for sankt-bernhardshund, gitt mønsteret over: slå opp rasen i NKK
 
 | A7 | `norsk-elghund-sort` | **SENDT ISOLERT 04.08 — annen alvorsklasse.** Feltnavnet er limt inn i selve feltet: `<title>` = «Page title: …» og alle tre description-taggene = «Meta description: …». Synlig i Google nå. Kontrollert mot mops, tibetansk-spaniel, norsk-elghund-gra og pointer — alle rene, altså isolert til denne siden | Page title: `Norsk Elghund Sort — komplett raseguide \| Min Hund` · Meta: `Norsk Elghund Sort — kritisk truet nasjonalrase og bandhund-spesialist. NKKs gentestkrav fra 2024, HD-indeks og hva forskningen sier om overgangsvirvel.` |
 
-**Sum: 16 åpne admin-steg** (7 nye fra denne bolken + 9 fra tidligere). `staffordshire-bull-terrier` (C3c-10) trengte ingen — feltet var rent.
+**Sum: 17 åpne admin-steg** (7 nye fra denne bolken + 9 fra tidligere). `staffordshire-bull-terrier` (C3c-10) trengte ingen — feltet var rent.
 
 **Unntak fra samle-regelen (Sondre 04.08):** A7 sendes til Friday **isolert og umiddelbart**, ikke i bunken. Begrunnelse: de øvrige 15 er formuleringer som er feil men troverdige og venter internt uten skade; A7 er et innlimingsartefakt som er synlig i søkeresultatet akkurat nå. **Presedens: alvorsklasse avgjør om et admin-steg kan vente, ikke hvilken bolk det tilhører.**
 
