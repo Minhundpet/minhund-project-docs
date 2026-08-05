@@ -299,7 +299,7 @@ Godkjente tekster ligger i `docs/health-claims-register.md`. **Sendes samlet til
 
 ### 2. Ventende korpus-bolker — status 2026-08-05 ettermiddag
 
-**✅ LIVE 05.08.2026: Bolk 5 (NKK-krav, 22 guider), Bolk 1 del A (FAQ↔schema, 6 filer), CalmBall-schema og TOC-gap (56 lenker, 48 filer).** Commits `724c4d0`, `91ba4a0`, `b808c23`. sha256 live == HEAD på 29 + 48 filer. 28 URLer sendt til GSC. Detaljert funnliste i `docs/health-claims-register.md`.
+**✅ LIVE 05.08.2026 — fire bolker lukket samme dag:** Bolk 5 (NKK-krav, 22 guider), Bolk 1 del A+B (FAQ↔schema, 11 filer), CalmBall-schema, TOC-gap (56 lenker, 48 filer) og semikolon-bolken (3 043 konverteringer, 14 filer). Commits `724c4d0`, `91ba4a0`, `b808c23`, `70b8851`. sha256 live == HEAD på 29 + 48 filer. 28 URLer sendt til GSC. Detaljert funnliste i `docs/health-claims-register.md`.
 
 **Deploy-lærdom (gotcha #18, alvorlig).** Første push av Bolk 5 lastet opp **null filer** og meldte likevel suksess: skallet er zsh, som ikke ordsplitter `$FILES`, så `--only $FILES` ble ett argument som ikke matchet noe. Fanget først av sha256-etterkontroll mot live. **Suksessmeldingen fra Shopify CLI er ikke bevis på at noe ble lastet opp** — sha256 live == HEAD er den eneste gyldige kvitteringen. Bruk array i eksplisitt bash.
 
@@ -313,7 +313,7 @@ Godkjente tekster ligger i `docs/health-claims-register.md`. **Sendes samlet til
 |---|---|---|---|
 | 1 | ~~FAQ ↔ schema-avvik~~ | ~~19 filer~~ → **6 reelle, alle rettet 05.08** | ✅ Lukket. Kategori B (5 filer tegnsetting) flyttet til semikolon-bolken |
 | 5 | ~~NKK-krav endret~~ | ~~2 guider~~ → **22 guider, alle rettet 05.08** | ✅ Lukket |
-| 2 | **Semikolon-bolken** | 14 filer, 2 835 semikolon mot 3–20 komma | 🟡 Lesbarhet. `article_map`-kommaregelen feilaktig anvendt på brødtekst |
+| 2 | ~~Semikolon-bolken~~ | **3 043 konvertert i 14 filer — live 05.08** | ✅ Lukket. Reelt tall var 3 102 i brødtekst, ikke 2 835. 4 415 semikolon i CSS/JS/entiteter urørt. 87 beholdt som kilde-intern konvensjon |
 | 3 | ~~TOC-gap-bolken~~ | **56 lenker på 48 filer — alle lagt inn og live 05.08** | ✅ Lukket. Målt på nytt: 56, ikke 55. Rekkefølge verifisert i alle 110 filer med TOC-JS |
 | 4 | **Dobbel BreadcrumbList** | Trolig alle raseguider med både inline schema og `mh-article-schema` | 🟡 Duplikat strukturert data; begge parser rent |
 | 5 | **NKK-krav endret siden siste retting** | `pomeranian` mangler patellakrav fra 01.07.2025; `bichon-havanais` utelater trolig NKK-registreringskravet fra 01.04.2016 og har en uverifisert avkomsgrense fra 01.01.2026 | 🔴 Gjeldende regelverk mangler i live guider |
