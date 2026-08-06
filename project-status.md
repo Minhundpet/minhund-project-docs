@@ -313,6 +313,33 @@ Godkjente tekster ligger i `docs/health-claims-register.md`. **Sendes samlet til
 
 </details>
 
+### 1b. ✅ OPPRYDNINGEN FERDIG 06.08.2026 — sluttstatus
+
+Alt som ble åpnet i denne runden er lukket. **Gjennomgående funn på tvers av alle fire bolkene: en flate ble rettet, en annen ble ikke sveipet.**
+
+| Bolk | Omfang | Status |
+|---|---|---|
+| `article_map` H2-liste-drift | 19 oppføringer | ✅ live, sha256 == HEAD |
+| Admin-steg bolk A | 16 sider / 17 felt | ✅ live-verifisert |
+| Hypoallergen | 4 sider / 12 tagger | ✅ live-verifisert |
+| Statusopprydning i registeret | 6 stale markører | ✅ ryddet |
+
+**De tre utslagene av samme rot:**
+1. `article_map` bar tilbaketrukne påstander fra ni rettelseskommiter — deriblant et sikkerhetstall (`5-` mot `7-sekunder-regelen`) og et `beroligende`-claim fjernet for markedsføringsloven §§6-8. `4bd8496` navnga eksplisitt flatene sine («11 occurrences across 4 articles + TOC + JS anchor») og traff `article_map` på ingen av dem.
+2. Meta-feltene bar fire påstander brødteksten aktivt avviser (hypoallergen-bolken). To av dem var ikke mistenkt før korpussveipen.
+3. `norsk-elghund-sort` ble ført som utført fordi statusen ble satt på **avsendelsen**, ikke på en live-kontroll — og sto slik i to døgn mens feilen var synlig i Google.
+
+**Tre permanente mekanismer etablert:**
+- **Gotcha #20** (`docs/gotchas.md`) — `article_map` som usynlig flate i rettelsessveip, med begge kalibreringsfellene dokumentert (semikolon-sanitering = 100 falske positive; «fila har flere H2» er spec-konformt).
+- **Trigger E** (`.claude/rules/llms-txt.md`) — rettelsessveip må inkludere `article_map` i samme commit. Med verbatim-port, testet med positiv og negativ kontroll.
+- **Port 8** (`docs/artikkel-sjekkliste.md`) — endrer en retting en påstand, hentes sidens live-meta og verifiseres. Gjelder enhver påstand, ikke bare tall. Koblet inn i `CLAUDE.md` Phase 3 og `.claude/rules/hundetips-articles.md`.
+
+Port 8 dekker hullet de to andre ikke kan: meta ligger utenfor repoet, så ingen commit-hook, `grep` eller fil-sjekk fanger den.
+
+**Arbeidsprinsippet som avdekket det meste:** hent gammel verdi fra **live**, ikke fra notatene. Det var det som fant begge statusfeilene og utvidet hypoallergen-bolken fra to til fire sider.
+
+**Gjenstår:** `irsk-setter` (blokkert på NKKs 2024-statistikk) · valgfri brødtekst-harmonisering av hypoallergen-formuleringene mot NAAFs kategoriske linje.
+
 ### 2. Ventende korpus-bolker — status 2026-08-05 ettermiddag
 
 **✅ LIVE 05.08.2026 — fire bolker lukket samme dag:** Bolk 5 (NKK-krav, 22 guider), Bolk 1 del A+B (FAQ↔schema, 11 filer), CalmBall-schema, TOC-gap (56 lenker, 48 filer) og semikolon-bolken (3 043 konverteringer, 14 filer). Commits `724c4d0`, `91ba4a0`, `b808c23`, `70b8851`. sha256 live == HEAD på 29 + 48 filer. 28 URLer sendt til GSC. Detaljert funnliste i `docs/health-claims-register.md`.
@@ -942,7 +969,7 @@ Purina fjernet som kilde, cervikal-rangeringen myket, Stigen 1991 fikk full refe
 
 **🔴 Meurs 2013 var en boxer-studie** brukt til å bære en Newfoundland-DCM-påstand (Abadie/Evans-klassen). Erstattet med Merck-forankring. I tillegg: SAS-prevalens-rangeringen strøket, «variabel ekspresjon» → inkomplett penetrans med avlskonsekvensen skrevet ut, PICALM konkretisert, Pyle & Patterson strammet, «rasespesifikk» myket i ingress + H2.
 
-**NY FAST REGEL (Sondre): pre-publiseringsporten er nå et obligatorisk steg i produksjonsflyten**, ikke et dokument man skal huske. Gjelder **alt som skrives**, ikke bare det vi retter — målet er at nytt innhold er riktig fra første publisering. Sju porter (ingress først, sitering mot primærkilde, DOI åpnet og lest, referansegruppe ved rangering, presis tall-identifikasjon, verktøy mot prosa, stratifiserte tall stratifisert), koblet inn fire steder: sjekklisten selv, `CLAUDE.md` Phase 3, `.claude/rules/hundetips-articles.md`, og **generator-skillen**.
+**NY FAST REGEL (Sondre): pre-publiseringsporten er nå et obligatorisk steg i produksjonsflyten**, ikke et dokument man skal huske. Gjelder **alt som skrives**, ikke bare det vi retter — målet er at nytt innhold er riktig fra første publisering. Sju porter (utvidet til **åtte** 06.08.2026 med live-meta-porten) — ingress først, sitering mot primærkilde, DOI åpnet og lest, referansegruppe ved rangering, presis tall-identifikasjon, verktøy mot prosa, stratifiserte tall stratifisert), koblet inn fire steder: sjekklisten selv, `CLAUDE.md` Phase 3, `.claude/rules/hundetips-articles.md`, og **generator-skillen**.
 
 **Hullet lå i generatoren.** `hundetips-article-creator` — skillen som faktisk produserer nye artikler — hadde null referanser til sjekklisten, og dens 18 post-flight-checks er alle strukturelle. Ingen av dem kan fange en feil kilde eller et feilidentifisert tall. Uten denne koblingen ville kildesettings-prosjektet reprodusert seg selv på nytt innhold.
 
