@@ -291,7 +291,9 @@ Sju tekster ble strammet til under 160 tegn før utsending fordi de godkjente ve
 
 **Metodelærdom:** bunken ble bygget fra faktiske live-verdier, ikke fra notatene — det avdekket to statusfeil registeret ikke visste om (`norsk-elghund-sort` ført som utført uten å være det; `hund-om-sommeren` ført som åpen og lukket samtidig). **Å være sendt er ikke det samme som å være utført.** Status føres på live-kontroll, aldri på avsendelsen.
 
-**Gjenstår:** `irsk-setter` (blokkert på NKKs 2024-statistikk, skal endres samtidig med brødteksten) · `coton-de-tulear` + `malteser` («hypoallergen», ingen godkjent tekst, egen senere runde).
+**✅ Hypoallergen-bolken LUKKET 06.08** — 4 sider, live-verifisert på alle tre taggvariantene (12 tagger). Startet som to sider (`coton-de-tulear`, `malteser`); korpussveipen Sondre bestilte utvidet den til fire ved å avdekke `pudel` og `lagotto-romagnolo`. **Sveipen viste det motsatte av mistanken:** ingen av de 10 raseguidene påstår at rasen er hypoallergen — alle tilbakeviser myten. Det var meta-feltene som motsa brødteksten, samme feilklasse som gotcha #20. Løst etter bichon-modellen («Er X hypoallergen? Nei — …»), med `pudel` på «Ikke garantert» fordi guiden er nyansert der. Detaljer i `docs/health-claims-register.md`.
+
+**Gjenstår:** `irsk-setter` (blokkert på NKKs 2024-statistikk, skal endres samtidig med brødteksten) · valgfri brødtekst-harmonisering av hypoallergen-formuleringene mot NAAFs kategoriske linje (korrekt overalt i dag, men inkonsistent i styrke — 4 kategoriske mot 6 avdempede).
 
 <details><summary>Opprinnelig oppføring (beholdt for sporbarhet)</summary>
 
