@@ -283,6 +283,18 @@ I C3c-20 konkluderte jeg med at sankt bernhardshund ikke har NKK-krav. Det var g
 
 ## 🔴 ALLE ÅPNE POSTER ETTER C3
 
+### 1. ✅ Admin-steg bolk A — LUKKET 06.08.2026 (16 sider / 17 feltendringer)
+
+Hele bunken utført av Friday og **live-verifisert 06.08: 17 av 17 felt matcher godkjent tekst ordrett.** `og:`/`twitter:`-variantene spot-sjekket på tre sider — innlimingsartefakten på `norsk-elghund-sort` er borte i alle tre.
+
+Sju tekster ble strammet til under 160 tegn før utsending fordi de godkjente versjonene lå over Googles avkortingsgrense. Full historikk, sideliste og lærdom i `docs/health-claims-register.md`.
+
+**Metodelærdom:** bunken ble bygget fra faktiske live-verdier, ikke fra notatene — det avdekket to statusfeil registeret ikke visste om (`norsk-elghund-sort` ført som utført uten å være det; `hund-om-sommeren` ført som åpen og lukket samtidig). **Å være sendt er ikke det samme som å være utført.** Status føres på live-kontroll, aldri på avsendelsen.
+
+**Gjenstår:** `irsk-setter` (blokkert på NKKs 2024-statistikk, skal endres samtidig med brødteksten) · `coton-de-tulear` + `malteser` («hypoallergen», ingen godkjent tekst, egen senere runde).
+
+<details><summary>Opprinnelig oppføring (beholdt for sporbarhet)</summary>
+
 ### 1. Admin-steg — flate 3, kan ikke gjøres fra CLI (17 stk)
 
 Godkjente tekster ligger i `docs/health-claims-register.md`. **Sendes samlet til Friday nå som sweepen er ferdig.**
@@ -296,6 +308,8 @@ Godkjente tekster ligger i `docs/health-claims-register.md`. **Sendes samlet til
 **C3c-21 genererte ingen nye.** Alle fem meta-descriptions ble lest og var rene.
 
 **Presedens (Sondre 04.08):** alvorsklasse avgjør om et admin-steg kan vente, ikke hvilken bolk det tilhører.
+
+</details>
 
 ### 2. Ventende korpus-bolker — status 2026-08-05 ettermiddag
 
@@ -416,7 +430,7 @@ Tre av tre sprinter hadde **feil om hva en klubb eller myndighet faktisk krever*
 
 ### Åpne saker ved øktas slutt
 
-- **17 admin-steg** venter, samlet i én Friday-bunke 05.08 (`~/Downloads/admin-batch-friday.md`). **A7 (`norsk-elghund-sort`) ble sendt isolert 04.08, men live-kontroll 05.08 viser at det ikke er utført** — den ligger derfor først i bunken, med begge felt spesifisert. Pointer og pudel trengte ingen nye.
+- **✅ Alle 17 admin-steg utført og live-verifisert 06.08** (16 sider; `norsk-elghund-sort` hadde to felt). Bunken ble sendt samlet til Friday 06.08 og kontrollert mot live etterpå — 17/17 ordrett match. `irsk-setter` og hypoallergen-paret (`coton-de-tulear`, `malteser`) står fortsatt utenfor, se punkt 1. Pointer og pudel trengte ingen nye.
 - **Fire ventende korpus-bolker:** FAQ↔schema (19 filer) · semikolon (14 filer) · TOC-gap (nå ~53 filer etter at tre er ryddet) · **ny: `article_map`-ordtellingsdrift**, oppdaget i C3c-17 der `norsk-elghund-gra` lå 1 004 ord feil. Korpuset er ikke sveipet.
 - **Div-strukturavvik i `pointer`:** 2 body-divs mot 12 H2 der canonical krever én per H2. Ingen forbudte Cocker-markører. Egen sak, ikke rørt.
 - **Gonioskopi-motsigelsen** (4 filer) og **dobbel BreadcrumbList** står uendret.
