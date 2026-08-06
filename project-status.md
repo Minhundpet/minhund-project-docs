@@ -289,7 +289,7 @@ Godkjente tekster ligger i `docs/health-claims-register.md`. **Sendes samlet til
 
 | Gruppe | Antall | Saker |
 |---|---|---|
-| A-serien (innholdsfeil i meta) | 7 | `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` · `mops` · `norsk-elghund-sort` (A7 — **allerede sendt isolert 04.08**, innlimingsartefakt synlig i Google) |
+| A-serien (innholdsfeil i meta) | 7 | `dvergpinscher` · `engelsk-springer-spaniel` · `jack-russell-terrier` · `shiba-inu` · `tibetansk-spaniel` · `mops` · `norsk-elghund-sort` (A7 — **sendt isolert 04.08, men IKKE utført**; live-kontroll 05.08 viser artefakten i begge felt. Ligger først i Friday-bunken) |
 | B-serien (formuleringer) | 9 | `riesenschnauzer` · `irsk-setter` · `italiensk-mynde` · `hvor-mye-vann-hund` · `griffon-petit-brabancon` · `border-collie` · `whippet` · `mellomschnauzer` · `boxer` |
 | Nytt fra C3c-20 | 1 | `sankt-bernhardshund` — meta bærer «51–80 kg», «8–10 år» og «NSBK + NKK-rammeverk» |
 
@@ -416,7 +416,7 @@ Tre av tre sprinter hadde **feil om hva en klubb eller myndighet faktisk krever*
 
 ### Åpne saker ved øktas slutt
 
-- **16 admin-steg** venter. **A7 (`norsk-elghund-sort`) er sendt isolert** fordi feltnavnet var limt inn i meta-feltet og synlig i Google; de øvrige 15 venter til sweepen er ferdig. Pointer og pudel trengte ingen nye.
+- **17 admin-steg** venter, samlet i én Friday-bunke 05.08 (`~/Downloads/admin-batch-friday.md`). **A7 (`norsk-elghund-sort`) ble sendt isolert 04.08, men live-kontroll 05.08 viser at det ikke er utført** — den ligger derfor først i bunken, med begge felt spesifisert. Pointer og pudel trengte ingen nye.
 - **Fire ventende korpus-bolker:** FAQ↔schema (19 filer) · semikolon (14 filer) · TOC-gap (nå ~53 filer etter at tre er ryddet) · **ny: `article_map`-ordtellingsdrift**, oppdaget i C3c-17 der `norsk-elghund-gra` lå 1 004 ord feil. Korpuset er ikke sveipet.
 - **Div-strukturavvik i `pointer`:** 2 body-divs mot 12 H2 der canonical krever én per H2. Ingen forbudte Cocker-markører. Egen sak, ikke rørt.
 - **Gonioskopi-motsigelsen** (4 filer) og **dobbel BreadcrumbList** står uendret.
@@ -490,7 +490,7 @@ Første steg for sankt-bernhardshund, gitt mønsteret over: slå opp rasen i NKK
 | B8 | `mellomschnauzer` | «pulmonisk stenose rasespesifikk hjertedefekt, levetid 13-16 år» — begge avvist i brødteksten | Mellomschnauzer raseguide — den originale schnauzer-stamfar-rasen, NSBK 1946, RBM20-DCM med DNA-test, median levetid 13 år. |
 | B9 | `boxer` | «NKK-avlsregler» — reglene er Norsk Boxerklubbs | «… og Norsk Boxerklubbs avlskrav.» |
 
-| A7 | `norsk-elghund-sort` | **SENDT ISOLERT 04.08 — annen alvorsklasse.** Feltnavnet er limt inn i selve feltet: `<title>` = «Page title: …» og alle tre description-taggene = «Meta description: …». Synlig i Google nå. Kontrollert mot mops, tibetansk-spaniel, norsk-elghund-gra og pointer — alle rene, altså isolert til denne siden | Page title: `Norsk Elghund Sort — komplett raseguide \| Min Hund` · Meta: `Norsk Elghund Sort — kritisk truet nasjonalrase og bandhund-spesialist. NKKs gentestkrav fra 2024, HD-indeks og hva forskningen sier om overgangsvirvel.` |
+| A7 | `norsk-elghund-sort` | **SENDT ISOLERT 04.08 — men IKKE UTFØRT.** Live-kontroll 05.08 viser artefakten i begge felt; ligger nå først i den samlede Friday-bunken. Feltnavnet er limt inn i selve feltet: `<title>` = «Page title: …» og alle tre description-taggene = «Meta description: …». Synlig i Google nå. Kontrollert mot mops, tibetansk-spaniel, norsk-elghund-gra og pointer — alle rene, altså isolert til denne siden | Page title: `Norsk Elghund Sort — komplett raseguide \| Min Hund` · Meta: `Norsk Elghund Sort — kritisk truet nasjonalrase og bandhund-spesialist. NKKs gentestkrav fra 2024, HD-indeks og hva forskningen sier om overgangsvirvel.` |
 
 **Sum: 17 åpne admin-steg** (7 nye fra denne bolken + 9 fra tidligere). `staffordshire-bull-terrier` (C3c-10) trengte ingen — feltet var rent.
 
