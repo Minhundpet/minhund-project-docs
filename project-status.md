@@ -2,7 +2,9 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-08-06 kveld (**Produktsporet dominerte dagen — tre nye PDP-er og en full reposisjonering.** Katalogen gikk fra 12 til 15 produkter: `slikkematte-hund`, `slikkematte-roterende-ball` og `puslespill-hund` er alle live med custom PDP. **Puslespill-PDP-en ble bygget, faktarettet i tre runder og deretter reposisjonert samme dag** — fra «måltidsmatte» til godbitprodukt. Ny HARD-regel «Produktfamilie-termer» i `docs/products.md` gir hvert produkt sin egen head-term (slikkeball ≠ slikkematte ≠ puslespill ≠ aktiviseringsleke ≠ aktiviseringsskål). Tittel + handle byttet i Admin: `puslematte-hund` → `puslespill-hund`, 301 verifisert. **Parallelt spor:** `--featured`-produktkortmigreringen nådde Batch 5/7 (27 av 37 sider), og claim-sjekk er nå et fast steg i hver batch — ti reelle claim-brudd funnet og rettet i Batch 3–5, de fleste i produktbokser. **Dagens metodefunn:** et handle-bytte stryker hardkodede handle-lister stille, og 301-redirecten skjuler det.)
+> **Sist generert:** 2026-08-07 formiddag (**Meta-sporet: prosjektets arbeidsminne restrukturert.** Fem prosjekt-level skills opprettet under `.claude/skills/` — `min-hund`, `raseguider`, `google-ads-min-hund`, `negative-keywords-min-hund` og `hundetips-article-creator` (flyttet inn fra user-level). Fire av dem antatt eksisterende; ingen fantes. Hver skuff har en `STATUS.md` som leses først og skrives sist i hver økt, fylt med ekte data fra denne fila, git-loggen og live-verifisering. **Workflow-en skiller nå to mekanismer:** skills laster på **intensjon** og bærer fremdrift; rules i `.claude/rules/` laster på **filkontekst**. **CLAUDE.md redusert 175 → 127 linjer (46 %)** — alt flyttet, 0 tapt av 25 verifiserte nøkkelregler. **Blokkerende funn:** Google Ads MCP er nede med `invalid_grant` (OAuth-token fra 21.04), og `NEGATIVES.md` kan bare dekke 26 av ~50 negative fordi tilleggsskriptet er dynamisk og lagrer ingenting. **Dagens metodefunn:** parallelle økter committer i samme tre — ucommittet arbeid forsvant fra `git diff` midt i økta; kjør `git log`, ikke bare `git status`. Tidligere samme dag: produktkort-auditen (`318f4d7`, `94b0d9e`).)
+>
+> **Forrige (2026-08-06 kveld):** (**Produktsporet dominerte dagen — tre nye PDP-er og en full reposisjonering.** Katalogen gikk fra 12 til 15 produkter: `slikkematte-hund`, `slikkematte-roterende-ball` og `puslespill-hund` er alle live med custom PDP. **Puslespill-PDP-en ble bygget, faktarettet i tre runder og deretter reposisjonert samme dag** — fra «måltidsmatte» til godbitprodukt. Ny HARD-regel «Produktfamilie-termer» i `docs/products.md` gir hvert produkt sin egen head-term (slikkeball ≠ slikkematte ≠ puslespill ≠ aktiviseringsleke ≠ aktiviseringsskål). Tittel + handle byttet i Admin: `puslematte-hund` → `puslespill-hund`, 301 verifisert. **Parallelt spor:** `--featured`-produktkortmigreringen nådde Batch 5/7 (27 av 37 sider), og claim-sjekk er nå et fast steg i hver batch — ti reelle claim-brudd funnet og rettet i Batch 3–5, de fleste i produktbokser. **Dagens metodefunn:** et handle-bytte stryker hardkodede handle-lister stille, og 301-redirecten skjuler det.)
 > **Mirror:** https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md (public repo — claude.ai blokkerer gist-domenet)
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
@@ -76,6 +78,40 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-08-07 — Skuff-restrukturering: fem prosjekt-level skills med STATUS-filer; CLAUDE.md 175 → 127 linjer (`7a8bae3` → `ca08840`)
+
+**Utløser:** CLAUDE.md var 175 linjer / 17,4 KB og ble lastet i sin helhet i hver eneste sesjon — også når arbeidet var en cart-bug. 34 % av fila var raseguide-sprint-innhold (4-fase-protokoll, sprint-workflow, lærdommer fra #60–63). Fire antatt eksisterende skills (`min-hund`, `raseguider`, `google-ads-min-hund`, `negative-keywords-min-hund`) viste seg **ikke å finnes** — søk i `~/.claude/skills/`, `~/.agents/skills/`, prosjektets `.claude/skills/` og hele hjemmemappa ga null treff. Den eneste ekte prosjekt-skillen var `hundetips-article-creator` på user-level.
+
+**Besluttet (Sondre):** prosjekt-level `.claude/skills/`, git-versjonert og speilet. `hundetips-article-creator` flyttet inn fra user-level så alt ligger samlet. STATUS-filene fylles med ekte data ved opprettelse, ikke tomme maler.
+
+**Fem skuffer opprettet** (`7a8bae3`, 1235 linjer):
+
+| Skuff | Dekker | Filer |
+|---|---|---|
+| `min-hund` | drift: deploy, produktfakta, legal, GSC/MCP, mirror-synk | SKILL + STATUS |
+| `raseguider` | 4-fase-protokoll, ordbudsjett, back-link-audit | SKILL + STATUS + `references/sprint-lessons.md` |
+| `hundetips-article-creator` | nye hundetips-artikler | SKILL (flyttet inn) |
+| `google-ads-min-hund` | konto, kampanjer, skriptbibliotek | SKILL + STATUS |
+| `negative-keywords-min-hund` | negative søkeord | SKILL + STATUS + `NEGATIVES.md` |
+
+**To mekanismer, ulike triggere — dette er kjernen i beslutningen.** Skills laster på **intensjon** (hva Sondre ber om) og har en `STATUS.md` som leses først og skrives sist i hver økt. Rules i `.claude/rules/` laster på **filkontekst** (hvilken fil du åpner). Raseguide-4-fase-protokollen trigges på «start sprint #64» før noen fil er åpnet — derfor skill, ikke rule. Ads-arbeid rører aldri en fil i repoet, så rules kunne per definisjon ikke fange det.
+
+**CLAUDE.md redusert 175 → 127 linjer / 17,4 → 9,4 KB (46 %)** (`ca08840`). Alt flyttet, ingenting slettet — verifisert med dekningssjekk på 25 nøkkelregler: **0 tapt**. Beholdt som pekere fordi de må gjelde selv når skillen ikke er lastet: STOP-gate-regelen inkl. auto-approve-unntaket, at back-link-audit og pre-publiseringsporten er obligatoriske, service-konto-kravet for GSC, `sc-domain`-formen, og de tre produktfaktaene som oftest blir feil.
+
+**Funn dokumentert i STATUS-filene underveis:**
+
+1. **🔴 Google Ads MCP er nede** — `invalid_grant: Bad Request`, verifisert med et faktisk `execute_gaql`-kall mot konto 2198068625. Rotårsak: OAuth `refresh_token` i `~/google-ads-script/google-ads.yaml` sist skrevet **21.04.2026**. Samtykkeskjermen står trolig i *Testing*, som gir 7-dagers utløp. Fiks: `generate_refresh_token.py` (krever nettleser). Service-konto er ikke et alternativ — Google Ads krever Workspace-domenedelegering, og kontoen er en Gmail-konto. Permanent fiks: publiser samtykkeskjermen til «In production».
+2. **NEGATIVES.md dekker 26 av ~50** negative søkeord. `add_negative_keywords.py` er **dynamisk** — leser søketermrapporten ved kjøring og lagrer ingenting, så repoet kan ikke gjenskape listen. GAQL-spørringen som lukker gapet ligger i fila. Dedup ga 0 duplikater (6 BROAD / 20 PHRASE).
+3. **Seks av åtte rasespesifikke negativer blokkerer raser med live raseguide** — `jack-russell-terrier`, `finsk-lapphund`, `flat-coated-retriever`, `labrador-retriever`, `cocker-spaniel`, `golden-retriever` (alle 200). Satt i april for å skjerme et produktbudsjett mot infosøk; i dag er de samme søkene innholdssatsingens kjernemålgruppe. Krever bevisst avgjørelse per kampanjetype før Ads restartes.
+4. **`dyrehår` BROAD kan blokkere kampanjens eget betalte søkeord** «fjerne dyrehår sofa». Uverifisert (auth nede) — står som kontrollpunkt.
+5. **Sprintnummer ≠ raseguidenummer, offset +3.** Commit-meldinger bruker sprintnr, project-status bruker raseguidenr. Sprint #63 = raseguide #60. Offsetet kommer av at sprint #37/#41/#54 var Trigger B / cleanup.
+6. **«Pending admin page-creation» i denne fila er stale** — WHWT, Samojedhund, Greyhound, Italiensk Mynde, Weimaraner, Whippet og Jämthund svarer alle **200**.
+7. **`docs/link-audit-2026-05-20.md` finnes ikke**, men refereres som hjemmel for post-#50 crossover-link-auditen. Auditen må kjøres på nytt hvis den fortsatt er ønsket.
+8. **Talldrift mot denne fila:** PDP-er 13 vs 15 på disk, hundetips-hub-kort 59 vs 61. Ikke overskrevet — flagget i `min-hund/STATUS.md` for reconciliation.
+9. **Raseguide-sprintsporet har vært pauset siden 27.05** (~10 uker). Siste `feat(raseguide)` er `e1abc4b`.
+
+**Metodefunn — parallelle økter committer i samme tre.** `sections/hundetips-hund-slikker-ansikt.liquid` lå ucommittet med +142 linjer da økta startet, og forsvant fra `git diff` midt i arbeidet fordi en parallell økt committet den som `318f4d7`. **Kjør `git log --oneline -3` før du beskriver treets tilstand** — `git status` fra sesjonsstart er ikke nok. Regelen er lagt i `min-hund/STATUS.md`.
 
 ### 2026-08-07 — Produktkort-hullet var i hovedsak en måle-artefakt; productduo bekreftet som forward-mønster (`318f4d7`)
 
