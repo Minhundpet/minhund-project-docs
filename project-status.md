@@ -77,6 +77,31 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-07 — Produktkort-hullet var i hovedsak en måle-artefakt; productduo bekreftet som forward-mønster (`318f4d7`)
+
+**Utløser:** trafikkrapport for siste 30 dager (GSC 07.07–05.08: 2 282 klikk / 198 919 visn / CTR 1,15 % / pos 7,8 — +64,9 % klikk mot forrige periode) flagget «topp 10 mye trafikk, lite konverterende» basert på en `grep -c product-box`-proxy. Proxyen var feil.
+
+**Tre måle-feil funnet og rettet:**
+1. `grep -c 'product-box'` traff **CSS-regelnavn, ikke HTML**. `hvor-mye-mat` og `hund-kaster-opp` ble rapportert med «2» og «0» bokser — begge har i realiteten et `productduo`-kort. Samme fellen som obs 12723 (`hundetips-livreddende`).
+2. Telling av `class="mh-article__productduo` fanget **sub-element-klasser** (`-intro`, `-card`, `-desc` …), så filer fikk «13 kort». Wrapper-tellingen er 9 i hele korpuset.
+3. Første telling overså **`mh-article__recommend`** helt — en tredje produktkomponent. `hund-vil-ikke-ga-tur` og `hund-lukter-vondt` ble derfor feilaktig meldt som udekket.
+
+**Riktig metode (bruk denne):** parse `class`-attributtet og match på **eksakt token** (`tok in c.split()`), ikke delstreng, og sjekk alle tre komponentene: `mh-article__recommend`, `mh-article__product-box--featured`, `mh-article__productduo`.
+
+**Korpus-fasit:** 37 filer `--featured` (Batch 1–7) · 9 filer `productduo` · 8 hundetips-sider helt uten kort (172 klikk/mnd, alle med 0 prosalenker).
+
+**Beslutning 1 — ikke konverter productduo → `--featured`.** `docs/page-patterns.md` sin retrofit-standard (effective 2026-07-02) gjør `productduo` til målmønsteret: ETT kort, maks 2 produkter, maks ett kort-touchpoint per produkt. De 9 productduo-filene er de *allerede retrofittede*. En konvertering ville vært en regresjon. Sondre godkjente å droppe den.
+
+**Beslutning 2 — «produktkort-mulighet» er overvurdert som CRO-kategori.** Av de 8 kortløse sidene har **1** en ærlig produktkobling. De øvrige 7 handler om problemer katalogen ikke løser: lufttett beholder/målebeger, bånd, kloklipper, øremiddel (×2), flåttmiddel, førstehjelp. På `oppbevaring-torrfor-hund` (51 klikk — størst av dem) sier artikkelen eksplisitt at matskålen *aldri* skal brukes som måleredskap, så en aktiviseringsskål der ville motsagt teksten. Reell oppside ligger i CTR-arbeid på sider som allerede rangerer, ikke i flere kort.
+
+**Levert:** `hund-slikker-ansikt` fikk `productduo--single` → CalmBall, plassert etter «7 regler for trygg kos» (regel 6 = «Tren hunden til å hilse uten å slikke» er kroken). v2-scopet CSS portert fra kanonisk `hundetips-hva-kan-hund-spise.liquid`; `--single`-regler fra `hvor-mye-mat`. Filen manglet base-`.mh-article__product-btn`, så knappen styles i sin helhet scopet. Lager verifisert live før lenking (gotcha #12). +33 ord (1,4 %) → llms.txt ikke trigget.
+
+**Meta-fiks (Friday, Admin):** `bandtvang-norge` og `hva-kan-hund-spise` fikk nye title + description. Verifisert live med cache-buster, alle tre tagger i synk. Ett kosmetisk avvik: bandtvang-title har en-dash `–` der em-dash `—` ble sendt. `rips` (88 visn/mnd) ble bevisst holdt UTE av hva-kan-hund-spise-metaen — ordet finnes ikke i artikkelen; det er et innholdshull, ikke et meta-hull.
+
+**Metodefunn — falske nuller ved live-verifisering (gjentakelse av obs 12721).** Første live-sjekk av CalmBall-kortet ga 0 treff på alle seks markørene fordi regexet antok `class="…"` med doble anførselstegn i Shopifys rendrede HTML. Kortet var live hele tiden. Samme klasse feil rammet meta-sjekken tidligere samme dag: `<meta name="description" content="…">` skrives **flerlinjet** av `snippets/meta-tags.liquid`, så et enlinjes regex meldte «(ingen)» på sider som hadde velformede metaer. **Regel: live-verifisering skal alltid være quote-agnostisk og `DOTALL`.**
+
+**Åpent:** Google Ads-refresh-token er dødt (`invalid_grant`, både MCP og `~/google-ads-script/google-ads.yaml`) — Ads-pausen fra 06.08 kunne ikke bekreftes. Fikses med `python3 ~/google-ads-script/generate_refresh_token.py`. GA4 og Shopify Analytics har ingen tilgang i CLI-miljøet, så sesjoner/produktvisninger/trafikkilder/bounce mangler fortsatt.
+
 ### 2026-08-06 — Puslespill-PDP: bygget, faktarettet ×3 og reposisjonert på én dag (`97c99b6` → `126a03d`)
 
 **Produktet.** Bygget som «Puslematte for hund – interaktiv aktiveringsmatte» (`97c99b6`), endte kvelden som **`Puslespill for hund – godbitleke med lokk og skiver`**, handle **`puslespill-hund`**. Tittel og handle satt av Sondre i Admin etter forslag; 301 fra gammel URL verifisert. Tema-filnavnene (`product-puslematte.liquid`, `product.puslematte.json`, suffiks `puslematte`) er med vilje **ikke** endret — å røre templateSuffix er den kjente stille-fallback-risikoen fra `626e101`.
