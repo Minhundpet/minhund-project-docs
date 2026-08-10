@@ -139,7 +139,24 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 | `hund-sover-mye` | mangler suffiks → 59 tegn (under grensen) | 9 647 |
 | `tannhelse-hund` · `hund-graver-i-hagen` · `valpe-utstyr-sjekkliste` · `mellomschnauzer` · `strihaaret-vorstehhund` | **ingen `title_tag`** → Shopify faller tilbake til `page.title` (H1-tekst, ikke SEO-optimert) + en-dash-suffiks | 1 018–3 590 |
 
-**Ikke rettet** — utenfor bestilt sideliste. `hund-kaster-opp` er høyest prioritet av dem (avkortet SERP-title på siden som drar mest trafikk i hele korpuset), deretter `aktivisere-hund-pa-tur` (dobbelt merkenavn er synlig rart i SERP-en). Sveipkommandoen ligger i gotcha #23-tillegget.
+**To av dem rettet samme dag** (se under). De øvrige sju står — sveipkommandoen ligger i gotcha #23-tillegget.
+
+**Oppfølging 2026-08-10 (kveld) — de to prioriterte gotcha #23-sidene rettet:**
+
+| Side | Før (Admin → live) | Etter (Admin = live) |
+|---|---|---|
+| `hund-kaster-opp` | `Hund kaster opp gult skum? Slik vet du når det haster` (53) → **64 tegn** live med en-dash-suffiks | `Hund kaster opp gult skum? Når det haster \| Min Hund` (**52**) |
+| `aktivisere-hund-pa-tur` | `Aktivisere hund på tur — slik gjør du det riktig Min hund` (57) → **68 tegn** live, `… Min hund – Min Hund` | `Aktivisere hund på tur — slik gjør du det riktig \| Min Hund` (**59**) |
+
+`hund-kaster-opp` er korpusets største side (16 757 visn / 282 klikk / 1,68 % CTR) og hadde avkortet SERP-title. Nøkkelbudskapet er beholdt — symptomet «gult skum» og triage-vinkelen — men «Slik vet du» er trimmet bort for å komme under 60. **Meta description ikke endret** på noen av de to: 151 og 144 tegn, begge i bånd, og `hund-kaster-opp`-metaen bærer allerede «gult skum eller gult slim» + «når det er alvorlig», altså samme budskap som den nye titelen.
+
+`aktivisere-hund-pa-tur` er bekreftet fri for dobbelt merkenavn i live-HTML: én forekomst av «Min Hund», ingen tema-appendet en-dash. Bare case-rettingen alene fjernet suffiks-bugen, akkurat som mekanismen forutsier.
+
+**Verifisering:** Admin API 2/2, akkumulerende live-sjekk 2/2 (`hund-kaster-opp` runde 1, `aktivisere-hund-pa-tur` runde 2 — cachet på 68 tegn i runde 1). Alle tre description-tagger i synk på begge. sha256 loggført.
+
+**Gjenstår etter dette: 11 tilfeller i hele page-settet** (129 sider, ikke bare de 121 artikkelsidene) — `orebetennelse-hund` (68 tegn) og `hund-sover-mye` (59) mangler suffiks; ni sider mangler `title_tag` helt: `contact`, `om-oss`, `om-king`, `tannhelse-hund`, `llms-txt`, `hund-graver-i-hagen`, `valpe-utstyr-sjekkliste`, `mellomschnauzer`, `strihaaret-vorstehhund`. `llms-txt` er en utility-side uten SEO-verdi og kan ignoreres. `orebetennelse-hund` er den eneste som faktisk avkortes.
+
+**Måledato for disse to: live 2026-08-10 → les av ~2026-09-07**, samme klokke som de 15 andre.
 
 ### 2026-08-07 — Skuff-restrukturering: fem prosjekt-level skills med STATUS-filer; CLAUDE.md 175 → 127 linjer (`7a8bae3` → `ca08840`)
 
