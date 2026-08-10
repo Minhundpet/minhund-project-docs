@@ -158,6 +158,41 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 **Måledato for disse to: live 2026-08-10 → les av ~2026-09-07**, samme klokke som de 15 andre.
 
+**Tredje retting samme kveld — `orebetennelse-hund`:**
+
+| | Admin-felt | Live-`<title>` |
+|---|---|---|
+| Før | `Ørebetennelse hos hund — symptomer, årsaker og behandling` (57) | **68 tegn** med en-dash-suffiks |
+| Etter | `Ørebetennelse hos hund — symptomer og behandling \| Min Hund` (59) | **59 tegn** |
+
+«årsaker» droppet fra titelen for å komme under 60; meta description (131 tegn, i bånd) bærer den fortsatt sammen med «forebygging» og vet-linja, så budskapet er ikke tapt. Meta uendret. Live-bekreftet runde 1, sha256 `b90916d2fe7019c6…`, alle tre description-tagger i synk.
+
+**⚠ KORRIGERING av min egen «ingen flere avkortinger»-konklusjon — det er 23 igjen, ikke 0.**
+
+Gotcha #23-sveipet svarte på spørsmålet *«mangler Admin-titelen «Min Hund», slik at temaet legger på suffiks?»*. Det er **ikke** samme spørsmål som *«er den effektive live-titelen over 60 tegn?»*. Etter at de tre en-dash-tilfellene var rettet, konkluderte jeg med at korpuset var rent. Det var feil: de aller fleste for lange titlene har suffikset korrekt satt i Admin og er rett og slett for lange i seg selv, og de var usynlige for sveipet mitt.
+
+Fullt sveip av alle 129 sider (effektiv live-lengde = `len(title_tag)` hvis den inneholder «Min Hund», ellers `len+11`; tom `title_tag` → `len(page.title)+11`): **26 sider over 60 tegn — 23 artikkelsider + 3 hub/utility-sider.** De største etter visninger:
+
+| Side | Live-tegn | Visninger | Klikk |
+|---|---|---|---|
+| `hvor-mye-mat` | 64 | 16 320 | 271 |
+| `hund-bader-ute` | 67 | 7 620 | 124 |
+| `valp-de-forste-ukene` | 62 | 6 281 | — |
+| `hund-kroppsspraak` | **71** | 5 923 | 94 |
+| `hund-lukter-vondt` | 62 | 4 784 | 125 |
+| `hund-smerte-tegn` | 64 | 4 746 | — |
+| `hund-graver-i-hagen` | 68 (tom `title_tag`) | 3 590 | 91 |
+| `klippe-klor-hund` | **74** | 2 767 | — |
+| `kennelhoste-hund` | **74** | 1 862 | 15 |
+
+`hvor-mye-mat` er korpusets #2 på både visninger og klikk. `klippe-klor-hund` og `kennelhoste-hund` er de verste med 74 tegn — 14 over grensen.
+
+**Bifunn:** tre titler har trailing whitespace før eller etter suffikset (`klippe-klor-hund`, `hund-og-varmen`, `hund-klor-seg`). Harmløst for rendering, men det gjør eksakt strengsammenligning upålitelig — normaliser med `.strip()` i alle framtidige sveip.
+
+**Lærdom (samme klasse som gotcha #14 og #20):** et sveip svarer bare på spørsmålet det faktisk stiller. «Mangler suffiks» og «for lang» overlapper delvis, og jeg leste dekning på det første som dekning på det andre. Riktig audit for title-lengde er den effektive live-lengden for **alle** sider, uavhengig av suffiks-tilstand — kommandoen ligger i gotcha #23-tillegget.
+
+**Ikke rettet** — 23 sider er et eget scoped pass, ikke en hale på denne økta.
+
 ### 2026-08-07 — Skuff-restrukturering: fem prosjekt-level skills med STATUS-filer; CLAUDE.md 175 → 127 linjer (`7a8bae3` → `ca08840`)
 
 **Utløser:** CLAUDE.md var 175 linjer / 17,4 KB og ble lastet i sin helhet i hver eneste sesjon — også når arbeidet var en cart-bug. 34 % av fila var raseguide-sprint-innhold (4-fase-protokoll, sprint-workflow, lærdommer fra #60–63). Fire antatt eksisterende skills (`min-hund`, `raseguider`, `google-ads-min-hund`, `negative-keywords-min-hund`) viste seg **ikke å finnes** — søk i `~/.claude/skills/`, `~/.agents/skills/`, prosjektets `.claude/skills/` og hele hjemmemappa ga null treff. Den eneste ekte prosjekt-skillen var `hundetips-article-creator` på user-level.
