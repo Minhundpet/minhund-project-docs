@@ -127,6 +127,20 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 **Måledato: endringene er live 2026-08-10 → CTR-sammenligning ~2026-09-07** (4 uker). Sammenlign 28d-vinduet 10.08–07.09 mot 28d før 10.08, ikke mot 90d-baselinen.
 
+**Live-verifisering fullført: 15/15.** Akkumulerende sjekk over fire runder — hver side bekreftet med live-`<title>` + alle tre description-taggene i synk, sha256 loggført. Rundefordeling: 11 sider i runde 1–2, `hvor-mye-vann-hund` i runde 3, `labrador-retriever` i runde 4. Cachen roterte per side og per henting: en side kunne verifisere OK i én runde og servere gammelt innhold i neste. **Enkelthenting mot live er derfor ikke et gyldig porttrinn** — bruk akkumulerende sjekk over flere runder, eller Admin API som autoritativ kilde.
+
+**Utvidet funn — gotcha #23 rammer ni sider, ikke to.** Sveip av alle 121 artikkelsiders `title_tag` via Admin API:
+
+| Side | Tilstand | Visninger |
+|---|---|---|
+| `aktivisere-hund-pa-tur` | **dobbelt merkenavn** — Admin-title slutter på «Min hund» med liten h, `contains` er case-sensitiv, temaet legger på sitt eget suffiks → live-title = `… Min hund – Min Hund` (68 tegn) | 2 394 |
+| `orebetennelse-hund` | mangler suffiks → 68 tegn live | 1 969 |
+| `hund-kaster-opp` | mangler suffiks → 64 tegn live. **Korpusets #1-side** (282 klikk) | 16 757 |
+| `hund-sover-mye` | mangler suffiks → 59 tegn (under grensen) | 9 647 |
+| `tannhelse-hund` · `hund-graver-i-hagen` · `valpe-utstyr-sjekkliste` · `mellomschnauzer` · `strihaaret-vorstehhund` | **ingen `title_tag`** → Shopify faller tilbake til `page.title` (H1-tekst, ikke SEO-optimert) + en-dash-suffiks | 1 018–3 590 |
+
+**Ikke rettet** — utenfor bestilt sideliste. `hund-kaster-opp` er høyest prioritet av dem (avkortet SERP-title på siden som drar mest trafikk i hele korpuset), deretter `aktivisere-hund-pa-tur` (dobbelt merkenavn er synlig rart i SERP-en). Sveipkommandoen ligger i gotcha #23-tillegget.
+
 ### 2026-08-07 — Skuff-restrukturering: fem prosjekt-level skills med STATUS-filer; CLAUDE.md 175 → 127 linjer (`7a8bae3` → `ca08840`)
 
 **Utløser:** CLAUDE.md var 175 linjer / 17,4 KB og ble lastet i sin helhet i hver eneste sesjon — også når arbeidet var en cart-bug. 34 % av fila var raseguide-sprint-innhold (4-fase-protokoll, sprint-workflow, lærdommer fra #60–63). Fire antatt eksisterende skills (`min-hund`, `raseguider`, `google-ads-min-hund`, `negative-keywords-min-hund`) viste seg **ikke å finnes** — søk i `~/.claude/skills/`, `~/.agents/skills/`, prosjektets `.claude/skills/` og hele hjemmemappa ga null treff. Den eneste ekte prosjekt-skillen var `hundetips-article-creator` på user-level.
