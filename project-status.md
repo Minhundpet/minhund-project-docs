@@ -67,6 +67,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 - **REN AVLESING ~2026-08-14 → v2-korpus GO/NO-GO** — 28d-vindu **17.07–14.08 = 100 % post-retrofit** (isolerer v2-effekt fra baseline-dager). **Sammenlign mot DAGENS 28d-tall (avlesing 20.07), IKKE 90d-baselinen** — apples-to-apples 28d-vindu. **Beslutningskriterium for GO:** median-CTR-løft på tvers av pilotene med **maks 1–2 sider som faller**, ELLER **konsistent posisjonsløft utover organisk modning**. Hold ellers. **Bakgrunn:** første avlesing 20.07 ga **NO-GO** (se BESLUTNINGER 2026-07-20) — for tidlig + konfundert av bred impresjons-surge (1,5–5,7× på ALLE sider, inkl. ulikt-behandlet hund-i-bil = ikke v2-signal) + 28d-vindu var ~40 % pre-retrofit. August-vinduet har **9 piloter** å dømme på (6 batch #1 + 3 batch #2). Mega-sidene (`hund-kaster-opp`, `hvor-mye-mat`) + 60 raseguider forblir gated til GO.
 - **⏳ Checkout-locale default-flip (Admin UI, manuelt)** — nb er enabled+published via API (2026-07-21 kveld), men **en er fortsatt primær** → checkout rendrer engelsk til Sondre flipper default til Norsk (Bokmål) i Admin → Settings → Languages og deretter fjerner English. Rekkefølge kritisk (aldri disable en mens primær). Se BESLUTNINGER 2026-07-21 (kveld). API-gap: primær-flip går IKKE via Admin API.
 - **Meta titles** — **KORRIGERT 2026-08-10: det er IKKE kjørt noe korpusbredt CTR-sveip.** Formuleringen «ingen sweep gjort» sto uendret her mens 13 målrettede Admin-endringer var utført, og ble derfor lest som at ingenting var gjort. Faktisk utført: **4 raseguide-meta-rewrites** (Batch A, 22.07 — `australian-shepherd`, `newfoundland`, `italiensk-mynde`, `weimaraner`) + **9 v2-pilot title+meta** (02.–19.07 — `hva-kan-hund-spise`, `giftig-mat`, `hund-oeyne`, `hvor-mye-vann-hund`, `hund-spiser-gress`, `hund-sover-mye`, `valp-biter-pa-alt`, `bandtvang-norge`, `hund-slikker-ansikt`). **Avlesing 90d (12.05–09.08, 121 sider fra `article_map`): 11 av de 13 ligger fortsatt under korpussnitt-CTR (1,11 %).** Kun `hund-oeyne` (1,36 %) og `valp-biter-pa-alt` (1,34 %) er over. **Forbehold: 90d-vinduet er ikke rent post-sveip** (starter 12.05, blander inn pre-sveip-dager for alle 13) → **28d-vinduet ~12.08 er fortsatt hovedmålet**, jf. GSC page-2 round 2-tråden under. De 82 sidene under snittet (62 % av korpusets visninger, 52 av dem raseguider) er kandidatlisten for et reelt sveip. Se BESLUTNINGER 2026-08-10.
+- **⏳ Hundeseng-tilbudet trenger en sluttdato eller en beslutning** — 639/799 med overstreket 799/999 ble satt 10.08.2026. En overstreket førpris kan ikke stå permanent: blir 639/799 den varige prisen, må compare-at fjernes (da er 639 ikke lenger et *tilbud*, bare prisen). Enten sett en sluttdato for kampanjen, eller strip compare-at når salgstallene er vurdert. Uavklart hvor lenge den skal løpe.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
 - **Sourcing: XL donut-seng (≥40 kg)** — Beroligende hundeseng maxer på 25 kg (Large). Forhindret seng-CTA på Schäfer (publisert uten), og blokkerer fremtidige large-breed-guider (Berner Sennen, Vorsteh, Setter, etc.) hvis sprint forlenges. Sondre må source XL-størrelse før disse rasene får seng-CTA.
@@ -78,6 +79,23 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-08-10 kveld — Beroligende hundeseng −20 % + Bestselger-badge fjernet (`4e3cb44` + `e9c95ae`)
+
+**Utløser:** Sondre: sengen selger 0. Beslutning: permanent prisnedsettelse med synlig førpris — ikke rabattkode.
+
+**Prisendring (Shopify Admin API, `productVariantsBulkUpdate` via MCP):**
+- Medium `MH-HS-M`: 799 → **639 kr**, compare-at **799**
+- Large `MH-HS-L`: 999 → **799 kr**, compare-at **999**
+- Begge rundet ned til hel krone → 20,0 % avslag. Ingen compare-at var satt fra før, så førprisene er de faktisk brukte prisene (prisopplysningsforskriften § 9-10 oppfylt på endringstidspunktet).
+- Verifisert live i sidens HTML: `"price":63900` / `"price":79900`.
+- `snippets/llms-products-data.liquid`: «Fra 799 kr» → «Fra 639 kr» (llms.txt Trigger C). Eneste hardkodede sengpris i korpuset — grep på `799 kr`/`999 kr` ga 1 treff totalt.
+
+**Badge-opprydning:** `<span class="hs-bestseller-badge">Bestselger</span>` fjernet fra `sections/product-hundeseng.liquid`. Full live-sveip av alle 15 produktsider + `/collections/all` viste at kun **to** flater hadde ordet: hundesengen (usann påstand — 0 solgt) og pelsfjerner (reell bestselger, beholdt). Forsidens hero-badge «BESTSELGER · TESTET AV KING» er bundet til `mh_bestseller_handle = 'pelsfjerner'` og er urørt. CSS-regelen `.hs-bestseller-badge` beholdt for gjenbruk (f.eks. SALG-merke).
+
+**Funn:** de øvrige `*-bestseller-badge`-klassene (calmball, valpepakken, slikkematte, vannflaske, aktiviseringsleke) er samme badge-slot med *beskrivende* tekst («Mental aktivisering», «6-i-1 multifunksjonell», «Sett på TikTok») — ingen salgspåstand, ingen endring nødvendig.
+
+**Cache:** page-cache serverte den gamle badgen i minst 2 min etter push selv om live-temafila var verifisert ren (`shopify theme pull --live` → 0 treff). Kjent mønster, ikke ny gotcha.
 
 ### 2026-08-10 — CTR-avlesing 90d + første ekte title/meta-sveip: 15 sider endret via Admin API
 
