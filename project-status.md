@@ -66,7 +66,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ### Åpne tråder (ikke besluttet ennå)
 - **REN AVLESING ~2026-08-14 → v2-korpus GO/NO-GO** — 28d-vindu **17.07–14.08 = 100 % post-retrofit** (isolerer v2-effekt fra baseline-dager). **Sammenlign mot DAGENS 28d-tall (avlesing 20.07), IKKE 90d-baselinen** — apples-to-apples 28d-vindu. **Beslutningskriterium for GO:** median-CTR-løft på tvers av pilotene med **maks 1–2 sider som faller**, ELLER **konsistent posisjonsløft utover organisk modning**. Hold ellers. **Bakgrunn:** første avlesing 20.07 ga **NO-GO** (se BESLUTNINGER 2026-07-20) — for tidlig + konfundert av bred impresjons-surge (1,5–5,7× på ALLE sider, inkl. ulikt-behandlet hund-i-bil = ikke v2-signal) + 28d-vindu var ~40 % pre-retrofit. August-vinduet har **9 piloter** å dømme på (6 batch #1 + 3 batch #2). Mega-sidene (`hund-kaster-opp`, `hvor-mye-mat`) + 60 raseguider forblir gated til GO.
 - **⏳ Checkout-locale default-flip (Admin UI, manuelt)** — nb er enabled+published via API (2026-07-21 kveld), men **en er fortsatt primær** → checkout rendrer engelsk til Sondre flipper default til Norsk (Bokmål) i Admin → Settings → Languages og deretter fjerner English. Rekkefølge kritisk (aldri disable en mens primær). Se BESLUTNINGER 2026-07-21 (kveld). API-gap: primær-flip går IKKE via Admin API.
-- **Meta titles** — strategi for re-write av eksisterende artikkel-meta. Ingen sweep gjort.
+- **Meta titles** — **KORRIGERT 2026-08-10: det er IKKE kjørt noe korpusbredt CTR-sveip.** Formuleringen «ingen sweep gjort» sto uendret her mens 13 målrettede Admin-endringer var utført, og ble derfor lest som at ingenting var gjort. Faktisk utført: **4 raseguide-meta-rewrites** (Batch A, 22.07 — `australian-shepherd`, `newfoundland`, `italiensk-mynde`, `weimaraner`) + **9 v2-pilot title+meta** (02.–19.07 — `hva-kan-hund-spise`, `giftig-mat`, `hund-oeyne`, `hvor-mye-vann-hund`, `hund-spiser-gress`, `hund-sover-mye`, `valp-biter-pa-alt`, `bandtvang-norge`, `hund-slikker-ansikt`). **Avlesing 90d (12.05–09.08, 121 sider fra `article_map`): 11 av de 13 ligger fortsatt under korpussnitt-CTR (1,11 %).** Kun `hund-oeyne` (1,36 %) og `valp-biter-pa-alt` (1,34 %) er over. **Forbehold: 90d-vinduet er ikke rent post-sveip** (starter 12.05, blander inn pre-sveip-dager for alle 13) → **28d-vinduet ~12.08 er fortsatt hovedmålet**, jf. GSC page-2 round 2-tråden under. De 82 sidene under snittet (62 % av korpusets visninger, 52 av dem raseguider) er kandidatlisten for et reelt sveip. Se BESLUTNINGER 2026-08-10.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
 - **Sourcing: XL donut-seng (≥40 kg)** — Beroligende hundeseng maxer på 25 kg (Large). Forhindret seng-CTA på Schäfer (publisert uten), og blokkerer fremtidige large-breed-guider (Berner Sennen, Vorsteh, Setter, etc.) hvis sprint forlenges. Sondre må source XL-størrelse før disse rasene får seng-CTA.
@@ -78,6 +78,54 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-08-10 — CTR-avlesing 90d + første ekte title/meta-sveip: 15 sider endret via Admin API
+
+**Utløser:** GSC-avlesing (service-account, 90d 12.05–09.08, dimensjon `page`) av alle 121 handles i `article_map`. **Korpus: 4 283 klikk / 384 744 visninger / snitt-CTR 1,11 %.** Alle 121 fikk treff; ingen falt under 50-visningsterskelen, så «under snittet» = 82 sider = **62 % av korpusets visninger**. Raseguidene underpresterer som segment: **0,86 % mot hundetips' 1,23 %**, og ingen raseguide er inne på topp 15 målt i klikk.
+
+**Avlesing av juli-endringene: 11 av 13 ligger fortsatt under snittet.** Kun `hund-oeyne` (1,36 %) og `valp-biter-pa-alt` (1,34 %) er over. Se korrigert Åpne tråder-punkt «Meta titles» — formuleringen «ingen sweep gjort» hadde stått uendret mens 13 målrettede endringer var utført, og ble derfor lest som at ingenting var gjort.
+
+**Ny kanal bekreftet: page-SEO kan skrives via Admin API.** Tidligere antakelse i prosjektet var at title/meta for pages måtte settes manuelt i Admin. Det er feil. `Page`-typen har ikke noe `seo`-felt (`Field 'seo' doesn't exist on type 'Page'`), men «Search engine listing»-feltene ligger som metafelt `global.title_tag` / `global.description_tag` og skrives med `metafieldsSet` + `--allow-mutations` på det eksisterende `write_content`-scopet. Alle 15 sider ble satt i tre kall uten `userErrors`. **Dette fjerner Friday/manuelt-Admin-steget for all framtidig meta-arbeid.** Merk at `type` går fra legacy `string` til `single_line_text_field` ved skriving — uten synlig effekt på rendering.
+
+**Steg 1 — formatfeil rettet (7 felt / 6 sider):**
+
+| Side | Felt | Før | Etter |
+|---|---|---|---|
+| `hvor-mye-vann-hund` | title | Hvor mye vann skal hunden drikke? Kalkulator + guide (52) | Hvor mye vann skal hunden drikke? Kalkulator \| Min Hund (55) |
+| `hund-spiser-gress` | title | Hund spiser gress — hvorfor, og når du bør reagere (50) | Hund spiser gress — hvorfor, og er det farlig? \| Min Hund (57) |
+| `giftig-mat` | title | Giftig mat for hund — komplett liste + hva du gjør \| Min Hund (61) | Giftig mat for hund — sjokolade, druer, xylitol \| Min Hund (58) |
+| `giftig-mat` | meta | 162 tegn | 127 tegn |
+| `labrador-retriever` | meta | 171 tegn | 137 tegn |
+| `engelsk-bulldog` | meta | 169 tegn | 138 tegn |
+| `pointer` | meta | 166 tegn | 132 tegn |
+
+**Gotcha #23 oppdaget her:** `hvor-mye-vann-hund` og `hund-spiser-gress` hadde Admin-titler på 50–52 tegn — godt innenfor 60 — men live-`<title>` var 61–63 tegn med en-dash-suffiks. `snippets/meta-tags.liquid:132` legger på ` – Min Hund` (`&ndash;`) **når Admin-titelen ikke selv inneholder «Min Hund»**. Diagnosen «en-dash i Admin-feltet» fra rapporten var altså feil: feltet var rent, temaet la på suffikset. **Konsekvens: 60-tegnsgrensen må måles på live-HTML, aldri på Admin-feltet.** `hund-sover-mye` har samme mekanisme men landet på 59 tegn og passerte stille — ikke rørt.
+
+**Steg 2 — raseguide-titler, «komplett raseguide»-formelen droppet (9 sider):** formelen `[Rase] — komplett raseguide | Min Hund` sier ingenting en søker ikke visste, og alle 9 lå på 0,37–1,04 % CTR. Erstattet med konkret krok verifisert ordrett mot brødteksten i hver seksjonsfil:
+
+| Side | Ny title | Krok hentet fra |
+|---|---|---|
+| `whippet` | Whippet — 64 km/t ute, rolig sofahund inne \| Min Hund (53) | «toppfart anslått til rundt 64 km/t» + «typisk rolig sofahund inne og veddeløpshest ute» |
+| `staffordshire-bull-terrier` | Staffordshire Bull Terrier forbudt i Norge? Nei \| Min Hund (58) | «Nei — Staffordshire Bull Terrier er ikke forbudt». Følger husets debunk-mønster (spørsmål + «Nei») fra hypoallergen-bolken, og **beholder head-termen først** i stedet for å lede med spørsmålet |
+| `griffon-petit-brabancon` | Petit Brabançon — raseguide fra en eier \| Min Hund (50) | «King er en Petit Brabançon. Vi vet hva denne rasen krever» |
+| `golden-retriever` | Golden Retriever — Norges mest registrerte rase \| Min Hund (58) | «Norges mest registrerte hunderase i NKKs statistikk for 2024» — **årstallet bevisst utelatt**, se forbehold |
+| `flat-coated-retriever` | Flat Coated Retriever — «Peter Pan blant hundene» \| Min Hund (60) | «Peter Pan blant hundene». Kreftvinkelen (histiocytisk sarkom) **bevisst ikke brukt** i title |
+| `cavalier-king-charles-spaniel` | Cavalier King Charles Spaniel etter avlsforbudet \| Min Hund (59) | «Høyesterettsdommen fra 2023» |
+| `gordon-setter` | Gordon Setter — tyngste av de tre setterne \| Min Hund (53) | «den tyngste av de tre setterne» — **tre, ikke fire**; gammel meta sa «tyngste setter-rase» uten antall |
+| `weimaraner` | Weimaraner — «sølvhunden» trenger 2 timer daglig \| Min Hund (59) | «kjent som sølvhunden» + «1,5–2 timer aktiv mosjon daglig» |
+| `samojedhund` | Samojedhund — polarforskerens hvite hund \| Min Hund (51) | «polarforskerens hund» + «Den hvite spisshunden Fridtjof Nansen valgte». **Sykdomslista (TRIPPEL helsemoat) holdt ute av title** etter samme vurdering som flat-coated |
+
+`gordon-setter` fikk title + meta i **samme** skriveoperasjon for å unngå å røre siden to ganger. `irsk-setter` **ikke rørt** — blokkert på NKKs 2024-registreringstall.
+
+**Verifisering.** Admin API-relesning av alle 15: **15/15 korrekt, 0 avvik** (autoritativ kilde — metafeltene er ikke temafiler, så `sha256`-mot-HEAD gjelder ikke). Live-rendering henger etter per gotcha #19: `curl -I` viser `etag: W/"page_cache:70826557518:PageDetailsController:…"` og `theme;desc="148333264974"` på de forsinkede sidene, altså riktig tema + Shopifys fullside-cache, ikke feilet skriving. Cachen roterte per side og ujevnt — sider som verifiserte OK i én runde viste gammelt innhold i neste.
+
+**⚠ FORBEHOLD 1 — steg 1 kontaminerer den gatede 28d v2-avlesingen.** `giftig-mat`, `hvor-mye-vann-hund` og `hund-spiser-gress` er **3 av de 9 v2-pilotene**, og fikk ny title/meta 10.08 — inne i 28d-vinduet 17.07–14.08 som Åpne tråder-punktet «REN AVLESING ~2026-08-14» skulle dømme v2-korpusutrullingen på. De siste ~4 av 28 dager er dermed ikke lenger ren v2-effekt for disse tre. **GO/NO-GO-kriteriet («median-CTR-løft med maks 1–2 sider som faller») bør derfor avgjøres på de 6 urørte pilotene**, med de 3 rapportert separat. Alternativt utsettes avlesingen til et vindu som er rent for begge endringene.
+
+**⚠ FORBEHOLD 2 — `golden-retriever`-titelen hviler på samme datasett som blokkerer `irsk-setter`.** «Norges mest registrerte rase» er artikkelens egen påstand (intro + factstrip, «NKKs statistikk for 2024»). Årstallet er utelatt fra titelen nettopp fordi 2024-tallene er den uverifiserte flaten — påstanden holder over flere år og er ikke pinnet til den disputerte figuren. Verifiseres 2024-tallene og viser noe annet, må titelen byttes.
+
+**Ikke utløst:** llms.txt Trigger B. `article_map`s Title-felt speiler **hub-kort-titelen**, ikke SEO-titelen, og verken H1, H2-struktur eller ordantall er endret. Ingen temafiler rørt i det hele tatt — endringene er rene Admin-metafelt.
+
+**Måledato: endringene er live 2026-08-10 → CTR-sammenligning ~2026-09-07** (4 uker). Sammenlign 28d-vinduet 10.08–07.09 mot 28d før 10.08, ikke mot 90d-baselinen.
 
 ### 2026-08-07 — Skuff-restrukturering: fem prosjekt-level skills med STATUS-filer; CLAUDE.md 175 → 127 linjer (`7a8bae3` → `ca08840`)
 
