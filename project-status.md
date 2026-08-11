@@ -34,7 +34,7 @@
 ### Marketing
 - **Google Ads: PAUSED.** Ingen aktive kampanjer. Søkeordforskning ikke prioritert nå.
 - **Salgs-baseline:** ~2 salg/uke organisk.
-- **Newsletter popup:** redesignet 2026-07-28. To varianter (A kommersiell/`KING15`, B innhold/`KINGTIPS15`), tre steg med mikro-ja-segmentering, trigger 12 s eller 40 % scroll. **Første fungerende måling** — `mh_popup_view`/`mh_popup_submit` via Custom Pixel `150765646` til GA4. Målekontrakt satt (se BESLUTNINGER 2026-07-28). **Fryst til 11.08.2026.**
+- **Newsletter popup:** redesignet 2026-07-28, **strukturfikset 2026-08-11** (`7c6c439`, live + verifisert). To varianter (A kommersiell/`KING15`, B innhold/`KINGTIPS15`), tre steg med mikro-ja-segmentering. Trigger nå **12 s timer, eller 50 % scroll tidligst etter 8 s** — scroll-sperren er ny og gjorde timeren reell for første gang (se gotcha #26). Måling via Custom Pixel `150765646` til GA4. **Første frys (28.07–11.08) ga 96,0 % frafall før steg 1** — 620 av 646 visninger lukket uten å velge. Fire strukturårsaker funnet og rettet. **Ny frys til ~5.–8. september 2026** (se MÅLEKONTRAKT 2026-08-11). ⚠️ Avlesningen forutsetter at GA4-blokkerne i gotcha #25 er ryddet — de er det ikke ennå.
 
 ### Neste fase
 **🏁 Raseguide-sprint MÅLET NÅDD: 50 av 50 (Flat Coated Retriever #50 levert 2026-05-20 sen kveld, commit 2434ddf). Neste: cleanup-sprint #54 (aktiviseringsleke 404-fix globalt + `last_updated` framtidsdato-fix + wordcount-target-justering) + post-#50 crossover-link-audit (`docs/link-audit-2026-05-20.md`). Komplett Schnauzer-trio levert sprint #48–#50 (Dvergschnauzer/Mellomschnauzer/Riesenschnauzer) med "stamfar-rase"-moat-arkitektur; Vizsla #51 + Coton de Tulear #52 med rasespesifikke moat (polymyositt/BNAt).** (Historikk #44 nedenfor uendret:) **Raseguide-sprint utvidet til 41 av 50-milepælen (9 igjen). Single-coat-cluster fullført 2026-05-19 kveld: Pudel (#42) + Yorkshire Terrier (#43) + Lagotto Romagnolo (#44) deler hypoallergen single-coat-vinkel og krysslenker hverandre. Sprint #44 Lagotto Romagnolo deployed 2026-05-19 kveld — italiensk trøffelhund med tre kommersielt testbare rasespesifikke mutasjoner (ATG4D/Lagotto Storage Disease Helsinki/Bern 2015; LGI2/BFJE Helsinki 2011; SLC2A9/hyperurikosuri), vannapportør-arv fra Comacchio-myrene, eneste rase i verden avlet for trøffeljakt. Venter på manuell admin-step (page-creation i Shopify Admin) før `/pages/lagotto-romagnolo` går fra 404 til 200. Sprint #43 Yorkshire Terrier + #42 Pudel levert samme dag (begge NEW). Sprint #41 var Trigger B-omdefinering av Labrador Retriever (POMC-moat, ikke ny rase).
@@ -79,6 +79,70 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-08-11 — Nyhetsbrev-popup: fire strukturfikser LIVE etter 96 % frafall før steg 1 (`7c6c439`)
+
+**Utløser:** første frysperiode (28.07–11.08) er over. Avlesningen viste **620 av 646 visninger lukket før steg 1 — 96,0 % frafall**. Kun 26 brukere nådde det første valget. Hypotesen «tekst/rabatt er feil» ble forkastet tidlig: dette var strukturelt.
+
+**Først utelukket — det var ikke en målefeil.** `mh_popup_step1` går gjennom nøyaktig samme `#fire()`-funksjon og samme kanaler som `mh_popup_view`. Verifisert ved å hooke `dataLayer`, åpne popupen og klikke et valg: begge eventene fyrer, med korrekt `step1_choice`, og steg 2 vises. Det finnes ingen asymmetri som kunne blåst opp view-tallet. Tallene er direkte sammenlignbare.
+
+**Fire strukturårsaker, alle rettet:**
+
+**1. Timer vs scroll-race — `delay_seconds` var død kode.** Scroll-lytteren ble armet uten forsinkelse, så den vant alltid over 12-sekunderstimeren. Målt fyring: **1 532–5 286 ms** etter landing på alle fem sidetyper. Popupen avbrøt folk før de rakk å lese noe, og `scroll-lock` frøs siden midt i en tommelflikk. Ny `data-scroll-arm-ms` (default 8 s) + hardt gulv i `#open()`. Terskel hevet 40 → 50 %. **Etter: 8 495–12 931 ms på live**, timeren vinner nå på 4 av 5 sidetyper. Egen gotcha #26.
+
+**2. Mobilarket klippet innhold.** `max-height: 55dvh` skjulte valg #3 og **begge** nødutgangene på iPhone SE (139 px skjult, 2/3 valg), vanlig Android 360 (99 px, 2/3) og liggende mobil (381 px, **0/3**). «Bare send meg alt» — utgangen for alle som ikke vil velge tema — var skjult på **samtlige** målte skjermer, inkludert laptop 1280×720 og iPhone 14. Tak hevet til 92dvh, bildet gradert ned (2/1 under 820 px høyde, skjult under 620 px), egen to-kolonners layout for liggende mobil, scroll-gradient som sikkerhetsnett.
+
+**3. Steg 1 hadde ingen klikk-affordanse.** Valgkanten var `rgba(45,106,53,0.14)` = **1,23:1** mot hvit — WCAG-kravet for en UI-kant er 3:1 — mens lukk-X-en lå på **17,43:1**. Det eneste elementet som skulle konvertere var det svakeste på skjermen. Nå 2 px `#4b8353` = **4,50:1**, pil i fylt grønn disk 6,51:1, høyde 56 px, vekt 600, hover fyller knappen grønn. Bevisst **ikke** `.mh-nl__cta` på alle tre: tre identiske primærknapper fjerner lesbarheten av at det er et valg, og gjør «Nei takk» til den eneste visuelt distinkte utveien.
+
+**4. Bakteppe-klikk dominerte.** Bakteppet var **17,3× større** enn alle tre valgene til sammen på desktop og **2,8×** på mobil — den enkleste handlingen på skjermen, og på mobil nøyaktig der tommelen står midt i en scroll. Klikk-utenfor-for-å-lukke fjernet. `assets/dialog.js` er **urørt** (deles av 12 andre flater — søk, filtre, buy-buttons, password); bakteppe-klikk fanges i stedet i capture-fasen på `<dialog-component>` før stock-handleren ser dem, med presis treff-test så klikk inni boksen slipper uendret gjennom. `.mh-nl__grabber` slettet — det lovet en sveipegest som aldri var implementert.
+
+**Verifisert på live etter push:** 12 skjerm/variant-kombinasjoner, alle med 3/3 valg synlige **og** klikkbare (`elementFromPoint`, ikke bare geometri), begge nødutganger synlige, 0 px skjult, null overlapp mot lukk-X. Akkumulerende cache-buster-sjekk: **30 hentinger (6 runder × 5 URL-er), 30 ny / 0 gammel**. sha256 pull-back fra live matcher lokal fil bit for bit på begge filer. Regresjon: Esc, lukk-X, «Nei takk», tilbake-knapp, steg 2 (488 px) og steg 3 (684 px) uten overflyt, e-postfokus intakt.
+
+**Bug fanget underveis:** to-kolonners layouten lot lukk-X-en ligge oppå første valgknapp. Fanget av `elementFromPoint`-sjekken, ikke av synlighetsmåling — ren geometri hadde godkjent den.
+
+**Merk om CDN vs temafil:** den minifiserte JS-en på CDN har ikke samme hash som temafilen (10 009 vs 17 454 bytes). Det er Shopifys minifiser (`'`→`"`, samlede `const`-kjeder, `8_000`→`8e3`, `0.5`→`.5`), ikke et avvik. Temafilen er autoritativ. Samme gjelder CSS: `[data-overflow='true']` serveres som `[data-overflow=true]`.
+
+---
+
+### 2026-08-11 — MÅLEKONTRAKT #2: nyhetsbrev-popup etter strukturfiksene (satt FØR data)
+
+Samme mal som 28.07 — satt før første datapunkt for å hindre etterrasjonalisering.
+
+**Ny baseline fra 11. august 2026.** Tallene fra frys #1 (28.07–11.08) er **ikke sammenlignbare** med frys #2: popupen fyrte etter 1,5–5,3 s, og halve steg 1 var utenfor skjermen på de fleste enheter. Frys #1 målte i praksis en annen popup.
+
+**Avlesning: ~5.–8. september 2026** (3–4 uker). Periode `2026-08-12` → avlesningsdato. **12.08 som startdato, ikke 11.08** — da faller dagens egne verifiseringsevents (force-modus, ~30+ view/step1 fra Playwright) utenfor perioden av seg selv, og skal ikke trekkes fra i tillegg. Samme fallgruve som DebugView-eventene 28.07; se gotcha #25.
+
+**Hovedtall 1 — steg 1-passering: `mh_popup_step1` / `mh_popup_view`**
+
+| Rate | Dom |
+|---|---|
+| **< 15 %** | Fiksene traff ikke — årsaken er noe annet enn struktur, grav på nytt |
+| **15–30 %** | Reell forbedring, men fortsatt et strukturproblem igjen |
+| **> 30 %** | Godkjent — steg 1 fungerer som et valg |
+| **> 45 %** | Mikro-ja-premisset er bekreftet |
+
+Forrige måling: **4,0 %** (26/646). Alt under 15 % betyr at de fire fiksene ikke var hovedårsaken.
+
+**Hovedtall 2 — påmelding: `mh_popup_submit` / `mh_popup_view`** — samme terskler som 28.07 så tallene er sammenlignbare på tvers av begge frysene:
+
+| Rate | Dom |
+|---|---|
+| **< 2 %** | Noe er fortsatt strukturelt galt |
+| **2–4 %** | Virker, men under det redesignet skulle levere |
+| **> 4 %** | Godkjent |
+| **> 6 %** | Over e-handelssnittet |
+
+**Sekundært — diagnostikk, ikke mål:**
+- **Andel `step1_choice = alle`.** Over 40 % ⇒ mikro-ja-premisset er feil, vurder ettstegs. Merk: «Bare send meg alt» var *skjult på alle skjermer* i frys #1, så dette tallet er reelt sett umålt før nå.
+- **`dismiss_method`-fordeling.** Mye `close` mot lite `decline` ⇒ refleksiv lukking. Bakteppe-klikk finnes ikke lenger som avvisningsvei, så fordelingen er ikke sammenlignbar med frys #1.
+- **Variant A vs B.** Ingen vinner kåres på 3–4 uker; vi ser kun etter om den ene er dramatisk dårligere.
+- **`trigger_type`-fordeling (ny).** Andelen `scroll` vs `timer` viser om 8-sekunderssperren treffer i ekte trafikk slik den gjør i test.
+
+**FRYS: ingen endringer på popupen før avlesningen**, uansett hva tallene viser underveis.
+
+**🔴 Blokker som må ryddes FØR avlesningen kan kjøres:** GA4 Data API + Admin API er deaktivert i GCP-prosjekt `744067514649`, service-kontoen er GSC-scopet og ikke lagt til på GA4-propertyen, og den numeriske property-ID-en er ikke kjent (`G-TR8MTY1BSE` er en measurement ID og godtas ikke). Full beskrivelse i gotcha #25. Avlesningsskriptet finnes: `~/google-ads-script/ga4_popup_report.py`. **Ryddes dette ikke innen begynnelsen av september, må tallene hentes manuelt fra GA4 Utforsk** — en avlesning uten faktisk API-svar er ikke en avlesning.
+
+---
 
 ### 2026-08-10 kveld — Beroligende hundeseng −20 % + Bestselger-badge fjernet (`4e3cb44` + `e9c95ae`)
 
