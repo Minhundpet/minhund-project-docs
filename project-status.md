@@ -81,7 +81,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
-### 2026-08-12 — STEG 19 korpussveip runde 1–4: åtte artikler, ~130 retter (`0eb9cd0`, `a0be9c2`, `a89826c`, `d7ab8ac`, `b371741`, `fefe188`)
+### 2026-08-12 — STEG 19 korpussveip runde 1–5 + full revisjon av research-briefen (`0eb9cd0`, `a0be9c2`, `a89826c`, `d7ab8ac`, `b371741`, `fefe188`)
 
 Steg 19 kjøres nå retroaktivt over eksisterende hundetips, to artikler per runde. Gjennomført så langt:
 
@@ -91,6 +91,7 @@ Steg 19 kjøres nå retroaktivt over eksisterende hundetips, to artikler per run
 | 2 | `kennelhoste-hund`, `hund-tygger-pa-alt` | 43 (inkl. 2 FAQ↔JSON-LD-avvik, 224 rette anførselstegn) |
 | 3 | `valpe-utstyr-sjekkliste`, `hund-darlig-ande` | 24 |
 | 4 | `hva-kan-hund-spise`, `pelsskifte-hund` | 30 + to strukturfunn |
+| 5 | `hund-lukter-vondt` (+ TOC-fiks i `hund-og-reise` og `vaske-hundeseng`) | 28 + tre TOC-fikser |
 
 **Runde 3s tyngste funn var ikke tegnsetting, men en trippel-gjentakelse:** aktiviseringsskål-claimet sto tre ganger på rad i `hund-darlig-ande` — bullet, avsnitt og produktkort — med frasen «tunge, kjeve og tenner enn en åpen skål» ordrett to av gangene. Gjentakelses-detektoren fant den ikke (den treffer kun `answer`-blokk umiddelbart fulgt av `<p>`); den kom fram ved lesing, som forutsatt i punkt 1.
 
@@ -105,6 +106,14 @@ Samme fil bar også **«Vi er nå i mai, midt i den kraftigste delen av vårskif
 **Korpusfunn fra samme audit:** `hundetips-reise` og `hundetips-vaske-hundeseng` har nøyaktig samme defekt — TOC lister både `#faq-heading` og `#faq`, mens `anchors`-arrayet stopper på `faq-heading`. To døde TOC-lenker som ligger live nå. Ikke rettet (utenfor runde 4s scope) — åpent spor.
 
 **Andre stale påstand i `docs/research-brief.md` på to runder.** Runde 3 fant «brachycefal» om King; runde 4 fant «Andefanten for alenetid» — i strid med produktregelen om at ingen katalogleke er en alenetid-løsning. Briefen seeder web-Claude/ChatGPT-research. **Den bør revideres i sin helhet mot `docs/products.md`, ikke bare lappes når et enkeltfunn peker dit.**
+
+**Runde 5 lukket TOC-sporet.** De to filene runde 4 flagget — `hund-og-reise` og `vaske-hundeseng` — er rettet med samme grep som `pelsskifte-hund`: 12 hardkodede `id`-er i markup, duplikat-TOC-lenken fjernet, JS-ankertildelingen slettet. `hund-lukter-vondt` hadde ikke duplikatet, men samme JS-avhengighet, og fikk samme herding. Tre filer er dermed ute av gotcha #36-mønsteret; 101 filer bruker det fortsatt.
+
+`hund-lukter-vondt` bar 14 par rette anførselstegn og et semikolon mellom subjekt og verb («Hvor vanlig periodontitt … faktisk er; avhenger helt av hvordan den måles»). King-boksen påsto «kort vei fra fold til lukt» — Petit Brabançon er ingen foldrase, og §Hudfolder handler om bulldog, fransk bulldog og mops. **Tredje King-anatomifeil på tre runder.**
+
+**Research-briefen fullrevidert (`b06c18c`).** Etter to runder med produksjonsfeil sporet tilbake dit, ble hele fila gjennomgått mot `docs/products.md` og live produktdata i stedet for å lappes funn for funn. Den sa **52 artikler mot reelle 121** — 69 sider manglet fra en liste hvis eneste formål er «ikke dupliser temaer». Den sa 11 produkter mot 13, med tre feil priser (sjampobørste og TurPakken 299 → 249; beroligende hundeseng oppgitt som «Fra 799» der 799 er *topp*prisen). Frakt-copy-regelen, STEG 19, pre-publiseringsporten, v2-design og anker-id-regelen sto ikke i briefen i det hele tatt. King hadde ingen fakta utover rase — nå ligger hele den kanoniske tabellen der, med en egen rad om at han **ikke** har hudfolder.
+
+**Gist-speilet er nå stale.** Briefen leveres til web-AI-er via en public Gist som må oppdateres manuelt — se memory `reference_research_brief_gist.md`.
 
 Sveipen fortsetter to artikler per runde til korpuset er gjennomgått.
 
