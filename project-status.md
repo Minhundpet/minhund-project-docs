@@ -2,7 +2,7 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-08-11 kveld (**SEO-sveip: 32 lekkasjesider fikk ny title + meta, og to strukturelle GSC-bugs ble lukket.** GSC 90d: 4 480 klikk / 393 972 visninger / CTR 1,14 % / posisjon 8,7 — 96,9 % av årets visninger falt i dette kvartalet. Raseguidene underpresterer som segment (0,85 % mot hundetips' 1,23 %) på samme posisjon, altså et snippet-problem, ikke et rangeringsproblem. **Metodefunn:** GSC-sidedata må filtreres for anker-URL-er (`excludingRegex: "#"`) — 353 av 499 rader var jump-lenker som spiste opp 500-radstaket. **Bug 1 FIKSET:** `/pages/<handle>/<hva-som-helst>` svarte 200 og selv-kanonikaliserte under alle 129 sider; `mh_canonical` i `snippets/meta-tags.liquid` peker nå på ekte side-URL for både canonical og og:url. **Bug 2 DELVIS:** noindex på `/collections/frontpage` er bekreftet tilsiktet og beholdt; sitemap-oppføringen krever avpublisering fra Online Store — manuelt Admin-steg, `write_publications` mangler i `shopauth`. **Én faktafeil fanget før publisering:** vizsla «kan ikke være mye alene» → «trives dårlig alene». **Intern sjargong funnet live i meta:** «TRIPPEL helsemoat» og «storrase-helse-trilogi» fjernet. **Nedjustert anslag:** ~1 900 gjenvinnbare klikk var for høyt — ingredienssidene taper til AI Overviews uansett meta; realistisk 400–700/kvartal.)
+> **Sist generert:** 2026-08-12 morgen (vann-pilar utvidet; se BESLUTNINGER 2026-08-12). Forrige: 2026-08-11 kveld (**SEO-sveip: 32 lekkasjesider fikk ny title + meta, og to strukturelle GSC-bugs ble lukket.** GSC 90d: 4 480 klikk / 393 972 visninger / CTR 1,14 % / posisjon 8,7 — 96,9 % av årets visninger falt i dette kvartalet. Raseguidene underpresterer som segment (0,85 % mot hundetips' 1,23 %) på samme posisjon, altså et snippet-problem, ikke et rangeringsproblem. **Metodefunn:** GSC-sidedata må filtreres for anker-URL-er (`excludingRegex: "#"`) — 353 av 499 rader var jump-lenker som spiste opp 500-radstaket. **Bug 1 FIKSET:** `/pages/<handle>/<hva-som-helst>` svarte 200 og selv-kanonikaliserte under alle 129 sider; `mh_canonical` i `snippets/meta-tags.liquid` peker nå på ekte side-URL for både canonical og og:url. **Bug 2 DELVIS:** noindex på `/collections/frontpage` er bekreftet tilsiktet og beholdt; sitemap-oppføringen krever avpublisering fra Online Store — manuelt Admin-steg, `write_publications` mangler i `shopauth`. **Én faktafeil fanget før publisering:** vizsla «kan ikke være mye alene» → «trives dårlig alene». **Intern sjargong funnet live i meta:** «TRIPPEL helsemoat» og «storrase-helse-trilogi» fjernet. **Nedjustert anslag:** ~1 900 gjenvinnbare klikk var for høyt — ingredienssidene taper til AI Overviews uansett meta; realistisk 400–700/kvartal.)
 >
 > **Forrige (2026-08-07 formiddag):** Meta-sporet — prosjektets arbeidsminne restrukturert i fem prosjekt-level skills under `.claude/skills/`; CLAUDE.md 175 → 127 linjer.
 > **Mirror:** https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md (public repo — claude.ai blokkerer gist-domenet)
@@ -80,6 +80,27 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-08-12 — Vann-pilar: utvidet eksisterende side i stedet for ny artikkel; to stille defekter rettet (`671fd87`)
+
+**Bestillingen var en ny pilar-artikkel «Hundens vann». Den ble ikke skrevet.** GSC 90d viste at `/pages/hvor-mye-vann-hund` allerede ER vann-pilaren: 5 169 visninger, posisjon 6,9, og rangering på nøyaktig måltermene («hvor mye vann skal en hund drikke» 158 visn./pos. 7,1 · «hund drikker mye vann» 114 · «valp drikker mye vann» 99 · «hund drikker lite vann» 45 · «hunden vil ikke drikke vann» 35). Åtte av ni foreslåtte H2-er var allerede dekket. En ny side ville kannibalisert en side som alt rangerer på side 1.
+
+**Reell flaskehals er CTR, ikke dekning:** 0,95 % på posisjon 6,9 mot forventet 2,5–3 %. Det er ~90–110 tapte klikk per kvartal, og det er et snippet-problem — samme diagnose som raseguide-segmentet fikk 2026-08-11.
+
+**Levert i stedet:** siden utvidet 1 750 → ~2 720 ord med tre nye H2-er (valp/voksen/senior · blågrønnalger · kran- vs flaskevann), TurPakken 3-i-1 som `--featured` produktkort inline (Batch 6/7), nytt hero-bilde, FAQ 7 → 9 med verifisert 1:1 mot JSON-LD. Kilder: Veterinærkatalogen + Veterinærinstituttet (alger), drikkevannsforskriften + Mattilsynet (kranvann). Se `docs/health-claims-register.md`.
+
+**To defekter som lå live og som ingen sjekk fanget:**
+
+1. **Kalkulatoren motsa både prosaen og tabellen i samme fil.** `basePerKg` var 80/65/55/50; en hund på 3 kg fikk 240 ml mot tabellens 150–180. Batch 4 (2026-07-29) registrerte dette som lukket etter å ha justert prosaens *ordlyd* mot kalkulatoren — uten å regne på hva kalkulatoren faktisk returnerte, og uten å se på tabellen. Rettet til 60/58/55/52, verifisert innenfor tabellen i alle ni vektklasser.
+2. **TOC-ankrene var indeksbaserte og forskjøvet.** Kalkulator-H2-en ligger utenfor `.mh-article__body`, så hver lenke fra og med nr. 2 pekte på feil seksjon — inkludert `#faktorer`, `#dehydrering` og `#paa-tur`, som Google har indeksert med visninger. Erstattet med eksplisitte `id`-er.
+
+**Tre nye gotchas dokumentert:** #34 `theme pull --only` krever repeterte flagg (mellomromsform henter stille null filer og gir falsk PASS) · #35 `sha256 live == HEAD` holder aldri for `templates/*.json` fordi Shopify injiserer en kommentar-header · #36 indeksbaserte TOC-ankere.
+
+**Verifisert live:** sha256 live == HEAD for begge `.liquid`-filene; normalisert JSON-sammenligning for hub-templaten. Alle tre llms-URL-er bærer ny tittel og de nye H2-ene. Reindeksering sendt (men jf. gotcha #31 — `✅` er ikke bevis).
+
+**Åpent Admin-steg:** SEO-tittel og meta-description er ikke oppdatert; det er nettopp det steget som skal lukke CTR-gapet. Forslag levert til Sondre.
+
+**Pre-eksisterende funn, ikke rørt:** to ekte hub ↔ `article_map` tittel-drift (`hund-lukter-vondt`, `aktivisere-hund-pa-tur`).
 
 ### 2026-08-11 kveld — SEO-sveip: 32 lekkasjesider + to strukturelle GSC-bugs (`ff94037` → `a9ddbae`)
 
