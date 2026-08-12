@@ -81,6 +81,18 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-12 — STEG 19 helhetssjekk innført som fast obligatorisk siste steg (`7ce6a9f`)
+
+Sondre fastsatte at korrekturrunden på vann-pilaren **ikke var en spesialbestilling, men blir permanent rutine**. Bakgrunnen er at siden passerte alle 25 post-flight-punkter grønt og likevel hadde ti avvik. **Strukturelle sjekker og lesbarhet er ortogonale** — grep finner det den blir bedt om å finne.
+
+**STEG 19** kjøres etter hele post-flight-lista, før push, og før noe rapporteres som «klar». Åtte punkter: les hele den *rendrede* siden samlet til slutt · full korrektur (semikolon vs komma, komma-splice, produktnavn/familietermer) · faktakonsistens på tvers av kalkulator/tabell/prosa/FAQ **samtidig** · duplikate produktkort · alle lenker + CDN-bilder 200 · FAQ↔JSON-LD 1:1 · ordrette gjentakelser · rapporter kun avvik, ellers eksplisitt «0 avvik funnet, steg 19 bestått».
+
+Gjelder likt for nye hundetips, nye raseguider og **enhver utvidelse av eksisterende sider i begge kategorier**. Koblet inn fire steder så den fyrer uansett inngang: kanonisk definisjon i `docs/artikkel-sjekkliste.md`, post-flight i hundetips-skillen, og begge path-scopede regelfiler.
+
+**Malutpekingen er avgrenset (gotcha #40).** Kvalitetsnivået, `--featured`-produktkortet og steg 19 gjelder begge korpus. Men vann-pilaren er **ikke** strukturmal for raseguider — den kolliderer med cane-corso på tre markører: `mh-article__info-box` (6 forekomster mot påkrevd 0), mørk gradient på produktkortet mot påkrevd hvitt `recommend-card`, og manglende `mh-article__recommend`-seksjon. **Cane-corso forblir strukturmal for raseguider**; en HARD-regel oppheves ikke som sideeffekt av en malutpeking. Trenger eksplisitt avklaring fra Sondre hvis det var ment annerledes.
+
+Hjelpekommandoene i steg 19 er kalibrert mot kjent positiv kontroll. Gjentakelses-detektoren fanget 1 av 2 reelle funn — notert i dokumentet som at snutten er hjelpemiddel, ikke erstatning for lesing.
+
 ### 2026-08-12 (senere) — Korrekturrunde vann-pilar: 10 funn som alle 25 post-flight-sjekker hadde godkjent (`92921f2`)
 
 Full gjennomlesing av den rendrede siden — ikke av kildefila — fant ti avvik etter at hele post-flight-lista hadde passert grønt. **Strukturelle sjekker og lesbarhet er ortogonale.**
