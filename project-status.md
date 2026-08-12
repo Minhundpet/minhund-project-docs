@@ -81,7 +81,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
-### 2026-08-12 — STEG 19 korpussveip runde 1–3: seks artikler, ~100 retter (`0eb9cd0`, `a0be9c2`, `a89826c`, `d7ab8ac`)
+### 2026-08-12 — STEG 19 korpussveip runde 1–4: åtte artikler, ~130 retter (`0eb9cd0`, `a0be9c2`, `a89826c`, `d7ab8ac`, `b371741`, `fefe188`)
 
 Steg 19 kjøres nå retroaktivt over eksisterende hundetips, to artikler per runde. Gjennomført så langt:
 
@@ -90,12 +90,21 @@ Steg 19 kjøres nå retroaktivt over eksisterende hundetips, to artikler per run
 | 1 | `hund-sover-mye`, `klippe-klor-hund` | TOC-ankeravvik + ~26 semikolon/prosa |
 | 2 | `kennelhoste-hund`, `hund-tygger-pa-alt` | 43 (inkl. 2 FAQ↔JSON-LD-avvik, 224 rette anførselstegn) |
 | 3 | `valpe-utstyr-sjekkliste`, `hund-darlig-ande` | 24 |
+| 4 | `hva-kan-hund-spise`, `pelsskifte-hund` | 30 + to strukturfunn |
 
 **Runde 3s tyngste funn var ikke tegnsetting, men en trippel-gjentakelse:** aktiviseringsskål-claimet sto tre ganger på rad i `hund-darlig-ande` — bullet, avsnitt og produktkort — med frasen «tunge, kjeve og tenner enn en åpen skål» ordrett to av gangene. Gjentakelses-detektoren fant den ikke (den treffer kun `answer`-blokk umiddelbart fulgt av `<p>`); den kom fram ved lesing, som forutsatt i punkt 1.
 
 **Kildefeil funnet oppstrøms.** `hund-darlig-ande` beskrev King med «mops-aktig nese». Sporet tilbake til `docs/research-brief.md`, som listet King som **brachycefal** — i strid med den kanoniske tabellen i `docs/products.md` (mesocephalic). Briefen seeder web-Claude/ChatGPT-research, så feilen var en produsent, ikke et enkelttilfelle. Rettet i `d7ab8ac`. **Lærdom: når et steg 19-funn gjentar en påstand korpuset ellers har rett, sjekk om research-briefen er kilden.**
 
 Nytt kanonisk King-faktum (bekreftet av Sondre 2026-08-12): hjerteklaffdiagnosen står, King kontrolleres **hvert halvår**, og siste kontroll viste **tydelig bedring** siden diagnosen. Lagt inn som Health-rad i King-tabellen i `docs/products.md` og skrevet inn i `kennelhoste-hund` — kort og faktuelt, ikke som hovedpoeng.
+
+**Runde 4 flyttet sveipen fra tegnsetting til struktur.** `pelsskifte-hund` hadde null `id`-attributter i servert HTML — TOC-ankrene ble tildelt av en JS-snutt ved runtime, fra et `anchors`-array med 12 navn mot 11 H2-er. Det 11. navnet havnet på FAQ-overskriften og det 12. ble aldri tildelt, så én av to duplikate «Vanlige spørsmål»-lenker var død. Id-ene er nå hardkodet i HTML (virker uten JS, overlever dyplenking utenfra, synlig for crawlere) og JS-loopen fjernet.
+
+Samme fil bar også **«Vi er nå i mai, midt i den kraftigste delen av vårskiftet»** — en hardkodet måned som hadde stått feil på live siden juni. Ingen strukturell sjekk kan fange den; bare lesing.
+
+**Korpusfunn fra samme audit:** `hundetips-reise` og `hundetips-vaske-hundeseng` har nøyaktig samme defekt — TOC lister både `#faq-heading` og `#faq`, mens `anchors`-arrayet stopper på `faq-heading`. To døde TOC-lenker som ligger live nå. Ikke rettet (utenfor runde 4s scope) — åpent spor.
+
+**Andre stale påstand i `docs/research-brief.md` på to runder.** Runde 3 fant «brachycefal» om King; runde 4 fant «Andefanten for alenetid» — i strid med produktregelen om at ingen katalogleke er en alenetid-løsning. Briefen seeder web-Claude/ChatGPT-research. **Den bør revideres i sin helhet mot `docs/products.md`, ikke bare lappes når et enkeltfunn peker dit.**
 
 Sveipen fortsetter to artikler per runde til korpuset er gjennomgått.
 
