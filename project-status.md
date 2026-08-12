@@ -81,6 +81,24 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-12 — STEG 19 korpussveip runde 1–3: seks artikler, ~100 retter (`0eb9cd0`, `a0be9c2`, `a89826c`, `d7ab8ac`)
+
+Steg 19 kjøres nå retroaktivt over eksisterende hundetips, to artikler per runde. Gjennomført så langt:
+
+| Runde | Artikler | Retter |
+|---|---|---|
+| 1 | `hund-sover-mye`, `klippe-klor-hund` | TOC-ankeravvik + ~26 semikolon/prosa |
+| 2 | `kennelhoste-hund`, `hund-tygger-pa-alt` | 43 (inkl. 2 FAQ↔JSON-LD-avvik, 224 rette anførselstegn) |
+| 3 | `valpe-utstyr-sjekkliste`, `hund-darlig-ande` | 24 |
+
+**Runde 3s tyngste funn var ikke tegnsetting, men en trippel-gjentakelse:** aktiviseringsskål-claimet sto tre ganger på rad i `hund-darlig-ande` — bullet, avsnitt og produktkort — med frasen «tunge, kjeve og tenner enn en åpen skål» ordrett to av gangene. Gjentakelses-detektoren fant den ikke (den treffer kun `answer`-blokk umiddelbart fulgt av `<p>`); den kom fram ved lesing, som forutsatt i punkt 1.
+
+**Kildefeil funnet oppstrøms.** `hund-darlig-ande` beskrev King med «mops-aktig nese». Sporet tilbake til `docs/research-brief.md`, som listet King som **brachycefal** — i strid med den kanoniske tabellen i `docs/products.md` (mesocephalic). Briefen seeder web-Claude/ChatGPT-research, så feilen var en produsent, ikke et enkelttilfelle. Rettet i `d7ab8ac`. **Lærdom: når et steg 19-funn gjentar en påstand korpuset ellers har rett, sjekk om research-briefen er kilden.**
+
+Nytt kanonisk King-faktum (bekreftet av Sondre 2026-08-12): hjerteklaffdiagnosen står, King kontrolleres **hvert halvår**, og siste kontroll viste **tydelig bedring** siden diagnosen. Lagt inn som Health-rad i King-tabellen i `docs/products.md` og skrevet inn i `kennelhoste-hund` — kort og faktuelt, ikke som hovedpoeng.
+
+Sveipen fortsetter to artikler per runde til korpuset er gjennomgått.
+
 ### 2026-08-12 — STEG 19 helhetssjekk innført som fast obligatorisk siste steg (`7ce6a9f`)
 
 Sondre fastsatte at korrekturrunden på vann-pilaren **ikke var en spesialbestilling, men blir permanent rutine**. Bakgrunnen er at siden passerte alle 25 post-flight-punkter grønt og likevel hadde ti avvik. **Strukturelle sjekker og lesbarhet er ortogonale** — grep finner det den blir bedt om å finne.
