@@ -81,6 +81,20 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-12 (senere) — Korrekturrunde vann-pilar: 10 funn som alle 25 post-flight-sjekker hadde godkjent (`92921f2`)
+
+Full gjennomlesing av den rendrede siden — ikke av kildefila — fant ti avvik etter at hele post-flight-lista hadde passert grønt. **Strukturelle sjekker og lesbarhet er ortogonale.**
+
+Alvorligst var kundesynlig: **TurPakken 3-i-1 ble vist to ganger rett etter hverandre**, fordi det nye `--featured`-kortet ble lagt foran et gammelt `productduo`-kort med samme produkt, samme pris og nesten samme tekst. Productduo fjernet; Vannskål flyttet til eget `--featured`-kort i kranvann-seksjonen. ~90 linjer foreldreløs CSS fjernet.
+
+**Intern tallmotsigelse som hadde ligget der lenge:** prosa, FAQ og JSON-LD sa «500–650 ml» for en hund på 10 kg mens tabellen i samme fil sa 500–600 — og 650 lå utenfor artikkelens eget 40–60 ml/kg-spenn. Rettet fire steder. Samme for «rundt 1,5 liter» (30 kg) → 1,5–1,8 liter, og kalkulatorens statiske default 600 ml → 550 ml.
+
+Øvrig: semikolon-artefakt i lead, komma-splice, «bajseposer» → «bæsjeposer», feil produktnavn i kalkulator-CTA, og to seksjoner der answer-first ble gjentatt ordrett i avsnittet under.
+
+**Nye gotchas:** #37 (utvidelse lager skjøter strukturelle sjekker ikke ser — inkl. duplikat-produktkort-detektor) · #38 (**komma-regelen for `article_map` har lekket inn i brødteksten i 20+ artikler** — `hund-sover-mye` 112 forekomster, `eldre-hund` 97, `staffordshire-bull-terrier` 87. Kun vann-pilaren ryddet; resten er et åpent oppryddingsspor som krever manuell gjennomgang, ikke søk-og-erstatt).
+
+Verifisert live: sha256 == HEAD begge filer, 19 lenker + CDN-hero alle 200, FAQ↔JSON-LD 9/9 verbatim.
+
 ### 2026-08-12 — Vann-pilar: utvidet eksisterende side i stedet for ny artikkel; to stille defekter rettet (`671fd87`)
 
 **Bestillingen var en ny pilar-artikkel «Hundens vann». Den ble ikke skrevet.** GSC 90d viste at `/pages/hvor-mye-vann-hund` allerede ER vann-pilaren: 5 169 visninger, posisjon 6,9, og rangering på nøyaktig måltermene («hvor mye vann skal en hund drikke» 158 visn./pos. 7,1 · «hund drikker mye vann» 114 · «valp drikker mye vann» 99 · «hund drikker lite vann» 45 · «hunden vil ikke drikke vann» 35). Åtte av ni foreslåtte H2-er var allerede dekket. En ny side ville kannibalisert en side som alt rangerer på side 1.
