@@ -81,6 +81,24 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-13 — Turguiden inn i toppmenyen; krysslenkinga gjort toveis (`519a2a9`, `86c8233`, Turguiden `2e9252f`)
+
+**Første lenke noen gang mellom minhundpet.no og søsterproduktet Turguiden.** Før i dag hadde temaet null referanser til turguiden.minhundpet.no, og Turguiden pekte ikke tilbake. Nå går det begge veier.
+
+**Menypunkt (Shopify Admin, `main-menu`):** `Turguiden` → `https://turguiden.minhundpet.no?utm_source=minhundpet&utm_medium=nav`, plassert etter «Guider» og før «Om oss». Rekkefølgen er nå Hjem · Alle Produkter · Guider · Turguiden · Om oss · Kontakt oss.
+
+**«Ny»-badge, CSS-only i `assets/custom.css`.** Hav `#0C4A6E` på hvit = 9,46:1. Hektet på `[href*="turguiden.minhundpet.no"]` fordi desktop-ankeret i `blocks/_header-menu.liquid` verken har handle-basert id eller egen klasse — href er eneste stabile krok. Ingen Liquid- eller JSON-endring, så Horizons JS↔DOM-bindinger er urørt.
+
+**Designvalg som ble tatt bevisst:** menyetiketten beholder identisk typografi og farge som søsknene (verifisert byte-identisk mot alle fem ikke-aktive punkter) — badgen bærer all differensiering. Ingen ↗-pil: den betyr konvensjonelt «åpner i ny fane», og lenka går i samme fane siden det er samme registrerbare domene og tvungen ny fane tar tilbakeknappen (WCAG 3.2.5). Badge-fargen er Turguiden-blå og ikke Min Hund-grønn, fordi grønn ville sagt «dette er butikken» om en lenke som forlater den.
+
+**⏳ BADGEN HAR UTLØPSDATO: 1. OKTOBER 2026.** Slett blokken i `custom.css` (står med instruksjon i kommentaren). Menypunktet blir stående. Merk at Shopify minifiserer CSS på CDN-en, så kommentaren med datoen finnes **ikke** i den serverte fila — påminnelsen må ligge utenfor koden.
+
+**Tilbakelenke fra Turguiden** (`components/layout/side-ramme.tsx`): «Min Hund-butikken» sist i bunnrekka på `/personvern`, `/vilkar` og `/kontakt`. Ikke bare «Min Hund» — blant fire generiske sidenavn er et bart egennavn tvetydig.
+
+**Ny gotcha #43** med fire feller: (1) `.menu-drawer__menu-item--mainlist::after` er allerede opptatt av `›`-chevronen, (2) skuffens tekst-span har `overflow:hidden`+ellipsis og klipper badgen, (3) legges blokken i header-blokkens `@media (min-width: 990px)` forsvinner mobil-badgen uten feilmelding, (4) `details[open]` satt programmatisk lar skuffen stå usynlig mens `getComputedStyle` svarer normalt — alle skuff-sjekker ble grønne på en off-screen skuff.
+
+**Åpent:** tilbakelenka fra Turguiden har ingen UTM. GA4 vil trolig se den som self-referral siden det er samme domene. Ett ord fikser det hvis symmetri ønskes.
+
 ### 2026-08-12 sen kveld — oppfølging på flaggede punkter + regresjon rettet (`398885c`, `06ea8d4`)
 
 Sondre gikk gjennom de sju flaggede punktene fra korpussveipen. Fire ga endring, tre ble bekreftet som «ikke rør».
