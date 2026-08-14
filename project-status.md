@@ -1993,6 +1993,18 @@ Sommerferien 19.–28. juni er over; hele feriekampanjen som ble lagt inn i `ce9
 
 ## SPRINT-LOG — append-only, nyeste øverst
 
+### 2026-08-14 — AI-SEO tiltak 1–3 av 10, to eiendommer (commits `47e6a7e` Min Hund live `#148333264974` + `4370ffe` Turguiden/Vercel)
+
+**Bakgrunn.** SEO/AI-siterbarhetsrevisjon av Turguiden kjørt med `ai-seo`- og `programmatic-seo`-skillene. Teknisk fundament var rent (sitemap innsendt 13.08 med 0 feil, robots åpen, canonical satt, `max-snippet:-1`, ingen AI-bot blokkert). Fire funn ut over innhold: (1) subdomenet splitter autoritet fra minhundpet.no — GSC ser dem som to properties, og Shopify kan ikke reverse-proxye `/turer` til Vercel, så det er ikke fiksbart, bare kompenserbart; (2) Min Hunds `/llms.txt` nevnte ikke Turguiden; (3) forsiden og `/turer` hadde null strukturerte data — og forsiden var den ENESTE indekserte adressen (URL Inspection 14.08); (4) ingen sidetype hadde noe ferskhetssignal. **0 av 4953 tursider har `beskrivelse`** — verifisert mot Supabase, ikke antatt.
+
+**Levert.** Turguiden-seksjon i alle tre llms-kildene (Trigger D) + tre kontekstlenker (`bandtvang-norge`, `hund-vil-ikke-ga-tur`, `aktivisere-hund-pa-tur`). `WebSite`/`Organization` flyttet til delt modul og emitteres nå på tursider, forside og `/turer` — den dinglende `isPartOf`-pekeren på 4953 sider er borte. `dateModified` + synlig «Sist oppdatert» med ekte kilde per sidetype (tur: `max(sist_sett_at, nyeste rapport)`; kommune: ferskeste `sist_sett_at`; øvrige: byggetid, evaluert ved bygg så ISR ikke flytter datoen).
+
+**Verifisering.** Min Hund: sha256 live-mot-HEAD på alle 6 filer = identisk (autoritativ test, jf. gotcha #45); 5 Turguiden-treff i hver av de tre llms-URL-ene; 3 lenketreff på hver av de tre artiklene. Turguiden: `tsc`/`eslint` rene, 236 tester (17 nye), `next build` rent, og live-render av alle 5 sidetyper med 0 dinglende referanser. Graftesten er skrevet generisk (krever at ALLE `@id`-referanser løses) og negativkontrollert — med nodene fjernet rapporterer den nøyaktig `#nettsted` og `#utgiver`.
+
+**Gotcha #47:** `<kommune>` som URL-plassholder i llms-filene leses som uukket HTML-element av Liquid-parseren. Backticks beskytter ikke.
+
+**Åpent.** Forsiden mangler synlig «Sist oppdatert» — fullskjerms kartflate uten footer, krever ny UI-avgjørelse. Tiltak 4–10 ikke påbegynt; nestemann er fordypning av de 345 stedssidene til 600–800 ord, som er der long-tail-potensialet faktisk ligger.
+
 ### 2026-07-29 — King-boks fakta-batch (commit `e298130`, 97 filer, live `#148333264974`)
 **246 endringer i 94 tema-filer + 2 docs.** Vekt 108 (alle → 5 kg; Cocker/Springer rasevekt «12,5–14,5 kg» bevart via negativ lookbehind — 0 falske positive). Multiplikator 11 (reberegnet). Brachy→mesocephalic 14 i 9 filer (`mops.liquid:218` var ikke i kartleggingen). Cedille 28 (inkl. `layout/theme.liquid` Organization-JSON-LD). Griffon-prefiks 74 (sidebar). Lenke 12 i 6 filer (`Les mer om King →` + manglende `.mh-article__tips-sidebar-link`-CSS — 116/122 → **122/122**). Alder: om-king «snart sju år» → «over sju år» (evergreen).
 
