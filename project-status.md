@@ -81,6 +81,32 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-17 — Pelsfjerner-konvertering: 2-stk som ankerpris, bunn-grid og ekte CTA-måling (`3c09db0`, `f214c70`)
+
+**Utløser: ett salg.** Ordre `#1106` (17.08 04:42) — Pelsfjerner 1 stk 179 kr + 79 kr frakt = 258 kr, fra en førstegangskunde som landet organisk på `/pages/hvordan-fjerne-hundehar-effektivt-hjemme` dagen før. Kunden betalte 79 kr frakt for å ligge 71 kr under gratis-frakt-terskelen, mens 2-stk-varianten koster 269 kr med fri frakt — 11 kr mer enn hun faktisk betalte, for dobbelt produkt.
+
+**GSC-bildet for siden (90d 19.05–16.08):** 1 209 visninger / 22 klikk / **CTR 1,82 %** / posisjon 8,0. Den var korrekt **ikke** blant de 32 lekkasjesidene fra 11.08 — kriteriet var CTR <1 %, og siden ligger nesten dobbelt over. Alle 18 navngitte søkeord har 0 klikk til sammen; alle 22 klikkene kom fra anonymiserte long-tail-søk, så GSC kan ikke fortelle hvilket søk som konverterte.
+
+**Strukturfunnet, ikke salget, er beviset.** Sammenlignet mot `hund-vil-ikke-ga-tur` (170 klikk / 3 500 visninger / 4,86 % / pos 5,3 — én av de tre høy-CTR-referansesidene sveipen 11.08 lærte meta-mønsteret fra): hundehår-siden konverterte på **1/8 av trafikken**. Den hadde 2 produkt-touchpoints, begge i første tredjedel (18 % og 34 %), ingen bunn-grid og ingen produktboks i sidebaren — de siste 66 % av en 12-H2-artikkel var kommersielt tom.
+
+**Tre endringer, alle live på `#148333264974`:**
+
+1. **`product_callout_click`-tracking på to hundetips-sider.** Snippeten leste kun `data-mh-breed`; den leser nå også `data-mh-article` (ny payload-nøkkel `article_page`, rent additivt — `breed_page` er urørt fordi 60 raseguide-filer sender den). `inline-1..3` / `inline-callout` var dokumentert i snippet-headeren men aldri tatt i bruk i korpuset — nå i bruk, slik at featured-boks (18 %) kan skilles fra inline (34 %) fra bunn-grid i GA4.
+2. **Bunn-recommend-grid på hundehår-siden** mellom «Tips fra King» og FAQ — samme strukturelle slot som referansefila, som lander på ~72 %, ikke 55–64 %. 2 kort: 2 stk (269 kr) og kombipakken med sjampobørste (349 kr), begge med variant-preselekterende lenker.
+3. **Featured-boksen viser nå 2 stk / 269 kr** med synlig variantetikett og gull «MEST POPULÆR»-merke. `product.price` returnerte variant-minimum (179 kr); prisen slås nå opp eksplisitt på variant-id, initialisert til `false` så en slettet variant skjuler kortet i stedet for å vise feil pris mot en død lenke.
+
+**Meta bevisst urørt.** Sveipen 11.08 får sette seg i et par måneder. Konsekvens akseptert: live-metaen beskriver fortsatt («Metodene som faktisk funker …») i stedet for å svare, og nevner ingen pris. Egen sak senere.
+
+**Én ekte defekt fanget før live — av visuell måling, ikke av kodelesing.** Begge CTA-ene i den nye griden rendret med `background: rgb(255,255,255)` på et kort med `background: rgb(255,255,255)`: usynlige knapper, bare grønn tekst. Årsak: fjerne-hundehår har sin egen `.mh-article__product-btn` som er hvit-på-grønn — riktig inne i den mørkegrønne featured-boksen, feil på hvite kort. Planen hadde notert cascade-konflikten som en «akseptert stilforskjell»; den var i praksis en ødelagt CTA. Fikset scopet til `.mh-article__recommend-card` så basisregelen og featured-boksens hvite knapp er urørt. **Lærdom: en cascade-konflikt som beskrives som kosmetisk må måles, ikke antas.**
+
+**Metodefunn — gotcha #11 er smalere enn antatt (se gotcha #51).** `?preview_theme_id=` fungerer faktisk mot **primærdomenet** `minhundpet.no`, med cookie-jar. Det er kun hoppet fra `min-hund-2.myshopify.com` → `minhundpet.no` som stripper parameteren. Bevist med kontrolltest: med parameter 1 treff på `MEST POPULÆR`, uten 0. Det gjør ekte visuell verifisering av upubliserte temaer mulig fra CLI, uten browser-session i theme-editoren.
+
+**Verifisert live, mekanisk — ikke som påstand.** sha256 lokal HEAD == live for alle 5 filer. Playwright på live: `__mhCalloutTrackerInit__` = true på alle sidene, faktisk klikk-dispatch gir riktig `dataLayer`-payload med `article_page` utfylt (14 taggede CTA-er over 4 sider), og `breed_page` fortsatt utfylt på `cane-corso` + `samojedhund` — ingen regresjon på de 60 raseguidene. Variant-preselect: add-to-cart-skjemaets variant-id matcher URL-parameteren for alle tre varianter. Cart-smoketest: 2-stk legges i kurv til 269 kr og klarerer 250-kr-terskelen. 8 FAQ-elementer, helse-disclaimer og «aldri på hunden» intakt; TOC uendret på 12 lenker; ingen horisontal overflow desktop eller mobil. Ingen cart-filer rørt.
+
+**Backlog lukket samtidig:** `hund-lukter-vondt` og `hund-tygger-pa-alt` hadde til sammen 5 taggede CTA-er men manglet render-kallet, så `product_callout_click` hadde aldri fyrt der (gotcha #50). Begge har det nå — 14 taggede CTA-er måles på tvers av 4 hundetips-sider.
+
+**Åpent:** ingen GA4-data ennå — dette er dag 0 for `article_page`. Første meningsfulle avlesning tidligst ~01.09. Hypotesen som skal testes: konverterer featured-boksen på 18 %, inline-lenken på 34 %, eller den nye griden på 72 %?
+
 ### 2026-08-13 — Turguiden inn i toppmenyen; krysslenkinga gjort toveis (`519a2a9`, `86c8233`, Turguiden `2e9252f`)
 
 **Første lenke noen gang mellom minhundpet.no og søsterproduktet Turguiden.** Før i dag hadde temaet null referanser til turguiden.minhundpet.no, og Turguiden pekte ikke tilbake. Nå går det begge veier.
