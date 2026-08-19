@@ -27,6 +27,7 @@
 - **Vannflaske (TurPakken 3-i-1)** — light pass (cart drawer + product-specific badges + a11y carryover). Live.
 - **8 andre custom PDPs** — mekanisk sveip (cart drawer-wrap, @import font-fjerning, kontrast-fikser, badge-bytte). Live.
   - hundeseng, andefanten, aktiviseringsleke, aktiviseringsskal (CalmBall), ullgenser, sjampoborste, vannskal, potevasker
+- **FAQ-dekning (13 av 15 PDP-er, 19.08.2026):** `vannskal-for-hund-anti-sol` og `aktiviseringsleke-for-hund` fikk accordion + FAQPage-schema (`216894b`), etter andefanten og sjampobørste (`98701a4`). **Gjenstår: `vannflaske-hund-3-i-1` og `handstrikket-ullgenser-til-hund`** — planlagt neste runde. Mønsteret er 5 spørsmål, synlig `<details>` + JSON-LD i 1:1, alle svar forankret i tekst som allerede står på siden.
 - **ProductGroup-schema (3 av 15 PDP-er, 19.08.2026):** `potevasker`, `beroligende-hundeseng` og `hundeslikkeleke` rendres som `ProductGroup` + `variesBy: size` + `hasVariant` med målte variantmål; resten faller til `Product` + `offers[]`. RRT 4/4 på alle tre. Gaten er `mh_pg_handles` i `snippets/mh-product-schema.liquid`. Neste kandidat krever at målene faktisk måles først — se `docs/products.md`.
 - **Valpepakken** — NY 04.08.2026, katalogens 12. produkt. Custom PDP etter kanonisk mønster + swatch-basert fargevelger (Rosa/Blå) med krysstonende galleribilde. Live. Se BESLUTNINGER 2026-08-04 kveld.
 - **Slikkematte (E52 6-i-1)** — NY 05.08.2026, handle `slikkematte-hund`. Custom PDP. Live.
