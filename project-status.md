@@ -27,6 +27,7 @@
 - **Vannflaske (TurPakken 3-i-1)** — light pass (cart drawer + product-specific badges + a11y carryover). Live.
 - **8 andre custom PDPs** — mekanisk sveip (cart drawer-wrap, @import font-fjerning, kontrast-fikser, badge-bytte). Live.
   - hundeseng, andefanten, aktiviseringsleke, aktiviseringsskal (CalmBall), ullgenser, sjampoborste, vannskal, potevasker
+- **ProductGroup-schema (3 av 15 PDP-er, 19.08.2026):** `potevasker`, `beroligende-hundeseng` og `hundeslikkeleke` rendres som `ProductGroup` + `variesBy: size` + `hasVariant` med målte variantmål; resten faller til `Product` + `offers[]`. RRT 4/4 på alle tre. Gaten er `mh_pg_handles` i `snippets/mh-product-schema.liquid`. Neste kandidat krever at målene faktisk måles først — se `docs/products.md`.
 - **Valpepakken** — NY 04.08.2026, katalogens 12. produkt. Custom PDP etter kanonisk mønster + swatch-basert fargevelger (Rosa/Blå) med krysstonende galleribilde. Live. Se BESLUTNINGER 2026-08-04 kveld.
 - **Slikkematte (E52 6-i-1)** — NY 05.08.2026, handle `slikkematte-hund`. Custom PDP. Live.
 - **Slikkematte m/ roterende ball** — NY 05.08.2026, handle `slikkematte-roterende-ball` (Limited Edition). Custom PDP. Live. Bygget mens Friday endret fem produktfelt i Admin midt i økta — opphavet til gotcha #21.
@@ -82,6 +83,16 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-08-19 — ProductGroup-schema utvidet til hundeseng og CalmBall (`03c7516`)
+
+- **Gaten `mh_pg_handles` gikk fra 1 til 3 handles:** `potevasker` + `beroligende-hundeseng` + `hundeslikkeleke` rendres som `ProductGroup` + `variesBy: size` + `hasVariant`. De 12 øvrige PDP-ene faller uendret til `Product` + `offers[]`. Gaten er per handle med vilje — snippeten rendres fra 15 PDP-er, så én produktendring skal ikke treffe alle samtidig.
+- **Målene er Sondres egne linjalmålinger, ikke leverandørdata.** Hundesengen Ø 50/60 cm × h 15 cm (rund donut, målt ytterst over kanten). CalmBall Ø 12/15,5 cm × h 5/6 cm — **målt over foten mot underlaget, ikke over ball-kulen**, som er golfball-formet og merkbart mindre. Presiseringen kom fra Sondre etter at første utkast beskrev målet nøytralt som «ytre diameter»; uten den leser kunden tallet som ballens størrelse.
+- **⚖️ `material` bevisst utelatt på alle tre — tre separate avgjørelser, ikke en forglemmelse.** Potevasker mangler leverandørdokumentasjon (silikon-påstanden fjernet to ganger, `c3f745f`/`2118d99`). CalmBall skal forbli generisk «plast» — ingen dokumentasjon for silikon, food-grade, BPA-fri eller oppvaskmaskinvennlig. Hundesengens «myk plysj og polyesterfyll» er observasjonelt og skal ikke løftes inn i strukturerte data der det leses som en dokumentert spec. Begrunnelsene ligger nå i snippeten som kommentar, slik at en senere økt ikke «rydder opp» i utelatelsen.
+- **Nytt felt 6 i `mh_dims` overstyrer schema.org `size`.** CalmBalls variantnavn i Admin er `Small - små hunder` — en hel setning, ikke en størrelse, og Google leser `size` som en verdi i en skala. Etiketten endrer kun schemaet; Admin og synlig side er urørt. Nøkkelen i `mh_dims` må matche `variant.title` **bokstavrett** — bommer den, faller alle måltall stille ut uten at noe feiler.
+- **Målene ble også lagt synlig i prosaen på begge PDP-ene**, ikke bare i strukturerte data — størrelseshint ved variantvalget og i størrelses-FAQ-en, speilet 1:1 i FAQPage-schemaet. CalmBall-hintet sier eksplisitt «over foten», siden det står der kunden ser på ballen.
+- **RRT godkjent på begge: 4/4 gyldige elementer** (Product snippets, Merchant listings ×2, Review snippets), kun ikke-kritiske merknader. Verifisert via kode-innliming av JSON trukket ut av faktisk render, ikke gjenskapt fra malen.
+- **Ny gotcha #54:** PDP-er kan servere stale page_cache i minutter etter live-push, og cachen er **per URL** — CalmBall viste ny kode umiddelbart mens hundesengen viste gammel i tre forsøk etter samme push. `minhundpet.no/products/<h>?preview_theme_id=<LIVE tema-id>` med cookie-jar gir fersk render (gotcha #10 sa det egendefinerte domenet ignorerer parameteren — det stemmer ikke for produktsider).
 
 ### 2026-08-19 — Diaré hos hund: første hundetips-artikkel gjennom 4-fase-protokollen (`409be73`, `4194d2b`; skill-løft `a4b9da3`)
 
