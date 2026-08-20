@@ -95,6 +95,18 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-20 — GA4-tilgangen åpnet: property `519627545`, og frys #1 motbeviser fiks #1
+
+**GA4-blokkerne fra gotcha #25 er ryddet.** Numerisk property-ID er `519627545`, satt som default i `ga4_popup_report.py`. Verifisert med faktiske kall: Admin API lister propertyen, Data API returnerer rader, og alle fire event-scoped dimensjonene (`popup_variant`, `step1_choice`, `dismiss_method`, `trigger_type`) **bærer data**, ikke bare eksisterer i Admin-UI-et. Skillet er poenget — metadata-oppslag beviser registrering, spørring beviser data. Røyktesten `ga4_smoketest.py` sjekker begge.
+
+**`read_customers` er fortsatt ikke aktivt.** Versjon `min-hund-mcp-3` ble sluppet med scopet, men installasjonen har ikke fått det innvilget: `requestedAccessScopes` inneholder `read_customers`, `accessScopes` gjør det ikke. Et ferskt token arver installasjonens scopes, ikke versjonens — det hjelper altså ikke å hente token på nytt. Krever at butikkeieren godkjenner tillatelsen på nytt i Shopify Admin.
+
+**Funnet som betyr mest — fiks #1 løste et 4 %-problem.** Frys #1 er lest for første gang (avlesningen 11.08 ble aldri kjørt; tilgangen manglet). `trigger_type` for 29.07–11.08: **timer 650 (96,2 %) mot scroll 26 (3,8 %)**. Gotcha #26 slo fast det motsatte — at timeren aldri fyrte og `delay_seconds` var død kode — basert på fem Playwright-målinger. Merkingen er etterprøvd og korrekt, så det er håndmålingen som var feil: syntetisk scrolling passerer 40 % på 1,5–5,3 s, ekte lesere gjør ikke det, og 91 % av visningene var variant B på lange raseguider. **8-sekunderssperren i `7c6c439` fikset dermed en kappestrid som avgjorde under 4 % av åpningene.** Den er ført opp som fiks #1 av fire. Konsekvens for septemberavlesningen: terskelen «< 15 % ⇒ fiksene traff ikke» er mer sannsynlig å slå ut enn vi la til grunn da kontrakten ble satt. Korreksjonen er skrevet inn i gotcha #26.
+
+**Frys #1 komplett, for ordens skyld** (lukket periode, ikke sammenlignbar med frys #2): 676 view / 6 submit = **0,89 %**, altså under 2 %-terskelen. Variant A 3,33 % (2/60) mot B 0,65 % (4/616) — ingen vinner kåres. `step1_choice`: valp 9, hundehår 8, hverdag 7, alle 2 — «alle» på 7,7 %, godt under 40 %-flagget. `dismiss_method`: 296 av 296 er `close`, null `decline`. De 676 inkluderer ~30 Playwright-verifiseringsevents fra 11.08, som er grunnen til at kontrakt #2 setter frys #2-start til 12.08.
+
+**Frys #2 er ikke spurt.** Avlesningen står til 5.–8. september på Sondres signal.
+
 ### 2026-08-20 — Orm hos hund: norsk fagråd mot internasjonal norm, og et admin-steg som brakk deployen stille (`e355131`, `b0837ce`)
 
 **Femte hundetips-artikkel gjennom hele 4-fase-protokollen.** Handle `innvollsorm-hund`,
