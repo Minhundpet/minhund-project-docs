@@ -10,6 +10,8 @@
 
 ---
 
+## STATUS — 2026-08-20 (**Orm hos hund live og lukket — hundetips-artikkel #66.** 3766 ord redaksjonelt / 4205 helhet. 8 kilder. 0 produktkort (YMYL — vi selger ingen parasittmidler). **Moaten er ikke et tall, men et dokumentert avvik mellom norsk fagråd og den internasjonale normen, med begge sider attribuert.** Bakke og Bangen (Norsk veterinærtidsskrift nr. 4, 2026 — to førsteamanuenser i farmakologi ved NMBU) skriver at «rutinemessig behandling av friske voksne hunder er unødvendig og anbefales ikke», mens ESCCAP GL1 (7. utg., juni 2025) anbefaler avmasking minst fire ganger i året der spolorm er bekymringen. ESCCAP har selv unntaksklausulen som forsoner de to: der rutinebehandling ikke er akseptabel av regelverksmessige eller andre grunner, anbefales regelmessige avføringsprøver. Ingen norsk forbrukerside formidler de to sammen. **NVT ga i tillegg en vinkel ingen norsk forbrukerside har:** miljøeffekten av ormekur — prazikvantel som førstevalg fordi det skilles ut som inaktive metabolitter, milbemycinoksim frarådet uten dobbeltindikasjon, og tre konkrete eierråd (plukk opp avføring 1–2 døgn etter behandling, unngå bading 1–3 dager, lever ubrukt middel til apotek). **To norske forhold ingen internasjonal side dekker samlet:** fastlands-Norge er fritt for revens dvergbendelorm (505 rødrev + 1 ulv negative i 2025, >9600 prøver siden 2002, forekomst under 1 % med minst 95 % konfidens), og prazikvantel-kuren ved innreise virker ikke mot fransk hjerteorm — ordrett fra Veterinærinstituttet. **Phase 2 felte fire Phase 1-påstander:** Overgaauw-tittelen var en parafrase av et søketreff, «Norge mangler i oversikten over 26 land» kunne ikke bekreftes (abstraktet har ingen landliste, fulltekst er betalingsmur) og ble droppet, «2023 som første påvisning» var WebFetch som leste sidas oppdateringsdato, og ESCCAP-rammen ble snudd — den er den internasjonale normen vi kontrasterer mot, ikke hjemmelen for norsk praksis. **Kildehåndtering verdt å notere:** Veterinærinstituttets overvåkingsside siterer det opphevede EU-direktivet 998/2003/EC; vi attribuerer substansen til dem, men oppgir gjeldende forordning 2018/772 (via NVT/Lovdata) og gjentar ikke det opphevede nummeret. **Detektoren tok en substansfeil, ikke bare en plasseringsfeil** — «rundorm er den vanligste» var gal mot vår egen kilde (strongylide 1,7 % mot spolormens 0,9 %, Rapp 2024). **Dobbeltsjekk-pass: 46 funn, 43 rettet, 3 avvist som fasit-hull** — tredje sprint på rad med falske positive fra ufullstendig fasit. **STEG 19: 9 avvik fix-forward**, alle ved lesing, null strukturelt — femte sprint på rad. Tre av dem var nynorskformer lekket inn fra Veterinærinstituttets nynorske sider; ett var et semikolon i en synlig TOC-lenke som jeg selv hadde ført opp som «ikke flagg» i fasiten. **Blindkontroll bestått uten funn** — Rapp- og Overgaauw-tallene re-verifisert mot primærkilder, inkludert F2-punktet vi selv flagget som usikkert. **Admin-steget brakk deployen stille:** Shopify auto-genererte handle fra sidetittelen, så siden havnet på `orm-hos-hund-symptomer-...` mens fem filer pekte på `innvollsorm-hund`. Rettet via `pageUpdate`; ny gotcha #55. Commits `e355131` + `b0837ce`. ⛔ max_blocks-backloggen står uendret — hundetips-hubben er nå på 66 blokker mot plattformgrensen på 50 per seksjon.)
+
 ## STATUS — 2026-08-20 (**Dobermann live og lukket — raseguide #69.** 2716 ord redaksjonelt / 3488 helhet / 772 chrome. 17 kilder. TRIPPEL-moat pluss et norsk register- og regelverkslag. **Hjerte:** Wess 2010 (JVIM 24(3):533–538) fulgte 412 dobermann gjennom 775 undersøkelser med ultralyd og 24-timers Holter — 3,3 % ved 1–2 år, 9,9 % ved 2–4, 12,5 % ved 4–6, **43,6 % ved 6–8** og 44,1 % over 8 år, kumulativt 58,2 %. Oppgitt stratifisert i egen tabell, ikke kollapset til ett tall. **Gentesten:** Meurs 2012 (Hum Genet 131(8):1319–1325) fant en 16-bp delesjon i PDK4 hos amerikanske dobermann; Owczarek-Lipska 2013 (Anim Genet 44(2):239) fant **ingen assosiasjon i en europeisk kohort** — og testen selges fortsatt i Europa. Wades fire globale populasjonskohorter er tatt med som eksplisitt merket hypotese for hvorfor, siden ingen av studiene trekker koblingen selv. **vWD type 1 — moaten er at tallene spriker:** «25 % affiserte / 50 % bærere» står i kommersielle testlab-sider uten primærkilde; eneste publiserte tall er Crespi 2018 (JVDI 30(2):310–314) med **allel**frekvens 0,41 i Buenos Aires (0,35 ubeslektede, 0,43 og 0,58 innen to familier), og arvegangen er omstridt — labbene selger recessiv modell, Crespi konkluderte autosomal dominant med ufullstendig penetrans. **Wobbler er bygget på et negativt funn:** De Decker 2012 (BMC Vet Res 8:126) målte og avkreftet bred-skive-hypotesen (17 symptomatiske + 20 friske dobermann + 17 foxhound, p=0,43); skivene blir bredere med alder, ikke med sykdom. **Sondres Phase 1-premiss lot seg ikke oppfylle som formulert** — «bærerfrekvens i rasen» finnes ikke i primærlitteratur — og ble omformulert til «hvorfor tallene spriker». Tredje sprint på rad der Phase 1 motsa oppdraget og guiden ble bedre. **Norsk kontrast (#66-metoden) i HD/AD-dokumentet:** NDK oppgir at NKK krever kjent HD-status; verifisert mot NKKs eget regeldokument (ajourført 05.01.2026) som har raden «Dobermann fra 01.06.97» — og rasen står **ikke** i AD-lista, der rottweiler står fra 01.07.25. **Kupering belagt i tre ledd:** FCI-standard nr. 143 krever naturlige ører og hale, dyrevelferdsloven § 9 gjør inngrepet ulovlig, og NKKs utstillingsregler pkt. 3.6 utestenger kuperte hunder «uansett i hvilket land kuperingen har blitt foretatt». **Semikolon-lekkasje fanget i egen selvaudit:** første bygg hadde 30 semikolon i brødteksten — gotcha #38 oppsto mens teksten ble skrevet, ikke ved kopiering; 17 rettet. **STEG 19: 5 avvik fix-forward**, deriblant en selvmotsigelse der §1 sa «mellomstor» (FCIs ord) og §6 sa «fôr tilpasset store raser», og en hero-bildekontroll som bekreftet naturlige ører og full hale. **Blindkontroll: 0 avvik.** Commits `9f08d7a` + `a08bc74`. Selv-auditens terskler justert etter sprinten: H2-totalen fra 13–14 til **14–15** og chrome-båndet fra 550–700 til **550–800** — begge de gamle tallene ble satt før kildeseksjonen ble kanonisk i #64. ⛔ max_blocks-backloggen står uendret — hubben er nå på 69 kort mot plattformgrensen på 50 per seksjon.)
 
 ---
@@ -92,6 +94,53 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-08-20 — Orm hos hund: norsk fagråd mot internasjonal norm, og et admin-steg som brakk deployen stille (`e355131`, `b0837ce`)
+
+**Femte hundetips-artikkel gjennom hele 4-fase-protokollen.** Handle `innvollsorm-hund`,
+kategori Helse, 3766 ord redaksjonelt.
+
+**Moaten.** Norsk fagråd for endoparasitter er symptom- og diagnosebasert, ikke rutinemessig.
+Det står i klartekst hos Bakke og Bangen (NVT nr. 4, 2026), som bygger på terapianbefalingen
+fra 2010. ESCCAP GL1 anbefaler minst fire kurer i året der spolorm er bekymringen. Begge er
+godkjente kilder, og de sier ulike ting — så begge står attribuert, med ESCCAPs egen
+unntaksklausul som broen mellom dem. Dette er samme grep som kastrering-sprinten: der
+forskningen eller praksisen er delt, står den delt i teksten.
+
+**Ny kilde funnet i Phase 2, ikke i Phase 0.** NVT-artikkelen dukket opp under verifisering av
+Felleskatalogen-oppslaget og endte med å bære to seksjoner. Den ga også sprintens mest
+distinkte vinkel — miljøeffekten av ormekur — som ingen norsk forbrukerside dekker.
+Konsekvens: Phase 0 bør søke norske fagtidsskrifter eksplisitt, ikke bare myndighets- og
+PubMed-kilder.
+
+**ESCCAP godkjent som kildeklasse** (samme som WSAVA/AAHA) og lagt inn i
+`docs/health-claims-register.md` med en eksplisitt advarsel om at retningslinjen anbefaler
+rutinebehandling — den skal aldri siteres som hjemmel for norsk risikobasert praksis.
+
+**Fire Phase 1-påstander falt i Phase 2.** Verdt å merke seg fordi tre av dem var
+verktøyartefakter, ikke slurv: en tittel parafrasert fra et søketreff, en dato lest fra en
+oppdateringsstempel, og en fraværspåstand utledet av et søkesammendrag. Den fjerde var en
+feillest kilde — ESCCAP ble antatt å anbefale risikobasert strategi.
+
+**Detektoren tok en substansfeil.** T1-treffet var ikke en manglende kildemarkør, men en
+rangering datagrunnlaget vårt motsa: artikkelen kalte spolorm «den vanligste» mens Rapp 2024
+gir strongylide 1,7 % mot spolormens 0,9 %. Første gang detektoren fanger innhold framfor form.
+
+**Admin-steget er ikke trygt.** Shopify auto-genererer sidehandle fra tittelen, og siden
+sidetittelen må være ordrett lik H1, blir handle-en lang og feil. Siden ble opprettet
+korrekt i alt annet — publisert, riktig template — men på feil URL, mens hub-kort,
+`article_map`, brødsmule-snippet og Article-schema alle pekte på `innvollsorm-hund`. Symptomet
+er en 404, som er identisk med symptomet på «admin-steget er ikke gjort ennå». Rettet med
+`pageUpdate`-mutasjon; ingen redirect ble laget av Shopify, og gammel URL 404-er (riktig, gitt
+at den levde i minutter uten innlenker). Dokumentert som gotcha #55 og som en advarsel i
+sjekklista i `docs/page-patterns.md`.
+
+**Blindkontroll-kanalen kom med falskt premiss for andre gang.** Påstand om robots.txt-blokk
+på den ferske URL-en, med referanse til urinveisinfeksjon-sprinten som presedens. Verifisert
+selv: ingen `Disallow: /pages`, 200 fra fire user agents, ingen `X-Robots-Tag` eller
+`meta robots`. Presedensen pekte motsatt vei — også den gangen var premisset galt.
+Tekstlevering avvist; malens fallback er kilde-nivå-verifisering, aldri brødtekst.
+Kontrollen gikk gjennom på URL og besto uten funn.
 
 ### 2026-08-20 — Popup-avlesning bestilt 29.07–20.08: blokkert, og perioden er uansett feil
 
