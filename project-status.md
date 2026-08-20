@@ -89,6 +89,18 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-20 — Popup-avlesning bestilt 29.07–20.08: blokkert, og perioden er uansett feil
+
+**Bestilt:** full avlesning av KING15/KINGTIPS15-testen for 29.07–20.08 (28.07 ekskludert), mot tersklene i målekontrakten.
+
+**Kunne ikke kjøres.** Alle tre GA4-blokkerne fra gotcha #25 står uendret — re-verifisert med faktiske API-kall, ikke antatt: Data API og Admin API gir begge `403 SERVICE_DISABLED` i GCP-prosjekt `744067514649`, og den numeriske property-ID-en er fortsatt ukjent. Bibliotekene (`google-analytics-data`, `google-analytics-admin`) er nå installert lokalt, så det er ikke lenger en del av problemet.
+
+**Punkt 5 har sin egen blokker — ny.** Kryssjekk mot Shopify Email krever `read_customers`. Custom-appen har `read_inventory,read_orders,write_products` og ingenting mer; både MCP-en og et ferskt `client_credentials`-token gir `ACCESS_DENIED` på `customers`. Tokentrikset fra gotcha #52 løser **ordre**, ikke **kunder**. Lagt inn i gotcha #25.
+
+**Periodeinnvendingen er viktigere enn blokkeren.** 29.07–20.08 krysser strukturfiksene fra 11.08 (`7c6c439`). Målekontrakt #2 slår fast at frys #1 målte en annen popup — den fyrte etter 1,5–5,3 s med halve steg 1 utenfor skjermen. En samlerate over hele spennet beskriver ingen av dem, og ville blitt målt mot terskler som forutsetter én popup. Frys #2 begynner 12.08 og har på 20.08 løpt 9 dager mot kontraktens 3–4 uker; avlesningsdatoen er ~5.–8. september. **Beslutning: ingen sammenslått avlesning. Splittes på 11.08 hvis tall hentes manuelt før september.**
+
+**Det ene tallet som lot seg måle (read_orders):** 11 ordrer i perioden, **0 med rabattkode**. Eneste KING-innløsning i 60-dagersvinduet er `#1089` (08.07, `KING10`) — før redesignet. `KING15` og `KINGTIPS15` har null innløsninger så langt.
+
 ### 2026-08-20 — Kastrering av hund: den norske juridiske rammen som moat, og en uverifisert slutning som overlevde tre kontrollag (`5e2f646`, `73749c6`, `481aaaf`)
 
 **Vinkelen.** Temaet er internasjonalt gjennomskrevet, men nesten alt av det beskriver et regelverk som ikke gjelder her. Dyrevelferdsloven § 9 andre ledd og Mattilsynets side fra 03.03.2023 gjør rutinemessig kastrering ulovlig i Norge, og legger beslutningen hos veterinæren, ikke eieren. Det er en påstand ingen av konkurrentsidene kombinerer med forskningen — og den er billig å verifisere, som gjør den robust.
