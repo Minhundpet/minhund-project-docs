@@ -105,6 +105,12 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 **Frys #1 komplett, for ordens skyld** (lukket periode, ikke sammenlignbar med frys #2): 676 view / 6 submit = **0,89 %**, altså under 2 %-terskelen. Variant A 3,33 % (2/60) mot B 0,65 % (4/616) — ingen vinner kåres. `step1_choice`: valp 9, hundehår 8, hverdag 7, alle 2 — «alle» på 7,7 %, godt under 40 %-flagget. `dismiss_method`: 296 av 296 er `close`, null `decline`. De 676 inkluderer ~30 Playwright-verifiseringsevents fra 11.08, som er grunnen til at kontrakt #2 setter frys #2-start til 12.08.
 
+**`ga4_popup_report.py` utvidet til kontrakt #2 (samme dag).** Skriptet dekket bare kontrakt #1. Nå: begge hovedtall med **hvert sitt terskelsett** — steg 1-passering 15/30/45, påmeldingsrate 2/4/6. De skal ikke slås sammen; kontrakt #2 beholder 2/4/6 med vilje «så tallene er sammenlignbare på tvers av begge frysene», og 15/30/45 gjelder et annet forhold med et annet nevnergrunnlag. Å bruke steg 1-tersklene på påmeldingsraten ville dømt 5 % som «fiksene traff ikke», der kontrakten kaller den godkjent. I tillegg: `trigger_type`-fordeling, og punkt 5 som teller faktiske kundeprofiler via `read_customers` og kryssjekker mot GA4s `mh_popup_submit`. En frys-sperre nekter å lese perioder fra 12.08 uten flagget `--frys2`, så en tidlig titt krever en bevisst handling.
+
+**Bug fanget under testingen — se gotcha #56.** `created_at:` blir stille ignorert i `customers`-søket: et framtidsdatert filter som skal gi null treff returnerte alle 129 kunder. Første kjøring rapporterte derfor 10 påmeldinger på tre dager, mot 6 submits i GA4 på fjorten. Datofiltreringen gjøres nå i klientkoden. `orders` er ikke rammet.
+
+**Kryssjekken viste umiddelbart noe å følge opp:** i frys #1 så GA4 6 submits, mens bare 3 kundeprofiler ble opprettet. Avviket er lukket periode og hastar ikke, men det er nøyaktig det punkt 5 finnes for å fange — og det betyr at `mh_popup_submit` ikke kan brukes som påmeldingstall alene.
+
 **Frys #2 er ikke spurt.** Avlesningen står til 5.–8. september på Sondres signal.
 
 ### 2026-08-20 — Orm hos hund: norsk fagråd mot internasjonal norm, og et admin-steg som brakk deployen stille (`e355131`, `b0837ce`)
