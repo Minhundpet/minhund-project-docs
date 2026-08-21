@@ -2,7 +2,9 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-08-21 (hundetips `hund-spiser-for-fort` OMBYGGET og lukket etter blindkontroll — korpusets andre ombygging; brekning/magedreining-klyngen fikk en eier)
+> **Sist generert:** 2026-08-21 (sprint #76 Border Terrier lukket — raseguide #73; korpuset på 73 av 100. **Blindkontrollen kom tilbake ren, men er ikke etterprøvbar: den kanoniske URL-en serverte fortsatt førversjonen i 8 av 8 prober ved lukking.** Se BESLUTNINGER)
+>
+> **Forrige generering:** 2026-08-21 (hundetips `hund-spiser-for-fort` OMBYGGET og lukket etter blindkontroll — korpusets andre ombygging; brekning/magedreining-klyngen fikk en eier)
 >
 > **Forrige generering:** 2026-08-21 (sprint #75 Bullterrier lukket etter blindkontroll — raseguide #72; korpuset passerer 72 av 100)
 >
@@ -118,6 +120,35 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-08-21 — Sprint #76 Border Terrier (raseguide #73)
+
+**Levert.** 2725 ord redaksjonelt / 3367 helhet / 642 chrome. Commits `5486bce` + `24ceb44`.
+Moat: TRIPPEL med en inversjon som er ny i korpuset — **gentesten sitter på feil sykdom**.
+Den behandlingsbare lidelsen (paroksysmal glutensensitiv dyskinesi) har ingen gentest og
+trenger ingen, fordi den håndteres med fôr. Den ubehandlelige (SLEM) har en test hvis
+årsaksvariant laboratoriet selv oppgir som upublisert. Aksen er behandlingsbarhet mot
+testbarhet, ikke test mot ikke-test som i #75.
+
+**Tre beslutninger å bære videre:**
+
+1. **Amerikansk Staffordshire Terrier ble avvist i Phase 1 og skal ikke tas opp igjen.**
+   Rasen er en av fem navngitte i `Forskrift om hunder` (FOR-2004-08-20-1204) § 1 — ulovlig
+   å holde, avle og innføre i Norge. Raseguide-malen forutsetter en kjøpsvurderende norsk
+   leser som ikke kan eksistere lovlig. I tillegg står `/pages/staffordshire-bull-terrier`
+   allerede på posisjon 2,5 for «amerikansk staffordshire terrier» og eier hele
+   amstaff-intensjonen (~113 visninger/90 dager). En egen side ville vært
+   selvkannibalisering.
+
+2. **Blindkontroll-rutinen har et hull.** Kontrollen for #76 kom tilbake ren, men den
+   kanoniske URL-en serverte fortsatt førversjonen — med en faktafeil STEG 19 hadde rettet.
+   Vi vet ikke hvilken versjon kontrolløren leste. **Nytt krav: mål at URL-en serverer riktig
+   versjon før pakken sendes, og noter målingen sammen med resultatet.**
+
+3. **`Article.about`, `citation` og `hero_image` er fortsatt ikke satt** på noen raseguide.
+   Femte sprint på rad der det vurderes og droppes av samme grunn: det er en jobb i den
+   delte `mh-article-schema.liquid`, ikke per side. Ligger i backlog.
+
 
 ### 2026-08-21 — `git add` i et delt arbeidstre er et felleskammer, ikke min stage
 
