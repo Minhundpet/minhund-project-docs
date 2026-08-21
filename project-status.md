@@ -101,6 +101,28 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-21 — Båndtvang-metaen gikk ut på dato ett døgn etter at den ble målt (`trig_013e1Z6e2LvZhLRnHGekUCWo`)
+
+**Utløser:** GSC-avlesing 14.–20.08. `/pages/bandtvang-norge` er sidens desidert største flate — 5 452 visninger på egen URL, 13 594 når de sju anker-URL-ene regnes med (27 % av all eksponering i uka) — og leverte 21 klikk, altså 0,39 % / 0,15 % CTR.
+
+**Funnet som endret oppgaven:** sida var nr. 3 av de 32 i CTR-sveipen 11.08 (`ff94037`). Tallene over er derfor *post*-sveip, ikke før. Metaen som ble satt sa «Nasjonal båndtvang gjelder 1. april–20. august 2026» — korrekt i ti dager, feil fra 21.08. Samtidig var `når er båndtvangen over` (262 visninger, **0 klikk**), `når slutter båndtvang` og `er det båndtvang nå` de søkene som dro mest visning. Snippeten svarte på et spørsmål i feil tidsform.
+
+**Gjort:** ny title + meta for off-season-intensjon, publisert via `metafieldsSet` mot `global.title_tag` / `global.description_tag` (begge type `string`, gjenbrukt). Ingen theme-fil rørt, ingen seksjonsfil rørt.
+
+- title (52): «Er båndtvangen over? Ikke i alle kommuner | Min Hund»
+- desc (145): «Den nasjonale båndtvangen sluttet 20. august. Mange kommuner har egne regler — beiteområder til 15. oktober, parker hele året. Sjekk din kommune.»
+
+Debunk-vinkelen fra 11.08-sveipen brukt direkte: søkeren skriver «når er båndtvangen over» med antakelsen «over = hunden kan slippes», og tittelen motsier den. Alle fire påstandene (nasjonal periode, § 6 andre ledd, 15. oktober i beiteområder, helårs i parker) er verifisert mot `sections/hundetips-bandtvang.liquid`.
+
+**Verifisert i to trinn:** 2/2 metafelt lest tilbake via Admin API, deretter 6/6 tagger mot live-HTML (`title`, `description`, `og:title`, `og:description`, `twitter:title`, `twitter:description`). Rollback: `docs/ROLLBACK-seo-bandtvang-2026-08-21.json`.
+
+**Lukket forbehold:** rollback-fila fra 11.08 lagrer bare de *gamle* verdiene, så git kunne ikke bevise at live-teksten var sveipe-teksten. API-tilbakelesingen viste at live-verdiene *er* metafelt-verdiene — forbeholdet gjelder ikke lenger.
+
+**Ny regel:** sesongmeta får flipp-påminnelse i samme økt som den skrives, ikke et punkt i Åpne tråder. Se `docs/seo-conventions.md` → «Sesongmeta må ha en flipp-dato satt samtidig».
+
+**Metodefunn:** cloud-rutiner får 403 på det private `minhund-theme`-repoet — `sources` må utelates og prompten bære alt selv. Gotcha #59.
+
+
 ### 2026-08-21 — Hund om vinteren: da et ungt nettsted gjorde GSC ubrukelig som dimensjoneringsverktøy (`a33d43c`, `2511191`, `10494c8`)
 
 **Situasjon.** Gap-søket 20.08 pekte ut vinter som korpusets tydeligste hull: to sommerartikler, null vinterartikkel, én vinter-H2 i 66 filer. 90-dagersvinduet i GSC viste nær null på vinterspørringer, som først ble lest som sesongblindhet.
