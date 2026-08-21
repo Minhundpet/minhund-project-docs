@@ -2,7 +2,9 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-08-21 (sprint #75 Bullterrier lukket etter blindkontroll — raseguide #72; korpuset passerer 72 av 100)
+> **Sist generert:** 2026-08-21 (hundetips `hund-spiser-for-fort` OMBYGGET og lukket etter blindkontroll — korpusets andre ombygging; brekning/magedreining-klyngen fikk en eier)
+>
+> **Forrige generering:** 2026-08-21 (sprint #75 Bullterrier lukket etter blindkontroll — raseguide #72; korpuset passerer 72 av 100)
 >
 > **Forrige generering:** 2026-08-21 (hundetips #68 Valpens utvikling uke for uke lukket etter blindkontroll; sprint #74 Basset Hound lukket samme dag)
 >
@@ -11,6 +13,10 @@
 > **Forrige (2026-08-07 formiddag):** Meta-sporet — prosjektets arbeidsminne restrukturert i fem prosjekt-level skills under `.claude/skills/`; CLAUDE.md 175 → 127 linjer.
 > **Mirror:** https://raw.githubusercontent.com/Minhundpet/minhund-project-docs/main/project-status.md (public repo — claude.ai blokkerer gist-domenet)
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
+
+---
+
+## STATUS — 2026-08-21 (**`hund-spiser-for-fort` ombygget og lukket — korpusets andre ombygging.** 3 766 ord, 11 substansielle H2 + FAQ, migrert fra pre-v2 til `.mh-article--v2`. Samme handle, ingen redirect. **Sprinten startet med et tre-utfallsmandat som forbød å anta ny artikkel, og Phase 0 valgte ombygging.** Det avgjørende funnet: sida hadde **null navngitte GSC-spørringer på sitt eget tema** — hele det navngitte fotavtrykket var magedreining/GDV (127 visninger) og brekning (35). Google hadde allerede omklassifisert den; ombyggingen fulgte etter i stedet for å be om noe nytt. En fjerde side inn i klyngen ville splittet et signal tre sider allerede delte — samme feil hund-smell-sprinten unngikk. Signaturen som avgjorde var **posisjon per intensjonstype, ikke per side**: `hund-kaster-opp` ligger på median ~5 på farge/utseende-spørringer og 9–16 på alt annet, altså en farge-diagnoseside, ikke en brekningsside. Mandatets «~330 visninger» viste seg blåst opp av anker-URL-rader; kanonisk er brekningsklyngen 254 og magedreiningsklyngen 139, samlet **393 visninger / 2 klikk**. Forbehold som står i artefaktet: query-dekningen på sida var 5,5 % mot 36,4–36,6 % på nabosidene, så påstanden gjelder navngitte spørringer, ikke hele halen. **Moaten er at magedreining forklarer sitt eget symptom** — brekningen er uproduktiv fordi overgangen mellom spiserør og magesekk er vridd igjen, ikke fordi magen er tom. Ingen norsk konkurrentside gjør den koblingen; SERP-en eies av forsikringsselskap, kjeder og innholdsfarmer, som alle står på vår forbudsliste. **Sprinten ble innledet av tre rettesprinter** som alle rettet feil som lå live: prevalenstallet «0,5–4 % i løpet av livet» mot Glickmans faktiske 5,7 % kumulativ insidens over studieperioden (`d1ac43e`); tre forbudte fôrmerker anbefalt ved navn i cane-corso og «Purina-studien» med tre presisjonsfeil i ingressen til hvor-mye-mat (`1db1f9a`); og fire ukildede tidspåstander om GDV-dødelighet i fem filer, erstattet med Songs 3-timersfunn (`f515574`). **Dobbeltsjekk-passet ga 31 funn, seks kritiske** — alle hadde overlevd Phase 2-kildeverifisering, Phase 3-selvaudit, detektoren og superlativ-grepet. Verst: «3,57 ganger høyere odds» misgjenga Song, som sier «times those of» = ganger *så høy*, mens setningen rett foran brukte korrekt form om et identisk OR-tall. Nest verst: to ulike Glickman-kohorter sitert identisk som «Glickman et al. 2000» med n=1 914 og n=1 637. **STEG 19 fant fire avvik, to av dem innført av dobbeltsjekk-rettingene selv** — en retting som ikke sveiper FAQ og JSON-LD, retter halve siden. Produkt-touchpoints gikk 2 → 1 da CalmBall viste seg å bryte en låst produktfamilie i `docs/products.md`. **Blindkontroll bestått uten faktafeil, kildefeil eller presisjonsfeil**; kontrolløren verifiserte uavhengig Songs to oddsforhold med referansegrupper, Glickmans 20 %/52 % mot vektbåndene, og Evans & Adams' to atskilte rangeringer. Oppgitt begrensning: **fulltekst er ikke åpnet** for fire av kildene — utgiverne blokkerer, så tallene er hentet ordrett fra utgiver-deponerte strukturerte abstrakter via Europe PMC. Disambiguerings-commit kjørt etterpå på `hund-kaster-opp`, `kennelhoste-hund` og `hund-vil-ikke-spise`. Ny gotcha #61: `theme pull` + `diff` gir falsk avvik på `templates/*.json`.)
 
 ---
 
@@ -2419,6 +2425,25 @@ Sommerferien 19.–28. juni er over; hele feriekampanjen som ble lagt inn i `ce9
 ---
 
 ## SPRINT-LOG — append-only, nyeste øverst
+
+### 2026-08-21 — `hund-spiser-for-fort`: ombygging til brekning/magedreining
+
+Korpusets andre ombygging etter `hund-smell`. Tre-utfallsmandat i Phase 0 (ny side /
+ombygging / konsolidering) — valgte ombygging på GSC-grunnlag, ikke på forhånd.
+
+**Commits:** `d1ac43e`, `1db1f9a`, `f515574` (tre rettesprinter i forkant) · `1a2eeba`
+(Phase 0+1) · `d843e69` (Phase 2) · `ee621ba` (Phase 3-bygg) · `6650314` (dobbeltsjekk +
+hero) · `ff5d8fa` (STEG 19) · `77806e1` (disambiguering) · `5a034b6` (gotcha #61).
+
+**Målbart utgangspunkt:** brekningsklyngen 254 visninger / 1 klikk fordelt på tre egne
+sider; magedreiningsklyngen 139 / 1. Samlet 393 / 2. Ingen av sidene vant.
+
+**Tre kontrolllag, alle med funn:** dobbeltsjekk-pass 31 (6 kritiske) → STEG 19 4 (2 selvpåførte)
+→ blindkontroll 0. At det tredje laget kom rent er ikke et argument for å droppe de to første —
+de seks kritiske feilene ville gått live uten dem.
+
+**Åpen gjeld:** FAQ-svaret om tørrbrekk i `hund-kaster-opp` er 137 ord mot kravet 70–100.
+Pre-eksisterende; ikke gjort verre enn +14 ord, men ikke ryddet.
 
 ### 2026-08-14 — AI-SEO tiltak 1–3 av 10, to eiendommer (commits `47e6a7e` Min Hund live `#148333264974` + `4370ffe` Turguiden/Vercel)
 
