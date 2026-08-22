@@ -121,6 +121,45 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-22 — A/B-test: produktkort-plassering på golden-retriever (til 2026-09-11)
+
+**Første avvikelse fra «NO inline product callouts»-regelen for raseguider siden den ble innført
+2026-05-14.** Bevisst, tidsavgrenset, dokumentert med sluttdato i `docs/page-patterns.md`.
+
+**Bakgrunn — kartleggingen som utløste den.** Alle 73 raseguider har nøyaktig samme
+produktstruktur: én `mh-article__recommend`-seksjon med 3 kort, plassert etter FAQ og «Les også»,
+rett før bunn-disclaimeren. 219 kort totalt, fordelt på `aktiviseringsleke-for-hund` (68),
+`pelsfjerner` (57), `vannflaske-hund-3-i-1` (51), `beroligende-hundeseng` (34) og fire
+enkeltforekomster. Kortene har i dag **verken bilde eller pris** — kun tittel, én setning og en
+knapp. 26 guider har i tillegg en ren tekstlenke i brødteksten, 22 av dem til pelsfjerneren under
+en pelsstell-H2. Strukturen er altså helt uniform, og har aldri vært testet mot et alternativ.
+
+**Testen.** På `/pages/golden-retriever` er pelsfjerner-kortet flyttet fra bunnen til inline i
+pelsstell-seksjonen, mellom steg 1 «Børsting og pelsskifte» (der blow coat omtales) og steg 2.
+Kortet er bygget opp på nytt som `mh-article__productsolo` med bilde, produktnavn, pris og CTA —
+altså tre elementer recap-kortene ikke har. TurPakken- og Aktiviseringsleke-kortene er fjernet;
+bunnen beholder H2-en og én setning med tekstlenke til pelsfjerneren som backup.
+
+**Målingen.** GA4-armene skilles på `data-mh-placement`: `inline-callout` (nytt kort) mot
+`bottom-textlink` (ny verdi for den reduserte bunnen). Sammenlignbar baseline finnes i
+`bottom-recommend`, som de 72 andre guidene fortsatt bruker. Commit `97adc08`.
+
+**Ved testslutt 11.09.2026:** enten rull tilbake til kanonisk recap-grid, eller oppdater regelen i
+`docs/page-patterns.md` hvis inline vinner. Vinner inline, gjelder spørsmålet hele korpuset —
+57 guider har pelsfjerner-kortet i bunnen i dag.
+
+**Ny gotcha #62 falt ut av STEG 19:** produktkort som ligger inne i en redaksjonell H2-seksjon
+skal aldri bruke overskrift-tag til produktnavnet. Kortets `<h3>` la «Pelsfjerner-hanske» inn i
+pelsstell-seksjonens overskriftsoutline som et syvende steg, ved siden av Børsting, Bading, Øyne,
+Ører, Klør og Tannpuss. Visuelt usynlig — bare outline-uttrekket avslørte det, og en AI-crawler
+leser H-strukturen, ikke CSS-en. Mønsteret er arvet fra recap-grid-en, der `<h3>` er riktig fordi
+kortene ligger under sin egen kommersielle H2.
+
+**Utenfor scope, men funnet:** `.mh-article__steps` og de fire tilhørende klassene har null
+CSS-regler i `golden-retriever`, `border-collie` og `griffon`. Den nummererte stell-lista rendres
+som bare blokk-divs med tallet alene på egen linje. Gjelder også live i dag — ingen regresjon fra
+denne endringen. Ikke rettet.
+
 ### 2026-08-21 — Sprint #76 Border Terrier (raseguide #73)
 
 **Levert.** 2725 ord redaksjonelt / 3367 helhet / 642 chrome. Commits `5486bce` + `24ceb44`.
