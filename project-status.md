@@ -121,6 +121,42 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-22 — «Aldri på hund»-forbudet for pelsfjerner-hansken TRUKKET
+
+**Produktbeslutning fra Sondre.** Påstanden om at hansken ikke kan eller ikke skal brukes på hund
+er faktisk feil. Den er ikke farlig eller skadelig å dra over hunden — den er bare designet og
+markedsført for tekstiler. Rettet i tre commits (`c258f77` docs, `df2b14a` PDP, `357ef9b` korpus)
+for å muliggjøre selektiv rollback.
+
+**Regelen er tosidig, med vilje.** Forbudet er trukket, *og* det er eksplisitt forbudt å svinge
+motsatt vei og markedsføre hundebruk. «Kan også brukes på hundens pels» er like galt som «aldri på
+hunden». Kun omfangsutsagn («for tekstiler», «kun tekstil»). Uten den andre halvdelen kan en senere
+sprint lese fjerningen som en invitasjon. Den ærlige grunnen til at den ikke brukes til børsting er
+at den **henter hår ut av stoff, ikke ut av pels** — ikke at den er skadelig.
+
+**Omfang da det ble fanget:** `CLAUDE.md` (2 steder), `docs/products.md` (2), memory-skuffen, PDP-en
+(hero-disclaimer, spec-rad, synlig FAQ **og** indeksert FAQPage-JSON-LD) og 28 forekomster i 21
+seksjonsfiler. Til sammen 34 steder. Påstanden hadde spredt seg til hver eneste raseguide som
+nevner pelsfjerneren, fordi den sto som HARD-regel i `CLAUDE.md` og ble kopiert lojalt inn i hver
+ny sprint.
+
+**Signalet som lå der hele tiden:** PDP-en motsa allerede seg selv. FAQ-en «Funker hansken på
+langhåret hund også?» svarer «Vi har testet hjemme på **Kings korte, mørke pels**» — den setningen
+har stått live rett ved siden av «Ikke til bruk på hund». En intern selvmotsigelse på samme side
+overlevde fordi begge halvdelene var skrevet i ulike sprinter og aldri lest sammen.
+
+**Metodenotat:** eksakt strengerstatning per forekomst med assert på nøyaktig ett treff, ikke
+regex-sveip — gotcha #42 var en regex-sveip som knakk 12 HTML-entiteter i seks produktfiler.
+Dalmatiner bar påstanden i både FAQ-HTML og FAQPage-JSON-LD; begge halvdeler rettet i samme pass.
+
+**STEG 19 på PDP-en fant ett avvik:** spec-raden sa «IKKE for: skinn, silke, glatt mikrofiber»
+(absolutt) mens sidens egen tekstil-FAQ sier «fungerer dårligere» (relativt) om nøyaktig de samme
+materialene. Etiketten endret til «Mindre egnet for». Live-meta sjekket (pre-publiseringsporten
+pkt. 8): «Kun tekstil» er omfangsangivelse, ikke forbud, og står seg — ingen metafield-endring.
+
+**Live og verifisert:** alle 22 temafiler pullet tilbake fra live og diffet mot arbeidstreet —
+identiske. 0 forbudspåstander på syv ferske renders og på offentlig URL.
+
 ### 2026-08-22 — A/B-test: produktkort-plassering på golden-retriever (til 2026-09-11)
 
 **Første avvikelse fra «NO inline product callouts»-regelen for raseguider siden den ble innført
