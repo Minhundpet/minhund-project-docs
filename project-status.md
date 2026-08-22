@@ -225,9 +225,27 @@ bunnen beholder H2-en og én setning med tekstlenke til pelsfjerneren som backup
 `docs/page-patterns.md` hvis inline vinner. Vinner inline, gjelder spørsmålet hele korpuset —
 57 guider har pelsfjerner-kortet i bunnen i dag.
 
-**IKKE slett temaet `ab-golden-preview` (#152895258702) før 11.09.2026.** Det er «før»-referansen
-mens testen løper — live er «etter». Et ubrukt unpublished tema ser ut som ryddeavfall, men er det
-ikke her. Slettes først når testen er avgjort.
+**IKKE slett temaet `ab-golden-preview` (#152895258702) før 11.09.2026, og IKKE push til det.**
+Det er «før»-referansen mens testen løper — live er «etter». Temaet holder
+`sections/hundetips-golden-retriever.liquid` fra commit `107ef35`: recap-grid med tre kort i
+bunnen, ingen inline-kort, gammel korttekst, gammelt kreftavsnitt, lesetid 10 min.
+
+Et ubrukt unpublished tema ser ut som ryddeavfall, men er det ikke her.
+
+**Det ble klobbet én gang allerede** — 22.08.2026 gikk en full `theme push --theme 152895258702
+--force` til det under pelsfjerner-sveipen, fordi det var det nærmeste preview-temaet. Da ble
+«før»-tilstanden overskrevet med «etter», og referansen var verdiløs til den ble gjenopprettet fra
+`107ef35`. **Trenger du en preview under testvinduet, opprett et eget engangstema** — dette er
+frosset, ikke ledig.
+
+Gjenoppretting hvis det skjer igjen:
+```bash
+mkdir -p /tmp/pre-state/sections
+git show 107ef35:sections/hundetips-golden-retriever.liquid \
+  > /tmp/pre-state/sections/hundetips-golden-retriever.liquid
+shopify theme push --theme 152895258702 --path /tmp/pre-state \
+  --only sections/hundetips-golden-retriever.liquid --force
+```
 
 **Ingen GSC-reindeksering bedt om**, bevisst: ingen redaksjonelt innhold er endret, kun kommersiell
 plassering, og Indexing API-et gjør uansett ingenting for denne sidetypen (gotcha #31).
