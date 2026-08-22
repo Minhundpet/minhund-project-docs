@@ -121,6 +121,47 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-22 — Kreftavsnittet på golden-retriever rettet: amerikansk tall byttet mot europeisk
+
+**Faktafeil flagget av fagperson på Facebook, verifisert og rettet.** Guiden oppga 65 %
+kreftdødelighet — Kent et al. 2018, obduksjonsmateriale ved UC Davis. Amerikanske og europeiske
+Golden Retrievere er genetisk atskilte populasjoner, og norske hunder hører til den europeiske.
+Tallet var altså både populasjonsfeil og designfeil. Commits `a136f14`, `c27574b`, `ff064b6`.
+
+**Avsnittet oppgir nå tre anslag med hver sin kilde,** i stedet for ett: GRCA 1998 (US) 258 av 420
+veterinærbekreftede dødsfall med kjent dødsalder = 61,4 %; KC/BSAVA 2004 (UK) 360 av 927 = 38,8 %;
+Kent 2018 beholdt, men merket som henvisningsmateriale med systematisk skjevhet. Populasjons-
+forskjellen er kildesatt til Arendt et al. 2015 (*PLoS Genetics* 11(11): e1005647), med en
+eksplisitt setning om at den studien **ikke** måler kreftforekomst — den viser bare at
+populasjonene er genetisk forskjellige.
+
+**To feilspor i kildearbeidet, begge unngått — og begge er typiske.**
+
+1. **«2010-studien» inneholder ikke tallet.** Adams et al. 2010 (JSAP 51(10):512–524,
+   doi `10.1111/j.1748-5827.2010.00974.x`) ble åpnet og lest: den rapporterer kun aggregat
+   (kreft 27 % av 15 881 dødsfall, alle raser). Ingen rasetabeller. 38,8 % står i KC/BSAVAs
+   **rasespesifikke delrapport** fra samme 2004-undersøkelse. Å sitere DOI-en for tallet hadde
+   vært en feilsitering som besto enhver formatsjekk.
+2. **Feil PLoS Genetics-artikkel lå nært.** Tonomura et al. 2015 (11(2): e1004922) har nesten
+   overlappende forfatterliste og sier eksplisitt at den *ikke* undersøkte
+   populasjonsforskjellen — den anbefaler det som videre arbeid. Riktig kilde er Arendt et al.
+   2015 (11(11): e1005647).
+
+**61,4 % vs 61,8 %.** Sondre flagget at rapporten også trykker 61,8 % (tabell 20). Begge står der.
+Tabell 34a oppgir teller og nevner (258/420, radsum og kolonnesum stemmer, 61,4286 %); tabell 20
+oppgir ingen av delene og lar seg ikke avstemme mot tabell 34a eller 35b. 61,4 % beholdt fordi det
+er det eneste som er etterprøvbart på cellenivå. Revisjonsspor i commit-body: SHA-256 av PDF-en
+fra grca.org og rått celleuttrekk.
+
+**STEG 19 fant tre avvik, alle innført av rettingen selv** — semikolon i oppramsing, et kolon som
+lovet belegg fra tre materialer men leverte ett, og «samme metode, samme materiale» om
+irsk setter-tallet. Det siste var reelt galt: rapporten sier «in other breeds **that we have
+surveyed**», altså en egen raseundersøkelse fra samme gruppe. En faktaretting kan selv innføre
+presisjonsfeil, og STEG 19 er det som fanger dem.
+
+**Lesetid-etiketten var gal fra før** — «ca. 10 min» på 3056 redaksjonelle ord. Rettet til 16 min
+i egen commit. Avviket eksisterte før utvidelsen; de ~200 nye ordene gjorde det bare større.
+
 ### 2026-08-22 — «Aldri på hund»-forbudet for pelsfjerner-hansken TRUKKET
 
 **Produktbeslutning fra Sondre.** Påstanden om at hansken ikke kan eller ikke skal brukes på hund
