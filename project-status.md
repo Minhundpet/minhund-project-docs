@@ -148,6 +148,13 @@ bunnen beholder H2-en og én setning med tekstlenke til pelsfjerneren som backup
 `docs/page-patterns.md` hvis inline vinner. Vinner inline, gjelder spørsmålet hele korpuset —
 57 guider har pelsfjerner-kortet i bunnen i dag.
 
+**IKKE slett temaet `ab-golden-preview` (#152895258702) før 11.09.2026.** Det er «før»-referansen
+mens testen løper — live er «etter». Et ubrukt unpublished tema ser ut som ryddeavfall, men er det
+ikke her. Slettes først når testen er avgjort.
+
+**Ingen GSC-reindeksering bedt om**, bevisst: ingen redaksjonelt innhold er endret, kun kommersiell
+plassering, og Indexing API-et gjør uansett ingenting for denne sidetypen (gotcha #31).
+
 **Ny gotcha #62 falt ut av STEG 19:** produktkort som ligger inne i en redaksjonell H2-seksjon
 skal aldri bruke overskrift-tag til produktnavnet. Kortets `<h3>` la «Pelsfjerner-hanske» inn i
 pelsstell-seksjonens overskriftsoutline som et syvende steg, ved siden av Børsting, Bading, Øyne,
