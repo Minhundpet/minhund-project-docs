@@ -2,7 +2,7 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-08-21 (sprint #76 Border Terrier lukket — raseguide #73; korpuset på 73 av 100. **Blindkontrollen kom tilbake ren, men er ikke etterprøvbar: den kanoniske URL-en serverte fortsatt førversjonen i 8 av 8 prober ved lukking.** Se BESLUTNINGER)
+> **Sist generert:** 2026-08-21 (sprint #76 Border Terrier lukket — raseguide #73; korpuset på 73 av 100. Blindkontroll 0 avvik, bekreftet 23.08 lest på den rettede versjonen. Se BESLUTNINGER)
 >
 > **Forrige generering:** 2026-08-21 (hundetips `hund-spiser-for-fort` OMBYGGET og lukket etter blindkontroll — korpusets andre ombygging; brekning/magedreining-klyngen fikk en eier)
 >
@@ -281,10 +281,13 @@ testbarhet, ikke test mot ikke-test som i #75.
    amstaff-intensjonen (~113 visninger/90 dager). En egen side ville vært
    selvkannibalisering.
 
-2. **Blindkontroll-rutinen har et hull.** Kontrollen for #76 kom tilbake ren, men den
-   kanoniske URL-en serverte fortsatt førversjonen — med en faktafeil STEG 19 hadde rettet.
-   Vi vet ikke hvilken versjon kontrolløren leste. **Nytt krav: mål at URL-en serverer riktig
-   versjon før pakken sendes, og noter målingen sammen med resultatet.**
+2. **Blindkontroll-rutinen har et hull — nytt fast krav.** Kontrollen for #76 kom tilbake
+   ren, og det er **bekreftet 23.08 at kontrolløren leste den rettede versjonen** (renderen
+   viste «Elleve andre terrierraser», «fôrbytte» og *irish soft coated wheaten terrier*).
+   Men vi kunne ikke avgjøre det selv ved lukking: den kanoniske URL-en serverte fortsatt
+   førversjonen i 8 av 8 prober. **Nytt krav uansett utfall: mål at URL-en serverer riktig
+   versjon før pakken sendes, og noter målingen sammen med resultatet.** Et falskt «0 avvik»
+   er verre enn ingen kontroll, fordi det ser ut som verifikasjon.
 
 3. **`Article.about`, `citation` og `hero_image` er fortsatt ikke satt** på noen raseguide.
    Femte sprint på rad der det vurderes og droppes av samme grunn: det er en jobb i den
