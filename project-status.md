@@ -2,7 +2,9 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-08-25 (**sprint #77 Nova Scotia Duck Tolling Retriever lukket etter blindkontroll — raseguide #74; korpuset på 74 av 100.** Blindkontroll 0 avvik, målt mot en URL som serverte rettet versjon i 6 av 6 prober. Første guide bygget på en populasjonsbasert forsikringskohort, og første med relativ-mot-absolutt-inversjon. Se BESLUTNINGER)
+> **Sist generert:** 2026-08-26 (**hundetips `halsband-eller-sele-til-hund` publisert og lukket etter blindkontroll — artikkel #69; korpuset på 69 hundetips + 74 raseguider.** Korpusets første rene utstyrsartikkel og den første med null produktkort av kommersielle, ikke YMYL-baserte grunner — vi selger ikke sele eller halsbånd ennå, og produktkortet står som en kommentert slot til lansering om ca. 6 mnd. Moat: forskningen måler fire ulike ting som peker fire veier, og trekkraften avgjøres av festepunktet — ryggfeste ga MER drag enn halsbånd, brystfeste ga MINDRE. Juridisk: ID-merking er ikke lovpålagt i Norge, og Stortinget stemte ned forslaget 10.04.2025. Blindkontroll bestått uten faktafeil eller kildefeil. Se BESLUTNINGER)
+>
+> **Forrige generering:** 2026-08-25 (**sprint #77 Nova Scotia Duck Tolling Retriever lukket etter blindkontroll — raseguide #74; korpuset på 74 av 100.** Blindkontroll 0 avvik, målt mot en URL som serverte rettet versjon i 6 av 6 prober. Første guide bygget på en populasjonsbasert forsikringskohort, og første med relativ-mot-absolutt-inversjon. Se BESLUTNINGER)
 >
 > **Forrige generering:** 2026-08-25 (genpool-korreksjon på `golden-retriever` og `labrador-retriever` etter to brukerkommentarer 21.08 — ny feilklasse: amerikansk vs europeisk kildepopulasjon. Godkjent av Sondre og pushet live samme dag)
 >
