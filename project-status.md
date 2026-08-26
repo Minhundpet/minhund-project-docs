@@ -2,7 +2,9 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-08-26 (**hundetips `halsband-eller-sele-til-hund` publisert og lukket etter blindkontroll — artikkel #69; korpuset på 69 hundetips + 74 raseguider.** Korpusets første rene utstyrsartikkel og den første med null produktkort av kommersielle, ikke YMYL-baserte grunner — vi selger ikke sele eller halsbånd ennå, og produktkortet står som en kommentert slot til lansering om ca. 6 mnd. Moat: forskningen måler fire ulike ting som peker fire veier, og trekkraften avgjøres av festepunktet — ryggfeste ga MER drag enn halsbånd, brystfeste ga MINDRE. Juridisk: ID-merking er ikke lovpålagt i Norge, og Stortinget stemte ned forslaget 10.04.2025. Blindkontroll bestått uten faktafeil eller kildefeil. Se BESLUTNINGER)
+> **Sist generert:** 2026-08-26 kveld (**Hundedagen-kampanje live — butikkens foerste tidsbegrensede kampanje.** 20 % paa pelsfjerner-hansken i 24 t (1 stk 179 -> 143, 2 stk 269 -> 215, compare-at satt) + klebrig nedtellingsbanner paa alle sider. **Prisrevert i kveld er obligatorisk, ikke valgfritt** — se BESLUTNINGER)
+>
+> **Forrige generering:** 2026-08-26 (**hundetips `halsband-eller-sele-til-hund` publisert og lukket etter blindkontroll — artikkel #69; korpuset på 69 hundetips + 74 raseguider.** Korpusets første rene utstyrsartikkel og den første med null produktkort av kommersielle, ikke YMYL-baserte grunner — vi selger ikke sele eller halsbånd ennå, og produktkortet står som en kommentert slot til lansering om ca. 6 mnd. Moat: forskningen måler fire ulike ting som peker fire veier, og trekkraften avgjøres av festepunktet — ryggfeste ga MER drag enn halsbånd, brystfeste ga MINDRE. Juridisk: ID-merking er ikke lovpålagt i Norge, og Stortinget stemte ned forslaget 10.04.2025. Blindkontroll bestått uten faktafeil eller kildefeil. Se BESLUTNINGER)
 >
 > **Forrige generering:** 2026-08-25 (**sprint #77 Nova Scotia Duck Tolling Retriever lukket etter blindkontroll — raseguide #74; korpuset på 74 av 100.** Blindkontroll 0 avvik, målt mot en URL som serverte rettet versjon i 6 av 6 prober. Første guide bygget på en populasjonsbasert forsikringskohort, og første med relativ-mot-absolutt-inversjon. Se BESLUTNINGER)
 >
@@ -144,6 +146,49 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-08-26 — Hundedagen: 24-timers kampanje på pelsfjerner-hansken
+
+**Butikkens første tidsbegrensede kampanje.** 20 % på de to hovedvariantene i 24 timer,
+med klebrig nedtellingsbanner på alle sider. Live 26.08 ca. 18:15, utløper 23:59:59.
+
+**Priser satt:** 1 stk 179 → **143** (compare-at 179), 2 stk 269 → **215** (compare-at 269).
+Pakkevarianten «1 stk + sjampobørste» står urørt på 349. Førprisene 179/269 er de faktisk
+brukte prisene fram til i dag, jf. prisopplysningsforskriften §§ 9-10.
+
+**⚠ Prisrevert samme kveld er et krav, ikke en opprydding.** Blir 143/215 stående, blir
+179/269 en «førpris» som ikke har vært reell salgspris de siste 30 dagene — det er ulovlig.
+Samme regel som allerede gjelder hundesengen og CalmBall. Skript:
+`hundedagen-revert.sh` + `hundedagen-bundle-anker.sh 428`.
+
+**Tre funn som ikke var på radaren, alle dokumentert som gotchas:**
+
+1. **Rabatten skjøv 2-pakken under fri-frakt-terskelen** (gotcha #73). 269 lå 19 kr over
+   250-kr-grensen; 215 er under. PDP-kortet byttet stille fra «Inkl. gratis frakt — kun 11 kr
+   mer enn én» til «+ 79 kr frakt». Logikken er riktig, men pakketilbudets sterkeste argument
+   forsvant samtidig som prisen ble satt ned. Sondre godkjente avveiningen bevisst.
+2. **Pakkens «Spar»-pille regnes mot et variantmetafelt som ikke følger prisendringer**
+   (gotcha #74). `custom.referansepris` sto på 428 (179 + 249) og ville vist «Spar 79 kr» der
+   det reelle var 43. Satt til 392 for kampanjedøgnet. Kodekommentaren i
+   `product-pelsfjerner.liquid` oppgir feil tall («478 … 179 + 299») — les metafeltet.
+3. **Enhver bar over headeren dreper Horizons `data-sticky-state`** (gotcha #72). Headerens
+   klebretilstand spores av én IntersectionObserver på `threshold: 1`, og det er derfor den
+   klebrer på `top: -1px`. Flyttes klebrepunktet ned, er headeren alltid helt synlig,
+   observeren flipper aldri, og forsidens transparente header blir aldri ugjennomsiktig ved
+   scroll. Baren ligger derfor *under* headeren, og
+   `enable_transparent_header_home` ble slått av for kampanjedøgnet.
+
+**Banneret kan ikke lekke til i morgen.** Tre server-side bremser (editor-bryter,
+`campaign_date`-match, frist) pluss JS som fjerner det fra DOM ved null. Nedtellingen er
+ankret i servertid — baren sender butikkens epoke, klienten måler sitt eget avvik og
+korrigerer, så feil klientklokke eller annen tidssone gir likevel riktig gjenstående tid.
+
+**Sidegevinst:** `snippets/llms-products-data.liquid` sa fortsatt «ikke for bruk på hund» —
+forbudet som ble trukket 22.08 som faktisk feil. Rettet til «laget for tekstiler» og pushet
+separat; verifisert på alle tre llms-URL-ene. **Samme formulering står fortsatt i fire
+raseguider** (beagle, weimaraner, samojedhund, norsk-buhund) — egen opprydding, ikke gjort.
+
+Commit `8135bae`.
 
 ### 2026-08-22 — Kreftavsnittet på golden-retriever rettet: amerikansk tall byttet mot europeisk
 
