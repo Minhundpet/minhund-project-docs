@@ -46,7 +46,7 @@
 
 **`marketingAllowed`-feilen er ikke vår kode.** «Cannot read properties of undefined (reading 'marketingAllowed')» i 2 av 8 Clarity-sesjoner (25 %) kommer fra Microsoft Clarity-app-embedden (`shopify://apps/microsoft-clarity/blocks/clarity_js/…`), som kaller `Shopify.customerPrivacy.marketingAllowed()` uten å null-sjekke API-et. Grep i temaet gir null treff. Anbefaling levert; ingen endring gjort ennå.
 
-**Åpent inn i neste økt:** (a) **55 lenker til det utsolgte produktet står igjen** — 21 `recommend-2`, 8 `recommend-3`, 2 inline, 24 rene tekstlenker, pluss `mh_king_handles` i `collection-catalog.liquid`. Bevisst ikke rørt; krever beslutning om lager eller utfasing. (b) **SnackSpins `templateSuffix` er fortsatt ikke satt** — PDP-en 41 hero-CTA-er nå peker til rendrer standardmalen, ikke `product.snackspin.json` med FAQ og Product-schema. Ett klikk i Admin. (c) CTA-plassering i de 52 bunn-tunge guidene er kartlagt, men ikke besluttet.
+**Åpent inn i neste økt:** (a) **55 lenker til det utsolgte produktet står igjen** — 21 `recommend-2`, 8 `recommend-3`, 2 inline, 24 rene tekstlenker, pluss `mh_king_handles` i `collection-catalog.liquid`. Bevisst ikke rørt; krever beslutning om lager eller utfasing. (b) ~~SnackSpins `templateSuffix` er ikke satt~~ — **feil, trukket 27.08.2026.** Suffikset ble satt 24.08 og malen har rendret hele tiden; `docs/product-templates.md` sa det allerede. Påstanden bygde på wrapper-id-en `…__main`, som er identisk for standardmal og egendefinert mal, og på en grep etter `mh-pf__` — et klasseprefiks lånt fra pelsfjerner-malen, mens SnackSpin bruker `ss-`. Se gotcha #77 for riktig verifiseringsmetode. (c) CTA-plassering i de 52 bunn-tunge guidene er kartlagt, men ikke besluttet.
 
 ---
 
