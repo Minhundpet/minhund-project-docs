@@ -4,7 +4,7 @@
 >
 > **Sist generert:** 2026-08-26 kveld (**hundetips `arvelige-sykdommer-hund` publisert og lukket etter blindkontroll — artikkel #70; korpuset paa 70 hundetips + 74 raseguider.** Korpusets foerste KRYSSREFERANSE-artikkel: den gaar ikke dypt i en rase, men bruker de 74 raseguidene som datagrunnlag og svarer paa hvilke raser som deler samme sykdom eller gen — og hvorfor utfallet er forskjellig. Moat: tre moenstre staar mot hverandre, alle primaerverifiserte. prcd er EN mutasjon i 18 raser og rasevarianter (Zangerl 2006); POMC-delesjonen ble bare funnet hos to naert beslektede raser (Raffan 2016); «PRA» hos golden og gordon er TRE gener under ETT navn (Downs 2011/2013/2014). Regelen er verken «alltid rasespesifikk» eller «alltid felles» — sykdomsnavnet forteller deg ikke hvilken av delene det er. Det krever 74 raseguider aa skrive, og ingen norsk forbrukerside har det. **GSC kunne ikke forsvare temaet og det ble sagt eksplisitt ved Phase 1-gaten** — hele arv/helse-klyngen er 419 visninger og 1 klikk over 90 dager, og etterspoerselen er konsekvent rasespesifikk. Sondre valgte den brede vinkelen med AI-sitering og intern lenking som begrunnelse, ikke soekevolum. 0 produktkort (YMYL). Dobbeltsjekk-pass 39 funn / 26 kritiske; STEG 19 5 avvik; blindkontroll 0 avvik. Sidegevinst: rettet et gloss i `australian-shepherd` som WSU aldri har sagt — se BESLUTNINGER. **Foran dette i samme oekt:** GSC-analyse av alle 74 raseguider, delt rasedata-arkitektur (`snippets/mh-rasedata.liquid`) og kombinert faktastripe + answer-blokk-retrofit paa topp 20 raseguider — 214 answer-blokker, ordendring 0 paa alle 20.)
 >
-> **Forrige generering:** 2026-08-26 kveld (**Hundedagen-kampanje live — butikkens foerste tidsbegrensede kampanje.** 20 % paa pelsfjerner-hansken i 24 t (1 stk 179 -> 143, 2 stk 269 -> 215, compare-at satt) + klebrig nedtellingsbanner paa alle sider. **Prisrevert i kveld er obligatorisk, ikke valgfritt** — se BESLUTNINGER)
+> **Forrige generering:** 2026-08-26 kveld (**Hundedagen-kampanje live — butikkens foerste tidsbegrensede kampanje.** 20 % paa pelsfjerner-hansken i 24 t (1 stk 179 -> 143, 2 stk 269 -> 215, compare-at satt) + klebrig nedtellingsbanner paa alle sider. **REVERTERT 27.08 ca. 05:00 — priser tilbake paa 179/269, compare-at fjernet, referansepris 428, banner ute av temaet.** Reverten kom ~5 t for sent fordi skriptene loggen navnga aldri fantes; se BESLUTNINGER 27.08 og gotcha #77)
 >
 > **Forrige generering:** 2026-08-26 (**hundetips `halsband-eller-sele-til-hund` publisert og lukket etter blindkontroll — artikkel #69; korpuset på 69 hundetips + 74 raseguider.** Korpusets første rene utstyrsartikkel og den første med null produktkort av kommersielle, ikke YMYL-baserte grunner — vi selger ikke sele eller halsbånd ennå, og produktkortet står som en kommentert slot til lansering om ca. 6 mnd. Moat: forskningen måler fire ulike ting som peker fire veier, og trekkraften avgjøres av festepunktet — ryggfeste ga MER drag enn halsbånd, brystfeste ga MINDRE. Juridisk: ID-merking er ikke lovpålagt i Norge, og Stortinget stemte ned forslaget 10.04.2025. Blindkontroll bestått uten faktafeil eller kildefeil. Se BESLUTNINGER)
 >
@@ -169,6 +169,42 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-08-27 — Hundedagen revertert; kampanjen lukket, og revert-skriptene fantes aldri
+
+**Butikkens første tidsbegrensede kampanje er avsluttet og prisene er tilbake i ordinær
+stand.** 1 stk 143 → **179**, 2 stk 215 → **269**, compare-at fjernet på begge. Pakken sto
+urørt på 349. `custom.referansepris` 392 → **428**.
+
+**Det som gikk galt: skriptene beslutningsloggen navnga 26.08 hadde aldri blitt skrevet.**
+Verken `hundedagen-revert.sh` eller `hundedagen-bundle-anker.sh` fantes — ikke i repoet, ikke
+i git-historikken, ikke på maskinen. Reverten var planlagt rundt to filnavn i stedet for rundt
+selve operasjonen, og ble derfor ikke kjørt før neste morgen. **Prisene sto ~5 timer forbi
+kampanjevinduet** (utløp 23:59:59), altså i et vindu der 179/269 ikke var reell salgspris —
+nøyaktig den ulovligheten 26.08-entryen advarte mot. Ingen teknisk feil utløste det.
+
+**Ny regel (gotcha #77): en tidsbegrenset kampanje skal ha reverten bygget FØR den settes
+live.** Reverten er den juridisk bindende halvdelen. Navngir en beslutning et skript, skrives
+skriptet i samme commit — eller den faktiske mutasjonen skrives ut i loggen. Gotcha #77 bærer
+nå begge GraphQL-mutasjonene ordrett, så neste kampanjerevert er en kopier-lim-operasjon.
+
+**Verifisert live etter revert:** `"compare_at_price":null` på alle tre varianter, ingen
+overstreket pris i markup (kun CSS-regler matcher `line-through`). «Spar 89 kr» på 2 stk og
+«Spar 79 kr» på pakken — begge tilbake på riktig ordinæranker. Fraktlinja på 2 stk gikk
+tilbake fra «+ 79 kr frakt» til «Inkl. gratis frakt — kun 11 kr mer enn én», som lukker
+gotcha #73 for denne kampanjen. Ingen «143»/«215»/«Hundedagen» igjen på forside, PDP eller
+`/llms.txt`.
+
+**Banneret lekket ikke.** De tre server-side bremsene virket: `today == campaign_date` sluttet
+å matche ved midnatt, så baren var borte fra live før noen rakk å se den på feil dag.
+Opprydningen var derfor ren temakode — `{% section 'mh-hundedagen' %}` + kommentarblokka
+fjernet fra `layout/theme.liquid` (8 linjer), pushet med `--only` og pull-verifisert mot live
+(gotcha #76). **`sections/mh-hundedagen.liquid` er bevisst BEHOLDT** — sletting av seksjonsfiler
+går under `.claude/rules/template-deletion.md`, og filen koster ingenting stående. Neste
+Hundedagen er da en én-linjes gjeninnsetting.
+
+**Utestående:** `enable_transparent_header_home` slås på igjen manuelt av Sondre i
+temaeditoren (gotcha #72) — ikke gjort herfra.
+
 ### 2026-08-26 — Hundedagen: 24-timers kampanje på pelsfjerner-hansken
 
 **Butikkens første tidsbegrensede kampanje.** 20 % på de to hovedvariantene i 24 timer,
@@ -182,6 +218,10 @@ brukte prisene fram til i dag, jf. prisopplysningsforskriften §§ 9-10.
 179/269 en «førpris» som ikke har vært reell salgspris de siste 30 dagene — det er ulovlig.
 Samme regel som allerede gjelder hundesengen og CalmBall. Skript:
 `hundedagen-revert.sh` + `hundedagen-bundle-anker.sh 428`.
+
+> **RETTELSE 27.08.2026 — de to skriptene over har aldri eksistert.** Denne linja beskrev en
+> plan i imperativ form og ble senere lest som om verktøyet lå klart. Det gjorde det ikke, og
+> reverten ble ~5 timer forsinket. Faktiske kommandoer: se `docs/gotchas.md` gotcha #77.
 
 **Tre funn som ikke var på radaren, alle dokumentert som gotchas:**
 
