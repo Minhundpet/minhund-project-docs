@@ -2,9 +2,9 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-09-04 (**Produktkort pulje 5 live på 9 raseguider (10 700 visninger/90 d) — 43 av 74 har nå kort. Greyhound = ingen fit. Første sporede inline-tekstlenke (dachshund 20 %). Åpent: gjelder adjacency-kriteriet tekstlenker?** Se STATUS.)
+> **Sist generert:** 2026-09-04 (**Produktkort pulje 6: 6 live, 3 holdt tilbake — 49 av 74 har nå kort. Schäferhund, ridgeback og husky venter på Sondre: helsetekst i samme blokk som kortet uten overskrift. Bulldog = ingen fit.** Se STATUS.)
 >
-> **Forrige generering:** 2026-09-04 (**Produktkort pulje 4 live på 8 raseguider (15 900 visninger/90 d) — 34 av 74 har nå kort. Mops holdt tilbake: kortet ville stått inntil hudfold-teksten uten overskrift imellom; adjacency-kriteriet festet i page-patterns. Coton = ingen fit.** Se STATUS.)
+> **Forrige generering:** 2026-09-04 (**Produktkort pulje 5 live på 9 raseguider (10 700 visninger/90 d) — 43 av 74 har nå kort. Greyhound = ingen fit. Første sporede inline-tekstlenke (dachshund 20 %). Åpent: gjelder adjacency-kriteriet tekstlenker?** Se STATUS.)
 >
 > **Forrige generering:** 2026-09-04 natt (**Produktkort pulje 1 live på 7 raseguider (alle pelsfjerner, 30 886 visninger/90 d) etter uavhengig kontrollpass — 3 avvik rettet før push. Malen `mh-product-callout` godkjent og låst samme natt.** Se STATUS.)
 >
@@ -41,6 +41,8 @@
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
+
+## STATUS — 2026-09-04 (**Produktkort pulje 6 — 6 live, 3 holdt tilbake.** Live: springer 33,3 %, lagotto 38,1 %, yorkshire 37,7 % (SnackSpin); grønlandshund 45,1 %, leonberger 33,8 %, malamute 35,3 % (pelsfjerner). Engelsk bulldog = ingen fit (hudfolds-dermatitt navngitt i samme blokk; §Aktivitet er BOAS-advarsler). **Holdt tilbake:** schäferhund («våteksem» i samme blokk uten overskrift), ridgeback («hudirritasjon» og «tannproblemer … seniorlidelser» rett etter kortet), husky («varmestress» to avsnitt etter) — kontrolløren foreslo H3 foran helseteksten, det er Sondres avgjørelse. Ny feilklasse fanget av kontrollpasset: fjern lenken, ikke setningen — tre kort mistet brødtekst-ankeret sitt og er rettet. **49 av 74 har kort; 20 gjenstår + westie/golden + de tre holdte.**)
 
 ## STATUS — 2026-09-04 (**Produktkort pulje 5 live — 9 raseguider, 10 700 visninger/90 d.** dachshund 40,9 % (+ tekstlenke 20 %), sheltie 40,7 %, pudel 35,0 %, cocker 27,7 %, malinois 37,8 % (SnackSpin); elghund sort 46,8 %, lundehund 38,3 %, jämthund 32,1 %, buhund 50,2 % (pelsfjerner). Greyhound = ingen fit (whippet-mønsteret), men børsteredskap-formuleringen rettet. Nytt prinsipp fra Sondre (cocker): en krok på 88 % er ikke en krok — produktet velges fra brødteksten i første halvdel; festet i `docs/page-patterns.md`. Dachshund bygget med ekstra forsiktighet: kortet etter «Rasen blomstrer»-avsnittet, ikke inntil «forsiktig med»-lista; kontrollpasset bekreftet at ingen setning i blokken navngir sykdom. Forbudsformuleringer fjernet i jämthund og buhund. Kontrollpass med fersk kontekst: ett avvik (sheltie-King) rettet før live. **43 av 74 har kort; 29 gjenstår + westie/golden som egne saker; greyhound/mops/malteser/whippet/coton = ingen fit.**)
 
