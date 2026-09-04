@@ -2,9 +2,9 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-09-04 natt (**Produktkort pulje 3 live på 8 raseguider — 26 av 74 har nå kort. Westie og malteser holdt tilbake fordi produktflaten støter mot helseinnhold i guiden; avgjøres av Sondre.** Se STATUS.)
+> **Sist generert:** 2026-09-04 (**Produktkort pulje 4 live på 8 raseguider (15 900 visninger/90 d) — 34 av 74 har nå kort. Mops holdt tilbake: kortet ville stått inntil hudfold-teksten uten overskrift imellom; adjacency-kriteriet festet i page-patterns. Coton = ingen fit.** Se STATUS.)
 >
-> **Forrige generering:** 2026-09-04 natt (**Produktkort pulje 2 live på 10 raseguider (60 700 visninger/90 d) — 18 av 74 guider har nå brødtekst-kort. Første SnackSpin- og ullgenser-kort. Kontrollpass 0 reelle avvik.** Se STATUS.)
+> **Forrige generering:** 2026-09-04 natt (**Produktkort pulje 3 live på 8 raseguider — 26 av 74 har nå kort. Westie og malteser holdt tilbake fordi produktflaten støter mot helseinnhold i guiden; avgjøres av Sondre.** Se STATUS.)
 >
 > **Forrige generering:** 2026-09-04 natt (**Produktkort pulje 1 live på 7 raseguider (alle pelsfjerner, 30 886 visninger/90 d) etter uavhengig kontrollpass — 3 avvik rettet før push. Malen `mh-product-callout` godkjent og låst samme natt.** Se STATUS.)
 >
@@ -41,6 +41,8 @@
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
+
+## STATUS — 2026-09-04 (**Produktkort pulje 4 live — 8 raseguider, 15 900 visninger/90 d.** korthåret vorsteh 41,9 %, boxer 45,0 %, finsk lapphund 44,0 %, pointer 37,9 %, cane corso 41,4 %, rottweiler 46,1 % (pelsfjerner); dvergpinscher 33,9 % (ullgenser); jack russell 36,4 % (SnackSpin). Konkurransetilfeller: rottweiler og boxer (SnackSpin-krok inntil varme-avsnitt → pelsfjerner), lapphund (aktiviseringsleker-krok, men røyting er hovedproblemet → pelsfjerner). Coton de Tuléar = ingen fit. **Mops holdt tilbake ved bygging:** godkjent på premisset at H3 «Hudfolder — daglig stell» lå mellom kortet og hudfold-teksten; det er et fetet avsnitt i samme blokk → inntil. Adjacency-kriteriet (H2/H3 imellom = ikke inntil) festet i `docs/page-patterns.md`. Kontrollpass med fersk kontekst: tre avvik rettet før live. Pelsfjerner-som-børsteredskap rettet i boxer og pointer; boxers trukne forbudsformulering fjernet. GSC-baseline i `docs/produktkort-utrulling.md`. **34 av 74 har kort; 38 gjenstår + mops/westie/malteser/whippet/golden/coton som egne saker.**)
 
 ## STATUS — 2026-09-04 natt (**Produktkort pulje 3 live — 8 raseguider, 29 000 visninger/90 d.** norsk-elghund-gra 44,2 %, tibetansk-spaniel 39,5 %, engelsk-setter 46,7 %, welsh-corgi 42,9 %, sankt-bernhard 40,9 % (pelsfjerner); strihåret vorsteh 43,5 %, weimaraner 28,1 %, vizsla 40,0 % (SnackSpin). Konkurransetilfeller: tibetansk (aktivisering vs røyting → pelsfjerner), vizsla (ullgenser er behovet, 20–30 kg passer ikke XS–M → SnackSpin, whippet-mønsteret), malteser (jakke vs SnackSpin → SnackSpin). **To tatt ut og lagt til Sondre:** west-highland-white-terrier — bunn-hero hundeseng er helsebegrunnet («CAD-rase med kronisk kløe — komfortabelt liggested er ikke valgfritt») og skal ikke byttes ut uten egen avgjørelse; malteser — kontrollpasset fant at eneste SnackSpin-krok står rett foran «Sele, ikke halsbånd» med luftrørskollaps, som navngir en sykdom og dermed ligger nærmere newfoundland-regelen enn griffon-presedensen; fila tilbakestilt. Kontrollpass ellers: engelsk setters bunn-kort omskrevet (samme vinkel som kortet, begge forankret), tre småretting (vorsteh-grammatikk, elghund «én til to ganger», «våt» ut av tørrbruks-setningen). Live verifisert 8/8. GSC-baseline lagret. 26 av 74 har kort; 46 gjenstår pluss fire egne saker (westie, malteser, whippet, golden).)
 
