@@ -2,9 +2,9 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-09-04 (**Produktkort pulje 6: 7 live — 50 av 74 har nå kort. Schäferhund, ridgeback og bulldog = ingen fit; husky bygget (helsekonsekvens av eierens handling ≠ helseadvarsel, ny presedens). H3-innsetting for å omgå adjacency-kriteriet eksplisitt forbudt.** Se STATUS.)
+> **Sist generert:** 2026-09-04 (**Produktkort pulje 7: 9 live — 59 av 74 har nå kort, utrullingen er gjennom korpuset. 10 = ingen fit. Border collie, dalmatiner og bullterrier venter på Sondre (navngitt tilstand i samme blokk som kroken).** Se STATUS.)
 >
-> **Forrige generering:** 2026-09-04 (**Produktkort pulje 5 live på 9 raseguider (10 700 visninger/90 d) — 43 av 74 har nå kort. Greyhound = ingen fit. Første sporede inline-tekstlenke (dachshund 20 %). Åpent: gjelder adjacency-kriteriet tekstlenker?** Se STATUS.)
+> **Forrige generering:** 2026-09-04 (**Produktkort pulje 6: 7 live — 50 av 74 har nå kort. Schäferhund, ridgeback og bulldog = ingen fit; husky bygget (helsekonsekvens av eierens handling ≠ helseadvarsel, ny presedens). H3-innsetting for å omgå adjacency-kriteriet eksplisitt forbudt.** Se STATUS.)
 >
 > **Forrige generering:** 2026-09-04 natt (**Produktkort pulje 1 live på 7 raseguider (alle pelsfjerner, 30 886 visninger/90 d) etter uavhengig kontrollpass — 3 avvik rettet før push. Malen `mh-product-callout` godkjent og låst samme natt.** Se STATUS.)
 >
@@ -41,6 +41,8 @@
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
+
+## STATUS — 2026-09-04 (**Produktkort pulje 7 — de siste 14; 9 live, 3 000 visninger/90 d.** riesenschnauzer 36,6 %, skotsk terrier 35,1 %, boston 26,3 %, dvergschnauzer 38,1 %, cairn 31,1 %, toller 25,1 %, border terrier 23,0 % (SnackSpin); berner 50,1 %, dobermann 29,7 % (pelsfjerner). Ingen fit: fransk bulldog, basset (Sondre: navngitt tilstand teller også som lenketekst/stellrutine — ny regel). **Til Sondre:** border collie (kontrollpass: «kan gi hudirritasjon» i samme avsnitt — ridgeback- vs husky-presedens), dalmatiner («allergi og atopi» rett etter kroken), bullterrier («hjertesykdom» i aktivitetsblokken). Alle bygget/vurdert, ikke pushet. **Utrullingen er gjennom hele korpuset: 59 av 74 med kort, 10 ingen fit, 3 til avgjørelse, westie/golden egne saker.** Effektmåling i GA4 (`product_callout_click` per `placement_type`) tidligst etter 28 dager mot baselinene i `docs/produktkort-utrulling.md`.)
 
 ## STATUS — 2026-09-04 (**Produktkort pulje 6 — 7 live; schäferhund og ridgeback = ingen fit, husky bygget.** Live: springer 33,3 %, lagotto 38,1 %, yorkshire 37,7 % (SnackSpin); grønlandshund 45,1 %, leonberger 33,8 %, malamute 35,3 % (pelsfjerner). Engelsk bulldog = ingen fit (hudfolds-dermatitt navngitt i samme blokk; §Aktivitet er BOAS-advarsler). **Avgjort av Sondre:** schäferhund («våteksem» i samme blokk uten overskrift) og ridgeback («hudirritasjon», «tannproblemer … seniorlidelser» rett etter kortet) = ingen fit; husky bygget («klipping kan gi varmestress» er stellveiledning om eierens handling, ikke advarsel om hundens tilstand — presedens). Kontrollørens forslag om H3 foran helseteksten avvist og forbudt i page-patterns: strukturendring for å gjøre plass til et kort er det «kortet tilpasser seg guiden» forbyr. Ny feilklasse fanget av kontrollpasset: fjern lenken, ikke setningen — tre kort mistet brødtekst-ankeret sitt og er rettet. **50 av 74 har kort; 14 gjenstår (pulje 7) + westie/golden; 8 = ingen fit.**)
 
