@@ -2,7 +2,9 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-09-04 (**Produktkort-utrullingen ferdig: 60 av 74 raseguider har kort (pelsfjerner 37, SnackSpin 21, ullgenser 2), snitt-posisjon 38,6 %, 81,9 % av visningene dekket. 12 = ingen fit, westie/golden egne saker. Border collie bygget, dalmatiner/bullterrier ingen fit (Sondre).** Se STATUS og sluttrapport i docs/produktkort-utrulling.md.)
+> **Sist generert:** 2026-09-04 kveld (**Ett produkt i bunn gjelder alle 74 raseguider — de 12 «ingen fit»-guidene trimmet: 10 live med ett bunn-kort (pelsfjerner 7, SnackSpin 2, TurPakken 1); whippet og greyhound har ingen forankret produkt og går til Sondre (fjerne bunn-seksjonen?). Neste: westie, så golden.** Se STATUS og `docs/produktkort-utrulling.md`.)
+>
+> **Forrige generering:** 2026-09-04 (**Produktkort-utrullingen ferdig: 60 av 74 raseguider har kort (pelsfjerner 37, SnackSpin 21, ullgenser 2), snitt-posisjon 38,6 %, 81,9 % av visningene dekket. 12 = ingen fit, westie/golden egne saker. Border collie bygget, dalmatiner/bullterrier ingen fit (Sondre).** Se STATUS og sluttrapport i docs/produktkort-utrulling.md.)
 >
 > **Forrige generering:** 2026-09-04 (**Produktkort pulje 6: 7 live — 50 av 74 har nå kort. Schäferhund, ridgeback og bulldog = ingen fit; husky bygget (helsekonsekvens av eierens handling ≠ helseadvarsel, ny presedens). H3-innsetting for å omgå adjacency-kriteriet eksplisitt forbudt.** Se STATUS.)
 >
@@ -41,6 +43,8 @@
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
+
+## STATUS — 2026-09-04 kveld (**Ett produkt i bunn gjelder alle 74 — de 12 «ingen fit»-guidene trimmet fra tre kort til ett.** Sondres begrunnelse: «ingen fit» gjaldt brødtekst-kortet inntil helsetekst; bunn-seksjonen ligger etter FAQ, så adjacency gjelder ikke der, valgparalyse-argumentet gjelder like mye, og to standarder er verre enn én. Produkt valgt etter samme forankringsmetode: pelsfjerner der brødteksten navngir hansken eller alt bærer en tekstlenke (mops, engelsk bulldog, schäferhund, ridgeback, fransk bulldog, basset, dalmatiner), SnackSpin der guiden selv konkluderer med problemløsing (malteser, bullterrier), TurPakken for coton («utholdende på tur» — svakeste valg, flagget). **whippet og greyhound: ingen forankret produkt** (feller lite, for store for genseren, generisk/negativ aktiviseringskrok, senga Ø 50/60 cm passer ikke) — tre kort står til Sondre avgjør om bunn-seksjonen fjernes. Live-verifisert 10/10. Regel og tie-breaks festet i `docs/page-patterns.md`. **70 av 74 har ett bunn-kort.** Neste: westie (sak 2), deretter golden-migrering i egen økt med STOP-gates (sak 1).)
 
 ## STATUS — 2026-09-04 (**Produktkort pulje 7 — de siste 14; 10 live, 3 800 visninger/90 d. Utrullingen ferdig.** riesenschnauzer 36,6 %, skotsk terrier 35,1 %, boston 26,3 %, dvergschnauzer 38,1 %, cairn 31,1 %, toller 25,1 %, border terrier 23,0 % (SnackSpin); berner 50,1 %, dobermann 29,7 % (pelsfjerner). Ingen fit: fransk bulldog, basset (Sondre: navngitt tilstand teller også som lenketekst/stellrutine — ny regel). Sondre avgjorde: border collie bygget (pelsfjerner 51,8 % — hudirritasjon fra manglende børsting er husky-siden; skillet «kan gi X hvis du ikke gjør Y» = stell vs «rasen er utsatt for X» = helseadvarsel festet i page-patterns), dalmatiner og bullterrier = ingen fit. **Sluttstatus: 60 av 74 med kort (pelsfjerner 37 / SnackSpin 21 / ullgenser 2), snitt-posisjon 38,6 %, 155 945 av 190 463 raseguide-visninger (81,9 %) dekket, 12 ingen fit, westie/golden egne saker.** Effektmåling i GA4 (`product_callout_click` per `placement_type`) tidligst etter 28 dager mot baselinene i `docs/produktkort-utrulling.md`.)
 
