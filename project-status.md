@@ -2,7 +2,9 @@
 
 > **Bruk:** Web-Claude / ChatGPT / Perplexity henter denne ved chat-start for å ha fersk kontekst om hvor prosjektet er. For artikkel-research, hent `docs/research-brief.md` (separat kanal).
 >
-> **Sist generert:** 2026-09-04 natt (**Hundetips fase 2+3 pulje 3 live: tre kort migrert, seks flater fjernet — tre adjacency-stopp funnet i fila (hvor-mye-vann, hund-i-bil, eldre-hund). 27 av 45 behandlet.** Commit `7625f7a`.)
+> **Sist generert:** 2026-09-04 natt (**Hundetips fase 2+3 pulje 4 live: åtte kort migrert, hund-hopper = ingen fit (funnet av kontrollpasset). 36 av 45 behandlet — pulje 5 (9) gjenstår.** Commit `ccc73ea`.)
+>
+> **Forrige generering:** 2026-09-04 natt (**Hundetips fase 2+3 pulje 3 live: tre kort migrert, seks flater fjernet — tre adjacency-stopp funnet i fila (hvor-mye-vann, hund-i-bil, eldre-hund). 27 av 45 behandlet.** Commit `7625f7a`.)
 >
 > **Forrige generering:** 2026-09-04 natt (**Hundetips fase 2+3 pulje 2 + valp-biter live: ni kort migrert til `mh-product-callout`, valp-tisser-inne = ingen fit; 18 av 45 artikler migrert.** Commit `dace895`.)
 >
@@ -55,6 +57,8 @@
 > **Struktur:** STATUS (snapshot, byttes ut) → BESLUTNINGER (append-only, dato) → SPRINT-LOG (append-only, uke).
 
 ---
+
+## STATUS — 2026-09-04 natt (**Hundetips fase 2+3 pulje 4 live — 36 av 45 behandlet.** Bygget: bade-hund og hund-liker-ikke-bading (Sjampobørste), hund-drikker-ikke (TurPakken i triks 7), vaske-hundens-poter (Potevasker — settings-styrt kort, hero-CTA og settings-CTA ut, literal CTA), pelsskifte og fjerne-hundehaar (Pelsfjerner, mørk bakgrunn; assign-blokk for bunn-seksjonen beholdt), valpe-utstyr (Valpepakken), hold-hunden-din-aktiv (SnackSpin, 6 → 3 lenker, CTA fra kolleksjon til SnackSpin). **hund-hopper-pa-folk = ingen fit:** kontrollpasset fant «Aggresjon … intens angst ved gjest, hører hjemme hos atferdsveterinær» to avsnitt etter kortet i samme blokk — min lesing stoppet ved bullet-lista. Lærdom festet i utrullingsrapporten: les blokken til neste overskrift, ikke til innsettingspunktet. Pull-verifisert 9/9, live 9/9. **Gjenstår pulje 5 (9):** reise-til-utlandet (TurPakken → §Pakkeliste), hundehar-i-bilen (Pelsfjerner), ferie (Potevasker, kun migrering), vaske-hundeseng (Hundeseng → §Når sengen bør byttes), valpens-utvikling (Valpepakken, sidebar-kort ut), hund-lugger-i-band (ingen fit), hund-smell (Hundeseng), hund-og-barn (Akt.skål), hund-om-vinteren (Ullgenser, sidebar ut). Plan og produktvalg i `docs/produktkort-utrulling.md`; `beste-pelsfjerner-2026` (2 v1-kort, ikke på hubben) står utenfor de 45.)
 
 ## STATUS — 2026-09-04 natt (**Hundetips fase 2+3 pulje 3 live — 27 av 45 behandlet.** En oppsummering i en annen økt sa «pulje 1–3 ferdig»; pulje 3 fantes verken i repo, annen gren eller live, og ble bygget nå. Bygget: hund-slutte-bjeffe (SnackSpin i metode 5 — Andefanten var uforankret), hund-og-reise (TurPakken flyttet til §Bilreise/Pauser), separasjonsangst (Hundeseng flyttet til tiltak 4), hund-og-varmen (Akt.skål). Ingen fit (Sondre): tannhelse, aktivisere-hund-pa-tur. **Tre adjacency-stopp funnet i fila, ikke bygget:** hvor-mye-vann (blågrønnalger «dødelig», saltforgiftning i §Vann på tur; begge v1-kort ut, kalkulator-CTA står), hund-i-bil (dehydrering/kjøresyke i pakkelista; CTA TurPakken står), eldre-hund (kognitiv svikt/demens rundt skål-setningen; §Pelsstell har allergi/hormonsykdom/vet — CTA Pelsfjerner står; to forbudsrester rettet, inkl. «Pelsfjerneren skal aldri brukes på dyr» funnet av kontrollpasset). Kontrollpass PASS, pull-verifisert, live 9/9. **Neste:** pulje 4 (bade-hund, hund-drikker-ikke, vaske-hundens-poter, hund-hopper, pelsskifte, fjerne-hundehaar, valpe-utstyr, hund-liker-ikke-bading, hold-hunden-din-aktiv) og pulje 5.)
 
