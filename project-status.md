@@ -249,7 +249,7 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 - **REN AVLESING ~2026-08-14 → v2-korpus GO/NO-GO** — 28d-vindu **17.07–14.08 = 100 % post-retrofit** (isolerer v2-effekt fra baseline-dager). **Sammenlign mot DAGENS 28d-tall (avlesing 20.07), IKKE 90d-baselinen** — apples-to-apples 28d-vindu. **Beslutningskriterium for GO:** median-CTR-løft på tvers av pilotene med **maks 1–2 sider som faller**, ELLER **konsistent posisjonsløft utover organisk modning**. Hold ellers. **Bakgrunn:** første avlesing 20.07 ga **NO-GO** (se BESLUTNINGER 2026-07-20) — for tidlig + konfundert av bred impresjons-surge (1,5–5,7× på ALLE sider, inkl. ulikt-behandlet hund-i-bil = ikke v2-signal) + 28d-vindu var ~40 % pre-retrofit. August-vinduet har **9 piloter** å dømme på (6 batch #1 + 3 batch #2). Mega-sidene (`hund-kaster-opp`, `hvor-mye-mat`) + 60 raseguider forblir gated til GO.
 - **⏳ Checkout-locale default-flip (Admin UI, manuelt)** — nb er enabled+published via API (2026-07-21 kveld), men **en er fortsatt primær** → checkout rendrer engelsk til Sondre flipper default til Norsk (Bokmål) i Admin → Settings → Languages og deretter fjerner English. Rekkefølge kritisk (aldri disable en mens primær). Se BESLUTNINGER 2026-07-21 (kveld). API-gap: primær-flip går IKKE via Admin API.
 - **Meta titles** — **KORRIGERT 2026-08-10: det er IKKE kjørt noe korpusbredt CTR-sveip.** Formuleringen «ingen sweep gjort» sto uendret her mens 13 målrettede Admin-endringer var utført, og ble derfor lest som at ingenting var gjort. Faktisk utført: **4 raseguide-meta-rewrites** (Batch A, 22.07 — `australian-shepherd`, `newfoundland`, `italiensk-mynde`, `weimaraner`) + **9 v2-pilot title+meta** (02.–19.07 — `hva-kan-hund-spise`, `giftig-mat`, `hund-oeyne`, `hvor-mye-vann-hund`, `hund-spiser-gress`, `hund-sover-mye`, `valp-biter-pa-alt`, `bandtvang-norge`, `hund-slikker-ansikt`). **Avlesing 90d (12.05–09.08, 121 sider fra `article_map`): 11 av de 13 ligger fortsatt under korpussnitt-CTR (1,11 %).** Kun `hund-oeyne` (1,36 %) og `valp-biter-pa-alt` (1,34 %) er over. **Forbehold: 90d-vinduet er ikke rent post-sveip** (starter 12.05, blander inn pre-sveip-dager for alle 13) → **28d-vinduet ~12.08 er fortsatt hovedmålet**, jf. GSC page-2 round 2-tråden under. De 82 sidene under snittet (62 % av korpusets visninger, 52 av dem raseguider) er kandidatlisten for et reelt sveip. Se BESLUTNINGER 2026-08-10.
-- **⏳ Hundeseng-tilbudet: HARD FRIST 09.09.2026** — 639/799 med overstreket 799/999 ble satt 10.08.2026. Prisopplysningsforskriften § 9-10: overstreket førpris må være laveste faktisk brukte pris siste 30 dager. Når 639/799 har vært prisen i 30 dager, er 799/999 ikke lenger gyldig førpris → både strikethrough og «(–20 %)» i meta-beskrivelsen blir falsk tilbudspåstand. **Handling: enten en reell prisøkning tilbake til 799/999 før fristen, eller fjern `compare_at_price` på begge varianter (Medium 43401578446926, Large 43401578479694) og strip «Nå» + «(–20 %)» fra meta.** Sky-påminnelse satt: routine `trig_016qx7e1tqtgBaDCsxT8jNB7`, fyrer 05.09.2026 kl. 09:00 Oslo, se https://claude.ai/code/routines/trig_016qx7e1tqtgBaDCsxT8jNB7 — den har hverken repo- eller Admin-tilgang, så den rapporterer status og hva som må gjøres; selve endringen er manuell.
+- ~~**Hundeseng-tilbudet: HARD FRIST 09.09.2026**~~ — **LUKKET 08.09.2026, dagen før fristen.** `compare_at_price` fjernet på begge varianter, og «Nå» + «(–20 %)» strippet fra alle tre meta-taggene. Samme opprydding tok CalmBall, sjampobørste og vannflaske — se BESLUTNINGER 2026-09-08 (kveld). Sky-påminnelsen `trig_016qx7e1tqtgBaDCsxT8jNB7` kan slettes; den har ingen jobb igjen.
 - **⏳ Avpubliser `frontpage`-kolleksjonen (Admin UI, manuelt)** — «Home page»-kolleksjonen er tom (0 produkter), ikke referert av temaet, og noindex er bekreftet tilsiktet. Den ligger likevel i den auto-genererte sitemap.xml fordi den er publisert til Online Store. **Handling: Admin → Produkter → Samlinger → Home page → Salgskanaler → fjern Online Store.** Krever `write_publications`, som ikke er i `shopauth` — kan alternativt gis ved å utvide scope-settet og kjøre `shopauth` på nytt. Lav prioritet: noindex vinner uansett, oppføringen gir bare en «Ekskludert av noindex»-rad i dekningsrapporten. Se BESLUTNINGER 2026-08-11 kveld + gotcha #30.
 - **AggregateRating schema** — vurderes på produkt-PDPs, men avhenger av at vi har reelle reviews.
 - **Reviews-strategi** — hvordan vi samler inn ekte produktanmeldelser (Shopify Reviews app? E-post-flow post-purchase? Manuell innsamling?). Ingen valgt vei.
@@ -262,6 +262,70 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 ---
 
 ## BESLUTNINGER — append-only, nyeste først
+
+### 2026-09-08 (kveld) — Alle seks førpriser fjernet; butikken har ingen tilbudsvisning igjen
+
+**Beslutning (Sondre): ingen av de seks `compare_at_price` var kampanjer.** Det var gamle priser som
+ble stående etter permanente nedsettelser. Tre av fire produkter var utenfor eller på grensen av
+30-dagersvinduet i prisopplysningsforskriften § 9a. Alle seks er fjernet — **ingen pris er endret.**
+
+| Handle | Variant | Variant-ID | Pris (uendret) | compare_at før | etter |
+|---|---|---|---:|---:|---|
+| `beroligende-hundeseng` | Medium | 43401578446926 | 639 | 799 | null |
+| `beroligende-hundeseng` | Large | 43401578479694 | 799 | 999 | null |
+| `hundeslikkeleke` | Small | 43496870346830 | 199 | 249 | null |
+| `hundeslikkeleke` | Large | 43496870379598 | 299 | 399 | null |
+| `hundesjampoborste` | Default | 43440269131854 | 249 | 299 | null |
+| `vannflaske-hund-3-i-1` | Default | 43612614230094 | 249 | 299 | null |
+
+**Fra og med 08.09.2026 er 639 / 799 / 199 / 299 / 249 / 249 ordinærpris.** Skal noen av dem
+markedsføres som nedsatt igjen, er **tidligste lovlige kampanjestart 08.10.2026** — da har dagens
+pris vært laveste faktisk brukte pris i 30 dager, og er dermed gyldig førpris. Settes en `compare_at`
+før den datoen, er førprisen ulovlig uansett hvilket tall som står der.
+
+**Hvorfor det hastet.** Kartleggingen samme kveld (mot Admin-API, ordre og git — ikke mot lista vi
+fikk) viste at klokka allerede hadde gått ut for to av dem:
+
+- `hundesjampoborste`: 299 → 249 den **27.07.2026 kl. 17:35**, uttrykkelig ført som *ny permanent
+  ordinærpris*. Ordre #1090 (10.07) betalte 299, #1113 (24.08) betalte 249. Strekprisen hadde stått
+  **43 dager** etter at 299 sluttet å være en reell pris.
+- `vannflaske-hund-3-i-1`: 299 → 249 en gang mellom **13.07 og 12.08.2026** — datoen finnes ikke noe
+  sted. Minst 27 dager utenfor.
+- `beroligende-hundeseng`: satt 10.08, ville passert 30 dager **09.09** — fristen var i morgen.
+- `hundeslikkeleke`: satt 20.08, ville passert **19.09**. Tatt i samme sveip.
+
+Alle fire førprisene *hadde* vært reelle salgspriser da de ble satt. Feilen var ikke at tallene var
+oppdiktet, men at nedsettelsene aldri ble avsluttet.
+
+**Utført:**
+
+1. `productVariantsBulkUpdate` med `compareAtPrice: null`, fire kall, `price` ikke sendt.
+   `userErrors: []` på alle fire. Verifisert mot `/products.json`: 0 varianter i hele katalogen har
+   `compare_at_price` satt, og alle seks prisene er uendret.
+2. Hundesengens SEO-beskrivelse: «… antisklibunn. **Nå fra 639 kr (–20 %).** Sendt fra Norge.» →
+   «… antisklibunn. **Fra 639 kr.** Sendt fra Norge.» Live i `description`, `og:description` og
+   `twitter:description` (alle tre drives av `page_description`).
+3. `snippets/llms-products-data.liquid`: sjampobørste og vannflaske 299 → **249 kr**. Begge hadde
+   stått feil siden 12.05.2026 — llms.txt oppga førprisen som gjeldende pris til AI-crawlerne.
+   Trigger C kjørt og verifisert 08.09.2026: **249 kr på alle tre flatene** (`/llms.txt`,
+   `/llms-full.txt`, `/pages/llms-txt`), 148 `/pages/`-lenker på hver, og nøyaktig **ett**
+   gjenstående «299 kr» — vannskålen, som faktisk koster 299. Pushen er pull-verifisert mot
+   live-temaet (gotcha #76), og roten er fri for section-wrapper (auditpunkt 7).
+
+**Verifisert live — 0 avvik på 13 flater:** forsiden, `/collections/populaere-produkter`, `/pleie`,
+`/leker`, `/seng`, `/julegaver-til-hund`, `/frontpage`, `/klaer`, `/search?q=hundeseng`, og de fire
+PDP-ene. Ingen `-XX %`-badge, ingen `mh-price--was`, ingen `compare-at-price`, **0 `<s>`-tagger** på
+hundesengens PDP. Spennet `.hs-price__compare` rendres fortsatt, men tomt og med `hidden` — det er
+tilsiktet (`sections/product-hundeseng.liquid:802-807`), og eneste andre treff er CSS-regelen.
+
+**Ikke rørt:** pelsfjerner-prisstigens «Spar X kr» (ankeret er `custom.referansepris` = 428, summen av
+reelle enkeltpriser — markedsføringsloven §§ 6-8, ikke § 9a), de sovende badge-blokkene i de andre
+malene, og alle priser.
+
+**Tre nye gotchas fra økta:** #100 (prisendring uten nedskrevet dato gjør 30-dagersklokka uregnbar —
+fast regel), #101 (MCP-en kan ikke fjerne `compareAtPrice`, og `update-product.seo` nuller feltet du
+ikke sender), #102 (butikkens permanente myshopify-domene er `zjpkjq-u1`, ikke `min-hund-2`).
+
 
 ### 2026-09-01 (sent) — Fire globale ytelsesfikser + hero-preload live
 
