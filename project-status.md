@@ -265,6 +265,48 @@ Tidligere i dag: Sprint #38 Engelsk Springer Spaniel levert 2026-05-19 02:00–0
 
 ## BESLUTNINGER — append-only, nyeste først
 
+### 2026-09-08 (natt) — Velkomstkoden gjorde ordrer dyrere; minstebeløp satt på alle åtte prosentkoder
+
+**Funn (ekstern gjennomgang, reprodusert):** fri frakt er en fraktrate med `TOTAL_PRICE ≥ 250`
+målt **etter** rabatt. KING15 på puslespill 259 kr → 220,15 → 79 kr frakt → **299,15**, mot
+259,00 uten kode. Popupen lovet samtidig «ingen minstekjøp. Kan kombineres med fraktrabatt».
+
+**Popupen gir KING15 (A) og KINGTIPS15 (B) — ikke KING10** som eldre notater sier. Ingen av de
+ni aktive kodene hadde minstebeløp.
+
+**Beslutning (Sondre): minstebeløp på ALLE aktive prosentkoder, ikke bare velkomstkodene** —
+fella er den samme uansett hva koden heter. x = ⌈250 / (1 − r)⌉:
+
+| Kode | Rabatt | Gjelder | Min. før | Min. nå |
+|---|---:|---|---|---:|
+| KING15 · KINGTIPS15 · VIPFORHAND15 | 15 % | alle | ingen | **295** |
+| KING10 · FIRST10 · MINHUND10 | 10 % | koll. populaere-produkter | ingen | **278** |
+| MYSTERY | 10 % | alle | ingen | **278** |
+| ANNE20 | 20 % | alle | ingen | **313** |
+| KINGVIP15 | 15 % | kun poteklipper 399 | ingen | urørt (339,15 etter rabatt) |
+
+`discountCodeBasicUpdate`, kun `minimumRequirement` i payloaden; diff av alle felt før/etter =
+bare minstebeløpet endret. Kurv-test etterpå: 179 → avvist (258 begge veier), 259 → avvist (259),
+299 → 254,15 + gratis frakt, 799 → 679,15 + gratis frakt. **Ingen ordre kan bli dyrere med kode.**
+
+**De fire kodene uten kjent formål:**
+- `FIRST10` (09.01.2026, 0 bruk) — **kundebegrenset til én e-post** (benteviddal68@…, 0 ordre), 10 % på populaere-produkter. Ingen referanse i tema, docs eller git.
+- `MINHUND10` (13.02.2026, **1 bruk**, før 01.07) — alle kunder, populaere-produkter. Ingen referanse noe sted.
+- `MYSTERY` (25.03.2026 — samme dag som repoets første commit, 0 bruk) — alle kunder, hele ordren. Ingen referanse noe sted.
+- `ANNE20` (13.08.2026, 0 bruk, utløper 31.12) — **kundebegrenset til Anne Enoksen** (ordre #1104 samme dag, 698 kr). Dokumentert i `shopify-rules.md:132` som grunnen til at `read_customers` ble innvilget.
+Tre av fire har ingen spor utenfor Admin. De er nå ufarlige for frakten, men sletting er en egen beslutning.
+
+**Tekster som ikke lenger stemmer — Sondre tar copyen (ikke endret):**
+- `sections/newsletter-popup.liquid:881` `discount_terms`: «Gjelder alle produkter. Én bruk per kunde, **ingen minstekjøp. Kan kombineres med fraktrabatt.** Ingen utløpsdato.» — vises på kvitteringen for begge varianter. To usannheter: minstekjøp er 295, og det finnes ingen fraktrabatt å kombinere med (fri frakt er en rate).
+- `:880` schema-`info`: «Må speile de faktiske innstillingene på rabattkoden i Admin.» — gjør det ikke lenger.
+- `:897` `a_eyebrow` «15 % velkomstrabatt», `:900` `a_sub` «…og 15 % velkomstrabatt.», `:916` `b_step2_sub` «15 % rabatt følger med…», `:919` `b_code_label` «Bonus: 15 % rabatt» — alle ukvalifiserte; ingen nevner 295.
+- `sections/product-pelsfjerner.liquid:1100` «Inkl. gratis frakt — kun 11 kr mer enn én» (2 stk, 269) — **er sann igjen**: KING15 avvises under 295, så 269 beholder fri frakt. Men en kunde med velkomstkode får den ikke brukt på 2-stk. Gotcha #73 beskriver samme spenning.
+- **Velkomstmailen (Shopify Email)** kan ikke leses fra CLI (`marketingActivities` → `ACCESS_DENIED`, `read_marketing_events` mangler). `salgsstopp-diagnose-2026-09-07.md` sier den sender KING10/KING15 — begge har nå minstebeløp. **Manuell sjekk i Admin → Markedsføring → Automatiseringer.**
+- `docs/shopify-rules.md` — rettet i samme commit (ny tabell + VIPFORHAND15-linja).
+
+Gotcha #103 bærer mekanismen og tre testfeller (feil kurvfelt, `variants[-1]`, bot-vern på `/products/*.js`).
+
+
 ### 2026-09-08 (kveld) — Alle seks førpriser fjernet; butikken har ingen tilbudsvisning igjen
 
 **Beslutning (Sondre): ingen av de seks `compare_at_price` var kampanjer.** Det var gamle priser som
